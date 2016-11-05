@@ -60,8 +60,8 @@ function crear_campos(){
 		echo $str;
 	//}	
 	
-}
 
+}
 function cerrar_form(){
 	echo '</form>';
 }

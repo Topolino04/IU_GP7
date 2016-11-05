@@ -19,15 +19,13 @@ include '../Models/ROL_ARRAY.php';
 include '../Classes/ROL_gen_form_class.php';
 $vistaDefault = new gen_form($arrayDefForm);
 $vistaDefault->crear_formulario();
+echo "</br>" ;
 
 ?>
 </h2>
 </p>
 <p>
 <h3>
-<?php
-echo '<a href=\'ROL_Controller.php\'>' . $strings['Volver'] . " </a>";
-?>
 </h3>
 </p>
 

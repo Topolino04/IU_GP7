@@ -53,13 +53,13 @@ function Insertar()
 				return 'Inserción realizada con éxito'; //operacion de insertado correcta
 			}
 			else
-				return 'El usuario ya existe en la base de datos'; //el usuario ya existe
+				return 'El rol ya existe'; //el usuario ya existe
 				//echo "<br>O Usuario Git xa existe<br>";
 		}
     }
     else{
         //echo "Introduzca un valor para el usuario git<br>";
-	return 'Introduzca un valor para el dni del usuario'; // introduzca un valor para el usuario
+	return 'Introduzca un valor para el id del rol'; // introduzca un valor para el usuario
 }
 }
 
@@ -93,10 +93,10 @@ function Borrar()
     {
         $sql = "delete from ROL where rol_id = '".$this->rol_id."'";
         $this->mysqli->query($sql);
-    	return "El usuario ha sido borrado correctamente";
+    	return "El rol ha sido borrado correctamente";
     }
     else
-        return "El usuario no existe";
+        return "El rol no existe";
 }
 
 function RellenaDatos()
@@ -122,29 +122,15 @@ function Modificar()
     {
 	$sql = "UPDATE ROL SET rol_id ='".$this->rol_id."',rol_descripcion = '".$this->rol_descripcion."' WHERE rol_id = '".$this->rol_id."'";
         if (!($resultado = $this->mysqli->query($sql))){
-		return "Se ha producido un error en la modificación del usuario"; // sustituir por un try
+		return "Se ha producido un error en la modificación del rol"; // sustituir por un try
 	}
 	else{
-		return "El usuario se ha modificado con éxito";
+		return "El rol se ha modificado con éxito";
 	}
     }
     else
-    return "El usuario no existe";
+    return "El rol no existe";
 }
 
-}//fin de clase
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 ?>
