@@ -64,6 +64,19 @@ $strings = array(
 'Consultar' => 'Consultar',
 'Update' => 'Update',
 'Delete' => 'Delete',
-'Cerrar Sesión' => 'Cerrar Sesión'
+'Cerrar Sesión' => 'Cerrar Sesión',
+
+'La pagina ya existe en la base de datos' => 'A páxina xa existe na base de datos',
+'Introduzca un valor para la clave de la pagina' => 'Introduzca un valor para a clave da páxina',
+'La pagina ha sido borrada correctamente' => 'A páxina borrouse correctamente',
+'La pagina no existe' => 'A páxina non existe',
+'La pagina se ha modificado con éxito' => 'A páxina modificouse con éxito',
+'Se ha producido un error en la modificación de la pagina' => 'Produciuse un erro na modificación da páxina',
+'PAGINA_ID' => 'Clave da páxina',
+'PAGINA_LINK' => 'Link da páxina',
+'PAGINA_NOM' => 'Nome da páxina',
+'Borrar' => 'Borrar',
+'Consultar' => 'Consultar',
+'Listar' => 'Listar'
 )
 ?>
