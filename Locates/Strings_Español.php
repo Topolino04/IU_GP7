@@ -81,5 +81,8 @@ $strings = array(
 'PAGINA_ID' => 'Clave de la pagina',
 'PAGINA_LINK' => 'Link de la pagina',
 'PAGINA_NOM' => 'Nombre de la pagina',
+'Borrar' => 'Borrar',
+'Consultar' => 'Consultar',
+'Listar' => 'Listar'
 )
 ?>
