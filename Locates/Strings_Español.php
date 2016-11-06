@@ -38,6 +38,16 @@ $strings = array(
 	'EMP_TELEFONO3'=>'Teléfono 3',
 	'IDIOMA'=>'Idioma',
 
+'La pagina ya existe en la base de datos' => 'La pagina ya existe en la base de datos',
+'Introduzca un valor para la clave de la pagina' => 'Introduzca un valor para la clave de la pagina',
+'La pagina ha sido borrada correctamente' => 'La pagina ha sido borrada correctamente',
+'La pagina no existe' => 'La pagina no existe',
+'La pagina se ha modificado con éxito' => 'La pagina se ha modificado con éxito',
+'Se ha producido un error en la modificación de la pagina' => 'Se ha producido un error en la modificación de la pagina',
+'PAGINA_ID' => 'Clave de la pagina',
+'PAGINA_LINK' => 'Link de la pagina',
+'PAGINA_NOM' => 'Nombre de la pagina',
+
     'USER_TELEFONO' => 'Teléfono del Usuario',
     'USER_COMENTARIOS' => 'Comentarios',
 
