@@ -22,11 +22,11 @@ function render(){
 <p>
 <h2>
 <?php
-<<<<<<< HEAD
-include '../Locates/Strings_SPANISH.php';
-=======
+//<<<<<<< HEAD
+//include '../Locates/Strings_SPANISH.php';
+//=======
 include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
->>>>>>> master
+//>>>>>>> master
 echo $strings[$this->string];
 ?>
 </h2>
@@ -34,11 +34,11 @@ echo $strings[$this->string];
 <p>
 <h3>
 <?php
-<<<<<<< HEAD
-echo '<a href=\'' . $this->volver . "\'>" . $strings['Volver'] . " </a>";
-=======
+//<<<<<<< HEAD
+//echo '<a href=\'' . $this->volver . "\'>" . $strings['Volver'] . " </a>";
+//=======
 echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>";
->>>>>>> master
+//>>>>>>> master
 ?>
 </h3>
 </p>
