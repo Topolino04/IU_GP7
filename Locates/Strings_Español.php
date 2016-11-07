@@ -99,6 +99,10 @@ $strings = array(
 'PAGINA_NOM' => 'Nombre de la funcionalidad',
 'Funcionalidad' => 'Funcionalidad',
 'Funcionalidades' => 'Funcionalidades',
-'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)'
+'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)',
+'Fallo al conectar a MySQL: (' => 'Fallo al conectar a MySQL: (',
+') ' => ') ',
+'Anadida con exito' => 'Añadida con exito'	
+
 )
 ?>
