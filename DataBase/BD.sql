@@ -2,10 +2,10 @@
 -- version 4.2.12deb2
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 02-11-2016 a las 18:28:47
--- Versión del servidor: 5.5.44-0+deb8u1
--- Versión de PHP: 5.6.13-0+deb8u1
+-- Host: localhost
+-- Generation Time: Nov 03, 2016 at 12:33 AM
+-- Server version: 5.5.44-0+deb8u1
+-- PHP Version: 5.6.13-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `myDB`
+-- Database: `IU2016`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `FUNCIONALIDAD`
+-- Table structure for table `FUNCIONALIDAD`
 --
 
 CREATE TABLE IF NOT EXISTS `FUNCIONALIDAD` (
@@ -31,34 +31,10 @@ CREATE TABLE IF NOT EXISTS `FUNCIONALIDAD` (
   `FUNCIONALIDAD_NOM` varchar(20) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `FUNCIONALIDAD`
---
-ALTER TABLE `FUNCIONALIDAD`
- ADD PRIMARY KEY (`FUNCIONALIDAD_ID`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `FUNCIONALIDAD`
---
-ALTER TABLE `FUNCIONALIDAD`
-MODIFY `FUNCIONALIDAD_ID` int(10) NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `PAGINA`
+-- Table structure for table `PAGINA`
 --
 
 CREATE TABLE IF NOT EXISTS `PAGINA` (
@@ -67,26 +43,53 @@ CREATE TABLE IF NOT EXISTS `PAGINA` (
   `PAGINA_LINK` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Índices para tablas volcadas
+-- Table structure for table `ROL`
+--
+
+CREATE TABLE IF NOT EXISTS `ROL` (
+  `rol_id` varchar(60) COLLATE latin1_spanish_ci NOT NULL,
+  `rol_descripcion` varchar(140) COLLATE latin1_spanish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `PAGINA`
+-- Indexes for table `FUNCIONALIDAD`
+--
+ALTER TABLE `FUNCIONALIDAD`
+ ADD PRIMARY KEY (`FUNCIONALIDAD_ID`);
+
+--
+-- Indexes for table `PAGINA`
 --
 ALTER TABLE `PAGINA`
  ADD PRIMARY KEY (`PAGINA_ID`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indexes for table `ROL`
+--
+ALTER TABLE `ROL`
+ ADD PRIMARY KEY (`rol_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `PAGINA`
+-- AUTO_INCREMENT for table `FUNCIONALIDAD`
+--
+ALTER TABLE `FUNCIONALIDAD`
+MODIFY `FUNCIONALIDAD_ID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `PAGINA`
 --
 ALTER TABLE `PAGINA`
 MODIFY `PAGINA_ID` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
