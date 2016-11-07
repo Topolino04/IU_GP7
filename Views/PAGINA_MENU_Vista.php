@@ -13,32 +13,33 @@ function __construct($array, $volver){
 
 function render(){
 ?>
-
-<div>
-<p>
-<h1>
-	Gestión de Páginas<br>
-</h1>
-<h2>
 <?php
 
 	include '../Locates/Strings_Español.php';
+	//include '../Locates/Strings_Galego.php';
 
 ?>
+<div>
+<p>
+<h1>
+	Gestión de <?php echo $strings['Paginas'];?><br>
+</h1>
+<h2>
+
 	<div> <!-- Menú de muestra de opciones y datos de consulta --> 
 <?php
 	$lista = array('PAGINA_ID','PAGINA_LINK','PAGINA_NOM');
 
 ?>
-	<--------->  	<a href='./PAGINA_Controller.php?accion=Consultar'>Consultar Página</a>
+	<--------->  	<a href='./PAGINA_Controller.php?accion=Consultar'>Consultar <?php echo $strings['Pagina'];?></a>
 	<br>
-	<--------->		<a href='./PAGINA_Controller.php?accion=Listar'>Listar Páginas</a>
+	<--------->		<a href='./PAGINA_Controller.php?accion=Listar'>Listar <?php echo $strings['Paginas'];?></a>
 	<br>
-	<--------->		<a href='./PAGINA_Controller.php?accion=Insertar'>Insertar Página</a>
+	<--------->		<a href='./PAGINA_Controller.php?accion=Insertar'>Insertar <?php echo $strings['Pagina'];?></a>
 	<br>
-	<--------->		<a href='./PAGINA_Controller.php?accion=Borrar'>Borrar Página</a>
+	<--------->		<a href='./PAGINA_Controller.php?accion=Borrar'>Borrar <?php echo $strings['Pagina'];?></a>
 	<br>
-	<--------->		<a href='./PAGINA_Controller.php?accion=Modificar'>Modificar Página</a>
+	<--------->		<a href='./PAGINA_Controller.php?accion=Modificar'>Modificar <?php echo $strings['Pagina'];?></a>
 	<br><br>
 	<table border = 1>
 	<tr>

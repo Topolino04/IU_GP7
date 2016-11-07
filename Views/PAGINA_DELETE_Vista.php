@@ -15,6 +15,7 @@ function render(){
 			<h2>
 <?php
 				include '../Locates/Strings_Español.php';
+				//include '../Locates/Strings_Galego.php';
 				include '../Functions/PAGINADefForm.php';
 				include '../Functions/LibraryFunctions.php';
 				$lista = array('PAGINA_ID','PAGINA_LINK','PAGINA_NOM');
@@ -24,10 +25,10 @@ function render(){
 		</p>
 		<p>
 			<h1>
-				Borrar Página<br>
+				Borrar <?php echo $strings['Pagina'];?><br>
 			</h1>
 			<h3>
-				(Los campos "Link de la página" y "Nombre de la página" NO son necesarios)
+				<?php echo $strings['(Los campos "Link de la pagina" y "Nombre de la pagina" NO son necesarios)'];?> 
 				<br><br>
 				<form action='PAGINA_Controller.php' method='post'>
 <?php

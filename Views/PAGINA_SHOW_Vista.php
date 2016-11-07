@@ -9,26 +9,27 @@ function __construct(){
 
 function render(){
 ?>
-
-	<div>
-	<p>
-	<h1>
-		Consultar Páginas<br>
-	</h1>
-	<h2>
 <?php
 	include '../Locates/Strings_SPANISH.php';
+	//include '../Locates/Strings_Galego.php';
 	include '../Functions/PAGINADefForm.php';
 	include '../Functions/LibraryFunctions.php';
 
 	$lista = array('PAGINA_ID','PAGINA_LINK','PAGINA_NOM');
 
 ?>
+	<div>
+	<p>
+	<h1>
+		Consultar <?php echo $strings['Pagina'];?><br>
+	</h1>
+	<h2>
+
 	</h2>
 	</p>
 	<p>
 	<h3>
-	(Los campos "Link de la página" y "Nombre de la página" NO son necesarios) 
+	<?php echo $strings['(Los campos "Link de la pagina" y "Nombre de la pagina" NO son necesarios)'];?> 
 	<br><br>
 	<form action='PAGINA_Controller.php' method='post'>
 <?php

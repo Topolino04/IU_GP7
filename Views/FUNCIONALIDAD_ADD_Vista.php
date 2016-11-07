@@ -15,6 +15,7 @@ function render(){
 			<h2>
 <?php
 				include '../Locates/Strings_Español.php';
+				//include '../Locates/Strings_Galego.php';
 				include '../Functions/FUNCIONALIDADDefForm.php';
 				include '../Functions/LibraryFunctions.php';
 				$lista = array('FUNCIONALIDAD_ID','FUNCIONALIDAD_NOM');
@@ -24,7 +25,7 @@ function render(){
 		</p>
 		<p>
 			<h1>
-				Insertar Funcionalidad<br>
+				Insertar <?php echo $strings['Funcionalidad'];?><br>
 			</h1>
 			<h3>
 				<form action='FUNCIONALIDAD_Controller.php' method='post'>

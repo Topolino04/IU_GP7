@@ -11,18 +11,19 @@ function __construct($array, $volver){
 
 function render(){
 ?>
-
-<div>
-<p>
-<h1>
-	Listar Funcionalidades<br>
-</h1>
-<h2>
 <?php
 
 	include '../Locates/Strings_Español.php';
+	//include '../Locates/Strings_Galego.php';
 
 ?>
+<div>
+<p>
+<h1>
+	Listar <?php echo $strings['Funcionalidades'];?><br>
+</h1>
+<h2>
+
 	<div> <!-- Tabla de muestra de elementos de la tabla FUNCIONALIDAD --> 
 <?php
 	$lista = array('FUNCIONALIDAD_ID','FUNCIONALIDAD_NOM');

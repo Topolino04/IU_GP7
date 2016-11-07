@@ -15,6 +15,7 @@ function render(){
 			<h2>
 <?php
 				include '../Locates/Strings_Español.php';
+				//include '../Locates/Strings_Galego.php';
 				include '../Functions/PAGINADefForm.php';
 				include '../Functions/LibraryFunctions.php';
 				$lista = array('PAGINA_ID','PAGINA_LINK','PAGINA_NOM');
@@ -24,7 +25,7 @@ function render(){
 		</p>
 		<p>
 			<h1>
-				Insertar Página<br>
+				Insertar <?php echo $strings['Pagina'];?><br>
 			</h1>
 			<h3>
 				<form action='PAGINA_Controller.php' method='post'>

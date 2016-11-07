@@ -15,6 +15,7 @@ function render(){
 			<h2>
 <?php
 				include '../Locates/Strings_Español.php';
+				//include '../Locates/Strings_Galego.php';
 				include '../Functions/FUNCIONALIDADDefForm.php';
 				include '../Functions/LibraryFunctions.php';
 				$lista = array('FUNCIONALIDAD_ID','FUNCIONALIDAD_NOM');
@@ -24,10 +25,10 @@ function render(){
 		</p>
 		<p>
 			<h1>
-				Borrar Funcionalidad<br>
+				Borrar <?php echo $strings['Funcionalidad'];?><br>
 			</h1>
 			<h3>
-				(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)
+				<?php echo $strings['(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)'];?>
 				<br><br>
 				<form action='FUNCIONALIDAD_Controller.php' method='post'>
 <?php
