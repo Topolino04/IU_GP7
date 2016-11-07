@@ -86,6 +86,7 @@ $strings = array(
 'Listar' => 'Listar',
 'Pagina' => 'Página',
 'Paginas' => 'Páginas',
+'(Los campos "Link de la pagina" y "Nombre de la pagina" NO son necesarios)' => '(Los campos "Link de la página" y "Nombre de la página" NO son necesarios)',
 
 'La funcionalidad ya existe en la base de datos' => 'La funcionalidad ya existe en la base de datos',
 'Introduzca un valor para la clave de la funcionalidad' => 'Introduzca un valor para la clave de la funcionalidad',
@@ -97,6 +98,7 @@ $strings = array(
 'PAGINA_LINK' => 'Link de la funcionalidad',
 'PAGINA_NOM' => 'Nombre de la funcionalidad',
 'Funcionalidad' => 'Funcionalidad',
-'Funcionalidades' => 'Funcionalidades'
+'Funcionalidades' => 'Funcionalidades',
+'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)'
 )
 ?>
