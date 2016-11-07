@@ -80,6 +80,7 @@ $strings = array(
 'Listar' => 'Listar',
 'Pagina' => 'Páxina',
 'Paginas' => 'Páxinas',
+'(Los campos "Link de la pagina" y "Nombre de la pagina" NO son necesarios)' => '(Os campos "Link da páxina" e "Nome da páxina" NON son necesarios)',
 	
 'La funcionalidad ya existe en la base de datos' => 'A funcionalidade xa existe na base de datos',
 'Introduzca un valor para la clave de la funcionalidad' => 'Introduzca un valor para a clave da funcionalidade',
@@ -91,5 +92,6 @@ $strings = array(
 'FUNCIONALIDAD_LINK' => 'Link da funcionalidade',
 'Funcionalidad' => 'Funcionalidade',
 'Funcionalidades' => 'Funcionalidades'
+'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Os campos "Link da funcionalidade" e "Nome da funcionalidade" NON son necesarios)'
 )
 ?>
