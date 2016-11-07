@@ -96,9 +96,6 @@ $strings = array(
 'PAGINA_ID' => 'Clave de la funcionalidad',
 'PAGINA_LINK' => 'Link de la funcionalidad',
 'PAGINA_NOM' => 'Nombre de la funcionalidad',
-'Borrar' => 'Borrar',
-'Consultar' => 'Consultar',
-'Listar' => 'Listar',
 'Funcionalidad' => 'Funcionalidad',
 'Funcionalidades' => 'Funcionalidades'
 )
