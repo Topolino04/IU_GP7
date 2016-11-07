@@ -92,6 +92,9 @@ $strings = array(
 'FUNCIONALIDAD_LINK' => 'Link da funcionalidade',
 'Funcionalidad' => 'Funcionalidade',
 'Funcionalidades' => 'Funcionalidades'
-'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Os campos "Link da funcionalidade" e "Nome da funcionalidade" NON son necesarios)'
+'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Os campos "Link da funcionalidade" e "Nome da funcionalidade" NON son necesarios)',
+'Fallo al conectar a MySQL: (' => 'Erro ó conectar a MySQL: (',
+') ' => ') ',
+'Anadida con exito' => 'Engadida con éxito'
 )
 ?>
