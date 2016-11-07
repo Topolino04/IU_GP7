@@ -16,22 +16,28 @@ class Pagina
 	//Conectarse a la BD
 	function ConectarBD()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->mysqli = new mysqli("localhost", "root", "", "IU_DATABASE");
 		if ($this->mysqli->connect_errno) {
-			echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
+			echo $strings['Fallo al conectar a MySQL: ('] . $this->mysqli->connect_errno . $strings[') '] . $this->mysqli->connect_error;
 		}
 	}
 	
 	//Anadir una pagina
 	function insert_pagina()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->ConectarBD();
 		
 		if ($this->PAGINA_ID <> '' )
 		{
 			$sql = "select * from PAGINA where PAGINA_ID = '".$this->PAGINA_ID."'";
 			if (!$result = $this->mysqli->query($sql)){
-				return 'Error en la consulta sobre la base de datos'; 	
+				return $strings['Error en la consulta sobre la base de datos']; 	
 			}	
 			else {
 				if ($result->num_rows == 0){
@@ -39,15 +45,15 @@ class Pagina
 					$sql = $sql . "'$this->PAGINA_ID', '$this->PAGINA_LINK', '$this->PAGINA_NOM')";
 				
 					$this->mysqli->query($sql);
-					return 'Anadida con exito'; 	
+					return $strings['Anadida con exito']; 	
 				}
 				else{
-					return 'La pagina ya existe en la base de datos'; 	
+					return $strings['La pagina ya existe en la base de datos']; 	
 				}
 			}
 		}
 		else{
-			return 'Introduzca un valor para el identificador de la pagina';
+			return $strings['Introduzca un valor para el identificador de la pagina'];
 		}
 	}
 
@@ -57,13 +63,16 @@ class Pagina
 
 	}
 
-	//Consultar un lugar
+	//Consultar
 	function select_pagina()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->ConectarBD();
 		$sql = "select PAGINA_ID, PAGINA_NOM, PAGINA_LINK from PAGINA where PAGINA_ID = '".$this->PAGINA_ID."'";
 		if (!($resultado = $this->mysqli->query($sql))){
-			return 'Error en la consulta sobre la base de datos';
+			return $strings['Error en la consulta sobre la base de datos'];
 		}
 		else{
 			return $resultado;
@@ -73,6 +82,9 @@ class Pagina
 	//Borrar
 	function delete_pagina()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->ConectarBD();
 		$sql = "select * from PAGINA where PAGINA_ID = '".$this->PAGINA_ID."'";
 		$result = $this->mysqli->query($sql);
@@ -80,19 +92,22 @@ class Pagina
 		{
 			$sql = "delete from PAGINA where PAGINA_ID	= '".$this->PAGINA_ID."'";
 			$this->mysqli->query($sql);
-			return "La pagina ha sido borrada correctamente";
+			return $strings['La pagina ha sido borrada correctamente'];
 		}
 		else
-			return "La pagina no existe";
+			return $strings['La pagina no existe'];
 	}
 
 	
 	function RellenaDatos()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->ConectarBD();
 		$sql = "select * from PAGINA where PAGINA_ID = '".$this->PAGINA_ID."'";
 		if (!($resultado = $this->mysqli->query($sql))){
-			return 'Error en la consulta sobre la base de datos'; 
+			return $strings['Error en la consulta sobre la base de datos']; 
 		}
 		else{
 			$result = $resultado->fetch_array();
@@ -103,6 +118,9 @@ class Pagina
 	//Modificar
 	function update_pagina()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->ConectarBD();
 		$sql = "select * from PAGINA where PAGINA_ID = '".$this->PAGINA_ID."'";
 		$result = $this->mysqli->query($sql);
@@ -110,24 +128,27 @@ class Pagina
 		{
 			$sql = "UPDATE PAGINA SET PAGINA_LINK ='".$this->PAGINA_LINK."', PAGINA_NOM ='".$this->PAGINA_NOM."', PAGINA_ID ='".$this->PAGINA_ID."' WHERE PAGINA_ID ='".$this->PAGINA_ID."'";
 			if (!($resultado = $this->mysqli->query($sql))){
-				return "Error en la consulta sobre la base de datos";
+				return $strings['Error en la consulta sobre la base de datos'];
 			}
 			else{
-				return "La pagina se ha modificado con exito";
+				return $strings['La pagina se ha modificado con exito'];
 			}
 		}
 		else
-			return "La pagina no existe";
+			return $strings['La pagina no existe'];
 	}
 	
 	//Listar todas las paginas
 	function listar_pagina()
 	{
+		include '../Locates/Strings_Español.php';
+		//include '../Locates/Strings_Galego.php';
+		
 		$this->ConectarBD();
 		//$sql = "select PAGINA_ID, PAGINA_NOM, PAGINA_LINK from PAGINA";
 		$sql = "select * from PAGINA";
 		if (!($resultado = $this->mysqli->query($sql))){
-			return 'Error en la consulta sobre la base de datos';
+			return $strings['Error en la consulta sobre la base de datos'];
 		}
 		else{
 			return $resultado;
