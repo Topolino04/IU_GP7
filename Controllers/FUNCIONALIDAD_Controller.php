@@ -8,6 +8,7 @@ include '../Views/FUNCIONALIDAD_EDIT_Vista.php';
 include '../Views/FUNCIONALIDAD_DELETE_Vista.php';
 include '../Views/FUNCIONALIDAD_MENU_Vista.php';
 include '../Locates/Strings_Español.php';
+//include '../Locates/Strings_Galego.php';
 
 
 function get_data_form(){

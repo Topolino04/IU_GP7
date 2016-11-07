@@ -7,8 +7,8 @@ include '../Views/PAGINA_ADD_Vista.php';
 include '../Views/PAGINA_EDIT_Vista.php';
 include '../Views/PAGINA_DELETE_Vista.php';
 include '../Views/PAGINA_MENU_Vista.php';
-include '../Locates/Strings_Español.php';
-
+include '../Locates/Strings_Español.php';  
+//include '../Locates/Strings_Galego.php';
 
 function get_data_form(){
 
