@@ -29,6 +29,7 @@ $strings = array(
 'USER_DIRECCION' => 'Dirección do Usuario',
 'USER_EMAIL' => 'Email do Usuario',
 	'IDIOMA'=>'Idioma',
+	'Borrar Empleado'=>'Borrar Empleado',
 
     'USER_TELEFONO' => 'Teléfono do Usuario',
     'USER_COMENTARIOS' => 'Comentarios',
