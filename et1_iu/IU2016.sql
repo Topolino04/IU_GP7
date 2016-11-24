@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.2.12deb2
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Nov 12, 2016 at 06:28 AM
--- Server version: 5.5.44-0+deb8u1
--- PHP Version: 5.6.13-0+deb8u1
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -19,6 +10,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `IU2016`
 --
+
+--
+-- Creación de la base de datos que usará el programa y creación del usuario que la usará.
+--
+
+DROP DATABASE IF EXISTS `IU2016`;
+CREATE DATABASE IF NOT EXISTS `IU2016` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `IU2016`;
+
+
+GRANT ALL PRIVILEGES ON `IU2016`.* TO 'iu2016'@'localhost' IDENTIFIED BY 'iu2016';
 
 -- --------------------------------------------------------
 
