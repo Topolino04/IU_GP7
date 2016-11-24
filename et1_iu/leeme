@@ -1,0 +1,17 @@
+Credenciales base de datos:
+
+-Host:localhost
+-User:iu2016
+-Password:iu2016
+-Database:IU2016
+
+*En caso de cambio, modificar los cuatro modelos y los archivos LibraryFunctions.php e InterfaceFunctions.php.
+
+Usuarios de acceso:
+
+-USER:ADMIN PASSWORD:ADMIN ROL:ADMINISTRADOR PERMISOS:GESTIÓN EMPLEADOS COMPLETA,GESTIÓN ROLES COMPLETA, GESTIÓN FUNCIONALIDADES COMPLETA,GESTIÓN PÁGINAS COMPLETA
+-USER:secret PASSWORD:secret ROL:SECRETARIO PERMISOS:CONSULTA EMPLEADOS
+-USER:monit PASSWORD:monit ROL:MONITOR PERMISOS:
+
+***IMPORTANTE****
+Ejecutar chmod -R 7777 /var/www/html para evitar problemas con la gestión de permisos a la hora de crear automáticamente controladores al insertar funcionalidades y de crear automaticamente vistas al insertar páginas 
