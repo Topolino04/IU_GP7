@@ -157,10 +157,11 @@ $strings = array(
 	'Gestión de Funcionalidades'=>'Functionalities Management',
 	'Gestión de Roles'=>'Roles Management',
 	'Gestión de Páginas'=>'Pages Management',
-	'GESTION EMPLEADOS'=>'Employees Management',
+  	'GESTION EMPLEADOS'=>'Employees Management',
 	'GESTION PAGINAS'=>'Pages Management',
 	'GESTION ROLES'=>'Roles Management',
 	'GESTION FUNCIONALIDADES'=>'Functionalities Management',
+   
 	'No tienes los permisos necesarios'=>'You do not have permission',
 	'Consulta de Empleados'=>'Employee Consultation',
 	'Modificar acciones'=>'Actions',
@@ -183,9 +184,15 @@ $strings = array(
 	'Gestiones Principales'=>'Main options',
 	'Asistencia Monitores'=>'Instructors Assistance',
 	'Gestiones Secundarias'=>'Secondary options',
-	'Usuario'=>'User'
+	'Usuario'=>'User',
 
-
+ 'GESTION PAGOS'=>'Payments Management',
+  'Gestión de Pagos'=>'Payments Management',
+    'PAGO_ID'=>'Payment ID',
+    'PAGO_FECHA'=>'Payment Data',
+    'PAGO_CONCEPTO'=>'Concept',
+    'PAGO_IMPORTE'=>'Amount',
+    'CLIENTE_ID'=>'Client ID'
 
 
 

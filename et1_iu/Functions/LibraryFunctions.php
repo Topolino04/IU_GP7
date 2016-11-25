@@ -1298,6 +1298,8 @@ function ConsultarIDRol($ROL_NOM){
 
 }
 
+
+
 //Devuelve el nombre de rol a partir del id de rol
 function ConsultarNOMRol($ROL_ID){
 	$mysqli = new mysqli( "localhost", "iu2016", "iu2016", "IU2016");
@@ -1516,32 +1518,59 @@ if (!($resultado = $mysqli->query($sql))){
 	echo 'Error en la consulta sobre la base de datos';
 }
 else {
-
-
-
 	while ($fila = $resultado->fetch_array()) {
 
-		if(ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])==='GESTION EMPLEADOS'){
-			?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Gestión de Empleados'] ?></a><br><br>  <?php
-		}else {
-			if(ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])==='GESTION ROLES'){
-				?><a style="font-size:20px;" href='../Controllers/ROL_Controller.php'><?php echo $strings['Gestión de Roles'] ?></a><br><br> <?php
-			} else {
-				if(ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])==='GESTION FUNCIONALIDADES'){
-					?> <a  style="font-size:20px;"href='../Controllers/FUNCIONALIDAD_Controller.php'><?php echo $strings['Gestión de Funcionalidades'] ?></a><br><br> <?php
-				} else {
-					if (ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) === 'GESTION PAGINAS') {
-						?><a style="font-size:20px;" href='../Controllers/PAGINA_Controller.php'><?php echo $strings['Gestión de Páginas'] ?></a><br><br>
-						 <?php
-					} else {
-						if (ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) === 'CONSULTA EMPLEADOS') {
-							?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Consulta de Empleados'] ?></a><br><br>
-							<br> <?php
-						} else {
-						$link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']))."_Controller.php";
+            $funcionalidad = ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']);
+            
+            switch ($funcionalidad) {
+                case "GESTION EMPLEADOS":
+                    ?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Gestión de Empleados'] ?></a><br><br>  <?php
+                    brake;
+                case "GESTION ROLES":
+                    ?><a style="font-size:20px;" href='../Controllers/ROL_Controller.php'><?php echo $strings['Gestión de Roles'] ?></a><br><br> <?php
+                    break;
+                case "GESTION FUNCIONALIDADES":
+                    ?> <a  style="font-size:20px;"href='../Controllers/FUNCIONALIDAD_Controller.php'><?php echo $strings['Gestión de Funcionalidades'] ?></a><br><br> <?php
+                    break;
+                case "GESTION PAGINAS":
+                    ?><a style="font-size:20px;" href='../Controllers/PAGINA_Controller.php'><?php echo $strings['Gestión de Páginas'] ?></a><br><br> <?php
+                    break;
+                case "CONSULTA EMPLEADOS":
+                    ?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Consulta de Empleados'] ?></a><br><br> <?php
+                    break;
+                case "GESTION PAGOS":
+                    ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
+                    break;
+                default:
+                    $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
+                    echo "<a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br>";
+                    break;
+            }
 
-						echo "<h2><a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br></h2>";
-					}}}} }
+
+// IFS ANIDADOS CAMBIADOS POR SWITCH
+// 
+//		if(ConsultarNOMFuncionalidad()==='GESTION EMPLEADOS'){
+//			?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Gestión de Empleados'] ?></a><br><br>  <?php
+//		}else {
+//			if(ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])==='GESTION ROLES'){
+//				?><a style="font-size:20px;" href='../Controllers/ROL_Controller.php'><?php echo $strings['Gestión de Roles'] ?></a><br><br> <?php
+//			} else {
+//				if(ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])==='GESTION FUNCIONALIDADES'){
+//					?> <a  style="font-size:20px;"href='../Controllers/FUNCIONALIDAD_Controller.php'><?php echo $strings['Gestión de Funcionalidades'] ?></a><br><br> <?php
+//				} else {
+//					if (ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) === 'GESTION PAGINAS') {
+//						?><a style="font-size:20px;" href='../Controllers/PAGINA_Controller.php'><?php echo $strings['Gestión de Páginas'] ?></a><br><br>
+						 //<?php
+//					} else {
+//						if (ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) === 'CONSULTA EMPLEADOS') {
+//							?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Consulta de Empleados'] ?></a><br><br>
+							<br> //<?php
+//						} else {
+//						$link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']))."_Controller.php";
+//
+//						echo "<h2><a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br></h2>";
+//					}}}} }
 	}
 }
 }
@@ -2023,6 +2052,15 @@ function createForm4($listFields, $fieldsDef, $strings, $values, $required, $noe
 
 
 }
-
+//Consulta la tabla Clientes y obtiene el ID de un cliente a partir de su DNI
+function consultarIDCliente($CLIENTE_DNI){
+    $mysqli = new mysqli( "localhost", "iu2016", "iu2016", "IU2016");
+	if ($mysqli->connect_errno) {
+		echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+	}
+	$sql="SELECT CLIENTE_ID FROM CLIENTE WHERE CLIENTE_DNI='".$CLIENTE_DNI."'";
+	$result = $mysqli->query($sql)->fetch_array();
+	return $result['CLIENTE_ID'];
+}
 
 ?>
