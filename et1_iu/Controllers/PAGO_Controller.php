@@ -115,18 +115,11 @@ Switch ($_REQUEST['accion']) {
             $datos = $rol->Consultar();
             new ROL_Show($datos, 'ROL_Controller.php');
         }
-
-
         break;
-    case $strings['Funcionalidades']: //Muestra las funcionalidades a las que tiene acceso un rol
-        $rol = new ROL_MODEL($_REQUEST['ROL_NOM'], '');
-        $valores = $rol->ConsultarFuncionalidades();
-        if (!tienePermisos('ROL_Show_Funcion')) {
-            new Mensaje('No tienes los permisos necesarios', 'ROL_Controller.php');
-        } else {
-            new ROL_Show_Funcion($valores, 'ROL_Controller.php');
-        }
+
+    case $strings['Generar Recibo']: //AÑADIR FUNCIONALIDAD
         break;
+
     default:
         //La vista por defecto lista las funcionalidades
         if (!isset($_REQUEST['PAGO_ID'])) {
@@ -138,7 +131,6 @@ Switch ($_REQUEST['accion']) {
         if (!tienePermisos('PAGO_Show')) {
             new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php');
         } else {
-
             new PAGO_Show($datos, '../Views/DEFAULT_Vista.php');
         }
 }

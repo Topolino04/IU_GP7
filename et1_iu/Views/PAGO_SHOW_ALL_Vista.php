@@ -43,14 +43,14 @@ class PAGO_Show {
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Consultar'] ?>'><?php echo $strings['Consultar'] ?></a>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Insertar'] ?>'><?php echo $strings['Insertar'] ?></a>
-                            <?php //AÑADIR BOTON GENERAR RECIBO  ?>
+                            
 
                         </div>
                     </nav>
 
 
                     <?php
-                    $lista = array('PAGO_ID', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'PAGO_FECHA', 'PAGO_CLIENTE');
+                    $lista = array('PAGO_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID');
                     ?>
 
 
@@ -93,7 +93,7 @@ class PAGO_Show {
                                     <a href='PAGO_Controller.php?ROL_NOM=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
                                 </td>
                                 <td>
-                                    <a href='PAGO_Controller.php?ROL_NOM=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Funcionalidades']; ?>'><?php echo $strings['Funcionalidades'] ?></a>
+                                    <a href='PAGO_Controller.php?ROL_NOM=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
                                 </td>
 
                                 <?php
