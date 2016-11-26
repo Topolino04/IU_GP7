@@ -399,7 +399,17 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 20),
 ('ADMIN', 21),
 ('ADMIN', 22),
-('ADMIN', 23);
+('ADMIN', 23),
+('ADMIN', 300),
+('ADMIN', 301),
+('ADMIN', 302),
+('ADMIN', 303),
+('ADMIN', 304),
+('secret', 300),
+('secret', 301),
+('secret', 302),
+('secret', 303),
+('secret', 304);
 
 -- --------------------------------------------------------
 
@@ -527,7 +537,12 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (2, 20),
 (2, 21),
 (2, 22),
-(2, 23);
+(2, 23),
+(300, 300),
+(300, 301),
+(300, 302),
+(300, 303),
+(300, 304);
 
 -- --------------------------------------------------------
 
@@ -641,7 +656,12 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (20, '../Views/ROL_EDIT_Vista.php', 'ROL EDIT'),
 (21, '../Views/ROL_SHOW_ALL_Vista.php', 'ROL SHOW ALL'),
 (22, '../Views/ROL_SHOW_FUNCIONES_Vista.php', 'ROL SHOW FUNCIONES'),
-(23, '../Views/ROL_SHOW_Vista.php', 'ROL SHOW');
+(23, '../Views/ROL_SHOW_Vista.php', 'ROL SHOW'),
+(300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
+(301, '../Views/PAGO_DELETE_Vista.php', 'PAGO DELETE'),
+(302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
+(303, '../Views/PAGO_SHOW_ALL_Vista.php', 'PAGO SHOW ALL'),
+(304, '../Views/PAGO_SHOW_Vista.php', 'PAGO SHOW');
 
 -- --------------------------------------------------------
 
@@ -725,7 +745,9 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 3),
 (1, 4),
 (1, 5),
-(2, 5);
+(1, 300),
+(2, 5),
+(2, 300);
 
 --
 -- Indexes for dumped tables
