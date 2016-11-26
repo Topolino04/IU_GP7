@@ -202,7 +202,8 @@ $strings = array(
     'No existe ningún cliente con el DNI introducido'=>'No existe ningún cliente con el DNI introducido',
     'Debe introducir el dni del cliente'=>'Debe introducir el dni del cliente',
     'Debe introducir un importe'=>'Debe introducir un importe',
-    'Debe introducir una descripción para el concepto de pago'=>'Debe introducir una descripción para el concepto de pago'
-
+    'Debe introducir una descripción para el concepto de pago'=>'Debe introducir una descripción para el concepto de pago',
+'Borrar Pago' => 'Borrar Pago',
+    'Consultar Pago'=>'Consultar Pago'
 )
 ?>

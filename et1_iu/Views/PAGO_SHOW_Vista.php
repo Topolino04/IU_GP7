@@ -1,10 +1,9 @@
 
 
 <?php
+//VISTA PARA CONSULTAR ROLES
 
 class PAGO_Consultar{
-
-//VISTA PARA CONSULTAR ROLES
 	function __construct(){
 		$this->render();
 	}
@@ -18,21 +17,21 @@ class PAGO_Consultar{
 				<?php
 
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				$lista = array('ROL_NOM');
-
+				
+             $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
 				?>
 			<span class="form-title">
-				<?php echo $strings['Consultar Rol']?><br>
+				<?php echo $strings['Consultar Pago']?><br>
 			</h2>
 			</p>
 			<p>
 			<h3>
 
-				<form action='ROL_Controller.php' method='post'>
+				<form action='PAGO_Controller.php' method='post'>
 					<ul class="form-style-1">
 					<?php
 
-					include '../Functions/ROLDefForm.php';
+					include '../Functions/PAGODefForm.php';
 
 
 					createForm($lista,$form,$strings,$values='',false,false);
@@ -41,7 +40,7 @@ class PAGO_Consultar{
 
 				</form>
 				<?php
-				echo '<a  class="form-link" href=\'ROL_Controller.php\'>' . $strings['Volver'] . '</a>';
+				echo '<a  class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . '</a>';
 				?>
 
 			</h3>
@@ -50,7 +49,7 @@ class PAGO_Consultar{
 		</div>
 
 		<?php
-	} //fin metodo render
+	}
 
 }
 ?>

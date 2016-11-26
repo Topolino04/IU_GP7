@@ -49,29 +49,32 @@ Switch ($_REQUEST['accion']) {
         }
         break;
 
+        
+        
+        
+        
+        
     case $strings['Borrar']: //Borrado de roles
-        if (!isset($_REQUEST['PAGO_ID'])) {
-            $pago = new PAGO_MODEL($_REQUEST['ROL_NOM'], '');
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+            $pago = new PAGO_MODEL('', '', $_REQUEST ['PAGO_CONCEPTO'], $_REQUEST ['PAGO_IMPORTE'], $_REQUEST ['CLIENTE_ID'], ''); // $_REQUEST ???
             $valores = $pago->RellenaDatos();
             if (!tienePermisos('PAGO_Borrar')) {
                 new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
-                if ($_REQUEST['ROL_NOM'] === ConsultarNOMRol(consultarRol($_SESSION['login']))) {
-                    new Mensaje('No puedes borrar tu propio rol', 'ROL_Controller.php');
-                } else {
-                    new ROL_Borrar($valores, 'ROL_Controller.php');
-                }
+                    new PAGO_Borrar($valores, 'PAGO_Controller.php');
             }
         } else {
             $_REQUEST['rol_funcionalidades'] = array('');
-
-
             $rol = get_data_form();
             $respuesta = $rol->Borrar();
             new Mensaje($respuesta, 'ROL_Controller.php');
         }
         break;
 
+        
+        
+        
+        
     case $strings['Modificar']: //Modificación de roles
 
         if (!isset($_REQUEST['ROL_ID'])) {
@@ -96,13 +99,17 @@ Switch ($_REQUEST['accion']) {
             }
         }
         break;
-    case $strings['Consultar']://Consulta de roles
-        if (!isset($_REQUEST['ROL_NOM'])) {
-            if (!tienePermisos('ROL_Consultar')) {
-                new Mensaje('No tienes los permisos necesarios', 'ROL_Controller.php');
+        
+        
+        
+        
+    case $strings['Consultar']:  //Consulta de pagos
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+            if (!tienePermisos('PAGO_Consultar')) {
+                new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
 
-                new ROL_Consultar();
+                new PAGO_Consultar();
             }
         } else {
             $_REQUEST['rol_funcionalidades'] = array('');
@@ -111,9 +118,18 @@ Switch ($_REQUEST['accion']) {
             new ROL_Show($datos, 'ROL_Controller.php');
         }
         break;
+        
+        
+        
+        
+        
 
     case $strings['Generar Recibo']: //AÑADIR FUNCIONALIDAD
         break;
+    
+    
+    
+    
 
     default:
         //La vista por defecto lista las funcionalidades

@@ -51,20 +51,20 @@ class PAGO_MODEL {
         
     }
 
-//Nos devuelve la información de los pagos realizados por un determinado cliente
+//Nos devuelve la información de los pagos realizados por un determinado cliente o id
     function Consultar() {
-        //   include '../Locates/Strings_Castellano.php';
         $this->ConectarBD();
-        $sql = 'SELECT * from PAGO WHERE ((PAGO_CLIENTE =' . $this->CLIENTE_DNI . ') OR (PAGO_FECHA=' . $this->PAGO_FECHA . ')) ORDER BY PAGO_FECHA DESC';
-        $resultado = $this->mysqli->query($sql);
-        if ($resultado->num_rows === 0) {
-            echo "El cliente con el dni introducido no tiene pagos registrados";
+        $sql = "SELECT * from PAGO WHERE PAGO_CLIENTE ='" . $this->CLIENTE_DNI . "' OR PAGO_CONCEPTO='" . $this->PAGO_CONCEPTO. "' ORDER BY PAGO_FECHA DESC";
+        if (!$busqueda = $this->mysqli->query($sql)) { 
+        return "El cliente con el dni introducido no tiene pagos registrados";
+            //echo "El cliente con el dni introducido no tiene pagos registrados";
         } else {
             $toret = array();
             $toret[0] = $resultado->fetch_array();
-
             return $toret;
         }
+        
+    
     }
 
 //Devuelve la lista de todos los pagos realizados
