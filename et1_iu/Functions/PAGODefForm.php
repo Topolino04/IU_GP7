@@ -32,9 +32,9 @@ $form = array(
         'pattern' => '',
         'validation' => '',
         'readonly' => false
-    ),
+    )
     );
-$DefForm = añadirFunciones($form); //MODIFICAR ?
+//$DefForm = añadirFunciones($form); //MODIFICAR ?
 
 
 //     0 => array(

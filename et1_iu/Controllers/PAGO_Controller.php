@@ -1,7 +1,6 @@
 <?php
 
 include '../Models/PAGO_Model.php';
-
 include '../Views/MENSAJE_Vista.php';
 
 if (!IsAuthenticated()) {
@@ -21,11 +20,13 @@ function get_data_form() {
     $PAGO_CONCEPTO = $_REQUEST['PAGO_CONCEPTO'];
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
    // $PAGO_FECHA = $_REQUEST['PAGO_FECHA'];
-    $CLIENTE_ID = consultarIDCliente($_REQUEST['CLIENTE_DNI']);
+    $CLIENTE_DNI=$_REQUEST['CLIENTE_DNI'];
+    $CLIENTE_ID= consultarIDCliente($CLIENTE_DNI);
+    //$CLIENTE_ID = consultarIDCliente($_REQUEST['CLIENTE_DNI']);
     $accion = $_REQUEST['accion'];
-
+    
     $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
-
+  //$pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, 300, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     return $pago;
 }
 
@@ -46,8 +47,6 @@ Switch ($_REQUEST['accion']) {
             $respuesta = $pago->Insertar();
             new Mensaje($respuesta, 'PAGO_Controller.php');
         }
-//			}
-
         break;
 
     case $strings['Borrar']: //Borrado de roles

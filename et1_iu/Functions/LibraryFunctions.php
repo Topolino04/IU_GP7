@@ -1952,15 +1952,12 @@ function consultarIDCliente($CLIENTE_DNI) {
     if ($mysqli->connect_errno) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
-    $sql = "SELECT CLIENTE_ID FROM CLIENTE WHERE CLIENTE_DNI= $CLIENTE_DNI";
-    if(!$busqueda=$mysqli->query($sql)){
-        return '';
+    $sql = "SELECT CLIENTE_ID FROM CLIENTE WHERE CLIENTE_DNI='" . $CLIENTE_DNI . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return FALSE;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['CLIENTE_ID'];
     }
-    else {
-        $result=$busqueda->fetch_array();
-        return $result['CLIENTE_ID'];
-    }
-    //$result = $mysqli->query($sql)->fetch_array();
-    //return $result['CLIENTE_ID'];
 }
-?>
+    ?>

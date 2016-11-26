@@ -9,8 +9,8 @@ class PAGO_MODEL {
     var $PAGO_FECHA;
     var $PAGO_CONCEPTO;
     var $PAGO_IMPORTE;
-    var $CLIENTE_ID; //???
-    var $CLIENTE_DNI; //???
+    var $CLIENTE_ID;
+    var $CLIENTE_DNI;
     var $mysqli;
 
 //Constructor de la clase pago
@@ -19,8 +19,8 @@ class PAGO_MODEL {
         $this->PAGO_FECHA = $PAGO_FECHA;
         $this->PAGO_CONCEPTO = $PAGO_CONCEPTO;
         $this->PAGO_IMPORTE = $PAGO_IMPORTE;
-        $this->CLIENTE_ID = $CLIENTE_ID; //??? USADO EN GETDATAFORM()
-        $this->CLIENTE_DNI = $CLIENTE_DNI; //???
+        $this->CLIENTE_ID = $CLIENTE_ID;
+        $this->CLIENTE_DNI = $CLIENTE_DNI;
     }
 
 //Función para la conexión a la base de datos
@@ -34,35 +34,18 @@ class PAGO_MODEL {
 //Insertar un nuevo pago
     function Insertar() {                        //NOTA: El formulario ya comprueba si se han rellenado los campos en el navegador.
         $this->ConectarBD();
-//        if ($this->PAGO_CONCEPTO != '') { //CAMBIAR ORDEN DE LOS MENSAJES
-//            if ($this->PAGO_IMPORTE != '') {
-//                if ($this->CLIENTE_ID != '') {
-        if ($this->CLIENTE_ID == '') {
+        if ($this->CLIENTE_ID === FALSE) {
             return 'No existe ningún cliente con el DNI introducido';
         } else {
-            $sql = "SELECT * FROM CLIENTE WHERE CLIENTE_ID = $this->CLIENTE_ID  ";
+            $sql = "INSERT INTO PAGO (PAGO_CONCEPTO, PAGO_IMPORTE, CLIENTE_ID) VALUES ('" . $this->PAGO_CONCEPTO . "', '" . $this->PAGO_IMPORTE . "', '" . $this->CLIENTE_ID . "')";
             if (!$result = $this->mysqli->query($sql)) {
                 return 'No se ha podido conectar con la base de datos';
             } else {
-                $sql = "INSERT INTO PAGO (PAGO_CONCEPTO, PAGO_IMPORTE, CLIENTE_ID) VALUES ($this->PAGO_CONCEPTO, $this->PAGO_IMPORTE, $this->CLIENTE_ID)";
-                if (!$result = $this->mysqli->query($sql)) {
-                    return 'No se ha podido conectar con la base de datos';
-                } else {
-                    return 'Pago registrado correctamente';
-                }
+                return 'Pago registrado correctamente';
             }
         }
     }
 
-//                } else {
-//                    return 'Debe introducir el dni del cliente';
-//                }
-//            } else {
-//                return 'Debe introducir un importe';
-//            }
-//        } else {
-//            return 'Debe introducir una descripción para el concepto de pago';
-//        }
 //destrucción del objeto
     function __destruct() {
         

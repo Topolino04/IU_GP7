@@ -19,9 +19,7 @@ class PAGO_Insertar{
                 include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';;
                 include '../Functions/PAGODefForm.php';
 
-             
-  //$lista = array('PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID'); ----- FUNCIONA -----
-               // $lista = array('PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_DNI'); ----- FUNCIONA -----
+       
                 $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
                 ?>
             </h2>
@@ -37,7 +35,7 @@ class PAGO_Insertar{
                     <ul class="form-style-1">
                     <?php
 
-                    createForm($lista,$DefForm,$strings,'',true,false); 
+                    createForm($lista,$form,$strings,'',true,false); 
 //----- Validacion de campos -----
                     ?>
                     <input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Insertar'] ?>>
@@ -51,6 +49,6 @@ class PAGO_Insertar{
         </div>
 
         <?php
-    } //fin metodo render
+    }
 
 }
