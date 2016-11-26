@@ -18,14 +18,13 @@ for ($z = 0; $z < count($pags); $z++) {
 function get_data_form() {
 //Recoge la información procedente del formulario
     $PAGO_ID = $_REQUEST['PAGO_ID'];
-    $PAGO_CONCEPTO = $REQUEST['PAGO_CONCEPTO'];
-    $PAGO_IMPORTE = $REQUEST['PAGO_IMPORTE'];
-    $PAGO_FECHA = $REQUEST['PAGO_FECHA'];
-    $PAGO_CLIENTE = $REQUEST['PAGO_CLIENTE'];
-
+    $PAGO_CONCEPTO = $_REQUEST['PAGO_CONCEPTO'];
+    $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
+    $PAGO_FECHA = $_REQUEST['PAGO_FECHA'];
+    $CLIENTE_ID = consultarIDCliente($REQUEST['CLIENTE_DNI']);
     $accion = $_REQUEST['accion'];
 
-    $pago = new PAGO_MODEL($PAGO_CONCEPTO, $PAGO_IMPORTE, $PAGO_FECHA, $PAGO_CLIENTE);
+    $pago = new PAGO_MODEL($PAGO_CONCEPTO, $PAGO_IMPORTE, $PAGO_FECHA, $CLIENTE_ID);
 
     return $pago;
 }
@@ -34,17 +33,14 @@ if (!isset($_REQUEST['accion'])) {
     $_REQUEST['accion'] = '';
 }
 Switch ($_REQUEST['accion']) {
-    case $strings['Insertar']: //Inserción de roles
-        if (!isset($_REQUEST['PAGO_NOM'])) {
+    case $strings['Insertar']: //Inserción de pagos
+        if (!isset($_REQUEST['PAGO_ID'])) {
             if (!tienePermisos('PAGO_Insertar')) {
                 new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
                 new PAGO_Insertar();
             }
         } else {
-//				if (!isset($_REQUEST['rol_funcionalidades'])) { //Si no se selecciona ninguna funcionalidad muestra mensaje de rror
-//					new Mensaje('No funcionalidad', 'ROL_Controller.php?accion='.$strings['Insertar']."'");
-//				} else {
             $pago = get_data_form();
             $respuesta = $pago->Insertar();
             new Mensaje($respuesta, 'PAGO_Controller.php');

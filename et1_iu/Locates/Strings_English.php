@@ -193,8 +193,9 @@ $strings = array(
     'PAGO_CONCEPTO'=>'Concept',
     'PAGO_IMPORTE'=>'Amount',
     'CLIENTE_ID'=>'Client ID',
-'Generar Recibo'=>'Generate Receip'
-
+'Generar Recibo'=>'Generate Receip',
+    'Insertar Pago'=>'Insert Payment',
+'CLIENTE_DNI'=>'Customer DNI'
 
 )
 ?>

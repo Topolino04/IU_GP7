@@ -1,5 +1,5 @@
 <?php
-
+//Definición del formulario que muestra la informacion completa de cada pago.
 //Formulario para la consulta de pagos
 $form = array(
     0 => array(
