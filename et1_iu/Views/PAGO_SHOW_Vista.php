@@ -2,7 +2,7 @@
 
 <?php
 
-class ROL_Consultar{
+class PAGO_Consultar{
 
 //VISTA PARA CONSULTAR ROLES
 	function __construct(){

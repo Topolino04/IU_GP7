@@ -1,6 +1,6 @@
 <?php
 
-class ROL_Modificar{
+class PAGO_Modificar{
 //VISTA PARA MODIFICAR ROLES
     private $valores;
 

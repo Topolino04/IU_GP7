@@ -1,5 +1,5 @@
 <?php // 
-class ROL_Insertar{
+class PAGO_Insertar{
 //VISTA PARA INSERTAR ROLES
 
     function __construct(){

@@ -1,6 +1,6 @@
 <?php
 
-class ROL_Borrar{
+class PAGO_Borrar{
 	//VISTA PARA BORRAR ROLES
 
 	private $valores;

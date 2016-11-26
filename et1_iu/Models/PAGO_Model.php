@@ -71,7 +71,7 @@ function Consultar()
 {
  //   include '../Locates/Strings_Castellano.php';
     $this->ConectarBD();
-    $sql = 'SELECT * from PAGO WHERE ((CLIENTE_DNI ='.$this->CLIENTE_DNI.') OR (PAGO_FECHA='.$this->PAGO_FECHA.')) ORDER BY PAGO_FECHA DESC';
+    $sql = 'SELECT * from PAGO WHERE ((PAGO_CLIENTE ='.$this->CLIENTE_DNI.') OR (PAGO_FECHA='.$this->PAGO_FECHA.')) ORDER BY PAGO_FECHA DESC';
 	$resultado = $this->mysqli->query($sql);
 	if ($resultado->num_rows===0){
 		echo "El cliente con el dni introducido no tiene pagos registrados";
@@ -111,57 +111,44 @@ function Borrar()
     $result = $this->mysqli->query($sql);
     if ($result->num_rows == 1)
     {
-        $sql = "delete from ROL where ROL_NOM = '".$this->ROL_NOM."'";
+        $sql = "delete from PAGO where PAGO_ID = '".$this->PAGO_ID."'";
         $this->mysqli->query($sql);
-		$sql="delete from ROL_FUNCIOLANIDAD where ROL_ID=".ConsultarIDRol($this->ROL_NOM);
-		$this->mysqli->query($sql);
-    	return "El rol ha sido borrado correctamente";
+    	return "El pago ha sido borrado correctamente";
     }
     else {
-        return "El rol no existe";
+        return "El pago buscado para borrar no existe";
     }
 }
 
 function RellenaDatos()
 {
     $this->ConectarBD();
-    $sql = "select ROL_NOM, ROL_ID from ROL where ROL_NOM = '".$this->ROL_NOM."'";
+    $sql = "SELEC * FROM PAGO WHERE PAGO_ID ='".$this->PAGO_ID."'";
     if (!($resultado = $this->mysqli->query($sql))){
 	return 'Error en la consulta sobre la base de datos';
 	}
     else{
 	$result = $resultado->fetch_array();
-
 	return $result;
 	}
 }
 //Actualizar los datos del rol
-function Modificar($ROL_ID, $rol_funcionalidades)
-{
+//function Modificar($ROL_ID, $rol_funcionalidades)
+        //function Modificar($PAGO_ID, $PAGO_IMPORTE, $PAGO_CONCEPTO, $PAGO_CLIENTE, $PAGO_FECHA)
+function Modificar(){
     $this->ConectarBD();
-    $sql = "select ROL_NOM from ROL where ROL_ID = ".$ROL_ID;
-
-
+    $sql = "select * FROM PAGO WHERE PAGO_ID = ".$PAGO_ID;
     $result = $this->mysqli->query($sql);
     if ($result->num_rows == 1)
     {
-	$sql = "UPDATE ROL SET ROL_NOM = '".$this->ROL_NOM."' WHERE ROL_ID = '".$ROL_ID."'";
+	$sql = "UPDATE PAGO SET PAGO_IMPORTE = '".$this->PAGO_IMPORTE . 'PAGO_CONCEPTO ='. $this->PAGO_CONCEPTO . ' PAGO_CLIENTE =' . $this->PAGO_CLIENTE .'PAGO_FECHA='.$this->PAGO_FECHA. "' WHERE PAGO_ID = '".$this->PAGO_ID."'";
        $this->mysqli->query($sql);
-		$sql="DELETE FROM ROL_FUNCIONALIDAD WHERE ROL_ID=".$ROL_ID;
-		$this->mysqli->query($sql);
-		for($u=0;$u<count($rol_funcionalidades);$u++){
-
-			$sql2 = "INSERT INTO  ROL_FUNCIONALIDAD(ROL_ID, FUNCIONALIDAD_ID) VALUES (".$ROL_ID.", ".ConsultarIDFuncionalidad($this->rol_funcionalidades[$u]).")";
-
-			$this->mysqli->query($sql2);
-		}
-
-
-		return "El rol se ha modificado con éxito";
+		
+		return "El pago se ha modificado correctamente";
 	}
 
     else{
-    return "El rol no existe";
+    return "El pago buscado para modificar no existe";
     }
 }
 
