@@ -177,9 +177,23 @@ $strings = array(
 	'Gestiones Principales'=>'Xestións principales',
 	'Asistencia Monitores'=>'Asistencia Monitores',
 	'Gestiones Secundarias'=>'Xestións Secundarias',
-	'Usuario'=>'Usuario'
+	'Usuario'=>'Usuario',
 
-
-
+    
+    'GESTION PAGOS'=>'XESTIÓN PAGOS',
+    'Gestión de Pagos'=>'Xestión de Pagos',
+'PAGO_ID'=>'Identificador do pago',
+    'PAGO_FECHA'=>'Data de pago',
+    'PAGO_CONCEPTO'=>'Concepto',
+    'PAGO_IMPORTE'=>'Importe',
+    'CLIENTE_ID'=>'Identificador de cliente',
+'Generar Recibo'=>'Xerar Recibo',
+    'Insertar Pago'=>'Inserir Pago',
+    'CLIENTE_DNI'=>'DNI do cliente',
+    'Pago registrado correctamente'=>'Pago rexistrado correctamente',
+    'No existe ningún cliente con el DNI introducido'=>'Non existe ningún cliente co DNI inserido',
+    'Debe introducir el dni del cliente'=>'Debe inserir o dni do cliente',
+    'Debe introducir un importe'=>'Debe inserir un importe',
+    'Debe introducir una descripción para el concepto de pago'=>'Debe inserir unha descripción para o concepto de pago'
 )
 ?>

@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `CLIENTE` (
   `CLIENTE_PROFESION` varchar(50) DEFAULT NULL,
   `CLIENTE_COMENTARIOS` varchar(1000) DEFAULT NULL,
   `CLIENTE_ESTADO` enum('Activo','Inactivo') CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `CLIENTE`
@@ -139,7 +139,8 @@ CREATE TABLE IF NOT EXISTS `CLIENTE` (
 INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`, `CLIENTE_TELEFONO`, `CLIENTE_PROFESION`, `CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`) VALUES
 (1, '12365487Z', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'jsierra@yahoo.es', '2000-11-01', 999999999, 'panadero', '', 'Activo'),
 (2, '98765432W', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'mrc@rty.com', '1994-08-01', 99999998, 'médico', '', 'Activo'),
-(3, '89765644R', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01', 999399999, 'profesora', '', 'Activo');
+(3, '89765644R', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01', 999399999, 'profesora', '', 'Activo'),
+(300, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24', 666668862, 'ingeniero', 'Karateka', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -399,7 +400,17 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 20),
 ('ADMIN', 21),
 ('ADMIN', 22),
-('ADMIN', 23);
+('ADMIN', 23),
+('ADMIN', 300),
+('ADMIN', 301),
+('ADMIN', 302),
+('ADMIN', 303),
+('ADMIN', 304),
+('secret', 300),
+('secret', 301),
+('secret', 302),
+('secret', 303),
+('secret', 304);
 
 -- --------------------------------------------------------
 
@@ -485,7 +496,8 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (2, 'GESTION ROLES'),
 (3, 'GESTION FUNCIONALIDADES'),
 (4, 'GESTION PAGINAS'),
-(5, 'CONSULTA EMPLEADOS');
+(5, 'CONSULTA EMPLEADOS'),
+(300, 'GESTION PAGOS');
 
 -- --------------------------------------------------------
 
@@ -526,7 +538,12 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (2, 20),
 (2, 21),
 (2, 22),
-(2, 23);
+(2, 23),
+(300, 300),
+(300, 301),
+(300, 302),
+(300, 303),
+(300, 304);
 
 -- --------------------------------------------------------
 
@@ -640,7 +657,12 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (20, '../Views/ROL_EDIT_Vista.php', 'ROL EDIT'),
 (21, '../Views/ROL_SHOW_ALL_Vista.php', 'ROL SHOW ALL'),
 (22, '../Views/ROL_SHOW_FUNCIONES_Vista.php', 'ROL SHOW FUNCIONES'),
-(23, '../Views/ROL_SHOW_Vista.php', 'ROL SHOW');
+(23, '../Views/ROL_SHOW_Vista.php', 'ROL SHOW'),
+(300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
+(301, '../Views/PAGO_DELETE_Vista.php', 'PAGO DELETE'),
+(302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
+(303, '../Views/PAGO_SHOW_ALL_Vista.php', 'PAGO SHOW ALL'),
+(304, '../Views/PAGO_SHOW_Vista.php', 'PAGO SHOW');
 
 -- --------------------------------------------------------
 
@@ -650,19 +672,20 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 
 CREATE TABLE IF NOT EXISTS `PAGO` (
 `PAGO_ID` int(100) NOT NULL,
-  `PAGO_VALOR` decimal(10,2) NOT NULL,
-  `CLIENTE_ID` int(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+`PAGO_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`PAGO_CONCEPTO` varchar(200) DEFAULT NULL,
+-- `PAGO_IMPORTE` decimal(10,2) NOT NULL,
+`PAGO_IMPORTE` varchar(10) NOT NULL,
+  `CLIENTE_ID` int(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `PAGO`
 --
 
-INSERT INTO `PAGO` (`PAGO_ID`, `PAGO_VALOR`, `CLIENTE_ID`) VALUES
-(1, 100.00, 1),
-(2, 200.00, 2),
-(3, 300.00, 2),
-(4, 400.00, 3);
+INSERT INTO `PAGO` (`PAGO_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_IMPORTE`, `CLIENTE_ID`) VALUES
+(1, '2016-11-20 10:26:36', 'Curso Karate + Examen', 500.00, 1),
+(2, '2016-11-21 11:00:12', 'Body Jump', 20.50, 2);
 
 -- --------------------------------------------------------
 
@@ -724,7 +747,9 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 3),
 (1, 4),
 (1, 5),
-(2, 5);
+(1, 300),
+(2, 5),
+(2, 300);
 
 --
 -- Indexes for dumped tables

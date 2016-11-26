@@ -157,10 +157,11 @@ $strings = array(
 	'Gestión de Funcionalidades'=>'Functionalities Management',
 	'Gestión de Roles'=>'Roles Management',
 	'Gestión de Páginas'=>'Pages Management',
-	'GESTION EMPLEADOS'=>'Employees Management',
+  	'GESTION EMPLEADOS'=>'Employees Management',
 	'GESTION PAGINAS'=>'Pages Management',
 	'GESTION ROLES'=>'Roles Management',
 	'GESTION FUNCIONALIDADES'=>'Functionalities Management',
+   
 	'No tienes los permisos necesarios'=>'You do not have permission',
 	'Consulta de Empleados'=>'Employee Consultation',
 	'Modificar acciones'=>'Actions',
@@ -183,11 +184,22 @@ $strings = array(
 	'Gestiones Principales'=>'Main options',
 	'Asistencia Monitores'=>'Instructors Assistance',
 	'Gestiones Secundarias'=>'Secondary options',
-	'Usuario'=>'User'
+	'Usuario'=>'User',
 
-
-
-
-
+ 'GESTION PAGOS'=>'Payments Management',
+  'Gestión de Pagos'=>'Payments Management',
+    'PAGO_ID'=>'Payment ID',
+    'PAGO_FECHA'=>'Payment Data',
+    'PAGO_CONCEPTO'=>'Concept',
+    'PAGO_IMPORTE'=>'Amount',
+    'CLIENTE_ID'=>'Client ID',
+'Generar Recibo'=>'Generate Receip',
+    'Insertar Pago'=>'Insert Payment',
+'CLIENTE_DNI'=>'Customer DNI',
+'Pago registrado correctamente'=>'Payment Succesfully Registered',
+    'No existe ningún cliente con el DNI introducido'=>'There is no customer with the DNI entered',
+    'Debe introducir el dni del cliente'=>'You must enter the customer DNI ',
+    'Debe introducir un importe'=>'You must enter an amount',
+    'Debe introducir una descripción para el concepto de pago'=>'You must enter a description for the concept of payment'
 )
 ?>
