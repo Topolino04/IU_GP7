@@ -37,10 +37,10 @@ class PAGO_Insertar{
                     <ul class="form-style-1">
                     <?php
 
-                    createForm($lista,$DefForm,$strings,'',true,false);
-
+                    createForm($lista,$DefForm,$strings,'',true,false); 
+//----- Validacion de campos -----
                     ?>
-                    <input type='submit' name='accion' onclick="return valida_envia2()" value=<?php echo $strings['Insertar'] ?>>
+                    <input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Insertar'] ?>>
                 </form>
                 <?php
                 echo '<a  class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . " </a>";

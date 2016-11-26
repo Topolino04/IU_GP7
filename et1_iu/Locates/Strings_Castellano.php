@@ -197,8 +197,12 @@ $strings = array(
     'CLIENTE_ID'=>'Identificador de cliente',
     'Generar Recibo'=>'Generar Recibo',
     'Insertar Pago'=>'Insertar Pago',
-    'CLIENTE_DNI'=>'DNI del cliente'
-
+    'CLIENTE_DNI'=>'DNI del cliente',
+'Pago registrado correctamente'=>'Pago registrado correctamente',
+    'No existe ningún cliente con el DNI introducido'=>'No existe ningún cliente con el DNI introducido',
+    'Debe introducir el dni del cliente'=>'Debe introducir el dni del cliente',
+    'Debe introducir un importe'=>'Debe introducir un importe',
+    'Debe introducir una descripción para el concepto de pago'=>'Debe introducir una descripción para el concepto de pago'
 
 )
 ?>

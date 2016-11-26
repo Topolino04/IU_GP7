@@ -5,7 +5,7 @@ $form = array(
 
       0 => array(
         'type' => 'text',
-        'name' => 'CLIENTE_DNI', //CLIENTE_ID ----- FUNCIONA -----
+        'name' => 'CLIENTE_DNI',
         'value' => '',
         'size' => 50,
         'required' => true,

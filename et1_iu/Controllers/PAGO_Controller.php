@@ -17,14 +17,14 @@ for ($z = 0; $z < count($pags); $z++) {
 
 function get_data_form() {
 //Recoge la información procedente del formulario
-    $PAGO_ID = $_REQUEST['PAGO_ID'];
+ //   $PAGO_ID = $_REQUEST['PAGO_ID'];
     $PAGO_CONCEPTO = $_REQUEST['PAGO_CONCEPTO'];
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
-    $PAGO_FECHA = $_REQUEST['PAGO_FECHA'];
-    $CLIENTE_ID = consultarIDCliente($REQUEST['CLIENTE_DNI']);
+   // $PAGO_FECHA = $_REQUEST['PAGO_FECHA'];
+    $CLIENTE_ID = consultarIDCliente($_REQUEST['CLIENTE_DNI']);
     $accion = $_REQUEST['accion'];
 
-    $pago = new PAGO_MODEL($PAGO_CONCEPTO, $PAGO_IMPORTE, $PAGO_FECHA, $CLIENTE_ID);
+    $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
 
     return $pago;
 }
@@ -33,8 +33,9 @@ if (!isset($_REQUEST['accion'])) {
     $_REQUEST['accion'] = '';
 }
 Switch ($_REQUEST['accion']) {
+    
     case $strings['Insertar']: //Inserción de pagos
-        if (!isset($_REQUEST['PAGO_ID'])) {
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
             if (!tienePermisos('PAGO_Insertar')) {
                 new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
@@ -50,7 +51,6 @@ Switch ($_REQUEST['accion']) {
         break;
 
     case $strings['Borrar']: //Borrado de roles
-
         if (!isset($_REQUEST['PAGO_ID'])) {
             $pago = new PAGO_MODEL($_REQUEST['ROL_NOM'], '');
             $valores = $pago->RellenaDatos();
@@ -118,8 +118,8 @@ Switch ($_REQUEST['accion']) {
 
     default:
         //La vista por defecto lista las funcionalidades
-        if (!isset($_REQUEST['PAGO_ID'])) {
-            $pago = new PAGO_MODEL('', '', '', '', '');
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+            $pago = new PAGO_MODEL('', '', '', '', '', ''); //PARA QUÉ SIRVE???
         } else {
             $pago = get_data_form();
         }

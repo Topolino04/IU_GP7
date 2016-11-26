@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `CLIENTE` (
   `CLIENTE_PROFESION` varchar(50) DEFAULT NULL,
   `CLIENTE_COMENTARIOS` varchar(1000) DEFAULT NULL,
   `CLIENTE_ESTADO` enum('Activo','Inactivo') CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `CLIENTE`
@@ -139,7 +139,8 @@ CREATE TABLE IF NOT EXISTS `CLIENTE` (
 INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`, `CLIENTE_TELEFONO`, `CLIENTE_PROFESION`, `CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`) VALUES
 (1, '12365487Z', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'jsierra@yahoo.es', '2000-11-01', 999999999, 'panadero', '', 'Activo'),
 (2, '98765432W', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'mrc@rty.com', '1994-08-01', 99999998, 'médico', '', 'Activo'),
-(3, '89765644R', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01', 999399999, 'profesora', '', 'Activo');
+(3, '89765644R', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01', 999399999, 'profesora', '', 'Activo'),
+(300, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24', 666668862, 'ingeniero', 'Karateka', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -672,9 +673,10 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 CREATE TABLE IF NOT EXISTS `PAGO` (
 `PAGO_ID` int(100) NOT NULL,
 `PAGO_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`PAGO_CONCEPTO` varchar(1000) DEFAULT NULL,
-`PAGO_IMPORTE` decimal(10,2) NOT NULL,
-  `CLIENTE_ID` int(100) NOT NULL
+`PAGO_CONCEPTO` varchar(200) DEFAULT NULL,
+-- `PAGO_IMPORTE` decimal(10,2) NOT NULL,
+`PAGO_IMPORTE` varchar(10) NOT NULL,
+  `CLIENTE_ID` int(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
