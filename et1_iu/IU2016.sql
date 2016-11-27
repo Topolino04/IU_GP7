@@ -577,7 +577,7 @@ CREATE TABLE IF NOT EXISTS `LINEA_FACTURA` (
   `FACTURA_ID` int(100) NOT NULL,
   `LINEA_FACTURA_CONCEPTO` varchar(500) NOT NULL,
   `LINEA_FACTURA_UNIDADES` int(100) NOT NULL,
-  `LINEA_FACTURA_PRECIOUD` int(100) NOT NULL
+  `LINEA_FACTURA_PRECIOUD` decimal(100,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -585,18 +585,18 @@ CREATE TABLE IF NOT EXISTS `LINEA_FACTURA` (
 --
 
 INSERT INTO `LINEA_FACTURA` (`LINEA_FACTURA_ID`, `FACTURA_ID`, `LINEA_FACTURA_CONCEPTO`, `LINEA_FACTURA_UNIDADES`, `LINEA_FACTURA_PRECIOUD`) VALUES
-(1, 1, 'Proteinas', 5, 25),
-(1, 2, 'Videojuegos', 3, 70),
-(1, 3, 'Mancuernas', 10, 20),
-(1, 4, 'Material escolar', 50, 10),
-(2, 1, 'Botellas agua', 200, 1),
-(2, 2, 'Bocadillos', 100, 2),
-(2, 3, 'Bicicletas', 10, 100),
-(2, 4, 'Zapatillas', 20, 50),
-(3, 1, 'Camisetas', 20, 10),
-(3, 2, 'Pantalones', 20, 30),
-(3, 4, 'Chaquetas', 20, 50),
-(4, 4, 'Calcetines', 30, 2);
+(1, 1, 'Proteinas', 5, 25.00),
+(1, 2, 'Videojuegos', 3, 70.00),
+(1, 3, 'Mancuernas', 10, 20.00),
+(1, 4, 'Material escolar', 50, 10.00),
+(2, 1, 'Botellas agua', 200, 1.00),
+(2, 2, 'Bocadillos', 100, 2.00),
+(2, 3, 'Bicicletas', 10, 100.00),
+(2, 4, 'Zapatillas', 20, 50.00),
+(3, 1, 'Camisetas', 20, 10.00),
+(3, 2, 'Pantalones', 20, 30.00),
+(3, 4, 'Chaquetas', 20, 50.00),
+(4, 4, 'Calcetines', 30, 2.00);
 
 -- --------------------------------------------------------
 
