@@ -203,6 +203,9 @@ $strings = array(
     'Debe introducir una descripción para el concepto de pago'=>'You must enter a description for the concept of payment',
     'Borrar Pago' => 'Delete Payment',
     'Consultar Pago'=> 'Payment Consultation',
-    'El pago ha sido borrado correctamente'=>'The paymente has been erased succesfuly'
+    'El pago ha sido borrado correctamente'=>'The payment has been erased successfully',
+    'Modificar Pago' => 'Edit Payment',
+    'El pago se ha modificado correctamente'=>'The payment has been edited successfully',
+    'El DNI introducido no pertenece a ningun cliente'=>"Introduced DNI doesn't belong to any client"
 )
 ?>

@@ -1472,7 +1472,7 @@ function añadirFuncionalidades($NOM) {
                 case "CONSULTA EMPLEADOS":
                     ?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Consulta de Empleados'] ?></a><br><br> <?php
                     break;
-                case "GESTION PAGOS":
+                case "GESTION PAGOS": // ------ ET2 -----
                     ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
                     break;
                 default:
@@ -1960,4 +1960,32 @@ function consultarIDCliente($CLIENTE_DNI) {
         return $resultado['CLIENTE_ID'];
     }
 }
-    ?>
+
+function consultarDNICliente($CLIENTE_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT CLIENTE_DNI FROM CLIENTE WHERE CLIENTE_ID='" . $CLIENTE_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return FALSE;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['CLIENTE_DNI'];
+    }
+}
+
+function consultarIDClientePAGO($PAGO_ID) { //REVISAR FUNCIONAMIENTO
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT * FROM PAGO WHERE PAGO_ID='" . $PAGO_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return FALSE;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['CLIENTE_ID'];
+    }
+}
+?>

@@ -205,6 +205,9 @@ $strings = array(
     'Debe introducir una descripción para el concepto de pago'=>'Debe introducir una descripción para el concepto de pago',
 'Borrar Pago' => 'Borrar Pago',
     'Consultar Pago'=>'Consultar Pago',
-    'El pago ha sido borrado correctamente'=>'El pago ha sido borrado correctamente'
+    'El pago ha sido borrado correctamente'=>'El pago ha sido borrado correctamente',
+    'Modificar Pago' =>'Modificar Pago',
+    'El pago se ha modificado correctamente'=>'El pago se ha modificado correctamente',
+    'El DNI introducido no pertenece a ningun cliente'=>'El DNI introducido no pertenece a ningun cliente'
 )
 ?>

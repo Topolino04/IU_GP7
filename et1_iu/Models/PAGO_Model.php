@@ -108,29 +108,48 @@ class PAGO_MODEL {
 
     function RellenaDatos() { //Completa el formulario visible con los datos del pago
         $this->ConectarBD();
+        $CLIENTE_ID= consultarIDClientePAGO("$this->PAGO_ID");
+        $CLIENTE_DNI= consultarDNICliente($CLIENTE_ID);
         $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'Error en la consulta sobre la base de datos';
         } else {
             $result = $resultado->fetch_array();
-            return $result;
+        $result['CLIENTE_DNI']=$CLIENTE_DNI;
+          return $result; 
         }
     }
+        
+        
+//        $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
+//        if (!$resultado = $this->mysqli->query($sql)) {
+//            return 'Error en la consulta sobre la base de datos';
+//        } else {
+//            $result = $resultado->fetch_array();
+//            $sql="SELECT * FROM PAGO WHERE PAGO_ID='".$this->PAGO_ID."'";
+//            $result['CLIENTE_DNI'] = consultarDNICliente($this->mysqli->query($sql)->);
+//            //CAMBIAR ORDEN DEL FETCH ARRAY???
+//            exit(var_dump($result));//----- HERRAMIENTA -----
+//            return $result; 
+//        }
+//    }
 
-//Actualizar los datos del rol
+//Modifica los datos del pago
 //function Modificar($ROL_ID, $rol_funcionalidades)
     //function Modificar($PAGO_ID, $PAGO_IMPORTE, $PAGO_CONCEPTO, $PAGO_CLIENTE, $PAGO_FECHA)
     function Modificar() {
         $this->ConectarBD();
-        $sql = "select * FROM PAGO WHERE PAGO_ID = " . $PAGO_ID;
-        $result = $this->mysqli->query($sql);
-        if ($result->num_rows == 1) {
-            $sql = "UPDATE PAGO SET PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . 'PAGO_CONCEPTO =' . $this->PAGO_CONCEPTO . ' PAGO_CLIENTE =' . $this->PAGO_CLIENTE . 'PAGO_FECHA=' . $this->PAGO_FECHA . "' WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
-            $this->mysqli->query($sql);
-
-            return "El pago se ha modificado correctamente";
+        $sql = "SELECT * FROM CLIENTE WHERE CLIENTE_ID='" . $this->CLIENTE_ID . "'";
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'El DNI introducido no pertenece a ningun cliente';
         } else {
-            return "El pago buscado para modificar no existe";
+            $sql = "UPDATE PAGO SET PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "', PAGO_CONCEPTO ='" . $this->PAGO_CONCEPTO . "', CLIENTE_ID ='" . $this->CLIENTE_ID . "' WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
+            if (!$resultado = $this->mysqli->query($sql)) {
+                return 'Error en la consulta sobre la base de datos';
+            } else {
+                //exit(var_dump($this->PAGO_ID)); ------ HERRAMIENTA ------
+                return 'El pago se ha modificado correctamente';
+            }
         }
     }
 
