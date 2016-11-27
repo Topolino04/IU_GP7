@@ -1473,7 +1473,7 @@ function añadirFuncionalidades($NOM) {
                     ?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Consulta de Empleados'] ?></a><br><br> <?php
                     break;
                 case "GESTION PAGOS": // ------ ET2 -----
-                    ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
+                    ?><!--<a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> --><?php
                     break;
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
