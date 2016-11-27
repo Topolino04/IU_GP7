@@ -87,13 +87,13 @@ class PAGO_Show {
                                 ?>
 <?php //AÑADIR TODOS LOS DATOS ?>
                                 <td>
-                                    <a href='PAGO_Controller.php?ROL_NOM=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
+                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
                                 <td>
-                                    <a href='PAGO_Controller.php?ROL_NOM=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
+                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
                                 </td>
                                 <td>
-                                    <a href='PAGO_Controller.php?ROL_NOM=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
+                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
                                 </td>
 
                                 <?php

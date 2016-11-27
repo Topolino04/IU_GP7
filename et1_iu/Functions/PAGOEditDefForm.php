@@ -1,7 +1,7 @@
 <?php
 
 //Definición del formulario que muestra la informacion completa de cada pago.
-//Formulario para la consulta de pagos
+//Formulario para la modificacion de pagos
 $form = array(
     0 => array(
         'type' => 'text',
@@ -35,17 +35,7 @@ $form = array(
     ),
     3 => array(
         'type' => 'text',
-        'name' => 'PAGO_FECHA',
-        'value' => '',
-        'size' => 155,
-        'required' => true,
-        'pattern' => '',
-        'validation' => '',
-        'readonly' => false
-    ),
-    4 => array(
-        'type' => 'text',
-        'name' => 'CLIENTE_ID', //PAGO_CLIENTE----- !!! -----
+        'name' => 'CLIENTE_DNI', //CLIENTE_ID FUNCIONA----- !!! -----
         'value' => '',
         'size' => 50,
         'required' => true,

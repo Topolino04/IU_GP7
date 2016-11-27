@@ -194,6 +194,12 @@ $strings = array(
     'No existe ningún cliente con el DNI introducido'=>'Non existe ningún cliente co DNI inserido',
     'Debe introducir el dni del cliente'=>'Debe inserir o dni do cliente',
     'Debe introducir un importe'=>'Debe inserir un importe',
-    'Debe introducir una descripción para el concepto de pago'=>'Debe inserir unha descripción para o concepto de pago'
+    'Debe introducir una descripción para el concepto de pago'=>'Debe inserir unha descripción para o concepto de pago',
+    'Borrar Pago' => 'Borrar Pago',
+    'Consultar Pago'=>'Consultar Pago',
+    'El pago ha sido borrado correctamente'=>'O pago borrouse correctamente',
+    'Modificar Pago' =>'Modificar Pago',
+    'El pago se ha modificado correctamente'=>'O pago modificouse correctamente',
+    'El DNI introducido no pertenece a ningun cliente'=>'O DNI introducido non pertence a ningún cliente'
 )
 ?>

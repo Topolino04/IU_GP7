@@ -1,7 +1,6 @@
 <?php
 
 include '../Models/PAGO_Model.php';
-
 include '../Views/MENSAJE_Vista.php';
 
 if (!IsAuthenticated()) {
@@ -17,15 +16,25 @@ for ($z = 0; $z < count($pags); $z++) {
 
 function get_data_form() {
 //Recoge la información procedente del formulario
- //   $PAGO_ID = $_REQUEST['PAGO_ID'];
+
     $PAGO_CONCEPTO = $_REQUEST['PAGO_CONCEPTO'];
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
-   // $PAGO_FECHA = $_REQUEST['PAGO_FECHA'];
-    $CLIENTE_ID = consultarIDCliente($_REQUEST['CLIENTE_DNI']);
+    // $PAGO_FECHA = $_REQUEST['PAGO_FECHA']; //AUTOMATICO BD
+    if (isset($_REQUEST['CLIENTE_DNI'])) {
+        $CLIENTE_DNI = $_REQUEST['CLIENTE_DNI'];
+        $CLIENTE_ID = consultarIDCliente($CLIENTE_DNI);
+    } else {
+        $CLIENTE_ID = $_REQUEST['CLIENTE_ID'];
+    }
+    //$CLIENTE_ID = consultarIDCliente($_REQUEST['CLIENTE_DNI']);
     $accion = $_REQUEST['accion'];
-
-    $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
-
+    if (isset($_REQUEST['PAGO_ID'])) {
+        $PAGO_ID = $_REQUEST['PAGO_ID']; //AUTOMATICO BD
+        $pago = new PAGO_MODEL($PAGO_ID, '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+    } else {
+        $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+    }
+    //$pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, 300, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     return $pago;
 }
 
@@ -33,7 +42,11 @@ if (!isset($_REQUEST['accion'])) {
     $_REQUEST['accion'] = '';
 }
 Switch ($_REQUEST['accion']) {
-    
+
+
+
+
+
     case $strings['Insertar']: //Inserción de pagos
         if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
             if (!tienePermisos('PAGO_Insertar')) {
@@ -46,75 +59,97 @@ Switch ($_REQUEST['accion']) {
             $respuesta = $pago->Insertar();
             new Mensaje($respuesta, 'PAGO_Controller.php');
         }
-//			}
-
         break;
 
+
+
+
+
+
     case $strings['Borrar']: //Borrado de roles
-        if (!isset($_REQUEST['PAGO_ID'])) {
-            $pago = new PAGO_MODEL($_REQUEST['ROL_NOM'], '');
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+            $pago = new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
             $valores = $pago->RellenaDatos();
             if (!tienePermisos('PAGO_Borrar')) {
                 new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
-                if ($_REQUEST['ROL_NOM'] === ConsultarNOMRol(consultarRol($_SESSION['login']))) {
-                    new Mensaje('No puedes borrar tu propio rol', 'ROL_Controller.php');
-                } else {
-                    new ROL_Borrar($valores, 'ROL_Controller.php');
-                }
+                new PAGO_Borrar($valores, 'PAGO_Controller.php');
             }
         } else {
-            $_REQUEST['rol_funcionalidades'] = array('');
-
-
-            $rol = get_data_form();
-            $respuesta = $rol->Borrar();
-            new Mensaje($respuesta, 'ROL_Controller.php');
+            $pago = get_data_form();
+            $respuesta = $pago->Borrar();
+            new Mensaje($respuesta, 'PAGO_Controller.php');
         }
         break;
 
-    case $strings['Modificar']: //Modificación de roles
 
-        if (!isset($_REQUEST['ROL_ID'])) {
 
-            $rol = new ROL_MODEL($_REQUEST['ROL_NOM'], '');
-            $valores = $rol->RellenaDatos();
-            if (!tienePermisos('ROL_Modificar')) {
-                new Mensaje('No tienes los permisos necesarios', 'ROL_Controller.php');
+
+
+    case $strings['Modificar']: //Modificación de pagos
+
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+            $pago = new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
+            $valores = $pago->RellenaDatos();
+            if (!tienePermisos('PAGO_Modificar')) {
+                new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
-
-
-                new ROL_Modificar($valores, 'EMPLEADOS_Controller.php');
+                new PAGO_Modificar($valores, 'PAGO_Controller.php');
             }
         } else {
-            if (!isset($_REQUEST['rol_funcionalidades'])) {
-                new Mensaje('No funcionalidad', 'ROL_Controller.php');
-            } else {
-                $rol = get_data_form();
-
-                $respuesta = $rol->Modificar($_REQUEST['ROL_ID'], $rol->rol_funcionalidades);
-                new Mensaje($respuesta, 'ROL_Controller.php');
-            }
+            $pago = get_data_form();
+            $respuesta = $pago->Modificar();
+            // $respuesta = $pago->Modificar($_REQUEST['ROL_ID'], $rol->rol_funcionalidades);
+            new Mensaje($respuesta, 'PAGO_Controller.php');
         }
-        break;
-    case $strings['Consultar']://Consulta de roles
-        if (!isset($_REQUEST['ROL_NOM'])) {
-            if (!tienePermisos('ROL_Consultar')) {
-                new Mensaje('No tienes los permisos necesarios', 'ROL_Controller.php');
-            } else {
 
-                new ROL_Consultar();
+
+        break;
+
+
+
+
+
+
+
+
+    case $strings['Consultar']:  //Consulta de pagos
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+            if (!tienePermisos('PAGO_Consultar')) {
+                new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
+            } else {
+                new PAGO_Consultar();
             }
         } else {
-            $_REQUEST['rol_funcionalidades'] = array('');
-            $rol = get_data_form();
-            $datos = $rol->Consultar();
-            new ROL_Show($datos, 'ROL_Controller.php');
+            $pago = get_data_form();
+            $datos = $pago->Consultar();
+            // if(!$datos){ //EN EL CASO DE SER NECESARIO, DE ESTA FORMA SE MOSTRARÍA UN MENSAJE POR PANTALLA
+            //    new Mensaje('No existen pagos que tengan los datos introducido', 'PAGO_Controller.php');
+            // }
+            // else {
+            new PAGO_Show($datos, 'PAGO_Controller.php');
+            // }
         }
         break;
+
+
+
+
+
+
+
+
+
 
     case $strings['Generar Recibo']: //AÑADIR FUNCIONALIDAD
         break;
+
+
+
+
+
+
+
 
     default:
         //La vista por defecto lista las funcionalidades

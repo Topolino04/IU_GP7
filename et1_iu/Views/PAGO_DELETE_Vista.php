@@ -1,7 +1,8 @@
 <?php
 
 class PAGO_Borrar{
-	//VISTA PARA BORRAR ROLES
+	
+//VISTA PARA BORRAR PAGOS
 
 	private $valores;
 
@@ -18,35 +19,29 @@ class PAGO_Borrar{
 			<h2>
 				<?php
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				include '../Functions/RolShowDefForm.php';
+				include '../Functions/PAGOShowDefForm.php';
 
-
-				$list = array('ROL_ID','ROL_NOM');
-				$lista=AñadirFuncionesTitulos($list);
-
-
-
-
+               // $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
+ $lista = array('PAGO_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID');
 				?>
 			</h2>
 			</p>
 			<p>
 			<h1><span class="form-title">
-				<?php echo $strings['Borrar Rol']?><br>
+				<?php echo $strings['Borrar Pago']?><br>
 			</h1>
 			<h3>
 
-				<form action='ROL_Controller.php' method='post' >
+				<form action='PAGO_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
-
-					createForm($lista,$form2,$strings,$this->valores,false,true);
-
+                                                                      
+					createForm($lista,$form,$strings,$this->valores,false,true); //$form2
 					?>
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
 				</form>
 				<?php
-				echo '<a class="form-link" href=\'ROL_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>

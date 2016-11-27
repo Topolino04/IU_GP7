@@ -18,7 +18,7 @@ $form = array(
         'name' => 'PAGO_CONCEPTO',
         'value' => '',
         'size' => 155,
-        'required' => false,
+        'required' => true,
         'pattern' => '',
         'validation' => '',
         'readonly' => false
@@ -32,9 +32,9 @@ $form = array(
         'pattern' => '',
         'validation' => '',
         'readonly' => false
-    ),
+    )
     );
-$DefForm = añadirFunciones($form); //MODIFICAR ?
+//$DefForm = añadirFunciones($form); //MODIFICAR ?
 
 
 //     0 => array(
