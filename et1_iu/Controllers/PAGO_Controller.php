@@ -16,16 +16,26 @@ for ($z = 0; $z < count($pags); $z++) {
 
 function get_data_form() {
 //Recoge la información procedente del formulario
- //   $PAGO_ID = $_REQUEST['PAGO_ID'];
+   
     $PAGO_CONCEPTO = $_REQUEST['PAGO_CONCEPTO'];
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
-   // $PAGO_FECHA = $_REQUEST['PAGO_FECHA'];
+   // $PAGO_FECHA = $_REQUEST['PAGO_FECHA']; //AUTOMATICO BD
+    if(isset($_REQUEST['CLIENTE_DNI'])){
     $CLIENTE_DNI=$_REQUEST['CLIENTE_DNI'];
     $CLIENTE_ID= consultarIDCliente($CLIENTE_DNI);
+    }
+    else {
+        $CLIENTE_ID=$_REQUEST['CLIENTE_ID'];
+    }
     //$CLIENTE_ID = consultarIDCliente($_REQUEST['CLIENTE_DNI']);
     $accion = $_REQUEST['accion'];
-    
-    $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+    if(isset($_REQUEST['PAGO_ID'])){
+    $PAGO_ID = $_REQUEST['PAGO_ID']; //AUTOMATICO BD
+        $pago = new PAGO_MODEL($PAGO_ID, '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+    } 
+    else {
+            $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+    }
   //$pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, 300, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     return $pago;
 }
@@ -34,6 +44,10 @@ if (!isset($_REQUEST['accion'])) {
     $_REQUEST['accion'] = '';
 }
 Switch ($_REQUEST['accion']) {
+    
+    
+    
+    
     
     case $strings['Insertar']: //Inserción de pagos
         if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
@@ -56,7 +70,7 @@ Switch ($_REQUEST['accion']) {
         
     case $strings['Borrar']: //Borrado de roles
         if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
-            $pago = new PAGO_MODEL('', '', $_REQUEST ['PAGO_CONCEPTO'], $_REQUEST ['PAGO_IMPORTE'], $_REQUEST ['CLIENTE_ID'], ''); // $_REQUEST ???
+            $pago = new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', ''); // $_REQUEST ???
             $valores = $pago->RellenaDatos();
             if (!tienePermisos('PAGO_Borrar')) {
                 new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
@@ -64,10 +78,9 @@ Switch ($_REQUEST['accion']) {
                     new PAGO_Borrar($valores, 'PAGO_Controller.php');
             }
         } else {
-            $_REQUEST['rol_funcionalidades'] = array('');
-            $rol = get_data_form();
-            $respuesta = $rol->Borrar();
-            new Mensaje($respuesta, 'ROL_Controller.php');
+            $pago = get_data_form();
+            $respuesta = $pago->Borrar();
+            new Mensaje($respuesta, 'PAGO_Controller.php');
         }
         break;
 
@@ -137,6 +150,9 @@ Switch ($_REQUEST['accion']) {
 
     case $strings['Generar Recibo']: //AÑADIR FUNCIONALIDAD
         break;
+    
+    
+    
     
     
     

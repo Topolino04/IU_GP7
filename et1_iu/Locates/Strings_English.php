@@ -202,6 +202,7 @@ $strings = array(
     'Debe introducir un importe'=>'You must enter an amount',
     'Debe introducir una descripción para el concepto de pago'=>'You must enter a description for the concept of payment',
     'Borrar Pago' => 'Delete Payment',
-    'Consultar Pago'=> 'Payment Consultation'
+    'Consultar Pago'=> 'Payment Consultation',
+    'El pago ha sido borrado correctamente'=>'The paymente has been erased succesfuly'
 )
 ?>

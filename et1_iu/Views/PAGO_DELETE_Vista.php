@@ -1,7 +1,8 @@
 <?php
 
 class PAGO_Borrar{
-	//VISTA PARA BORRAR ROLES
+	
+//VISTA PARA BORRAR PAGOS
 
 	private $valores;
 
@@ -20,8 +21,8 @@ class PAGO_Borrar{
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 				include '../Functions/PAGOShowDefForm.php';
 
-                $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
-
+               // $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
+ $lista = array('PAGO_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID');
 				?>
 			</h2>
 			</p>
@@ -34,9 +35,8 @@ class PAGO_Borrar{
 				<form action='PAGO_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
-
-					createForm($lista,$form2,$strings,$this->valores,false,true);
-
+                                                                      
+					createForm($lista,$form,$strings,$this->valores,false,true); //$form2
 					?>
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
 				</form>

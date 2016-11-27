@@ -38,7 +38,7 @@ class PAGO_Consultar{
 					createForm($lista,$form,$strings,$values='',false,false); //$form está en PAGODefForm.php //false, false
 					?>
 				<!--	<input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Consultar'] ?>><br> -->
-					<input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Consultar'] ?>><br>
+					<input type='submit' name='accion' value=<?php echo $strings['Consultar'] ?>><br>
 
 				</form>
 				<?php

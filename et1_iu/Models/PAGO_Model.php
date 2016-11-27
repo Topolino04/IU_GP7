@@ -51,11 +51,6 @@ class PAGO_MODEL {
         
     }
 
-    
-    
-    
-    
-    
 //Nos devuelve la información de los pagos realizados por un determinado cliente o id
     function Consultar() {
         $this->ConectarBD();
@@ -66,26 +61,19 @@ class PAGO_MODEL {
             if ($this->CLIENTE_ID === FALSE) {
                 return FALSE;
             }
-             $toret = array();
+            $toret = array();
             $i = 0;
             while ($fila = $resultado->fetch_array()) {
                 $toret[$i] = $fila;
                 $i++;
             }
             return $toret;
-          //$toret = array();
-          //$toret[0] = $resultado->fetch_array();
-          // return $toret;
+            //$toret = array();
+            //$toret[0] = $resultado->fetch_array();
+            // return $toret;
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
 //Devuelve la lista de todos los pagos realizados
     function ConsultarTodo() {
         $this->ConectarBD();
@@ -106,21 +94,22 @@ class PAGO_MODEL {
 //Borrado de un pago
     function Borrar() {
         $this->ConectarBD();
-        $sql = "select * from PAGO where PAGO_ID = '" . $this->PAGO_ID . "'";
-        $result = $this->mysqli->query($sql);
-        if ($result->num_rows == 1) {
-            $sql = "delete from PAGO where PAGO_ID = '" . $this->PAGO_ID . "'";
-            $this->mysqli->query($sql);
-            return "El pago ha sido borrado correctamente";
+//        $sql = "SELECT * FROM PAGO WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
+//        $result = $this->mysqli->query($sql);
+//        if ($result->num_rows == 1) {
+        $sql = "DELETE FROM PAGO WHERE PAGO_ID='" . $this->PAGO_ID . "'";
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'Error en la consulta sobre la base de datos';
         } else {
-            return "El pago buscado para borrar no existe";
+            //exit(var_dump($this->PAGO_ID)); ------ HERRAMIENTA ------
+            return 'El pago ha sido borrado correctamente';
         }
     }
 
-    function RellenaDatos() {
+    function RellenaDatos() { //Completa el formulario visible con los datos del pago
         $this->ConectarBD();
-        $sql = "SELEC * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
-        if (!($resultado = $this->mysqli->query($sql))) {
+        $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
+        if (!$resultado = $this->mysqli->query($sql)) {
             return 'Error en la consulta sobre la base de datos';
         } else {
             $result = $resultado->fetch_array();

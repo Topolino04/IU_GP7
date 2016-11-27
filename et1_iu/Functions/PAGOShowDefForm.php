@@ -1,4 +1,5 @@
 <?php
+
 //Definición del formulario que muestra la informacion completa de cada pago.
 //Formulario para la consulta de pagos
 $form = array(
@@ -16,6 +17,7 @@ $form = array(
         'type' => 'text',
         'name' => 'PAGO_IMPORTE',
         'value' => '',
+        'size' => 25,
         'required' => true,
         'pattern' => '',
         'validation' => '',
@@ -32,11 +34,10 @@ $form = array(
         'readonly' => false
     ),
     3 => array(
-        'type' => 'date',
+        'type' => 'text',
         'name' => 'PAGO_FECHA',
-        'value' => '2000-01-01',
-        'min' => '1900-01-01',
-        'max' => '3000-01-01',
+        'value' => '',
+        'size' => 155,
         'required' => true,
         'pattern' => '',
         'validation' => '',
@@ -44,7 +45,7 @@ $form = array(
     ),
     4 => array(
         'type' => 'text',
-        'name' => 'PAGO_CLIENTE',
+        'name' => 'CLIENTE_ID', //PAGO_CLIENTE----- !!! -----
         'value' => '',
         'size' => 50,
         'required' => true,
@@ -52,7 +53,6 @@ $form = array(
         'validation' => '',
         'readonly' => false
     ),
-    
 );
 //$DefForm = añadirFunciones($form);//MODIFICAR
 ?>

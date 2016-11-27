@@ -196,6 +196,7 @@ $strings = array(
     'Debe introducir un importe'=>'Debe inserir un importe',
     'Debe introducir una descripción para el concepto de pago'=>'Debe inserir unha descripción para o concepto de pago',
     'Borrar Pago' => 'Borrar Pago',
-    'Consultar Pago'=>'Consultar Pago'
+    'Consultar Pago'=>'Consultar Pago',
+    'El pago ha sido borrado correctamente'=>'O pago borrouse correctamente'
 )
 ?>
