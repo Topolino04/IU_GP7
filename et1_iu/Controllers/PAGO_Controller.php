@@ -103,21 +103,32 @@ Switch ($_REQUEST['accion']) {
         
         
         
+        
+        
+        
+        
     case $strings['Consultar']:  //Consulta de pagos
         if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
             if (!tienePermisos('PAGO_Consultar')) {
                 new Mensaje('No tienes los permisos necesarios', 'PAGO_Controller.php');
             } else {
-
                 new PAGO_Consultar();
             }
         } else {
-            $_REQUEST['rol_funcionalidades'] = array('');
-            $rol = get_data_form();
-            $datos = $rol->Consultar();
-            new ROL_Show($datos, 'ROL_Controller.php');
+            $pago = get_data_form();
+            $datos = $pago->Consultar();
+           // if(!$datos){ //EN EL CASO DE SER NECESARIO, DE ESTA FORMA SE MOSTRARÍA UN MENSAJE POR PANTALLA
+            //    new Mensaje('No existen pagos que tengan los datos introducido', 'PAGO_Controller.php');
+           // }
+           // else {
+            new PAGO_Show($datos, 'PAGO_Controller.php');
+           // }
         }
         break;
+        
+        
+        
+        
         
         
         

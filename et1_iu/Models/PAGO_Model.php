@@ -51,26 +51,45 @@ class PAGO_MODEL {
         
     }
 
+    
+    
+    
+    
+    
 //Nos devuelve la información de los pagos realizados por un determinado cliente o id
     function Consultar() {
         $this->ConectarBD();
-        $sql = "SELECT * from PAGO WHERE PAGO_CLIENTE ='" . $this->CLIENTE_DNI . "' OR PAGO_CONCEPTO='" . $this->PAGO_CONCEPTO. "' ORDER BY PAGO_FECHA DESC";
-        if (!$busqueda = $this->mysqli->query($sql)) { 
-        return "El cliente con el dni introducido no tiene pagos registrados";
-            //echo "El cliente con el dni introducido no tiene pagos registrados";
+        $sql = "SELECT * FROM PAGO WHERE CLIENTE_ID ='" . $this->CLIENTE_ID . "' OR PAGO_CONCEPTO ='" . $this->PAGO_CONCEPTO . "' OR PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "' ORDER BY PAGO_FECHA DESC";
+        if (!$resultado = $this->mysqli->query($sql)) { //----- LA CONSULTA DEVUELVE TRUE SIEMPRE -----
+            return FALSE; //CAMBIAR AVISO //Abraham tenía un echo
         } else {
-            $toret = array();
-            $toret[0] = $resultado->fetch_array();
+            if ($this->CLIENTE_ID === FALSE) {
+                return FALSE;
+            }
+             $toret = array();
+            $i = 0;
+            while ($fila = $resultado->fetch_array()) {
+                $toret[$i] = $fila;
+                $i++;
+            }
             return $toret;
+          //$toret = array();
+          //$toret[0] = $resultado->fetch_array();
+          // return $toret;
         }
-        
-    
     }
 
+    
+    
+    
+    
+    
+    
+    
 //Devuelve la lista de todos los pagos realizados
     function ConsultarTodo() {
         $this->ConectarBD();
-        $sql = "select * from PAGO ORDER BY PAGO_FECHA DESC";
+        $sql = "SELECT * FROM PAGO ORDER BY PAGO_FECHA DESC";
         if (!($resultado = $this->mysqli->query($sql))) {
             return 'Error en la consulta sobre la base de datos';
         } else {
