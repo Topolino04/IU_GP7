@@ -141,7 +141,11 @@ Switch ($_REQUEST['accion']) {
 
 
 
-    case $strings['Generar Recibo']: //AÑADIR FUNCIONALIDAD
+    case $strings['Generar Recibo']: //$_REQUEST['PAGO_ID'] DISPONIBLE
+       
+        $pago=new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
+        $mensaje=$pago->generarRecibo();
+          new Mensaje($mensaje, 'PAGO_Controller.php');         
         break;
 
 

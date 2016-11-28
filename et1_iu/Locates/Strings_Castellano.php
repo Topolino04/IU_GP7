@@ -208,6 +208,7 @@ $strings = array(
     'El pago ha sido borrado correctamente'=>'El pago ha sido borrado correctamente',
     'Modificar Pago' =>'Modificar Pago',
     'El pago se ha modificado correctamente'=>'El pago se ha modificado correctamente',
-    'El DNI introducido no pertenece a ningun cliente'=>'El DNI introducido no pertenece a ningun cliente'
+    'El DNI introducido no pertenece a ningun cliente'=>'El DNI introducido no pertenece a ningun cliente',
+    'Se ha generado el recibo de pago'=>'Se ha generado el recibo de pago'
 )
 ?>

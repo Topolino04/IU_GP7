@@ -261,6 +261,36 @@
 		}
 
 		
+//----------------------------------------------------------
+function valida_envia_PAGO() {
 
+if (!nif(document.form.CLIENTE_DNI.value)) {
+        document.form.CLIENTE_DNI.focus();
+        return false;
+    }
+    
+    if (document.form.PAGO_CONCEPTO.value.length == 0) {
+        alert("Introduza un valor para o concepto");
+        document.form.PAGO_CONCEPTO.focus();
+        return false;
+    }
+    if (document.form.PAGO_CONCEPTO.value.length > 200) {
+        alert("Concepto demasiado longo (max 200 caracteres)");
+        document.form.PAGO_CONCEPTO.focus();
+        return false;
+    }
+    if (document.form.PAGO_IMPORTE.value.length == 0) {
+        alert("Introduza un valor para o importe");
+        document.form.PAGO_IMPORTE.focus();
+        return false;
+    }
+    if (document.form.PAGO_IMPORTE.value.length > 10) {
+        alert("Importe demasiado longo (max 10 caracteres)");
+        document.form.PAGO_IMPORTE.focus();
+        return false;
+    }
+    return true;
+}
+//----------------------------------------------------------
 
 

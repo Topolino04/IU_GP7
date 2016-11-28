@@ -108,19 +108,18 @@ class PAGO_MODEL {
 
     function RellenaDatos() { //Completa el formulario visible con los datos del pago
         $this->ConectarBD();
-        $CLIENTE_ID= consultarIDClientePAGO("$this->PAGO_ID");
-        $CLIENTE_DNI= consultarDNICliente($CLIENTE_ID);
+        $CLIENTE_ID = consultarIDClientePAGO("$this->PAGO_ID");
+        $CLIENTE_DNI = consultarDNICliente($CLIENTE_ID);
         $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'Error en la consulta sobre la base de datos';
         } else {
             $result = $resultado->fetch_array();
-        $result['CLIENTE_DNI']=$CLIENTE_DNI;
-          return $result; 
+            $result['CLIENTE_DNI'] = $CLIENTE_DNI;
+            return $result;
         }
     }
-        
-        
+
 //        $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
 //        if (!$resultado = $this->mysqli->query($sql)) {
 //            return 'Error en la consulta sobre la base de datos';
@@ -133,7 +132,6 @@ class PAGO_MODEL {
 //            return $result; 
 //        }
 //    }
-
 //Modifica los datos del pago
 //function Modificar($ROL_ID, $rol_funcionalidades)
     //function Modificar($PAGO_ID, $PAGO_IMPORTE, $PAGO_CONCEPTO, $PAGO_CLIENTE, $PAGO_FECHA)
@@ -151,6 +149,19 @@ class PAGO_MODEL {
                 return 'El pago se ha modificado correctamente';
             }
         }
+    }
+
+    function generarRecibo() { //Genera el recibo en formato .txt correspondiente a un pago.
+        $this->ConectarBD();
+        $sql = "SELECT * FROM PAGO WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
+        $request = $this->mysqli->query($sql);
+        $datosPAGO = $request->fetch_array();
+        $sql = "SELECT * FROM EMPLEADOS WHERE EMP_USER = '" . $_SESSION['login'] . "'";
+        $request = $this->mysqli->query($sql);
+        $datosEMPLEADO = $request->fetch_array();
+        $empleado = $datosEMPLEADO['EMP_NOMBRE'] . " " . $datosEMPLEADO['EMP_APELLIDO'];
+        generarRecibo($datosPAGO['PAGO_ID'], $datosPAGO['PAGO_FECHA'], $empleado, $datosPAGO['CLIENTE_ID'], $datosPAGO['PAGO_CONCEPTO'], $datosPAGO['PAGO_IMPORTE']);
+        return 'Se ha generado el recibo de pago';
     }
 
 }

@@ -1473,7 +1473,7 @@ function añadirFuncionalidades($NOM) {
                     ?><a style="font-size:20px;" href='../Controllers/EMPLEADO_Controller.php'><?php echo $strings['Consulta de Empleados'] ?></a><br><br> <?php
                     break;
                 case "GESTION PAGOS": // ------ ET2 -----
-                    ?><!--<a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> --><?php
+                    ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
                     break;
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
@@ -1988,4 +1988,17 @@ function consultarIDClientePAGO($PAGO_ID) { //REVISAR FUNCIONAMIENTO
         return $resultado['CLIENTE_ID'];
     }
 }
+
+function generarRecibo ($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONCEPTO, $PAGO_IMPORTE){
+$template= file_get_contents('../Recibos/recibo_template.txt');
+$template= str_replace('[PAGO_ID]', $PAGO_ID, $template);
+$template= str_replace('[PAGO_FECHA]', $PAGO_FECHA, $template);
+$template= str_replace(['[EMPLEADO]'], $EMPLEADO, $template);
+$template= str_replace('[CLIENTE_ID]', $CLIENTE_ID, $template);
+$template= str_replace('[PAGO_CONCEPTO]', $PAGO_CONCEPTO, $template);
+$template= str_replace('[PAGO_IMPORTE]', $PAGO_IMPORTE, $template);
+$recibo_ID='../Recibos/Recibo_'.$PAGO_ID.'.txt';
+file_put_contents($recibo_ID, $template);
+}
+
 ?>
