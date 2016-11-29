@@ -2,6 +2,7 @@
 
 //Definición del formulario que muestra la informacion completa de cada pago.
 //Formulario para la modificacion de pagos
+
 $form = array(
     0 => array(
         'type' => 'text',

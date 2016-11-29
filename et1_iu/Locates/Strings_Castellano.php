@@ -193,7 +193,7 @@ $strings = array(
 'PAGO_ID'=> 'Identificador del pago',
     'PAGO_FECHA'=>'Fecha de pago',
     'PAGO_CONCEPTO'=>'Concepto',
-    'PAGO_IMPORTE'=>'Importe',
+    'PAGO_IMPORTE'=>'Importe [€]',
     'CLIENTE_ID'=>'Identificador de cliente',
     'Generar Recibo'=>'Generar Recibo',
     'Insertar Pago'=>'Insertar Pago',
@@ -209,6 +209,9 @@ $strings = array(
     'Modificar Pago' =>'Modificar Pago',
     'El pago se ha modificado correctamente'=>'El pago se ha modificado correctamente',
     'El DNI introducido no pertenece a ningun cliente'=>'El DNI introducido no pertenece a ningun cliente',
-    'Se ha generado el recibo de pago'=>'Se ha generado el recibo de pago'
+    'Se ha generado el recibo de pago'=>'Se ha generado el recibo de pago',
+    'PAGO_ESTADO'=>'Estado',
+    'Realizar Pago'=> 'Realizar Pago',
+    'Consultar Recibo'=>'Consultar Recibo'
 )
 ?>

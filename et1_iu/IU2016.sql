@@ -672,21 +672,22 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 
 CREATE TABLE IF NOT EXISTS `PAGO` (
 `PAGO_ID` int(100) NOT NULL,
+`CLIENTE_ID` int(255) NOT NULL,
 `PAGO_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `PAGO_CONCEPTO` varchar(200) DEFAULT NULL,
 `PAGO_IMPORTE` decimal(10,2) NOT NULL,
 -- `PAGO_IMPORTE` varchar(10) NOT NULL,
-  `CLIENTE_ID` int(255) NOT NULL
+`PAGO_ESTADO` varchar(10) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `PAGO`
 --
 
-INSERT INTO `PAGO` (`PAGO_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_IMPORTE`, `CLIENTE_ID`) VALUES
-(1, '2016-11-20 10:26:36', 'Curso Karate + Examen', 500.00, 300),
-(2, '2016-11-21 11:00:12', 'Protecciones Homologadas WFK', 270.90, 300),
-(3, '2016-12-24 12:30:15', 'Karate gi Shureido', 217.95, 300);
+INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_IMPORTE`, `PAGO_ESTADO`) VALUES
+(1, 300, '2016-11-20 10:26:36', 'Curso de Karate', 500.00, 'PAGADO'),
+(2, 300, '2016-11-21 11:00:12', 'Master en Meditacion', 270.90, 'PENDIENTE'),
+(3, 300, '2016-12-24 12:30:15', 'Ropa de gimnasio', 217.95, 'PAGADO');
 
 -- --------------------------------------------------------
 

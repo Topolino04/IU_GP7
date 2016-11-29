@@ -36,8 +36,15 @@ class PAGO_Insertar{
                     <?php
 
                     createForm($lista,$form,$strings,'',true,false); 
-//----- Validacion de campos -----
+                   
+//----- Añadir Select de estado -----
                     ?>
+                        Estado: 
+                        <select name="estado" size="1" required="required">
+                            <option value="PENDIENTE">PENDIENTE</option>
+                            <option value="PAGADO">PAGADO</option>
+                        </select>
+                               
                     <input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Insertar'] ?>>
                 </form>
                 <?php

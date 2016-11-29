@@ -45,9 +45,9 @@ $form = array(
     ),
     4 => array(
         'type' => 'text',
-        'name' => 'CLIENTE_ID', //PAGO_CLIENTE----- !!! -----
+        'name' => 'PAGO_ESTADO',
         'value' => '',
-        'size' => 50,
+        'size' => 10,
         'required' => true,
         'pattern' => '',
         'validation' => '',

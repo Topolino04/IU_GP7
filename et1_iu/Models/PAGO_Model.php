@@ -9,16 +9,18 @@ class PAGO_MODEL {
     var $PAGO_FECHA;
     var $PAGO_CONCEPTO;
     var $PAGO_IMPORTE;
+    var $PAGO_ESTADO;
     var $CLIENTE_ID;
     var $CLIENTE_DNI;
     var $mysqli;
 
 //Constructor de la clase pago
-    function __construct($PAGO_ID, $PAGO_FECHA, $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, $CLIENTE_DNI) {
+    function __construct($PAGO_ID, $PAGO_FECHA, $PAGO_CONCEPTO, $PAGO_IMPORTE, $PAGO_ESTADO, $CLIENTE_ID, $CLIENTE_DNI) {
         $this->PAGO_ID = $PAGO_ID;
         $this->PAGO_FECHA = $PAGO_FECHA;
         $this->PAGO_CONCEPTO = $PAGO_CONCEPTO;
         $this->PAGO_IMPORTE = $PAGO_IMPORTE;
+        $this->PAGO_ESTADO = $PAGO_ESTADO;
         $this->CLIENTE_ID = $CLIENTE_ID;
         $this->CLIENTE_DNI = $CLIENTE_DNI;
     }
@@ -37,7 +39,8 @@ class PAGO_MODEL {
         if ($this->CLIENTE_ID === FALSE) {
             return 'No existe ningún cliente con el DNI introducido';
         } else {
-            $sql = "INSERT INTO PAGO (PAGO_CONCEPTO, PAGO_IMPORTE, CLIENTE_ID) VALUES ('" . $this->PAGO_CONCEPTO . "', '" . $this->PAGO_IMPORTE . "', '" . $this->CLIENTE_ID . "')";
+            $this->PAGO_ESTADO='PENDIENTE';
+            $sql = "INSERT INTO PAGO (PAGO_CONCEPTO, PAGO_IMPORTE, PAGO_ESTADO, CLIENTE_ID) VALUES ('" . $this->PAGO_CONCEPTO . "', '" . $this->PAGO_IMPORTE . "', '" . $this->PAGO_ESTADO ."', '".$this->CLIENTE_ID . "')";
             if (!$result = $this->mysqli->query($sql)) {
                 return 'No se ha podido conectar con la base de datos';
             } else {

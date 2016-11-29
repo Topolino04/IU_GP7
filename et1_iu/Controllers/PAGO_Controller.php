@@ -20,6 +20,7 @@ function get_data_form() {
     $PAGO_CONCEPTO = $_REQUEST['PAGO_CONCEPTO'];
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
     // $PAGO_FECHA = $_REQUEST['PAGO_FECHA']; //AUTOMATICO BD
+    $PAGO_ESTADO = $_REQUES['PAGO_ESTADO'];
     if (isset($_REQUEST['CLIENTE_DNI'])) {
         $CLIENTE_DNI = $_REQUEST['CLIENTE_DNI'];
         $CLIENTE_ID = consultarIDCliente($CLIENTE_DNI);
@@ -30,9 +31,9 @@ function get_data_form() {
     $accion = $_REQUEST['accion'];
     if (isset($_REQUEST['PAGO_ID'])) {
         $PAGO_ID = $_REQUEST['PAGO_ID']; //AUTOMATICO BD
-        $pago = new PAGO_MODEL($PAGO_ID, '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+        $pago = new PAGO_MODEL($PAGO_ID, '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $PAGO_ESTADO, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     } else {
-        $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+        $pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, $PAGO_ESTADO, $CLIENTE_ID, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     }
     //$pago = new PAGO_MODEL('', '', $PAGO_CONCEPTO, $PAGO_IMPORTE, 300, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     return $pago;
@@ -142,10 +143,10 @@ Switch ($_REQUEST['accion']) {
 
 
     case $strings['Generar Recibo']: //$_REQUEST['PAGO_ID'] DISPONIBLE
-       
-        $pago=new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
-        $mensaje=$pago->generarRecibo();
-          new Mensaje($mensaje, 'PAGO_Controller.php');         
+
+        $pago = new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
+        $mensaje = $pago->generarRecibo();
+        new Mensaje($mensaje, 'PAGO_Controller.php');
         break;
 
 
@@ -158,7 +159,7 @@ Switch ($_REQUEST['accion']) {
     default:
         //La vista por defecto lista las funcionalidades
         if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
-            $pago = new PAGO_MODEL('', '', '', '', '', ''); //PARA QUÉ SIRVE???
+            $pago = new PAGO_MODEL('', '', '', '', '', '', ''); //PARA QUÉ SIRVE???
         } else {
             $pago = get_data_form();
         }

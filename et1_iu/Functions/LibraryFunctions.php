@@ -1989,16 +1989,33 @@ function consultarIDClientePAGO($PAGO_ID) { //REVISAR FUNCIONAMIENTO
     }
 }
 
-function generarRecibo ($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONCEPTO, $PAGO_IMPORTE){
-$template= file_get_contents('../Recibos/recibo_template.txt');
-$template= str_replace('[PAGO_ID]', $PAGO_ID, $template);
-$template= str_replace('[PAGO_FECHA]', $PAGO_FECHA, $template);
-$template= str_replace(['[EMPLEADO]'], $EMPLEADO, $template);
-$template= str_replace('[CLIENTE_ID]', $CLIENTE_ID, $template);
-$template= str_replace('[PAGO_CONCEPTO]', $PAGO_CONCEPTO, $template);
-$template= str_replace('[PAGO_IMPORTE]', $PAGO_IMPORTE, $template);
-$recibo_ID='../Recibos/Recibo_'.$PAGO_ID.'.txt';
-file_put_contents($recibo_ID, $template);
+function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONCEPTO, $PAGO_IMPORTE) {
+    $template = file_get_contents('../Recibos/recibo_template.txt');
+    $template = str_replace('[PAGO_ID]', $PAGO_ID, $template);
+    $template = str_replace('[PAGO_FECHA]', $PAGO_FECHA, $template);
+    $template = str_replace(['[EMPLEADO]'], $EMPLEADO, $template);
+    $template = str_replace('[CLIENTE_ID]', $CLIENTE_ID, $template);
+    $template = str_replace('[PAGO_CONCEPTO]', $PAGO_CONCEPTO, $template);
+    $template = str_replace('[PAGO_IMPORTE]', $PAGO_IMPORTE, $template);
+    $recibo_ID = '../Recibos/Recibo_' . $PAGO_ID . '.txt';
+    file_put_contents($recibo_ID, $template);
 }
 
+function consultarEstadoPago($PAGO_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT * FROM PAGO WHERE PAGO_ID='" . $PAGO_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return FALSE; //No se va a producir
+    } else {
+        $resultado = $busqueda->fetch_array();
+        if ($resultado['PAGO_ESTADO'] === 'PAGADO') {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+}
 ?>
