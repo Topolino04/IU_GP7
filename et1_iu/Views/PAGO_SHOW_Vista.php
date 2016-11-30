@@ -19,7 +19,7 @@ class PAGO_Consultar{
 
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 				
-             $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
+             $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'PAGO_ESTADO');
 				?>
 			<span class="form-title">
 				<?php echo $strings['Consultar Pago']?><br>
@@ -37,8 +37,13 @@ class PAGO_Consultar{
 
 					createForm($lista,$form,$strings,$values='',false,false); //$form está en PAGODefForm.php //false, false
 					?>
+                                            <br><b>Estado </b>
+                        <select name="PAGO_ESTADO" size="1" required="required">
+                            <option value="PENDIENTE" selected="PENDIENTE">PENDIENTE</option>
+                            <option value="PAGADO">PAGADO</option>
+                        </select><br>
 				<!--	<input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Consultar'] ?>><br> -->
-					<input type='submit' name='accion' value=<?php echo $strings['Consultar'] ?>><br>
+					<input type='submit' name='accion' value=<?php echo $strings['Consultar'] ?>>
 
 				</form>
 				<?php

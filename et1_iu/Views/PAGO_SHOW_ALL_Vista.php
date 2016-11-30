@@ -94,10 +94,13 @@ class PAGO_Show {
                                         <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Realizar Pago']; ?>'><?php echo $strings['Realizar Pago'] ?></a>
                                    <?php }
                                     else { ?>
-                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Consultar Recibo']; ?>'><?php echo $strings['Consultar Recibo'] ?></a>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
                                     <?php } ?>
                                        
                                    
+                                </td>
+                                <td>
+                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>

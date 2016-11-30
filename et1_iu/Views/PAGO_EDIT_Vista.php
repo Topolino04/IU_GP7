@@ -23,7 +23,7 @@ class PAGO_Modificar{
 				include '../Functions/PAGOEditDefForm.php';
 				//include '../Functions/LibraryFunctions.php';
 
-				 $lista = array('PAGO_ID', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_DNI');
+				 $lista = array('PAGO_ID', 'CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'PAGO_ESTADO');
 
 
 
@@ -45,6 +45,28 @@ class PAGO_Modificar{
 					//createForm2($lista,$DefForm,$strings,$this->valores,array('ROL_NOM'=>true),array('ROL_ID'=>true),$this->valores['ROL_ID']); //DefForm2
 					createForm($lista,$form,$strings,$this->valores,array('PAGO_CONCEPTO'=>false, 'PAGO_IMPORTE'=>false, 'CLIENTE_DNI'=>false), array('PAGO_ID'=>true));
 					?>
+                                            <br><b>Estado </b>
+                        <select name="PAGO_ESTADO" size="1" required="required">
+                            <?php
+                            if($this->valores['PAGO_ESTADO']=='PENDIENTE'){
+                                ?><option value="PENDIENTE" selected="PENDIENTE">PENDIENTE</option>
+                            <option value="PAGADO">PAGADO</option>
+                                <?php 
+                            }
+                            else { 
+                                    ?><option value="PENDIENTE" >PENDIENTE</option>
+                                    <option value="PAGADO" selected="PAGADO">PAGADO</option>
+                                <?php 
+                                }
+?>
+                                    
+                                }
+                            }
+                            ?>
+                            
+                        </select><br>
+                                            
+                                            
 					<input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php

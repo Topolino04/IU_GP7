@@ -39,11 +39,11 @@ class PAGO_Insertar{
                    
 //----- Añadir Select de estado -----
                     ?>
-                        Estado: 
-                        <select name="estado" size="1" required="required">
+                        <br><b>Estado </b>
+                        <select name="PAGO_ESTADO" size="1" required="required">
                             <option value="PENDIENTE">PENDIENTE</option>
                             <option value="PAGADO">PAGADO</option>
-                        </select>
+                        </select><br>
                                
                     <input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Insertar'] ?>>
                 </form>

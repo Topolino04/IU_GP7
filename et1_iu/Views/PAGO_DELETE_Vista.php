@@ -22,7 +22,7 @@ class PAGO_Borrar{
 				include '../Functions/PAGOShowDefForm.php';
 
                // $lista = array('CLIENTE_DNI', 'PAGO_CONCEPTO', 'PAGO_IMPORTE');
- $lista = array('PAGO_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID');
+ $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'PAGO_ESTADO');
 				?>
 			</h2>
 			</p>
@@ -38,6 +38,21 @@ class PAGO_Borrar{
                                                                       
 					createForm($lista,$form,$strings,$this->valores,false,true); //$form2
 					?>
+                                            
+                                             <br><b>Estado </b>
+                        
+                            <?php
+                            if($this->valores['PAGO_ESTADO']=='PENDIENTE'){
+                                ?><input type="text" name="PAGO_ESTADO" value="PENDIENTE" readonly><br>
+                                <?php 
+                            }
+                            else { 
+                                    ?><input type="text" name="PAGO_ESTADO" value="PAGADO" readonly><br>
+                                     <?php //readonly
+                                }
+                                ?>
+                                     
+                                            
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
 				</form>
 				<?php
