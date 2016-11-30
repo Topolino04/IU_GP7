@@ -497,7 +497,7 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (3, 'GESTION FUNCIONALIDADES'),
 (4, 'GESTION PAGINAS'),
 (5, 'CONSULTA EMPLEADOS'),
-(100, 'Gestion de Descuentos'),
+(101, 'Gestion de Descuentos'),
 (300, 'GESTION PAGOS');
 
 -- --------------------------------------------------------
