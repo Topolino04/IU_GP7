@@ -497,6 +497,7 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (3, 'GESTION FUNCIONALIDADES'),
 (4, 'GESTION PAGINAS'),
 (5, 'CONSULTA EMPLEADOS'),
+(100, 'Gestion de Descuentos'),
 (300, 'GESTION PAGOS');
 
 -- --------------------------------------------------------
@@ -539,6 +540,10 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (2, 21),
 (2, 22),
 (2, 23),
+(101,106),
+(101,107),
+(101,108),
+(101,109),
 (300, 300),
 (300, 301),
 (300, 302),
@@ -658,6 +663,10 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (21, '../Views/ROL_SHOW_ALL_Vista.php', 'ROL SHOW ALL'),
 (22, '../Views/ROL_SHOW_FUNCIONES_Vista.php', 'ROL SHOW FUNCIONES'),
 (23, '../Views/ROL_SHOW_Vista.php', 'ROL SHOW'),
+(106, '../Views/DESCUENTO_ADD_Vista.php', 'DESCUENTO ADD'),
+(107, '../Views/DESCUENTO_DELETE_Vista.php', 'DESCUENTO DELETE'),
+(108, '../Views/DESCUENTO_EDIT_Vista.php', 'DESCUENTO EDIT'),
+(109, '../Views/DESCUENTO_SHOW_ALL_Vista.php', 'DESCUENTO SHOW ALL'),
 (300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
 (301, '../Views/PAGO_DELETE_Vista.php', 'PAGO DELETE'),
 (302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
@@ -747,6 +756,7 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 3),
 (1, 4),
 (1, 5),
+(1, 101),
 (1, 300),
 (2, 5),
 (2, 300);
