@@ -675,6 +675,7 @@ CREATE TABLE IF NOT EXISTS `PAGO` (
 `CLIENTE_ID` int(255) NOT NULL,
 `PAGO_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `PAGO_CONCEPTO` varchar(200) DEFAULT NULL,
+`PAGO_METODO` varchar(35) NOT NULL,
 `PAGO_IMPORTE` decimal(10,2) NOT NULL,
 -- `PAGO_IMPORTE` varchar(10) NOT NULL,
 `PAGO_ESTADO` varchar(10) NOT NULL
@@ -683,11 +684,11 @@ CREATE TABLE IF NOT EXISTS `PAGO` (
 --
 -- Dumping data for table `PAGO`
 --
-
-INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_IMPORTE`, `PAGO_ESTADO`) VALUES
-(1, 300, '2016-11-20 10:26:36', 'Curso de Karate', 500.00, 'PAGADO'),
-(2, 300, '2016-11-21 11:00:12', 'Master en Meditacion', 270.90, 'PENDIENTE'),
-(3, 300, '2016-12-24 12:30:15', 'Ropa de gimnasio', 217.95, 'PAGADO');
+INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_METODO`, `PAGO_IMPORTE`, `PAGO_ESTADO`) VALUES
+(1, 300, '2016-11-20 10:26:36', 'Curso de Karate','Contado', 500.00, 'PAGADO'),
+(2, 300, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 270.90, 'PENDIENTE'),
+(3, 300, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 217.95, 'PAGADO'),
+(4, 300, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 1000.00, 'PENDIENTE');
 
 -- --------------------------------------------------------
 

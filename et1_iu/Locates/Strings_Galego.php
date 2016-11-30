@@ -204,6 +204,7 @@ $strings = array(
     'Se ha generado el recibo de pago'=>'Recibo do pago xerado',
     'PAGO_ESTADO'=>'Estado',
     'Realizar Pago'=>'Realizar Pago',
-    'Ver Recibo'=>'Ver Recibo'
+    'Ver Recibo'=>'Ver Recibo',
+    'PAGO_METODO'=>'Método de Pago'
 )
 ?>
