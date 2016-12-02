@@ -155,10 +155,10 @@ Switch ($_REQUEST['accion']) {
 
     default:
         //La vista por defecto lista las funcionalidades
-        if (!isset($_REQUEST['PAGO_CONCEPTO'])) {
+        if (!isset($_REQUEST['PAGO_CONCEPTO'])) { //NO HACE FALTA EL IF!!
             $pago = new PAGO_MODEL('', '', '', '', '', '', '', ''); //PARA QUÉ SIRVE???
         } else {
-            $pago = get_data_form();
+            $pago = get_data_form(); //NO ENTRA NUNCA!!
         }
         $datos = $pago->ConsultarTodo();
         if (!tienePermisos('PAGO_Show')) {
