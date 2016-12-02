@@ -130,5 +130,19 @@ function Modificar(){
     	return "El descuento no existe";
 	}
 }
+
+function CalcularDescuentoUsuario($CLIENTE_ID){
+	$this->ConectarBD();
+	$sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
+			FROM CLIENTE_TIENE_DESCUENTO, DESCUENTO
+			WHERE CLIENTE_TIENE_DESCUENTO.DESCUENTO_ID = DESCUENTO.DESCUENTO_ID
+			AND  CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID}";
+	$result = $this->mysqli->query($sql);
+	$resultado = $result->fetch_array();
+	$res = 1-(((float)$resultado["TOTAL"])/100);
+	if($res < 0)	return 0;
+	else return $res;
+}
+
 }
 ?>

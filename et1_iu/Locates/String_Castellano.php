@@ -177,9 +177,7 @@ $strings = array(
 	'Asistencia Monitores'=>'Asistencia Monitores',
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
-    
-    
- //---------- PAGOS -------------   
+
         'GESTION PAGOS'=>'GESTION PAGOS',
     'Gestión de Pagos'=>'Gestion de Pagos',
 'PAGO_ID'=> 'Identificador del pago',
@@ -201,11 +199,13 @@ $strings = array(
     'Modificar Pago' =>'Modificar Pago',
     'El pago se ha modificado correctamente'=>'El pago se ha modificado correctamente',
     'El DNI introducido no pertenece a ningun cliente'=>'El DNI introducido no pertenece a ningun cliente',
+
     'Se ha generado el recibo de pago'=>'Se ha generado el recibo de pago',
     'PAGO_ESTADO'=>'Estado',
     'Realizar Pago'=> 'Realizar Pago',
     'Ver Recibo'=>'Ver Recibo',
     'PAGO_METODO'=>'Método de Pago',
+
 
 
     //-------------------- DESCUENTOS --------------------
@@ -221,7 +221,7 @@ $strings = array(
         'El descuento ha sido borrado correctamente' => 'El descuento ha sido borrado correctamente',
         'Borrar Descuento' => 'Borrar Descuento',
         'Modificar Descuento'=>'Modificar Descuento',
-        "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
+        "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito"
     //-------------------- DESCUENTOS --------------------
 
 
