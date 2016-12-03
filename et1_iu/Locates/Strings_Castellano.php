@@ -177,6 +177,8 @@ $strings = array(
 	'Asistencia Monitores'=>'Asistencia Monitores',
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
+    
+    
         'GESTION PAGOS'=>'GESTION PAGOS',
     'Gestión de Pagos'=>'Gestion de Pagos',
 'PAGO_ID'=> 'Identificador del pago',

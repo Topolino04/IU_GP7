@@ -1997,39 +1997,37 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     $template = str_replace('[CLIENTE_ID]', $CLIENTE_ID, $template);
     $template = str_replace('[PAGO_CONCEPTO]', $PAGO_CONCEPTO, $template);
     $template = str_replace('[PAGO_IMPORTE]', $PAGO_IMPORTE, $template);
+    $template = str_replace('[PAGO_DESCUENTO]', 100 * (1 - CalcularDescuentoCliente($CLIENTE_ID)), $template);
+    $template = str_replace('[PAGO_IMPORTE_TOTAL]', round($PAGO_IMPORTE * CalcularDescuentoCliente($CLIENTE_ID), 2), $template);
     $recibo_ID = '../Recibos/Recibo_' . $PAGO_ID . '.txt';
     file_put_contents($recibo_ID, $template);
 }
 
-function CalcularDescuentoCliente($CLIENTE_ID){
-$mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+function CalcularDescuentoCliente($CLIENTE_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
-	$sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
+    $sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
 			FROM CLIENTE_TIENE_DESCUENTO, DESCUENTO
 			WHERE CLIENTE_TIENE_DESCUENTO.DESCUENTO_ID = DESCUENTO.DESCUENTO_ID
 			AND  CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID}";
-	$result = $mysqli->query($sql); 
-	$resultado = $result->fetch_array();
-	$res = 1-(((float)$resultado["TOTAL"])/100);
-	if ($res < 0)	{
-            return 0;
-        }
-	else {
-            return $res;
-        }
-        
-        
+    $result = $mysqli->query($sql);
+    $resultado = $result->fetch_array();
+    $res = 1 - (((float) $resultado["TOTAL"]) / 100);
+    if ($res < 0) {
+        return 0;
+    } else {
+        return $res;
+    }
+
+
 //        $sql="SELECT DESCUENTO_ID FROM CLIENTE_TIENE_DESCUENTO WHERE CLIENTE_ID='".$CLIENTE_ID."'";
 //        $result = $mysqli->query($sql); 
 //        $resultado = $result->fetch_array();
 //        var_dump($resultado);
 //        return $resultado;
 }
-
-
-
 
 function consultarEstadoPago($PAGO_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");

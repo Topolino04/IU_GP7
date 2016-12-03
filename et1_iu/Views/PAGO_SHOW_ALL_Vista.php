@@ -43,14 +43,14 @@ class PAGO_Show {
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Consultar'] ?>'><?php echo $strings['Consultar'] ?></a>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Insertar'] ?>'><?php echo $strings['Insertar'] ?></a>
-                            
+
 
                         </div>
                     </nav>
 
 
                     <?php
-                    $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO',  'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
+                    $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO', 'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
                     ?>
 
 
@@ -75,7 +75,7 @@ class PAGO_Show {
                             <?php
                             for ($j = 0; $j < count($this->datos); $j++) {
                                 echo "<tr>";
-                                
+
                                 foreach ($this->datos [$j] as $clave => $valor) {
                                     for ($i = 0; $i < count($lista); $i++) {
                                         if ($clave === $lista[$i]) {
@@ -86,26 +86,28 @@ class PAGO_Show {
                                     }
                                 }
                                 ?>
-<?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
-                           
-                                <td>
-                                    <?php 
-                                    if (!consultarEstadoPago($this->datos[$j]['PAGO_ID'])){ ?>
-                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Realizar Pago']; ?>'><?php echo $strings['Realizar Pago'] ?></a>
-                                   <?php }
-                                    else { ?>
-                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
-                                    <?php } ?>
-                                       
-                                   
-                                </td>
+                                <?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
+
+
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
                                 </td>
-                                
+                                <td>
+                                    <?php if ((file_exists('../Recibos/Recibo_' . $this->datos[$j]['PAGO_ID'] . '.txt')) && ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO')) { ?>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
+                                        <?php
+                                    } else {
+                                        if ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO') {
+                                            ?>
+                                            <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                </td>
 
                                 <?php
                                 echo "<tr>";
