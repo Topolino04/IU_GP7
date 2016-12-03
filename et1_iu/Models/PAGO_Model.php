@@ -16,7 +16,7 @@ class PAGO_MODEL {
     var $mysqli;
 
 //Constructor de la clase pago
-    function __construct($PAGO_ID, $CLIENTE_ID, $PAGO_FECHA, $PAGO_CONCEPTO, $PAGO_METODO, $PAGO_IMPORTE, $PAGO_ESTADO, $CLIENTE_DNI) {
+    function __construct($PAGO_ID, $CLIENTE_ID, $PAGO_FECHA, $PAGO_CONCEPTO, $PAGO_METODO,  $PAGO_ESTADO,$PAGO_IMPORTE, $CLIENTE_DNI) {
         $this->PAGO_ID = $PAGO_ID;
         $this->PAGO_FECHA = $PAGO_FECHA;
         $this->PAGO_CONCEPTO = $PAGO_CONCEPTO;
@@ -86,12 +86,22 @@ class PAGO_MODEL {
         if (!($resultado = $this->mysqli->query($sql))) {
             return 'Error en la consulta sobre la base de datos';
         } else {
+          //  $resultado['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($this->CLIENTE_ID));
+           //$resultado['PAGO_IMPORTE_FINAL']= $this->PAGO_IMPORTE*CalcularDescuentoCliente($this->CLIENTE_ID);
             $toret = array();
             $i = 0;
             while ($fila = $resultado->fetch_array()) {
-                $toret[$i] = $fila;
+                $toret[$i] = $fila; 
+                //var_dump($fila);
+                $toret[$i]['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
+                $toret[$i]['PAGO_IMPORTE_FINAL']=$toret[$i]['PAGO_IMPORTE']*CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']);
+                
+//var_dump($toret[$i]);
                 $i++;
+               
+              
             }
+            
             return $toret;
         }
     }
@@ -120,7 +130,10 @@ class PAGO_MODEL {
             return 'Error en la consulta sobre la base de datos';
         } else {
             $result = $resultado->fetch_array();
-            $result['CLIENTE_DNI'] = $CLIENTE_DNI; //???
+            $result['CLIENTE_DNI'] = $CLIENTE_DNI;
+            
+           
+           
             return $result;
         }
     }

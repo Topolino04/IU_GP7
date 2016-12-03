@@ -205,6 +205,8 @@ $strings = array(
     'PAGO_ESTADO'=>'Estado',
     'Realizar Pago'=>'Realizar Pago',
     'Ver Recibo'=>'Ver Recibo',
-    'PAGO_METODO'=>'Método de Pago'
+    'PAGO_METODO'=>'Método de Pago',
+    'PAGO_DESCUENTO'=>'Desconto [%]',
+    'PAGO_IMPORTE_FINAL'=>'Importe Final [€]'
 )
 ?>

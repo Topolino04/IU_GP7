@@ -2001,6 +2001,36 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     file_put_contents($recibo_ID, $template);
 }
 
+function CalcularDescuentoCliente($CLIENTE_ID){
+$mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+	$sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
+			FROM CLIENTE_TIENE_DESCUENTO, DESCUENTO
+			WHERE CLIENTE_TIENE_DESCUENTO.DESCUENTO_ID = DESCUENTO.DESCUENTO_ID
+			AND  CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID}";
+	$result = $mysqli->query($sql); 
+	$resultado = $result->fetch_array();
+	$res = 1-(((float)$resultado["TOTAL"])/100);
+	if ($res < 0)	{
+            return 0;
+        }
+	else {
+            return $res;
+        }
+        
+        
+//        $sql="SELECT DESCUENTO_ID FROM CLIENTE_TIENE_DESCUENTO WHERE CLIENTE_ID='".$CLIENTE_ID."'";
+//        $result = $mysqli->query($sql); 
+//        $resultado = $result->fetch_array();
+//        var_dump($resultado);
+//        return $resultado;
+}
+
+
+
+
 function consultarEstadoPago($PAGO_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {

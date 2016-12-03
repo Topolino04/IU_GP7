@@ -203,6 +203,8 @@ $strings = array(
     'Realizar Pago'=> 'Realizar Pago',
     'Ver Recibo'=>'Ver Recibo',
     'PAGO_METODO'=>'Método de Pago',
+    'PAGO_DESCUENTO'=>'Descuento [%]',
+    'PAGO_IMPORTE_FINAL'=>'Importe Final [€]',
 
 
 
@@ -220,9 +222,7 @@ $strings = array(
         'Borrar Descuento' => 'Borrar Descuento',
         'Modificar Descuento'=>'Modificar Descuento',
         "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
+ "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito"
  
-
-
 )
 ?>
