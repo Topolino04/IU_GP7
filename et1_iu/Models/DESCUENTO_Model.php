@@ -130,6 +130,7 @@ function Modificar(){
     	return "El descuento no existe";
 	}
 }
+
 function CalcularDescuentoUsuario($CLIENTE_ID){
 	$this->ConectarBD();
 	$sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
@@ -142,5 +143,6 @@ function CalcularDescuentoUsuario($CLIENTE_ID){
 	if($res < 0)	return 0;
 	else return $res;
 }
+
 }
 ?>

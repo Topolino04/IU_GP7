@@ -1,6 +1,6 @@
 <?php
 
-//VISTA INICIAL DE LA GESTION DE PAGOS
+//VISTA INICIAL DE LA GESTION DE PAGOS   //NO USA NIGÜN TIPO DE DEFFORM, YA QUE NO ES UN FORMULARIO!
 class PAGO_Show {
 
     private $datos;
@@ -50,7 +50,7 @@ class PAGO_Show {
 
 
                     <?php
-                    $lista = array('PAGO_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID');
+                    $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO',  'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
                     ?>
 
 
@@ -75,6 +75,7 @@ class PAGO_Show {
                             <?php
                             for ($j = 0; $j < count($this->datos); $j++) {
                                 echo "<tr>";
+                                
                                 foreach ($this->datos [$j] as $clave => $valor) {
                                     for ($i = 0; $i < count($lista); $i++) {
                                         if ($clave === $lista[$i]) {
@@ -85,16 +86,26 @@ class PAGO_Show {
                                     }
                                 }
                                 ?>
-<?php //AÑADIR TODOS LOS DATOS ?>
+<?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
+                           
+                                <td>
+                                    <?php 
+                                    if (!consultarEstadoPago($this->datos[$j]['PAGO_ID'])){ ?>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Realizar Pago']; ?>'><?php echo $strings['Realizar Pago'] ?></a>
+                                   <?php }
+                                    else { ?>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
+                                    <?php } ?>
+                                       
+                                   
+                                </td>
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
                                 </td>
-                                <td>
-                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
-                                </td>
+                                
 
                                 <?php
                                 echo "<tr>";

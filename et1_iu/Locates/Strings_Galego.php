@@ -185,7 +185,7 @@ $strings = array(
 'PAGO_ID'=>'Identificador do pago',
     'PAGO_FECHA'=>'Data de pago',
     'PAGO_CONCEPTO'=>'Concepto',
-    'PAGO_IMPORTE'=>'Importe',
+    'PAGO_IMPORTE'=>'Importe [€]',
     'CLIENTE_ID'=>'Identificador de cliente',
 'Generar Recibo'=>'Xerar Recibo',
     'Insertar Pago'=>'Inserir Pago',
@@ -200,6 +200,13 @@ $strings = array(
     'El pago ha sido borrado correctamente'=>'O pago borrouse correctamente',
     'Modificar Pago' =>'Modificar Pago',
     'El pago se ha modificado correctamente'=>'O pago modificouse correctamente',
-    'El DNI introducido no pertenece a ningun cliente'=>'O DNI introducido non pertence a ningún cliente'
+    'El DNI introducido no pertenece a ningun cliente'=>'O DNI introducido non pertence a ningún cliente',
+    'Se ha generado el recibo de pago'=>'Recibo do pago xerado',
+    'PAGO_ESTADO'=>'Estado',
+    'Realizar Pago'=>'Realizar Pago',
+    'Ver Recibo'=>'Ver Recibo',
+    'PAGO_METODO'=>'Método de Pago',
+    'PAGO_DESCUENTO'=>'Desconto [%]',
+    'PAGO_IMPORTE_FINAL'=>'Importe Final [€]'
 )
 ?>

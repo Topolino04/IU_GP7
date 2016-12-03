@@ -256,6 +256,38 @@
 
 			return true;
 		}
+                
+//----------------------------------------------------------
+function valida_envia_PAGO() {
+
+if (!nif(document.form.CLIENTE_DNI.value)) {
+        document.form.CLIENTE_DNI.focus();
+        return false;
+    }
+    
+    if (document.form.PAGO_CONCEPTO.value.length == 0) {
+        alert("Insert a payment concept value");
+        document.form.PAGO_CONCEPTO.focus();
+        return false;
+    }
+    if (document.form.PAGO_CONCEPTO.value.length > 200) {
+        alert("Payment concept too long (max 200 characters)");
+        document.form.PAGO_CONCEPTO.focus();
+        return false;
+    }
+    if (document.form.PAGO_IMPORTE.value.length == 0) {
+        alert("Insert an amount value");
+        document.form.PAGO_IMPORTE.focus();
+        return false;
+    }
+    if (document.form.PAGO_IMPORTE.value.length > 10) {
+        alert("Amount too long (max 10 characters)");
+        document.form.PAGO_IMPORTE.focus();
+        return false;
+    }
+    return true;
+}
+//----------------------------------------------------------
 
 		
 

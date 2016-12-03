@@ -245,7 +245,9 @@ CREATE TABLE IF NOT EXISTS `CLIENTE_TIENE_DESCUENTO` (
 
 INSERT INTO `CLIENTE_TIENE_DESCUENTO` (`CLIENTE_ID`, `DESCUENTO_ID`) VALUES
 (1, 1),
-(2, 2);
+(2, 2),
+(300, 1),
+(300, 2);
 
 -- --------------------------------------------------------
 
@@ -685,20 +687,24 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 
 CREATE TABLE IF NOT EXISTS `PAGO` (
 `PAGO_ID` int(100) NOT NULL,
+`CLIENTE_ID` int(255) NOT NULL,
 `PAGO_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `PAGO_CONCEPTO` varchar(200) DEFAULT NULL,
-`PAGO_IMPORTE` decimal(10,2) NOT NULL,
+`PAGO_METODO` varchar(35) NOT NULL,
+
 -- `PAGO_IMPORTE` varchar(10) NOT NULL,
-  `CLIENTE_ID` int(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+`PAGO_ESTADO` varchar(10) NOT NULL,
+`PAGO_IMPORTE` decimal(10,2) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `PAGO`
 --
-
-INSERT INTO `PAGO` (`PAGO_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_IMPORTE`, `CLIENTE_ID`) VALUES
-(1, '2016-11-20 10:26:36', 'Curso Karate + Examen', 500.00, 1),
-(2, '2016-11-21 11:00:12', 'Body Jump', 20.50, 2);
+INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_METODO`, `PAGO_ESTADO`, `PAGO_IMPORTE`) VALUES
+(1, 300, '2016-11-20 10:26:36', 'Curso de Karate','Contado',  'PAGADO', 500.00),
+(2, 300, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 'PENDIENTE', 270.90 ),
+(3, 300, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 'PAGADO', 217.95),
+(4, 300, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 'PENDIENTE', 1000.00);
 
 -- --------------------------------------------------------
 
