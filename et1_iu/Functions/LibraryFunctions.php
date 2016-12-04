@@ -1440,6 +1440,7 @@ function borrarArchivo($direccion) {
 //añade a la pagina default los enlaces correspondientes a las funcionalidades
 function añadirFuncionalidades($NOM) {
     include '../Locates/Strings_' . $NOM['IDIOMA'] . '.php';
+    include '../Locates/StringsCF_' . $NOM['IDIOMA'] . '.php';
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
 
@@ -1474,6 +1475,12 @@ function añadirFuncionalidades($NOM) {
                     break;
                 case "GESTION PAGOS": // ------ ET2 -----
                     ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
+                    break;
+		case "HACER CAJA":
+                    ?><a style="font-size:20px;" href='../Controllers/CAJA_Controller.php'><?php echo $stringsCF['Hacer Caja'] ?></a><br><br> <?php
+                    break;
+		case "GESTION FACTURAS": // ------ ET2 -----
+                    ?><a style="font-size:20px;" href='../Controllers/FACTURA_Controller.php'><?php echo $stringsCF['Gestion de Facturas'] ?></a><br><br> <?php
                     break;
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
