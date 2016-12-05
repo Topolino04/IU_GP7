@@ -409,6 +409,7 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 108),
 ('ADMIN', 109),
 <<<<<<< HEAD
+<<<<<<< HEAD
 ('ADMIN', 205),
 ('secret', 205),
 ('ADMIN', 206),
@@ -421,6 +422,8 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('secret', 209),
 ('ADMIN', 210),
 ('secret', 210),
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 =======
 >>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 ('ADMIN', 300),
@@ -544,7 +547,11 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (4, 'GESTION PAGINAS'),
 (5, 'CONSULTA EMPLEADOS'),
 <<<<<<< HEAD
+<<<<<<< HEAD
 (200, 'GESTION ACTIVIDADES'),
+=======
+(101, 'Gestion de Descuentos'),
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 =======
 (101, 'Gestion de Descuentos'),
 >>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
@@ -597,12 +604,15 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (101,108),
 (101,109),
 <<<<<<< HEAD
+<<<<<<< HEAD
 (200, 205),
 (200, 206),
 (200, 207),
 (200, 208),
 (200, 209),
 (200, 210),
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 =======
 >>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 (300, 300),
@@ -740,12 +750,15 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (108, '../Views/DESCUENTO_EDIT_Vista.php', 'DESCUENTO EDIT'),
 (109, '../Views/DESCUENTO_SHOW_ALL_Vista.php', 'DESCUENTO SHOW ALL'),
 <<<<<<< HEAD
+<<<<<<< HEAD
 (205, '../Views/ACTIVIDAD_ADD_Vista.php', 'ACTIVIDAD ADD'),
 (206, '../Views/ACTIVIDAD_DELETE_Vista.php', 'ACTIVIDAD DELETE'),
 (207, '../Views/ACTIVIDAD_SHOW_Vista.php', 'ACTIVIDAD SHOW'),
 (208, '../Views/ACTIVIDAD_SHOW_ALL_Vista.php', 'ACTIVIDAD SHOW ALL'),
 (209, '../Views/ACTIVIDAD_EDIT_Vista.php', 'ACTIVIDAD EDIT'),
 (210, '../Views/ACTIVIDAD_OCULTAS_Vista.php', 'ACTIVIDAD OCULTAS');
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 =======
 >>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 (300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
@@ -852,9 +865,13 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 4),
 (1, 5),
 <<<<<<< HEAD
+<<<<<<< HEAD
 (2, 5),
 (1, 101),
 (1, 200),
+=======
+(1, 101),
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
 =======
 (1, 101),
 >>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
