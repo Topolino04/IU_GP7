@@ -50,7 +50,9 @@ class PAGO_Show {
 
 
                     <?php
+
                     $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO', 'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
+
                     ?>
 
 
@@ -76,6 +78,7 @@ class PAGO_Show {
                             for ($j = 0; $j < count($this->datos); $j++) {
                                 echo "<tr>";
 
+
                                 foreach ($this->datos [$j] as $clave => $valor) {
                                     for ($i = 0; $i < count($lista); $i++) {
                                         if ($clave === $lista[$i]) {
@@ -86,14 +89,24 @@ class PAGO_Show {
                                     }
                                 }
                                 ?>
+
                                 <?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
 
 
+
                                 <td>
-                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
+                                    <?php 
+                                    if (!consultarEstadoPago($this->datos[$j]['PAGO_ID'])){ ?>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Realizar Pago']; ?>'><?php echo $strings['Realizar Pago'] ?></a>
+                                   <?php }
+                                    else { ?>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
+                                    <?php } ?>
+                                       
+                                   
                                 </td>
                                 <td>
-                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
+                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
                                 <td>
                                     <?php if ((file_exists('../Recibos/Recibo_' . $this->datos[$j]['PAGO_ID'] . '.txt')) && ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO')) { ?>
@@ -107,7 +120,9 @@ class PAGO_Show {
                                         }
                                     }
                                     ?>
+
                                 </td>
+                                
 
                                 <?php
                                 echo "<tr>";

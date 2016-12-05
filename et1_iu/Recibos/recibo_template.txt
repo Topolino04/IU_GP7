@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 --------------------------------------------------------------------------------
@@ -8,6 +9,7 @@
     Recibo Nº: [PAGO_ID]         
 
     Fecha de pago: [PAGO_FECHA]                      Cliente Nº: [CLIENTE_ID]
+
    
     Le atendió: [EMPLEADO]                               
 
@@ -26,6 +28,7 @@
                                                     Descuento: [PAGO_DESCUENTO] %
                                                          
                                                     Importe total: [PAGO_IMPORTE_TOTAL] € 
+
 
 
 

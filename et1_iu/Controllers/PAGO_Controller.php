@@ -25,6 +25,7 @@ else {
 }
 if(isset($_REQUEST['PAGO_IMPORTE'])){
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
+
 }
 else {
     $PAGO_IMPORTE='';
@@ -41,6 +42,7 @@ else {
     } else {
         $PAGO_METODO = '';
     }
+
     if (isset($_REQUEST['CLIENTE_DNI'])) {
         $CLIENTE_DNI = $_REQUEST['CLIENTE_DNI'];
         $CLIENTE_ID = consultarIDCliente($CLIENTE_DNI);
@@ -50,7 +52,10 @@ else {
     $accion = $_REQUEST['accion'];
     if (isset($_REQUEST['PAGO_ID'])) {
         $PAGO_ID = $_REQUEST['PAGO_ID']; //AUTOMATICO BD
+
         $pago = new PAGO_MODEL($PAGO_ID, $CLIENTE_ID, '', $PAGO_CONCEPTO, $PAGO_METODO, $PAGO_ESTADO, $PAGO_IMPORTE, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+
+
     } else {
         $pago = new PAGO_MODEL('', $CLIENTE_ID, '', $PAGO_CONCEPTO, $PAGO_METODO, $PAGO_ESTADO, $PAGO_IMPORTE, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     }
@@ -164,11 +169,20 @@ break;
 
 
 
+
     case $strings['Ver Recibo']: //$_REQUEST['PAGO_ID'] DISPONIBLE
         //  $pago = new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
         $recibo_link = '../Recibos/Recibo_' . $_REQUEST['PAGO_ID'] . '.txt';
         //$mensaje = $pago->verRecibo($recibo_link);
         new ReciboVista($recibo_link);
+        break;
+
+    case $strings['Generar Recibo']: //$_REQUEST['PAGO_ID'] DISPONIBLE
+
+        $pago = new PAGO_MODEL($_REQUEST['PAGO_ID'], '', '', '', '', '');
+        $mensaje = $pago->generarRecibo();
+        new Mensaje($mensaje, 'PAGO_Controller.php');
+
         break;
 
       

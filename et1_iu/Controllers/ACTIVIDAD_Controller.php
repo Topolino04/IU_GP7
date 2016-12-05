@@ -15,6 +15,7 @@ for ($z=0;$z<count($actividades);$z++){
 	include $actividades[$z];
 }
 
+
 function get_data_form(){
 
 //Recoge la información del formulario

@@ -33,7 +33,11 @@ CREATE TABLE IF NOT EXISTS `ACTIVIDAD` (
   `ACTIVIDAD_NOMBRE` varchar(50) NOT NULL,
   `ACTIVIDAD_PRECIO` decimal(10,2) NOT NULL,
   `ACTIVIDAD_DESCRIPCION` varchar(200) DEFAULT NULL,
+<<<<<<< HEAD
   `CATEGORIA_ID` int(100) NOT NULL,
+=======
+  `CATEGORIA_ID` int(100) NOT 
+>>>>>>> master
   `ACTIVO` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
@@ -408,6 +412,7 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 107),
 ('ADMIN', 108),
 ('ADMIN', 109),
+<<<<<<< HEAD
 ('ADMIN', 200),
 ('ADMIN', 201),
 ('ADMIN', 202),
@@ -426,6 +431,26 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('monit', 203),
 ('monit', 204),
 ('monit', 205),
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+('ADMIN', 205),
+('secret', 205),
+('ADMIN', 206),
+('secret', 206),
+('ADMIN', 207),
+('secret', 207),
+('ADMIN', 208),
+('secret', 208),
+('ADMIN', 209),
+('secret', 209),
+('ADMIN', 210),
+('secret', 210),
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+>>>>>>> master
 ('ADMIN', 300),
 ('ADMIN', 301),
 ('ADMIN', 302),
@@ -435,7 +460,29 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('secret', 301),
 ('secret', 302),
 ('secret', 303),
-('secret', 304);
+('secret', 304),
+('ADMIN', 400),
+('secret', 400),
+('ADMIN', 401),
+('secret', 401),
+('ADMIN', 402),
+('secret', 402),
+('ADMIN', 403),
+('secret', 403),
+('ADMIN', 404),
+('secret', 404),
+('ADMIN', 405),
+('secret', 405),
+('ADMIN', 406),
+('secret', 406),
+('ADMIN', 407),
+('secret', 407),
+('ADMIN', 408),
+('secret', 408),
+('ADMIN', 409),
+('secret', 409);
+
+
 
 -- --------------------------------------------------------
 
@@ -487,19 +534,21 @@ INSERT INTO `EVENTO_ALBERGA_LUGAR` (`EVENTO_ID`, `LUGAR_ID`) VALUES
 
 CREATE TABLE IF NOT EXISTS `FACTURA` (
 `FACTURA_ID` int(100) NOT NULL,
-  `CLIENTE_EXTERNO_ID` int(100) NOT NULL,
-  `FACTURA_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `CLIENTE_ID` int(100) NOT NULL,
+  `FACTURA_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CLIENTE_NIF` varchar(9) NOT NULL,
+  `CLIENTE_NOMBRE` varchar(50) NOT NULL,
+  `CLIENTE_APELLIDOS` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
 --
 -- Dumping data for table `FACTURA`
 --
 
-INSERT INTO `FACTURA` (`FACTURA_ID`, `CLIENTE_EXTERNO_ID`, `FACTURA_FECHA`) VALUES
-(1, 1, '2016-11-17 09:13:38'),
-(2, 1, '2016-11-18 14:18:14'),
-(3, 2, '2016-11-19 09:27:37'),
-(4, 3, '2016-11-20 17:31:21');
+INSERT INTO `FACTURA` (`FACTURA_ID`, `CLIENTE_ID`, `FACTURA_FECHA`, `CLIENTE_NIF`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`) VALUES
+(1, 1, '2016-12-03 16:59:38', '12365487Z', 'Javier', 'Ibarra Ramos'),
+(2, 1, '2016-12-03 16:59:38', '12365487Z', 'Javier', 'Ibarra Ramos'),
+(3, 3, '2016-12-03 16:59:38', '89765644R', 'Raquel', 'Iglesias Iglesias'),
+(4, 3, '2016-12-03 16:59:38', '89765644R', 'Raquel', 'Iglesias Iglesias');
 
 -- --------------------------------------------------------
 
@@ -522,9 +571,23 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (3, 'GESTION FUNCIONALIDADES'),
 (4, 'GESTION PAGINAS'),
 (5, 'CONSULTA EMPLEADOS'),
+<<<<<<< HEAD
+<<<<<<< HEAD
+(200, 'GESTION ACTIVIDADES'),
+=======
 (101, 'Gestion de Descuentos'),
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+=======
+(101, 'Gestion de Descuentos'),
+<<<<<<< HEAD
 (200, 'GESTION ACTIVIDADES'),
 (300, 'GESTION PAGOS');
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+(300, 'GESTION PAGOS'),
+(400, 'HACER CAJA'), 
+(401, 'GESTION FACTURAS');
+>>>>>>> master
 
 -- --------------------------------------------------------
 
@@ -570,17 +633,43 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (101,107),
 (101,108),
 (101,109),
+<<<<<<< HEAD
 (200,200),
 (200,201),
 (200,202),
 (200,203),
 (200,204),
 (200,205),
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+(200, 205),
+(200, 206),
+(200, 207),
+(200, 208),
+(200, 209),
+(200, 210),
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+>>>>>>> master
 (300, 300),
 (300, 301),
 (300, 302),
 (300, 303),
-(300, 304);
+(300, 304),
+(400, 400), 
+(400, 401), 
+(400, 402),
+(401, 403), 
+(401, 404), 
+(401, 405), 
+(401, 406), 
+(401, 407), 
+(401, 408), 
+(401,409);
+
 
 -- --------------------------------------------------------
 
@@ -623,17 +712,17 @@ CREATE TABLE IF NOT EXISTS `LINEA_FACTURA` (
 
 INSERT INTO `LINEA_FACTURA` (`LINEA_FACTURA_ID`, `FACTURA_ID`, `LINEA_FACTURA_CONCEPTO`, `LINEA_FACTURA_UNIDADES`, `LINEA_FACTURA_PRECIOUD`) VALUES
 (1, 1, 'Proteinas', 5, 25.00),
-(1, 2, 'Videojuegos', 3, 70.00),
-(1, 3, 'Mancuernas', 10, 20.00),
-(1, 4, 'Material escolar', 50, 10.00),
-(2, 1, 'Botellas agua', 200, 1.00),
-(2, 2, 'Bocadillos', 100, 2.00),
-(2, 3, 'Bicicletas', 10, 100.00),
-(2, 4, 'Zapatillas', 20, 50.00),
-(3, 1, 'Camisetas', 20, 10.00),
-(3, 2, 'Pantalones', 20, 30.00),
-(3, 4, 'Chaquetas', 20, 50.00),
-(4, 4, 'Calcetines', 30, 2.00);
+(2, 2, 'Videojuegos', 3, 70.00),
+(3, 3, 'Mancuernas', 10, 20.00),
+(4, 4, 'Material escolar', 50, 10.00),
+(5, 1, 'Botellas agua', 200, 1.00),
+(6, 2, 'Bocadillos', 100, 2.00),
+(7, 3, 'Bicicletas', 10, 100.00),
+(8, 4, 'Zapatillas', 20, 50.00),
+(9, 1, 'Camisetas', 20, 10.00),
+(10, 2, 'Pantalones', 20, 30.00),
+(11, 4, 'Chaquetas', 20, 50.00),
+(12, 4, 'Calcetines', 30, 2.00);
 
 -- --------------------------------------------------------
 
@@ -699,17 +788,42 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (107, '../Views/DESCUENTO_DELETE_Vista.php', 'DESCUENTO DELETE'),
 (108, '../Views/DESCUENTO_EDIT_Vista.php', 'DESCUENTO EDIT'),
 (109, '../Views/DESCUENTO_SHOW_ALL_Vista.php', 'DESCUENTO SHOW ALL'),
+<<<<<<< HEAD
 (200, '../Views/ACTIVIDAD_ADD_Vista.php', 'ACTIVIDAD ADD'),
 (201, '../Views/ACTIVIDAD_DELETE_Vista.php', 'ACTIVIDAD DELETE'),
 (202, '../Views/ACTIVIDAD_SHOW_Vista.php', 'ACTIVIDAD SHOW'),
 (203, '../Views/ACTIVIDAD_SHOW_ALL_Vista.php', 'ACTIVIDAD SHOW ALL'),
 (204, '../Views/ACTIVIDAD_EDIT_Vista.php', 'ACTIVIDAD EDIT'),
 (205, '../Views/ACTIVIDAD_OCULTAS_Vista.php', 'ACTIVIDAD OCULTAS'),
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+(205, '../Views/ACTIVIDAD_ADD_Vista.php', 'ACTIVIDAD ADD'),
+(206, '../Views/ACTIVIDAD_DELETE_Vista.php', 'ACTIVIDAD DELETE'),
+(207, '../Views/ACTIVIDAD_SHOW_Vista.php', 'ACTIVIDAD SHOW'),
+(208, '../Views/ACTIVIDAD_SHOW_ALL_Vista.php', 'ACTIVIDAD SHOW ALL'),
+(209, '../Views/ACTIVIDAD_EDIT_Vista.php', 'ACTIVIDAD EDIT'),
+(210, '../Views/ACTIVIDAD_OCULTAS_Vista.php', 'ACTIVIDAD OCULTAS');
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+=======
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+>>>>>>> master
 (300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
 (301, '../Views/PAGO_DELETE_Vista.php', 'PAGO DELETE'),
 (302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
 (303, '../Views/PAGO_SHOW_ALL_Vista.php', 'PAGO SHOW ALL'),
-(304, '../Views/PAGO_SHOW_Vista.php', 'PAGO SHOW');
+(304, '../Views/PAGO_SHOW_Vista.php', 'PAGO SHOW'),
+(400, '../Views/CAJA_ADD_Vista.php', 'CAJA ADD'), 
+(401, '../Views/CAJA_SHOW_Vista.php', 'CAJA SHOW'), 
+(402, '../Views/CAJA_SHOW_ALL_Vista.php', 'CAJA SHOW ALL'),
+(403, '../Views/FACTURA_SHOW_ALL_Vista.php', 'FACTURA SHOW ALL'),
+(404, '../Views/FACTURA_ADD_Vista.php', 'FACTURA ADD'),
+(405, '../Views/FACTURA_DELETE_Vista.php', 'FACTURA DELETE'),
+(406, '../Views/FACTURA_SHOW_LINEA_FACTURA_Vista.php', 'FACTURA SHOW LINEA FACTURA'),
+(407, '../Views/FACTURA_EDIT_Vista.php', 'FACTURA EDIT'),
+(408, '../Views/LINEA_FACTURA_ADD_Vista.php', 'LINEA FACTURA ADD'),
+(409, '../Views/LINEA_FACTURA_EDIT_Vista.php', 'LINEA FACTURA EDIT');
 
 -- --------------------------------------------------------
 
@@ -798,13 +912,29 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 3),
 (1, 4),
 (1, 5),
+<<<<<<< HEAD
+<<<<<<< HEAD
+(2, 5),
 (1, 101),
 (1, 200),
+<<<<<<< HEAD
 (2,200),
 (3,200),
+=======
+=======
+(1, 101),
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+=======
+(1, 101),
+>>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
+>>>>>>> master
 (1, 300),
 (2, 5),
-(2, 300);
+(2, 300),
+(1, 400), 
+(1, 401),
+(2, 400), 
+(2, 401);
 
 --
 -- Indexes for dumped tables
@@ -922,7 +1052,7 @@ ALTER TABLE `EVENTO_ALBERGA_LUGAR`
 -- Indexes for table `FACTURA`
 --
 ALTER TABLE `FACTURA`
- ADD PRIMARY KEY (`FACTURA_ID`), ADD KEY `CLIENTE_EXTERNO_ID` (`CLIENTE_EXTERNO_ID`);
+ ADD PRIMARY KEY (`FACTURA_ID`), ADD KEY `CLIENTE_ID` (`CLIENTE_ID`);
 
 --
 -- Indexes for table `FUNCIONALIDAD`
@@ -946,7 +1076,7 @@ ALTER TABLE `LESION`
 -- Indexes for table `LINEA_FACTURA`
 --
 ALTER TABLE `LINEA_FACTURA`
- ADD PRIMARY KEY (`LINEA_FACTURA_ID`,`FACTURA_ID`), ADD KEY `FACTURA_ID` (`FACTURA_ID`);
+ ADD PRIMARY KEY (`LINEA_FACTURA_ID`), ADD KEY `FACTURA_ID` (`FACTURA_ID`);
 
 --
 -- Indexes for table `LUGAR`
@@ -1147,7 +1277,7 @@ ADD CONSTRAINT `EVENTO_ALBERGA_LUGAR_ibfk_1` FOREIGN KEY (`EVENTO_ID`) REFERENCE
 -- Constraints for table `FACTURA`
 --
 ALTER TABLE `FACTURA`
-ADD CONSTRAINT `FACTURA_ibfk_1` FOREIGN KEY (`CLIENTE_EXTERNO_ID`) REFERENCES `CLIENTE_EXTERNO` (`CLIENTE_EXTERNO_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `FACTURA_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (`CLIENTE_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `FUNCIONALIDAD_PAGINA`
@@ -1167,7 +1297,7 @@ ADD CONSTRAINT `LESION_ibfk_2` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (
 -- Constraints for table `LINEA_FACTURA`
 --
 ALTER TABLE `LINEA_FACTURA`
-ADD CONSTRAINT `LINEA_FACTURA_ibfk_1` FOREIGN KEY (`FACTURA_ID`) REFERENCES `FACTURA` (`FACTURA_ID`);
+ADD CONSTRAINT `LINEA_FACTURA_ibfk_1` FOREIGN KEY (`FACTURA_ID`) REFERENCES `FACTURA` (`FACTURA_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `PAGO`
@@ -1188,6 +1318,8 @@ ALTER TABLE `ROL_FUNCIONALIDAD`
 ADD CONSTRAINT `ROL_FUNCIONALIDAD_ibfk_1` FOREIGN KEY (`ROL_ID`) REFERENCES `ROL` (`ROL_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `ROL_FUNCIONALIDAD_ibfk_2` FOREIGN KEY (`FUNCIONALIDAD_ID`) REFERENCES `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+
+;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

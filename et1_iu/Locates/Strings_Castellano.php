@@ -226,7 +226,6 @@ $strings = array(
         "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
  "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
  
- //Actividades
 	'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
 	'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
 	'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
@@ -252,5 +251,6 @@ $strings = array(
 	'ACTIVO' => 'Activo',
 	'CONSULTAR BORRADO' => 'ConsultarOcultas',
 	'Consultar' => 'Consultar'
+
 )
 ?>

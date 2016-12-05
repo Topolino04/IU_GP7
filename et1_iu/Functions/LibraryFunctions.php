@@ -1440,6 +1440,7 @@ function borrarArchivo($direccion) {
 //añade a la pagina default los enlaces correspondientes a las funcionalidades
 function añadirFuncionalidades($NOM) {
     include '../Locates/Strings_' . $NOM['IDIOMA'] . '.php';
+    include '../Locates/StringsCF_' . $NOM['IDIOMA'] . '.php';
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
 
@@ -1475,8 +1476,15 @@ function añadirFuncionalidades($NOM) {
                 case "GESTION PAGOS": // ------ ET2 -----
                     ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
                     break;
+
                 case "GESTION ACTIVIDADES":
                     ?><a style="font-size:20px;" href='../Controllers/ACTIVIDAD_Controller.php'><?php echo $strings['Gestión de Actividades'] ?></a><br><br> <?php
+break;
+		case "HACER CAJA":
+                    ?><a style="font-size:20px;" href='../Controllers/CAJA_Controller.php'><?php echo $stringsCF['Hacer Caja'] ?></a><br><br> <?php
+                    break;
+		case "GESTION FACTURAS": // ------ ET2 -----
+                    ?><a style="font-size:20px;" href='../Controllers/FACTURA_Controller.php'><?php echo $stringsCF['Gestion de Facturas'] ?></a><br><br> <?php
                     break;
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
@@ -2006,6 +2014,7 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     file_put_contents($recibo_ID, $template);
 }
 
+
 function CalcularDescuentoCliente($CLIENTE_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {
@@ -2025,11 +2034,8 @@ function CalcularDescuentoCliente($CLIENTE_ID) {
     }
 
 
-//        $sql="SELECT DESCUENTO_ID FROM CLIENTE_TIENE_DESCUENTO WHERE CLIENTE_ID='".$CLIENTE_ID."'";
-//        $result = $mysqli->query($sql); 
-//        $resultado = $result->fetch_array();
-//        var_dump($resultado);
-//        return $resultado;
+
+
 }
 
 function consultarEstadoPago($PAGO_ID) {
