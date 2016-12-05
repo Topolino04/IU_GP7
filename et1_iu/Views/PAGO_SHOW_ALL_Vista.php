@@ -1,6 +1,6 @@
 <?php
 
-//VISTA INICIAL DE LA GESTION DE PAGOS   //NO USA NIGÜN TIPO DE DEFFORM, YA QUE NO ES UN FORMULARIO!
+//VISTA INICIAL DE LA GESTION DE PAGOS
 class PAGO_Show {
 
     private $datos;
@@ -50,7 +50,7 @@ class PAGO_Show {
 
 
                     <?php
-                    $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO',  'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
+                    $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'PAGO_ESTADO');
                     ?>
 
 
