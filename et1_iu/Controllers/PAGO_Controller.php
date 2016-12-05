@@ -25,6 +25,7 @@ else {
 }
 if(isset($_REQUEST['PAGO_IMPORTE'])){
     $PAGO_IMPORTE = $_REQUEST['PAGO_IMPORTE'];
+
 }
 else {
     $PAGO_IMPORTE='';
@@ -41,6 +42,11 @@ else {
     } else {
         $PAGO_METODO = '';
     }
+
+    // $PAGO_FECHA = $_REQUEST['PAGO_FECHA']; //AUTOMATICO BD
+    $PAGO_ESTADO = $_REQUEST['PAGO_ESTADO'];
+    $PAGO_METODO = $_REQUEST['PAGO_METODO'];
+
     if (isset($_REQUEST['CLIENTE_DNI'])) {
         $CLIENTE_DNI = $_REQUEST['CLIENTE_DNI'];
         $CLIENTE_ID = consultarIDCliente($CLIENTE_DNI);
@@ -51,6 +57,8 @@ else {
     if (isset($_REQUEST['PAGO_ID'])) {
         $PAGO_ID = $_REQUEST['PAGO_ID']; //AUTOMATICO BD
         $pago = new PAGO_MODEL($PAGO_ID, $CLIENTE_ID, '', $PAGO_CONCEPTO, $PAGO_METODO, $PAGO_ESTADO, $PAGO_IMPORTE, ''); //DEFINIR NUEVO CONSTRUCTOR ???
+
+        $pago = new PAGO_MODEL($PAGO_ID, $CLIENTE_ID, '', $PAGO_CONCEPTO, $PAGO_METODO,  $PAGO_ESTADO,$PAGO_IMPORTE, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     } else {
         $pago = new PAGO_MODEL('', $CLIENTE_ID, '', $PAGO_CONCEPTO, $PAGO_METODO, $PAGO_ESTADO, $PAGO_IMPORTE, ''); //DEFINIR NUEVO CONSTRUCTOR ???
     }
