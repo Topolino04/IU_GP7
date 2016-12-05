@@ -14,14 +14,17 @@ $strings = array(
 	'El empleado no existe' => 'El empleado no existe',
 'El usuario se ha modificado con éxito' => 'El usuario se ha modificado con éxito',
 	'El empleado se ha modificado con éxito' => 'El empleado se ha modificado con éxito',
+
 	'Se ha producido un error en la modificación del usuario' => 'Se ha producido un error en la modificación del usuario',
 	'Se ha producido un error en la modificación del empleado' => 'Se ha producido un error en la modificación del empleado',
+
 	'La contraseña para este empleado es erronea'=>'La contraseña para este empleado es erronea',
 	'El empleado ya no se encuentra contratado'=>'El empleado ya no se encuentra contratado',
 	'Insertar Empleado'=>'Insertar Empleado',
 	'Modificar Empleado'=>'Modificar Empleado',
 	'USER_DNI' => 'DNI Usuario',
 	"La contraseña para este empleado es errónea"=>"La contraseña para este empleado es errónea",
+
 'USER_FECH_NAC' => 'Fecha Nacimiento Usuario',
 'USER_NOMBRE' => 'Nombre del Usuario',
 'USER_APELLIDO' => 'Apellidos del Usuario',
@@ -34,8 +37,10 @@ $strings = array(
 	'EMP_TELEFONO2'=>'Teléfono 2',
 	'EMP_TELEFONO3'=>'Teléfono 3',
 	'IDIOMA'=>'Idioma',
+
     'USER_TELEFONO' => 'Teléfono del Usuario',
     'USER_COMENTARIOS' => 'Comentarios',
+
 	'EMP_USER'=>'Usuario',
 	'EMP_PASSWORD'=>'Contraseña',
 	'EMP_FECH_NAC'=>'Fecha de Nacimiento del Empleado',
@@ -56,6 +61,7 @@ $strings = array(
 	'EMP_DNI2'=>'Búsqueda por DNI:',
 	'EMP_NOMBRE2'=>'Búsqueda por Nombre',
 	'EMP_APELLIDO2'=>'y Apellido:',
+
 'Insertar' => 'Insertar',
 'Modificar' => 'Modificar',
 'Borrar' => 'Borrar',
@@ -63,6 +69,7 @@ $strings = array(
 'Update' => 'Update',
 'Delete' => 'Delete',
 'Cerrar Sesión' => 'Cerrar Sesión',
+
 	'La pagina ya existe en la base de datos' => 'La página ya existe en la base de datos',
 	'Introduzca un valor para la clave de la pagina' => 'Introduzca un valor para la clave de la página',
 	'La pagina ha sido borrada correctamente' => 'La página ha sido borrada correctamente',
@@ -78,12 +85,14 @@ $strings = array(
 	'Páginas' => 'Páginas',
 	'Paginas' => 'Páginas',
 	'(Los campos "Link de la pagina" y "Nombre de la pagina" NO son necesarios)' => '(Los campos "Link de la página" y "Nombre de la página" NO son necesarios)',
+
 	'La funcionalidad ya existe en la base de datos' => 'La funcionalidad ya existe en la base de datos',
 	'Introduzca un valor para la clave de la funcionalidad' => 'Introduzca un valor para la clave de la funcionalidad',
 	'La funcionalidad ha sido borrada correctamente' => 'La funcionalidad ha sido borrada correctamente',
 	'La funcionalidad no existe' => 'La funcionalidad no existe',
 	'La funcionalidad se ha modificado con exito' => 'La funcionalidad se ha modificado con áxito',
 	'Se ha producido un error en la modificacion de la funcionalidad' => 'Se ha producido un error en la modificación de la funcionalidad',
+
 	'Funcionalidad' => 'Funcionalidad',
 	'Funcionalidades' => 'Funcionalidades',
 	'(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)' => '(Los campos "Link de la funcionalidad" y "Nombre de la funcionalidad" NO son necesarios)',
@@ -103,6 +112,7 @@ $strings = array(
 	'El rol ha sido borrado correctamente'=>'El rol ha sido borrado correctamente',
 	'El rol no existe'=>'El rol no existe',
 	'Páginas' => 'Páginas',
+
 	'Insertar Funcionalidad'=>'Insertar Funcionalidad',
 	'FUNCIONALIDAD_ID' => 'ID del la funcionalidad',
 	'FUNCIONALIDAD_NOM' => 'Nombre de la funcionalidad',
@@ -148,12 +158,12 @@ $strings = array(
 	'Gestión de Funcionalidades'=>'Gestión de Funcionalidades',
 	'Gestión de Roles'=>'Gestión de Roles',
 	'Gestión de Páginas'=>'Gestión de Páginas',
-
+    
 	'GESTION EMPLEADOS'=>'GESTIÓN EMPLEADOS',
 	'GESTION PAGINAS'=>'GESTIÓN PÁGINAS',
 	'GESTION ROLES'=>'GESTIÓN ROLES',
 	'GESTION FUNCIONALIDADES'=>'GESTIÓN FUNCIONALIDADES',
-
+ 
 	'No tienes los permisos necesarios'=>'No tienes los permisos necesarios',
 	'Consulta de Empleados'=>'Consulta de Empleados',
 	'Modificar acciones'=>'Acciones',
@@ -177,6 +187,7 @@ $strings = array(
 	'Asistencia Monitores'=>'Asistencia Monitores',
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
+
         'GESTION PAGOS'=>'GESTION PAGOS',
     'Gestión de Pagos'=>'Gestion de Pagos',
 'PAGO_ID'=> 'Identificador del pago',
@@ -202,27 +213,47 @@ $strings = array(
     'PAGO_ESTADO'=>'Estado',
     'Realizar Pago'=> 'Realizar Pago',
     'Ver Recibo'=>'Ver Recibo',
-    'PAGO_METODO'=>'Método de Pago',
-    'PAGO_DESCUENTO'=>'Descuento [%]',
-    'PAGO_IMPORTE_FINAL'=>'Importe Final [€]',
-
-
-
-
-        'DESCUENTO_ID' =>'Clave',
-        'DESCUENTO_VALOR'=>'Porcentaje',
-        'DESCUENTO_DESCRIPCION'=>'Descripcion',
-        'Clave'=>'Clave',
-        'Descuento'=>'Porcentaje',
-        'Descripcion'=>'Descripcion',
-        'Insertar Descuento'=> 'Insertar Descuento',
-        'Introduzca un valor entre 0 y 100'=>'Introduzca un valor entre 0 y 100',
-        "El descuento no existe" => "El descuento no existe",
-        'El descuento ha sido borrado correctamente' => 'El descuento ha sido borrado correctamente',
-        'Borrar Descuento' => 'Borrar Descuento',
-        'Modificar Descuento'=>'Modificar Descuento',
-        "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito"
- 
+    
+    
+    'Lesiones'=>'Lesiones',
+    'LESION_ID'=>'ID de la lesión',
+    'LESION_NOM'=>'Nombre de la lesión',
+    'LESION_DESC'=>'Comentario',
+    'LESION_ESTADO'=>'Estado',
+    'Consultar Lesion'=>'Buscar lesión',
+    'Buscar'=>'Filtrar',
+    'Insertar Lesion'=>'Insertar lesión',
+    'Modificar lesion'=>'Modificar lesión',
+    'Borrar Lesion'=>'Borrar lesión',
+    'Lesion modificada correctamente'=>'Lesión modificada correctamente',
+    'Lesion borrada correctamente'=>'Lesión borrada correctamente',
+    'Lesion registrada correctamente'=>'Lesión registrada correctamente',
+    
+    'Enviar Notificacion'=>'Enviar Notificación',
+    'ENVIAR NOTIFICACION'=>'Enviar Notificación',
+    'Clientes'=>'Siguiente',
+    'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
+    'Actividades'=>'Actividad',
+    'Eventos'=>'Evento',
+    'SELECT'=>'Selección',
+    'Seleccionar'=>'Seleccionar',
+    'email'=>'email',
+    'DEST'=>'Destinatarios',
+    'NOTIFICACION_REMITENTE'=>'Direccion GMAIL del remitente',
+    'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL del remitente',
+    'NOTIFICACION_NOMBRE_REMITENTE'=>'Nombre completo',
+    'NOTIFICACION_ASUNTO'=>'Asunto',
+    'NOTIFICACION_CUERPO'=>'Cuerpo',
+    'Redactar Email'=>'Redactar Email',
+    'Enviar'=>'Enviar',
+    'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
+    'Ha ocurrido un error durante el envio de las notificaciones'=>'Ha ocurrido un error durante el envío de las notificaciones',
+    
+    'Actividad'=>'Actividad',
+    'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
+    'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
+    'Seleccionar'=>'Seleccionar',
+    'actividad'=>'actividad',
+    'Evento'=>'Evento'
 )
 ?>
