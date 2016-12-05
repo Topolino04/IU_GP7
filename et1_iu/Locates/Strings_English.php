@@ -210,9 +210,6 @@ $strings = array(
     'Se ha generado el recibo de pago'=>'Payment receipt generated',
     'PAGO_ESTADO'=>'Status',
     'Realizar Pago'=>'Make Payment',
-    'Ver Recibo'=> 'View Receipt',
-    'PAGO_METODO'=>'Payment Method',
-    'PAGO_DESCUENTO'=>'Discount [%]',
-    'PAGO_IMPORTE_FINAL'=>'Total Amount [€]'
+    'Ver Recibo'=> 'View Receipt'
 )
 ?>
