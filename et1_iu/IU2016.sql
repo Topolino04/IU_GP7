@@ -33,18 +33,19 @@ CREATE TABLE IF NOT EXISTS `ACTIVIDAD` (
   `ACTIVIDAD_NOMBRE` varchar(50) NOT NULL,
   `ACTIVIDAD_PRECIO` decimal(10,2) NOT NULL,
   `ACTIVIDAD_DESCRIPCION` varchar(200) DEFAULT NULL,
-  `CATEGORIA_ID` int(100) NOT NULL
+  `CATEGORIA_ID` int(100) NOT NULL,
+  `ACTIVO` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ACTIVIDAD`
 --
 
-INSERT INTO `ACTIVIDAD` (`ACTIVIDAD_ID`, `ACTIVIDAD_NOMBRE`, `ACTIVIDAD_PRECIO`, `ACTIVIDAD_DESCRIPCION`, `CATEGORIA_ID`) VALUES
-(1, 'Splash', 25.00, 'Con musica', 2),
-(2, 'Maquinas', 15.00, 'Con maquinas', 4),
-(3, 'Baile regional', 9.00, 'Bailes regionales', 2),
-(4, 'Bachata', 12.90, 'Bachata', 3);
+INSERT INTO `ACTIVIDAD` (`ACTIVIDAD_ID`, `ACTIVIDAD_NOMBRE`, `ACTIVIDAD_PRECIO`, `ACTIVIDAD_DESCRIPCION`, `CATEGORIA_ID`,`ACTIVO`) VALUES
+(1, 'Splash', 25.00, 'Con musica', 2, 0),
+(2, 'Maquinas', 15.00, 'Con maquinas', 4, 0),
+(3, 'Baile regional', 9.00, 'Bailes regionales', 2, 0),
+(4, 'Bachata', 12.90, 'Bachata', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -407,6 +408,24 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 107),
 ('ADMIN', 108),
 ('ADMIN', 109),
+('ADMIN', 200),
+('ADMIN', 201),
+('ADMIN', 202),
+('ADMIN', 203),
+('ADMIN', 204),
+('ADMIN', 205),
+('secret', 200),
+('secret', 201),
+('secret', 202),
+('secret', 203),
+('secret', 204),
+('secret', 205),
+('monit', 200),
+('monit', 201),
+('monit', 202),
+('monit', 203),
+('monit', 204),
+('monit', 205),
 ('ADMIN', 300),
 ('ADMIN', 301),
 ('ADMIN', 302),
@@ -504,6 +523,7 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (4, 'GESTION PAGINAS'),
 (5, 'CONSULTA EMPLEADOS'),
 (101, 'Gestion de Descuentos'),
+(200, 'GESTION ACTIVIDADES'),
 (300, 'GESTION PAGOS');
 
 -- --------------------------------------------------------
@@ -550,6 +570,12 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (101,107),
 (101,108),
 (101,109),
+(200,200),
+(200,201),
+(200,202),
+(200,203),
+(200,204),
+(200,205),
 (300, 300),
 (300, 301),
 (300, 302),
@@ -673,6 +699,12 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (107, '../Views/DESCUENTO_DELETE_Vista.php', 'DESCUENTO DELETE'),
 (108, '../Views/DESCUENTO_EDIT_Vista.php', 'DESCUENTO EDIT'),
 (109, '../Views/DESCUENTO_SHOW_ALL_Vista.php', 'DESCUENTO SHOW ALL'),
+(200, '../Views/ACTIVIDAD_ADD_Vista.php', 'ACTIVIDAD ADD'),
+(201, '../Views/ACTIVIDAD_DELETE_Vista.php', 'ACTIVIDAD DELETE'),
+(202, '../Views/ACTIVIDAD_SHOW_Vista.php', 'ACTIVIDAD SHOW'),
+(203, '../Views/ACTIVIDAD_SHOW_ALL_Vista.php', 'ACTIVIDAD SHOW ALL'),
+(204, '../Views/ACTIVIDAD_EDIT_Vista.php', 'ACTIVIDAD EDIT'),
+(205, '../Views/ACTIVIDAD_OCULTAS_Vista.php', 'ACTIVIDAD OCULTAS'),
 (300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
 (301, '../Views/PAGO_DELETE_Vista.php', 'PAGO DELETE'),
 (302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
@@ -767,6 +799,9 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 4),
 (1, 5),
 (1, 101),
+(1, 200),
+(2,200),
+(3,200),
 (1, 300),
 (2, 5),
 (2, 300);

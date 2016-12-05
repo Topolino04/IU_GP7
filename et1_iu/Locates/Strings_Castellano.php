@@ -224,7 +224,33 @@ $strings = array(
         'Borrar Descuento' => 'Borrar Descuento',
         'Modificar Descuento'=>'Modificar Descuento',
         "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito"
+ "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
  
+ //Actividades
+	'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
+	'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
+	'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
+	'La actividad no existe' => 'La actividad no existe',
+	'La actividad se ha modificado con exito' => 'La actividad se ha modificado con éxito',
+	'Se ha producido un error en la modificacion de la actividad' => 'Se ha producido un error en la modificación de la actividad',
+	'Añadida con exito' => 'Añadida con exito',
+
+	'Gestión de Actividades' => 'Gestión de Actividades',
+	'Consultar pagina' => 'Consultar página',
+	'ACTIVIDAD_ID' => 'Identificador Actividad',
+	'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
+	'ACTIVIDAD_PRECIO' => 'Precio Actividad',
+	'ACTIVIDAD_DESCRIPCION' => 'Descripción actividad', 
+	'CATEGORIA_ID' => 'Identificador categoría',
+	'Modificar' => 'Modificar',
+	'Borrar' => 'Borrar',
+	'Insertar Actividad' => 'Insertar Actividad',
+	'Modificar Actividad' => 'Modificar Actividad',
+	'Borrar Actividad' => 'Borrar Actividad',
+	'Insertar' => 'Insertar',
+	'Consultar actividad' => 'Consultar actividad',
+	'ACTIVO' => 'Activo',
+	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'Consultar' => 'Consultar'
 )
 ?>
