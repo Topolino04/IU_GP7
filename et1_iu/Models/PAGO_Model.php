@@ -86,8 +86,6 @@ class PAGO_MODEL {
         if (!($resultado = $this->mysqli->query($sql))) {
             return 'Error en la consulta sobre la base de datos';
         } else {
-          //  $resultado['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($this->CLIENTE_ID));
-           //$resultado['PAGO_IMPORTE_FINAL']= $this->PAGO_IMPORTE*CalcularDescuentoCliente($this->CLIENTE_ID);
             $toret = array();
             $i = 0;
             while ($fila = $resultado->fetch_array()) {
@@ -95,12 +93,8 @@ class PAGO_MODEL {
                 //var_dump($fila);
                 $toret[$i]['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
                 $toret[$i]['PAGO_IMPORTE_FINAL']=round($toret[$i]['PAGO_IMPORTE']*CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']), 2);
-
                 $i++;
-               
-              
             }
-            
             return $toret;
         }
     }

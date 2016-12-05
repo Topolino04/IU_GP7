@@ -38,14 +38,9 @@ class PAGO_Consultar{
 					createForm($lista,$form,$strings,$values='',false,false); //$form está en PAGODefForm.php //false, false
 					?>
                                                 <br><b>Método de Pago </b>
-<<<<<<< HEAD
                         <select name="PAGO_METODO" size="1" >
                             <option disabled selected value></option>
                             <option value=" - n/d - "> - n/d - </option>
-=======
-                        <select name="PAGO_METODO" size="1" required="required">
-                            <option value=" - n/d - " selected=" - n/d - "> - n/d - </option>
->>>>>>> parent of ace7239... Merge pull request #7 from Barajas04/Iván
                             <option value="Contado">Contado</option>
                             <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
                             <option value="Transferencia Bancaria">Transferencia Bancaria</option>
