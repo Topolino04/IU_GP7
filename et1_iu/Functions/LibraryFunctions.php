@@ -1479,13 +1479,11 @@ function añadirFuncionalidades($NOM) {
 
                 case "GESTION ACTIVIDADES":
                     ?><a style="font-size:20px;" href='../Controllers/ACTIVIDAD_Controller.php'><?php echo $strings['Gestión de Actividades'] ?></a><br><br> <?php
-break;
-		case "HACER CAJA":
+                    break;
+                case "HACER CAJA":
                     ?><a style="font-size:20px;" href='../Controllers/CAJA_Controller.php'><?php echo $stringsCF['Hacer Caja'] ?></a><br><br> <?php
                     break;
-		case "GESTION FACTURAS": // ------ ET2 -----
-                    ?><a style="font-size:20px;" href='../Controllers/FACTURA_Controller.php'><?php echo $stringsCF['Gestion de Facturas'] ?></a><br><br> <?php
-                    break;
+               
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
                     echo "<a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br>";
@@ -2014,7 +2012,6 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     file_put_contents($recibo_ID, $template);
 }
 
-
 function CalcularDescuentoCliente($CLIENTE_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {
@@ -2032,10 +2029,6 @@ function CalcularDescuentoCliente($CLIENTE_ID) {
     } else {
         return $res;
     }
-
-
-
-
 }
 
 function consultarEstadoPago($PAGO_ID) {
