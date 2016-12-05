@@ -1476,12 +1476,14 @@ function añadirFuncionalidades($NOM) {
                 case "GESTION PAGOS": // ------ ET2 -----
                     ?><a style="font-size:20px;" href='../Controllers/PAGO_Controller.php'><?php echo $strings['Gestión de Pagos'] ?></a><br><br> <?php
                     break;
-		case "HACER CAJA":
+
+                case "GESTION ACTIVIDADES":
+                    ?><a style="font-size:20px;" href='../Controllers/ACTIVIDAD_Controller.php'><?php echo $strings['Gestión de Actividades'] ?></a><br><br> <?php
+                    break;
+                case "HACER CAJA":
                     ?><a style="font-size:20px;" href='../Controllers/CAJA_Controller.php'><?php echo $stringsCF['Hacer Caja'] ?></a><br><br> <?php
                     break;
-		case "GESTION FACTURAS": // ------ ET2 -----
-                    ?><a style="font-size:20px;" href='../Controllers/FACTURA_Controller.php'><?php echo $stringsCF['Gestion de Facturas'] ?></a><br><br> <?php
-                    break;
+               
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
                     echo "<a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br>";
@@ -2004,39 +2006,30 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     $template = str_replace('[CLIENTE_ID]', $CLIENTE_ID, $template);
     $template = str_replace('[PAGO_CONCEPTO]', $PAGO_CONCEPTO, $template);
     $template = str_replace('[PAGO_IMPORTE]', $PAGO_IMPORTE, $template);
+    $template = str_replace('[PAGO_DESCUENTO]', 100 * (1 - CalcularDescuentoCliente($CLIENTE_ID)), $template);
+    $template = str_replace('[PAGO_IMPORTE_TOTAL]', round($PAGO_IMPORTE * CalcularDescuentoCliente($CLIENTE_ID), 2), $template);
     $recibo_ID = '../Recibos/Recibo_' . $PAGO_ID . '.txt';
     file_put_contents($recibo_ID, $template);
 }
 
-function CalcularDescuentoCliente($CLIENTE_ID){
-$mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+function CalcularDescuentoCliente($CLIENTE_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
-	$sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
+    $sql = "SELECT SUM(DESCUENTO.DESCUENTO_VALOR) AS TOTAL
 			FROM CLIENTE_TIENE_DESCUENTO, DESCUENTO
 			WHERE CLIENTE_TIENE_DESCUENTO.DESCUENTO_ID = DESCUENTO.DESCUENTO_ID
 			AND  CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID}";
-	$result = $mysqli->query($sql); 
-	$resultado = $result->fetch_array();
-	$res = 1-(((float)$resultado["TOTAL"])/100);
-	if ($res < 0)	{
-            return 0;
-        }
-	else {
-            return $res;
-        }
-        
-        
-//        $sql="SELECT DESCUENTO_ID FROM CLIENTE_TIENE_DESCUENTO WHERE CLIENTE_ID='".$CLIENTE_ID."'";
-//        $result = $mysqli->query($sql); 
-//        $resultado = $result->fetch_array();
-//        var_dump($resultado);
-//        return $resultado;
+    $result = $mysqli->query($sql);
+    $resultado = $result->fetch_array();
+    $res = 1 - (((float) $resultado["TOTAL"]) / 100);
+    if ($res < 0) {
+        return 0;
+    } else {
+        return $res;
+    }
 }
-
-
-
 
 function consultarEstadoPago($PAGO_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");

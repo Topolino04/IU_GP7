@@ -94,9 +94,8 @@ class PAGO_MODEL {
                 $toret[$i] = $fila; 
                 //var_dump($fila);
                 $toret[$i]['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
-                $toret[$i]['PAGO_IMPORTE_FINAL']=$toret[$i]['PAGO_IMPORTE']*CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']);
-                
-//var_dump($toret[$i]);
+                $toret[$i]['PAGO_IMPORTE_FINAL']=round($toret[$i]['PAGO_IMPORTE']*CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']), 2);
+
                 $i++;
                
               
@@ -179,8 +178,13 @@ class PAGO_MODEL {
         $datosEMPLEADO = $request->fetch_array();
         $empleado = $datosEMPLEADO['EMP_NOMBRE'] . " " . $datosEMPLEADO['EMP_APELLIDO'];
         generarRecibo($datosPAGO['PAGO_ID'], $datosPAGO['PAGO_FECHA'], $empleado, $datosPAGO['CLIENTE_ID'], $datosPAGO['PAGO_CONCEPTO'], $datosPAGO['PAGO_IMPORTE']);
+
+        //  generarRecibo($this->PAGO_ID, $this->PAGO_FECHA, $empleado, $this->CLIENTE_ID, $this->PAGO_CONCEPTO, $this->PAGO_IMPORTE); No se puede generar el recibo directamente, porque el nombre del recibo contiene el id del pago y este es generado por la bd una vez introducido un pago.
         return 'Se ha generado el recibo de pago';
     }
+    
+
+
 
 }
 
