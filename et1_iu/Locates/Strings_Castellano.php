@@ -269,5 +269,6 @@ $strings = array(
     'Lesion borrada correctamente'=>'Lesión borrada correctamente',
     'Lesion registrada correctamente'=>'Lesión registrada correctamente'
 
+
 )
 ?>

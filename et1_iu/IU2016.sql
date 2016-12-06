@@ -763,6 +763,7 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (704, '../Views/LESION_SHOW_Vista.php', 'LESION SHOW'),
 (705, '../Views/LESION_CONSULT_Vista.php', 'LESION CONSULT');
 
+
 -- --------------------------------------------------------
 
 --
