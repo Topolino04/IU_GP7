@@ -250,7 +250,24 @@ $strings = array(
 	'Consultar actividad' => 'Consultar actividad',
 	'ACTIVO' => 'Activo',
 	'CONSULTAR BORRADO' => 'ConsultarOcultas',
-	'Consultar' => 'Consultar'
+	'Consultar' => 'Consultar',
+	
+	
+	
+	
+    'Lesiones'=>'Lesiones',
+    'LESION_ID'=>'ID de la lesión',
+    'LESION_NOM'=>'Nombre de la lesión',
+    'LESION_DESC'=>'Comentario',
+    'LESION_ESTADO'=>'Estado',
+    'Consultar Lesion'=>'Buscar lesión',
+    'Buscar'=>'Filtrar',
+    'Insertar Lesion'=>'Insertar lesión',
+    'Modificar lesion'=>'Modificar lesión',
+    'Borrar Lesion'=>'Borrar lesión',
+    'Lesion modificada correctamente'=>'Lesión modificada correctamente',
+    'Lesion borrada correctamente'=>'Lesión borrada correctamente',
+    'Lesion registrada correctamente'=>'Lesión registrada correctamente'
 
 )
 ?>
