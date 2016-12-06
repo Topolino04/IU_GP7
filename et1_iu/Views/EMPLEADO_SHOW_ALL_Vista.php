@@ -29,7 +29,7 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 	<link rel="stylesheet" href="../Styles/styles.css" type="text/css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="../Styles/print.css" media="print" />
 	</head>
-	<div id="wrapper">
+	<div id="wrapper1">
 
 		<nav>
 
@@ -141,6 +141,10 @@ if(isset($strings[ConsultarNOMRol($valor)])){
 			<a href='EMPLEADO_Controller.php?EMP_USER=<?php echo $this->datos[$j]['EMP_USER'] . '&accion='.$strings['Modificar acciones']; ?>'><?php echo $strings['Modificar acciones']?></a>
 		</td>
 
+        <td>
+            <a href='LESION_Controller.php?EMP_USER=<?php echo $this->datos[$j]['EMP_USER'] . '&accion=' . $strings['Lesiones']; ?>'><?php echo $strings['Lesiones'] ?></a>
+        </td> 
+             
 		</tr>
 			<?php
 			}
