@@ -138,8 +138,8 @@ CREATE TABLE IF NOT EXISTS `CLIENTE` (
 --
 
 INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`, `CLIENTE_TELEFONO`, `CLIENTE_PROFESION`, `CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`) VALUES
-(1, '12365487Z', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'jsierra@yahoo.es', '2000-11-01', 999999999, 'panadero', '', 'Activo'),
-(2, '98765432W', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'mrc@rty.com', '1994-08-01', 99999998, 'médico', '', 'Activo'),
+(1, '12365487Z', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '2000-11-01', 999999999, 'panadero', '', 'Activo'),
+(2, '98765432W', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01', 99999998, 'médico', '', 'Activo'),
 (3, '89765644R', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01', 999399999, 'profesora', '', 'Activo'),
 (300, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24', 666668862, 'ingeniero', 'Karateka', 'Activo');
 
@@ -441,7 +441,22 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 401),
 ('secret', 401),
 ('ADMIN', 402),
-('secret', 402);
+('secret', 402),
+('ADMIN', 700),
+('secret', 700),
+('ADMIN', 701),
+('secret', 701),
+('ADMIN', 702),
+('secret', 702),
+('ADMIN', 703),
+('monit', 703),
+('secret', 703),
+('ADMIN', 704),
+('monit', 704),
+('secret', 704),
+('ADMIN', 705),
+('secret', 705),
+('monit', 705);
 
 
 
@@ -535,7 +550,8 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (101, 'Gestion de Descuentos'),
 (200, 'GESTION ACTIVIDADES'),
 (300, 'GESTION PAGOS'),
-(400, 'HACER CAJA');
+(400, 'HACER CAJA'),
+(700, 'GESTION LESIONES');
 
 -- --------------------------------------------------------
 
@@ -594,7 +610,13 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (300, 304),
 (400, 400), 
 (400, 401), 
-(400, 402);
+(400, 402),
+(700, 700),
+(700, 701),
+(700, 702),
+(700, 703),
+(700, 704),
+(700, 705);
 
 
 -- --------------------------------------------------------
@@ -607,6 +629,7 @@ CREATE TABLE IF NOT EXISTS `LESION` (
 `LESION_ID` int(100) NOT NULL,
   `LESION_NOM` varchar(100) NOT NULL,
   `LESION_DESC` varchar(200) DEFAULT NULL,
+  `LESION_ESTADO` varchar(15) NOT NULL,
   `EMP_USER` varchar(25) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL,
   `CLIENTE_ID` int(100) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -615,8 +638,13 @@ CREATE TABLE IF NOT EXISTS `LESION` (
 -- Dumping data for table `LESION`
 --
 
-INSERT INTO `LESION` (`LESION_ID`, `LESION_NOM`, `LESION_DESC`, `EMP_USER`, `CLIENTE_ID`) VALUES
-(1, 'Rotura de Muñeca', NULL, 'ADMIN', NULL);
+INSERT INTO `LESION` (`LESION_ID`, `LESION_NOM`, `LESION_DESC`, `LESION_ESTADO`, `EMP_USER`, `CLIENTE_ID`) VALUES
+(1, 'Rotura de Ligamento cruzado anterior', 'Trabajo para fortalecer la zona afectada','Superada', 'ADMIN', NULL),
+(2, 'Pubalgia', 'Estiramientos 15min antes de empezar la sesion','Cronica', 'ADMIN', NULL),
+(3, 'Esguince grado II', 'Ejercicios movilidad articular antes de empezar la sesion','Pendiente', 'ADMIN', NULL),
+(4, 'Fractura del quinto metatarsiano', 'Pendientes de alta medica','Pendiente', 'monit', NULL),
+(5, 'Desgarro muscular biceps', 'Carga de trabajo controlada. Estiramientos al finalizar la sesion','Superada', 'monit', NULL),
+(6, 'Condropatia rotuliana', 'Fortalecimiento del cuadriceps','Pendiente', 'secret', NULL);
 
 -- --------------------------------------------------------
 
@@ -727,7 +755,13 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (304, '../Views/PAGO_SHOW_Vista.php', 'PAGO SHOW'),
 (400, '../Views/CAJA_ADD_Vista.php', 'CAJA ADD'), 
 (401, '../Views/CAJA_SHOW_Vista.php', 'CAJA SHOW'), 
-(402, '../Views/CAJA_SHOW_ALL_Vista.php', 'CAJA SHOW ALL');
+(402, '../Views/CAJA_SHOW_ALL_Vista.php', 'CAJA SHOW ALL'),
+(700, '../Views/LESION_ADD_Vista.php', 'LESION ADD'),
+(701, '../Views/LESION_DELETE_Vista.php', 'LESION DELETE'),
+(702, '../Views/LESION_EDIT_Vista.php', 'LESION EDIT'),
+(703, '../Views/LESION_SHOW_ALL_Vista.php', 'LESION SHOW ALL'),
+(704, '../Views/LESION_SHOW_Vista.php', 'LESION SHOW'),
+(705, '../Views/LESION_CONSULT_Vista.php', 'LESION CONSULT');
 
 -- --------------------------------------------------------
 
@@ -765,17 +799,14 @@ INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAG
 CREATE TABLE IF NOT EXISTS `REGISTRO_CONSULTA_LESION` (
   `REGISTRO_CONSULTA_LESION_ID` int(100) NOT NULL,
   `REGISTRO_CONSULTA_LESION_FECHAHORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `LESION_ID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `REGISTRO_CONSULTA_LESION`
---
-
-INSERT INTO `REGISTRO_CONSULTA_LESION` (`REGISTRO_CONSULTA_LESION_ID`, `REGISTRO_CONSULTA_LESION_FECHAHORA`, `LESION_ID`) VALUES
-(1, '2016-11-20 10:26:36', 1);
+  `USUARIO` varchar(25) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `CLIENTE_ID` int(100) DEFAULT NULL,
+  `EMP_USER` varchar(25) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
+
+
 
 --
 -- Table structure for table `ROL`
@@ -824,7 +855,10 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 300),
 (2, 300),
 (1, 400), 
-(2, 400);
+(2, 400),
+(1, 700),
+(2, 700),
+(3, 700);
 
 --
 -- Indexes for dumped tables
@@ -990,7 +1024,8 @@ ALTER TABLE `PAGO`
 -- Indexes for table `REGISTRO_CONSULTA_LESION`
 --
 ALTER TABLE `REGISTRO_CONSULTA_LESION`
- ADD PRIMARY KEY (`REGISTRO_CONSULTA_LESION_ID`), ADD KEY `LESION_ID` (`LESION_ID`);
+ ADD PRIMARY KEY (`REGISTRO_CONSULTA_LESION_ID`), ADD KEY `CLIENTE_ID` (`CLIENTE_ID`), ADD KEY `EMP_USER` (`EMP_USER`),  ADD KEY `USUARIO` (`USUARIO`);
+
 
 --
 -- Indexes for table `ROL`
@@ -1073,6 +1108,11 @@ MODIFY `PAGINA_ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 ALTER TABLE `PAGO`
 MODIFY `PAGO_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `REGISTRO_CONSULTA_LESION`
+--
+ALTER TABLE `REGISTRO_CONSULTA_LESION`
+MODIFY `REGISTRO_CONSULTA_LESION_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `ROL`
 --
@@ -1196,10 +1236,12 @@ ALTER TABLE `PAGO`
 ADD CONSTRAINT `PAGO_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (`CLIENTE_ID`);
 
 --
--- Constraints for table `REGISTRO_CONSULTA_LESION`
+-- Constraints for table`REGISTRO_CONSULTA_LESION`
 --
 ALTER TABLE `REGISTRO_CONSULTA_LESION`
-ADD CONSTRAINT `REGISTRO_CONSULTA_LESION_ibfk_1` FOREIGN KEY (`LESION_ID`) REFERENCES `LESION` (`LESION_ID`);
+ADD CONSTRAINT `REGISTRO_CONSULTA_LESION_ibfk1` FOREIGN KEY (`EMP_USER`) REFERENCES `EMPLEADOS` (`EMP_USER`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `REGISTRO_CONSULTA_LESION_ibfk2` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (`CLIENTE_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `REGISTRO_CONSULTA_LESION_ibfk3` FOREIGN KEY (`USUARIO`) REFERENCES `EMPLEADOS` (`EMP_USER`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ROL_FUNCIONALIDAD`
