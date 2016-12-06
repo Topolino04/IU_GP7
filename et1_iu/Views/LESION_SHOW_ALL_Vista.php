@@ -49,11 +49,13 @@ class LESION_Show {
                                 ?>
                                 <a href='LESION_Controller.php?EMP_USER=<?php echo $this->EMP_USER . '&accion=' . $strings['Consultar']; ?>'><?php echo $strings['Buscar'] ?></a>
                                 <a href='LESION_Controller.php?EMP_USER=<?php echo $this->EMP_USER . '&accion=' . $strings['Insertar']; ?>'><?php echo $strings['Insertar'] ?></a>
+                                <a href='LESION_Controller.php?EMP_USER=<?php echo $this->EMP_USER . '&accion=' . $strings['Registro']; ?>'><?php echo $strings['Registro'] ?></a>
                                 <?php
                             } else {
                                 ?>
                                 <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->CLIENTE_ID . '&accion=' . $strings['Consultar']; ?>'><?php echo $strings['Buscar'] ?></a>
                                 <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->CLIENTE_ID . '&accion=' . $strings['Insertar']; ?>'><?php echo $strings['Insertar'] ?></a>
+                                <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->CLIENTE_ID . '&accion=' . $strings['Registro']; ?>'><?php echo $strings['Registro'] ?></a>
                                 <?php
                             }
                             ?>

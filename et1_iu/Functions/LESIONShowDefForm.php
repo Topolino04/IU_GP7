@@ -39,7 +39,7 @@ $form = array(
 		'multiple' => 'false',
 		'value' => '',
 		'options' => array(' ', 'Superada','Pendiente','Cronica'),
-		'required' => true,
+		'required' => 'true',
 		'readonly' => true
 	)
     

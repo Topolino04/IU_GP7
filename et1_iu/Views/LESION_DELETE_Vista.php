@@ -25,7 +25,7 @@ class LESION_Borrar {
         <h2>
             <?php
             include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
-            include '../Functions/LESIONShowDefForm.php';
+            include '../Functions/LESIONDefForm.php';
 
             $lista = array('LESION_ID', 'LESION_NOM', 'LESION_DESC', 'LESION_ESTADO');
             ?>

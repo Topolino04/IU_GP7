@@ -52,7 +52,11 @@ class LESION_MODEL {
 
     function InsertarRegistro() { //Esta funcion se ocupa de insertar en el registro el EMP_USER(PK de EMPLEADO) y la fecha y hora a la que un empleado consulto las lesiones de algun usuario. (Cumplir la LOPD)
         $this->ConectarBD();
-        $sql = "INSERT INTO REGISTRO_CONSULTA_LESION VALUES('','','" . $_SESSION['login'] . "');";
+        if ($this->CLIENTE_ID == '') {
+            $sql = "INSERT INTO REGISTRO_CONSULTA_LESION (USUARIO, EMP_USER) VALUES ('" . $_SESSION['login'] . "', '" . $this->EMP_USER . "')";
+        } else {
+            $sql = "INSERT INTO REGISTRO_CONSULTA_LESION (USUARIO, CLIENTE_ID) VALUES ('" . $_SESSION['login'] . "', '" . $this->CLIENTE_ID . "')";
+        }
         $resultado = $this->mysqli->query($sql);
         return $resultado;
     }
@@ -61,9 +65,9 @@ class LESION_MODEL {
     function Consultar() {
         $this->ConectarBD();
         if ($this->CLIENTE_ID == '') {
-            $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND LESION_ID ='" . $this->LESION_ID . "' OR LESION_NOM ='" . $this->LESION_NOM . "' OR LESION_DESC LIKE '" . $this->LESION_DESC . "' OR LESION_ESTADO ='" .$this->LESION_ESTADO . "' ";
+            $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND LESION_ID ='" . $this->LESION_ID . "' OR LESION_NOM ='" . $this->LESION_NOM . "' OR LESION_DESC LIKE '" . $this->LESION_DESC . "' OR LESION_ESTADO ='" . $this->LESION_ESTADO . "' ";
         } else {
-            $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND LESION_ID ='" . $this->LESION_ID . "' OR LESION_NOM ='" . $this->LESION_NOM . "' OR LESION_DESC LIKE '" . $this->LESION_DESC . "' OR LESION_ESTADO ='" .$this->LESION_ESTADO . "' ";
+            $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND LESION_ID ='" . $this->LESION_ID . "' OR LESION_NOM ='" . $this->LESION_NOM . "' OR LESION_DESC LIKE '" . $this->LESION_DESC . "' OR LESION_ESTADO ='" . $this->LESION_ESTADO . "' ";
         }
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'No se ha podido conectar con la base de datos';
@@ -145,6 +149,29 @@ class LESION_MODEL {
             return 'Error en la consulta sobre la base de datos';
         } else {
             return 'Lesion modificada correctamente';
+        }
+    }
+
+    //Esta funcion devuelve una lista con todas las lesiones del usuario seleccionado
+    function ConsultarRegistro() {
+
+        $this->ConectarBD();
+        if ($this->CLIENTE_ID == '') {
+            $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO, EMP_USER FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' ";
+        } else {
+            $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO, EMP_USER FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' ";
+        }
+
+        if (!($resultado = $this->mysqli->query($sql))) {
+            return 'Error en la consulta sobre la base de datos';
+        } else {
+            $toret = array();
+            $i = 0;
+            while ($fila = $resultado->fetch_array()) {
+                $toret[$i] = $fila;
+                $i++;
+            }
+            return $toret;
         }
     }
 
