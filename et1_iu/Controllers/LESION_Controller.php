@@ -1,6 +1,7 @@
 <?php
 
 include '../Models/LESION_Model.php';
+include '../Models/REGISTRO_Model.php';
 include '../Views/MENSAJE_Vista.php';
 include '../Views/MENSAJE_LESION_Vista.php';
 
@@ -43,6 +44,34 @@ function get_data_form() {
     }
 
     return $lesion;
+}
+
+function get_data_form1() {
+
+    if (isset($_REQUEST['EMP_USER'])) {
+        $REGISTRO_CONSULTA_LESION_ID = $_REQUEST['REGISTRO_CONSULTA_LESION_ID'];
+        echo $REGISTRO_CONSULTA_LESION_ID;
+        $REGISTRO_CONSULTA_LESION_FECHAHORA1 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA1'];
+        echo $REGISTRO_CONSULTA_LESION_FECHAHORA1,
+        $REGISTRO_CONSULTA_LESION_FECHAHORA2 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA2'];
+       // echo $REGISTRO_CONSULTA_LESION_FECHAHORA2;
+        $USUARIO = $_REQUEST['USUARIO'];
+       // echo $USUARIO;
+        $EMP_USER = $_REQUEST['EMP_USER'];
+        //echo $EMP_USER;
+
+        $registro = new REGISTRO_MODEL($REGISTRO_CONSULTA_LESION_ID, $REGISTRO_CONSULTA_LESION_FECHAHORA1, $REGISTRO_CONSULTA_LESION_FECHAHORA2, $USUARIO, '', $EMP_USER);
+    } else{
+        $REGISTRO_CONSULTA_LESION_ID = $_REQUEST['REGISTRO_CONSULTA_LESION_ID'];
+        $REGISTRO_CONSULTA_LESION_FECHAHORA1 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA1'];
+        $REGISTRO_CONSULTA_LESION_FECHAHORA2 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA2'];
+        $USUARIO = $_REQUEST['USUARIO'];
+        $CLIENTE_ID = $_REQUEST['CLIENTE_ID'];
+        
+        $registro = new REGISTRO_MODEL($REGISTRO_CONSULTA_LESION_ID, $REGISTRO_CONSULTA_LESION_FECHAHORA1, $REGISTRO_CONSULTA_LESION_FECHAHORA2, $USUARIO, $CLIENTE_ID, '');
+    }
+    
+    return $registro;
 }
 
 if (!isset($_REQUEST['accion'])) {
@@ -160,6 +189,45 @@ Switch ($_REQUEST['accion']) {
                 new LESION_Select($datos, '../Controllers/LESION_Controller.php?EMP_USER=', $_REQUEST['EMP_USER'], '');
             } else
                 new LESION_Select($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+        }
+        break;
+
+    case $strings['Filtrar']:  //Consulta de lesiones -> Se utiliza para filtrar el SHOW_ALL de Lesiones de un Usuario
+        if (!isset($_REQUEST['REGISTRO_CONSULTA_LESION_ID'])) {
+            if (isset($_REQUEST['EMP_USER'])) {
+                new REGISTRO_Consultar('LESION_Controller.php?accion=Registro&EMP_USER=', $_REQUEST['EMP_USER'], '');
+            } else {
+                new REGISTRO_Consultar('LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+            }
+        } else {
+            $registro = get_data_form1();
+            $datos = $registro->Consultar();
+            if (isset($_REQUEST['EMP_USER'])) {
+                new REGISTRO_Select($datos, '../Controllers/LESION_Controller.php?EMP_USER=', $_REQUEST['EMP_USER'], '');
+            } else
+                new LESION_Select($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+        }
+        break;
+
+
+
+    case $strings['Registro']:  //Consulta de lesiones -> Se utiliza para filtrar el SHOW_ALL de Lesiones de un Usuario
+        if (isset($_REQUEST['EMP_USER'])) {
+            $lesion = new LESION_MODEL('', '', '', '', $_REQUEST['EMP_USER'], '');
+            $datos = $lesion->ConsultarRegistro();
+            if (!tienePermisos('LESION_Registro')) {
+                new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', $_REQUEST['EMP_USER'], '');
+            } else {
+                new LESION_Registro($datos, '../Controllers/LESION_Controller.php?EMP_USER=', $_REQUEST['EMP_USER'], '');
+            }
+        } else {
+            $lesion = new LESION_MODEL('', '', '', '', '', $_REQUEST['CLIENTE_ID']);
+            $datos = $lesion->ConsultarRegistro();
+            if (!tienePermisos('LESION_Registro')) {
+                new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
+            } else {
+                new LESION_Show($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+            }
         }
         break;
 

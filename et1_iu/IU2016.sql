@@ -456,7 +456,13 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('secret', 704),
 ('ADMIN', 705),
 ('secret', 705),
-('monit', 705);
+('monit', 705),
+('ADMIN', 706),
+('monit', 706),
+('ADMIN', 707),
+('secret', 707),
+('ADMIN', 708),
+('secret', 708);
 
 
 
@@ -616,7 +622,10 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (700, 702),
 (700, 703),
 (700, 704),
-(700, 705);
+(700, 705),
+(700, 706),
+(700, 707),
+(700, 708);
 
 
 -- --------------------------------------------------------
@@ -761,7 +770,10 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (702, '../Views/LESION_EDIT_Vista.php', 'LESION EDIT'),
 (703, '../Views/LESION_SHOW_ALL_Vista.php', 'LESION SHOW ALL'),
 (704, '../Views/LESION_SHOW_Vista.php', 'LESION SHOW'),
-(705, '../Views/LESION_CONSULT_Vista.php', 'LESION CONSULT');
+(705, '../Views/LESION_CONSULT_Vista.php', 'LESION CONSULT'),
+(706, '../Views/LESION_SHOW_REGISTRO_Vista.php', 'LESION REGISTRO'),
+(707, '../Views/LESION_CONSULT_REGISTRO_Vista.php', 'REGISTRO CONSULT'),
+(708, '../Views/LESION_REGISTRO_SELECT_Vista.php', 'REGISTRO SELECT');
 
 -- --------------------------------------------------------
 
