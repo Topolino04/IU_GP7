@@ -9,9 +9,9 @@
     $GLOBALS['user']="root";
     $GLOBALS['password']="root";
     $GLOBALS['db']="scotchbox";
-    //VISTA PRINCIPAL
+//VISTA PRINCIPAL
 
-
+  
     include '../Functions/InterfaceFunctions.php';
     include '../Functions/LibraryFunctions.php';
     if (!IsAuthenticated()){
@@ -450,7 +450,7 @@
                         </tr>
                     </table>
                     CALENDARIO-->
-                    <?php echo generarCalendario() ?>
+                    <?php echo generarCalendarioSig() ?>
                 </p>
             </article>
 
@@ -459,7 +459,7 @@
         </section><!-- end of #content -->
 
         <aside id="sidebar"><!-- sidebar --><!--AQUI VAN A LAS GESTIONES-->
-            <?php AñadirFuncionalidades($_SESSION); ?>
+           <?php AñadirFuncionalidades($_SESSION); ?>
 
         </aside><!-- end of sidebar -->
 
@@ -471,24 +471,24 @@
             <h2 style="margin-left:20px" ><?php echo  $strings['Asistencia Monitores'];?></h2>
             <section id="footer-outer-block">
 
-                <?php
-                $empleados =getMonitores();
+<?php
+$empleados =getMonitores();
 
-                for($u=0;$u<count($empleados);$u++){
+for($u=0;$u<count($empleados);$u++){
 
-                    ?>
-                    <aside class="footer-segment">
+?>
+                <aside class="footer-segment">
 
-                        <ul>
+                    <ul>
 
-                            <h4><?php $v=$u+1; echo $v.")"; ?></h4>
-                            <?php
-                            echo '<li><a href="#">'.$empleados[$u].'</a></li>';
-                            ?>
-                        </ul>
-                    </aside><!-- end of #first footer segment -->
+                        <h4><?php $v=$u+1; echo $v.")"; ?></h4>
+                        <?php
+                        echo '<li><a href="#">'.$empleados[$u].'</a></li>';
+                        ?>
+                    </ul>
+                </aside><!-- end of #first footer segment -->
 
-                <?php } ?>
+               <?php } ?>
             </section><!-- end of footer-outer-block -->
 
         </section><!-- end of footer-area -->
