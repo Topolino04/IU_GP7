@@ -2,7 +2,7 @@
 
 <?php
 
-//VISTA PARA BUSCAR POR CAMPO LESION
+//Vista para Filtrar el conjunto de las lesiones
 
 class LESION_Consultar {
 
@@ -27,7 +27,7 @@ class LESION_Consultar {
             include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
             include '../Functions/LESIONShowDefForm.php';
             
-            $lista = array('LESION_ID', 'LESION_NOM', 'LESION_DESC', 'LESION_ESTADO');
+            $lista = array('LESION_ID', 'LESION_NOM', 'LESION_ESTADO');
             ?>
             <span class="form-title">
                 <?php echo $strings['Consultar Lesion'] ?><br>

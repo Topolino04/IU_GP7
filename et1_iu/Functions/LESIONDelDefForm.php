@@ -2,8 +2,7 @@
 
 //Definición del formulario para insertar y consultar lesiones
 $form = array(
-
-      0 => array(
+    0 => array(
         'type' => 'text',
         'name' => 'LESION_ID',
         'value' => '',
@@ -11,9 +10,9 @@ $form = array(
         'required' => true,
         'pattern' => '',
         'validation' => '',
-        'readonly' => false
+        'readonly' => true
     ),
-       1 => array(
+    1 => array(
         'type' => 'text',
         'name' => 'LESION_NOM',
         'value' => '',
@@ -21,7 +20,7 @@ $form = array(
         'required' => true,
         'pattern' => '',
         'validation' => '',
-        'readonly' => false
+        'readonly' => true
     ),
     2 => array(
         'type' => 'text',
@@ -31,19 +30,17 @@ $form = array(
         'required' => true,
         'pattern' => '',
         'validation' => '',
-        'readonly' => false
+        'readonly' => true
     ),
     3 => array(
-		'type' => 'select',
-		'name' => 'LESION_ESTADO',
-		'multiple' => 'false',
-		'value' => '',
-		'options' => array('','Superada','Pendiente','Cronica'),
-		'required' => 'true',
-		'readonly' => false
-	)
-    
-    );
-
-
+        'type' => 'text',
+        'name' => 'LESION_ESTADO',
+        'value' => '',
+        'size' => 10,
+        'required' => true,
+        'pattern' => '',
+        'validation' => '',
+        'readonly' => true
+    )
+);
 ?>
