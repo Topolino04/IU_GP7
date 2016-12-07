@@ -1485,7 +1485,12 @@ function añadirFuncionalidades($NOM) {
                     break;
                case "GESTION LESIONES":
                     break;
-					
+                case "GESTION HORARIO":
+                    ?><a style="font-size:20px;" href='../Controllers/BLOQUE_Controller.php'><?php echo $strings['Gestion de Horario'] ?></a><br><br><?php
+                    break;
+                case "GESTION CLIENTES":
+                    ?><a style="font-size:20px;" href='../Controllers/CLIENTE_Controller.php'><?php echo $strings['Gestion de Clientes'] ?></a><br><br><?php
+                    break;
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
                     echo "<a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br>";
@@ -2050,4 +2055,713 @@ function consultarEstadoPago($PAGO_ID) {
         }
     }
 }
+
+function consultarNomActividad($ACTIVIDAD_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT ACTIVIDAD_NOMBRE FROM ACTIVIDAD WHERE ACTIVIDAD_ID='" . $ACTIVIDAD_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return FALSE;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['ACTIVIDAD_NOMBRE'];
+    }
+}
+function consultarNomLesion($LESION_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT LESION_NOM FROM LESION WHERE LESION_ID='" . $LESION_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return false;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['LESION_NOM'];
+    }
+}
+function consultarNomLugar($LUGAR_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT LUGAR_NOMBRE FROM LUGAR WHERE LUGAR_ID='" . $LUGAR_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return false;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['LUGAR_NOMBRE'];
+    }
+}
+function AñadirLugares($array) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT LUGAR_NOMBRE from LUGAR';
+    $result = $mysqli->query($sql);
+
+
+
+    $str = array();
+    while ($tipo = $result->fetch_array()) {
+        array_push($str, $tipo['LUGAR_NOMBRE']);
+    }
+
+
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_LUGAR',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+
+
+    $array[count($array)] = $añadido;
+    return $array;
+}
+function ConsultarIDLugar($LUGAR_NOMBRE) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT LUGAR_ID FROM LUGAR WHERE LUGAR_NOMBRE='" . $LUGAR_NOMBRE . "'";
+    $result = $mysqli->query($sql)->fetch_array();
+    return $result['LUGAR_ID'];
+}
+
+function generarCalendario(){
+    include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
+    $rango=diasSemana(strtotime(date('Y-m-d')));
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql1 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3 FROM HORARIO WHERE BLOQUE_DIA='1'".$rango;
+
+    $sql2 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='2'".$rango;
+    $sql3 = "SELECT  BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='3'".$rango;
+    $sql4 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='4'".$rango;
+    $sql5 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='5'".$rango;
+    $sql6 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='6'".$rango;
+    //$result = $mysqli->query($sql)->fetch_array(); ?>
+
+    <h2 align="center"><a href="../Views/DEFAULT1_Vista.php"><img  height="30px" src="../images/previous.jpg"  /></a> <?php echo diasSemana2(strtotime(date('Y-m-d'))) ?> <a href="../Views/DEFAULT2_Vista.php"><img height="30px" src="../images/next.jpg"  /></a> </h2>
+
+    <table class="horario" style="font-size: 12px" border = 1>
+        <tr>
+            <th colspan="2"></th>
+            <th class="azul borde_especial" ><?php  echo $strings['Lunes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Martes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Miercoles'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Jueves'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Viernes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Sabado'] ?></th>
+        </tr> <?php
+
+
+        $result1=$mysqli->query($sql1);
+        $result2=$mysqli->query($sql2);
+        $result3=$mysqli->query($sql3);
+        $result4=$mysqli->query($sql4);
+        $result5=$mysqli->query($sql5);
+        $result6=$mysqli->query($sql6);
+
+
+        $a=0;
+        while($lunes= $result1->fetch_array()){
+            $calendario['lunes'][$a]=$lunes;
+            $a++;
+        }
+        $b=0;
+        while($martes= $result2->fetch_array()){
+            $calendario['martes'][$b]=$martes;
+            $b++;
+        }
+        $c=0;
+        while($miercoles= $result3->fetch_array()){
+            $calendario['miercoles'][$c]=$miercoles;
+            $c++;
+        }
+        $d=0;
+        while($jueves= $result4->fetch_array()){
+            $calendario['jueves'][$d]=$jueves;
+            $d++;
+        }
+        $e=0;
+        while($viernes= $result5->fetch_array()){
+            $calendario['viernes'][$e]=$viernes;
+            $e++;
+        }
+        $f=0;
+        while($sabado= $result6->fetch_array()){
+            $calendario['sabado'][$f]=$sabado;
+            $f++;
+        }
+        $mayor=0;
+        foreach($calendario as $dia){
+            if(count($dia)>$mayor){
+                $mayor=count($dia);
+            }
+        }
+
+        for($i=0;$i<$mayor;$i++){
+
+            ?>      <tr>
+                <th class="lila" ><?php  if(! isset($calendario['lunes'][$i])) echo ''; else echo $calendario['lunes'][$i]['BLOQUE_HORAI']."-".$calendario['lunes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['lunes'][$i])) echo ''; else  echo consultarNomLugar($calendario['lunes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['lunes'][$i])) echo ''; else echo generarLinksCalendario($calendario['lunes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['martes'][$i])) echo ''; else echo $calendario['martes'][$i]['BLOQUE_HORAI']."-".$calendario['martes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['martes'][$i])) echo ''; else  echo consultarNomLugar($calendario['martes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['martes'][$i])) echo ''; else  echo generarLinksCalendario($calendario['martes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['miercoles'][$i])) echo ''; else echo $calendario['miercoles'][$i]['BLOQUE_HORAI']."-".$calendario['miercoles'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['miercoles'][$i])) echo ''; else  echo consultarNomLugar($calendario['miercoles'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['miercoles'][$i])) echo ''; else  echo generarLinksCalendario($calendario['miercoles'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['jueves'][$i])) echo ''; else echo $calendario['jueves'][$i]['BLOQUE_HORAI']."-".$calendario['jueves'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['jueves'][$i])) echo ''; else  echo consultarNomLugar($calendario['jueves'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['jueves'][$i])) echo ''; else  echo generarLinksCalendario($calendario['jueves'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['viernes'][$i])) echo ''; else echo $calendario['viernes'][$i]['BLOQUE_HORAI']."-".$calendario['viernes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['viernes'][$i])) echo ''; else  echo consultarNomLugar($calendario['viernes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['viernes'][$i])) echo ''; else  echo generarLinksCalendario($calendario['viernes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['sabado'][$i])) echo ''; else echo $calendario['sabado'][$i]['BLOQUE_HORAI']."-".$calendario['sabado'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['sabado'][$i])) echo ''; else  echo consultarNomLugar($calendario['sabado'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['sabado'][$i])) echo ''; else  echo generarLinksCalendario($calendario['sabado'][$i])?></td>
+            </tr>
+            <?php
+        } ?>
+    </table> <?php
+
+}
+function generarCalendarioAnt(){
+    include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
+    $fecha = date('Y-m-d');
+    $nuevafecha = strtotime ( '-7 day' , strtotime ( $fecha ) ) ;
+    $rango=diasSemana( $nuevafecha);
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql1 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3 FROM HORARIO WHERE BLOQUE_DIA='1'".$rango;
+
+    $sql2 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='2'".$rango;
+    $sql3 = "SELECT  BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='3'".$rango;
+    $sql4 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='4'".$rango;
+    $sql5 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='5'".$rango;
+    $sql6 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='6'".$rango;
+    //$result = $mysqli->query($sql)->fetch_array(); ?>
+
+    <h2 align="center"><?php echo diasSemana2( $nuevafecha) ?> <a href="../Views/DEFAULT_Vista.php"><img height="30px" src="../images/next.jpg"  /></a> </h2>
+
+    <table class="horario" style="font-size: 12px" border = 1>
+        <tr>
+            <th colspan="2"></th>
+            <th class="azul borde_especial" ><?php  echo $strings['Lunes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Martes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Miercoles'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Jueves'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Viernes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Sabado'] ?></th>
+        </tr> <?php
+
+
+        $result1=$mysqli->query($sql1);
+        $result2=$mysqli->query($sql2);
+        $result3=$mysqli->query($sql3);
+        $result4=$mysqli->query($sql4);
+        $result5=$mysqli->query($sql5);
+        $result6=$mysqli->query($sql6);
+
+
+        $a=0;
+        while($lunes= $result1->fetch_array()){
+            $calendario['lunes'][$a]=$lunes;
+            $a++;
+        }
+        $b=0;
+        while($martes= $result2->fetch_array()){
+            $calendario['martes'][$b]=$martes;
+            $b++;
+        }
+        $c=0;
+        while($miercoles= $result3->fetch_array()){
+            $calendario['miercoles'][$c]=$miercoles;
+            $c++;
+        }
+        $d=0;
+        while($jueves= $result4->fetch_array()){
+            $calendario['jueves'][$d]=$jueves;
+            $d++;
+        }
+        $e=0;
+        while($viernes= $result5->fetch_array()){
+            $calendario['viernes'][$e]=$viernes;
+            $e++;
+        }
+        $f=0;
+        while($sabado= $result6->fetch_array()){
+            $calendario['sabado'][$f]=$sabado;
+            $f++;
+        }
+        $mayor=0;
+        foreach($calendario as $dia){
+            if(count($dia)>$mayor){
+                $mayor=count($dia);
+            }
+        }
+
+        for($i=0;$i<$mayor;$i++){
+
+            ?>      <tr>
+                <th class="lila" ><?php  if(! isset($calendario['lunes'][$i])) echo ''; else echo $calendario['lunes'][$i]['BLOQUE_HORAI']."-".$calendario['lunes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['lunes'][$i])) echo ''; else  echo consultarNomLugar($calendario['lunes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['lunes'][$i])) echo ''; else echo generarLinksCalendario($calendario['lunes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['martes'][$i])) echo ''; else echo $calendario['martes'][$i]['BLOQUE_HORAI']."-".$calendario['martes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['martes'][$i])) echo ''; else  echo consultarNomLugar($calendario['martes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['martes'][$i])) echo ''; else  echo generarLinksCalendario($calendario['martes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['miercoles'][$i])) echo ''; else echo $calendario['miercoles'][$i]['BLOQUE_HORAI']."-".$calendario['miercoles'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['miercoles'][$i])) echo ''; else  echo consultarNomLugar($calendario['miercoles'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['miercoles'][$i])) echo ''; else  echo generarLinksCalendario($calendario['miercoles'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['jueves'][$i])) echo ''; else echo $calendario['jueves'][$i]['BLOQUE_HORAI']."-".$calendario['jueves'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['jueves'][$i])) echo ''; else  echo consultarNomLugar($calendario['jueves'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['jueves'][$i])) echo ''; else  echo generarLinksCalendario($calendario['jueves'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['viernes'][$i])) echo ''; else echo $calendario['viernes'][$i]['BLOQUE_HORAI']."-".$calendario['viernes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['viernes'][$i])) echo ''; else  echo consultarNomLugar($calendario['viernes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['viernes'][$i])) echo ''; else  echo generarLinksCalendario($calendario['viernes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['sabado'][$i])) echo ''; else echo $calendario['sabado'][$i]['BLOQUE_HORAI']."-".$calendario['sabado'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['sabado'][$i])) echo ''; else  echo consultarNomLugar($calendario['sabado'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['sabado'][$i])) echo ''; else  echo generarLinksCalendario($calendario['sabado'][$i])?></td>
+            </tr>
+            <?php
+        } ?>
+    </table> <?php
+
+}
+function generarCalendarioSig(){
+    include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
+    $fecha = date('Y-m-d');
+    $nuevafecha = strtotime ( '+7 day' , strtotime ( $fecha ) ) ;
+    $rango=diasSemana( $nuevafecha);
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql1 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3 FROM HORARIO WHERE BLOQUE_DIA='1'".$rango;
+
+    $sql2 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='2'".$rango;
+    $sql3 = "SELECT  BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='3'".$rango;
+    $sql4 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI ,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='4'".$rango;
+    $sql5 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='5'".$rango;
+    $sql6 = "SELECT BLOQUE_ID, TIME_FORMAT(BLOQUE_HORAI,'%H:%i') AS BLOQUE_HORAI,  TIME_FORMAT(BLOQUE_HORAF,'%H:%i') AS BLOQUE_HORAF, BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3  FROM HORARIO WHERE BLOQUE_DIA='6'".$rango;
+    //$result = $mysqli->query($sql)->fetch_array(); ?>
+
+    <h2  align="center"> <a href="../Views/DEFAULT_Vista.php"><img height="30px" src="../images/previous.jpg"  /></a><?php echo diasSemana2( $nuevafecha) ?> </h2>
+
+    <table class="horario" style="font-size: 12px" border = 1>
+        <tr>
+            <th colspan="2"></th>
+            <th class="azul borde_especial" ><?php  echo $strings['Lunes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Martes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Miercoles'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Jueves'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Viernes'] ?></th>
+            <th colspan="2"></th>
+            <th class="azul borde_especial"><?php  echo$strings['Sabado'] ?></th>
+        </tr> <?php
+
+
+        $result1=$mysqli->query($sql1);
+        $result2=$mysqli->query($sql2);
+        $result3=$mysqli->query($sql3);
+        $result4=$mysqli->query($sql4);
+        $result5=$mysqli->query($sql5);
+        $result6=$mysqli->query($sql6);
+
+
+        $a=0;
+        while($lunes= $result1->fetch_array()){
+            $calendario['lunes'][$a]=$lunes;
+            $a++;
+        }
+        $b=0;
+        while($martes= $result2->fetch_array()){
+            $calendario['martes'][$b]=$martes;
+            $b++;
+        }
+        $c=0;
+        while($miercoles= $result3->fetch_array()){
+            $calendario['miercoles'][$c]=$miercoles;
+            $c++;
+        }
+        $d=0;
+        while($jueves= $result4->fetch_array()){
+            $calendario['jueves'][$d]=$jueves;
+            $d++;
+        }
+        $e=0;
+        while($viernes= $result5->fetch_array()){
+            $calendario['viernes'][$e]=$viernes;
+            $e++;
+        }
+        $f=0;
+        while($sabado= $result6->fetch_array()){
+            $calendario['sabado'][$f]=$sabado;
+            $f++;
+        }
+        $mayor=0;
+        foreach($calendario as $dia){
+            if(count($dia)>$mayor){
+                $mayor=count($dia);
+            }
+        }
+
+        for($i=0;$i<$mayor;$i++){
+
+            ?>      <tr>
+                <th class="lila" ><?php  if(! isset($calendario['lunes'][$i])) echo ''; else echo $calendario['lunes'][$i]['BLOQUE_HORAI']."-".$calendario['lunes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['lunes'][$i])) echo ''; else  echo consultarNomLugar($calendario['lunes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['lunes'][$i])) echo ''; else echo generarLinksCalendario($calendario['lunes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['martes'][$i])) echo ''; else echo $calendario['martes'][$i]['BLOQUE_HORAI']."-".$calendario['martes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['martes'][$i])) echo ''; else  echo consultarNomLugar($calendario['martes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['martes'][$i])) echo ''; else  echo generarLinksCalendario($calendario['martes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['miercoles'][$i])) echo ''; else echo $calendario['miercoles'][$i]['BLOQUE_HORAI']."-".$calendario['miercoles'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['miercoles'][$i])) echo ''; else  echo consultarNomLugar($calendario['miercoles'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['miercoles'][$i])) echo ''; else  echo generarLinksCalendario($calendario['miercoles'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['jueves'][$i])) echo ''; else echo $calendario['jueves'][$i]['BLOQUE_HORAI']."-".$calendario['jueves'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['jueves'][$i])) echo ''; else  echo consultarNomLugar($calendario['jueves'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['jueves'][$i])) echo ''; else  echo generarLinksCalendario($calendario['jueves'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['viernes'][$i])) echo ''; else echo $calendario['viernes'][$i]['BLOQUE_HORAI']."-".$calendario['viernes'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['viernes'][$i])) echo ''; else  echo consultarNomLugar($calendario['viernes'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['viernes'][$i])) echo ''; else  echo generarLinksCalendario($calendario['viernes'][$i])?></td>
+                <th class="lila"><?php  if(! isset($calendario['sabado'][$i])) echo ''; else echo $calendario['sabado'][$i]['BLOQUE_HORAI']."-".$calendario['sabado'][$i]['BLOQUE_HORAF']?></th>
+                <td><?php  if(! isset($calendario['sabado'][$i])) echo ''; else  echo consultarNomLugar($calendario['sabado'][$i]['BLOQUE_LUGAR'])?></td>
+                <td><?php if(! isset($calendario['sabado'][$i])) echo ''; else  echo generarLinksCalendario($calendario['sabado'][$i])?></td>
+            </tr>
+            <?php
+        } ?>
+    </table> <?php
+
+}
+function diasSemana($date){
+    $day=date('d',$date);
+    $month=date('m',$date);
+    $year=date('Y',$date);
+# Obtenemos el día de la semana de la fecha dada
+    $diaSemana=date("w",mktime(0,0,0,$month,$day,$year));
+
+# el 0 equivale al domingo...
+    if($diaSemana==0)
+        $diaSemana=7;
+
+# A la fecha recibida, le restamos el dia de la semana y obtendremos el lunes
+    $primerDia=date("Y-m-d",mktime(0,0,0,$month,$day-$diaSemana+1,$year));
+
+# A la fecha recibida, le sumamos el dia de la semana menos siete y obtendremos el domingo
+    $ultimoDia=date("Y-m-d",mktime(0,0,0,$month,$day+(7-$diaSemana),$year));
+
+    return " AND BLOQUE_FECHA BETWEEN '".$primerDia."' AND '".$ultimoDia."' ORDER BY BLOQUE_HORAI";
+}
+function diasSemana2($date){
+    $day=date('d',$date);
+    $month=date('m',$date);
+    $year=date('Y',$date);
+# Obtenemos el día de la semana de la fecha dada
+    $diaSemana=date("w",mktime(0,0,0,$month,$day,$year));
+
+# el 0 equivale al domingo...
+    if($diaSemana==0)
+        $diaSemana=7;
+
+# A la fecha recibida, le restamos el dia de la semana y obtendremos el lunes
+    $primerDia=date("d/m/Y",mktime(0,0,0,$month,$day-$diaSemana+1,$year));
+
+# A la fecha recibida, le sumamos el dia de la semana menos siete y obtendremos el domingo
+    $ultimoDia=date("d/m/Y",mktime(0,0,0,$month,$day+(7-$diaSemana),$year));
+
+    return $primerDia." - ".$ultimoDia;
+}
+function generarLinksCalendario($bloque){
+
+    $toret='';
+    foreach($bloque as $clave=>$valor) {
+        if ($valor !== '0' && $clave!==0 ) {
+            switch ($clave){
+                case 'BLOQUE_ACT1':
+                    $toret .= "<a  href='../Controllers/BLOQUE_Controller.php?actividad=" .$bloque['BLOQUE_ACT1'] . "&accion=clase'>" . consultarNomActividad($bloque['BLOQUE_ACT1']) . "</a></br>";
+                    break;
+                case 'BLOQUE_ACT2':
+                    $toret .= "<a  href='../Controllers/BLOQUE_Controller.php?actividad=" . $bloque['BLOQUE_ACT2'] . "&accion=clase'>" . consultarNomActividad($bloque['BLOQUE_ACT2']) . "</a></br>";
+                    break;
+                case 'BLOQUE_ACT3':
+                    $toret .= "<a  href='../Controllers/BLOQUE_Controller.php?actividad=" . $bloque['BLOQUE_ACT3'] . "&accion=clase'>" . consultarNomActividad($bloque['BLOQUE_ACT3']) . "</a></br>";
+                    break;
+                case 'BLOQUE_EV1':
+                    $toret .= "<a  href='../Controllers/BLOQUE_Controller.php?evento=" . $bloque['BLOQUE_EV1'] . "&accion=clase'>" . consultarNomEvento($bloque['BLOQUE_EV1']) . "</a></br>";
+                    break;
+                case 'BLOQUE_EV2':
+                    $toret .= "<a  href='../Controllers/BLOQUE_Controller.php?evento=" . $bloque['BLOQUE_EV2'] . "&accion=clase'>" . consultarNomEvento($bloque['BLOQUE_EV2']) . "</a></br>";
+                    break;
+                case 'BLOQUE_EV3':
+                    $toret .= "<a  href='../Controllers/BLOQUE_Controller.php?evento=" . $bloque['BLOQUE_EV3'] . "&accion=clase'>" . consultarNomEvento($bloque['BLOQUE_EV3']) . "</a></br>";
+                    break;
+            }
+
+        }
+    }
+    return $toret;
+}
+function consultarNomEmp($EMP_USER){
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT EMP_NOMBRE from EMPLEADOS WHERE EMP_USER='".$EMP_USER."'";
+    $result = $mysqli->query($sql);
+
+    $nombre=$result->fetch_array()['EMP_NOMBRE'];
+    return $nombre;
+
+}
+function consultarNomCli($CLIENTE_ID){
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT CLIENTE_NOMBRE from CLIENTE WHERE CLIENTE_ID='".$CLIENTE_ID."'";
+
+    $result = $mysqli->query($sql);
+
+    $nombre=$result->fetch_array()['CLIENTE_NOMBRE'];
+    return $nombre;
+
+}
+function infoActividad($ACTIVIDAD_ID){
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT ACTIVIDAD_NOMBRE from ACTIVIDAD WHERE ACTIVIDAD_ID='".$ACTIVIDAD_ID."'";
+    $result = $mysqli->query($sql);
+
+    $nombre=$result->fetch_array()['ACTIVIDAD_NOMBRE'];
+    $sql = "SELECT EMP_USER from EMPLEADOS_IMPARTE_ACTIVIDAD WHERE ACTIVIDAD_ID='".$ACTIVIDAD_ID."'";
+
+    $result = $mysqli->query($sql);
+    $profesores=array();
+    while($profesor=$result->fetch_array()){
+        array_push($profesores, consultarNomEmp($profesor['EMP_USER']));
+    }
+    $sql = "SELECT CLIENTE_ID from CLIENTE_INSCRIPCION_ACTIVIDAD WHERE ACTIVIDAD_ID='".$ACTIVIDAD_ID."'";
+    $result = $mysqli->query($sql);
+    $alumnos=array();
+    while($alumno=$result->fetch_array()){
+        array_push($alumnos, consultarNomCli($alumno['CLIENTE_ID']));
+    }
+    $toret=array ('CLASE_NOMBRE'=>$nombre,'CLASE_PROFESORES'=>$profesores,'CLASE_ALUMNOS'=>$alumnos);
+    return $toret;
+}
+function infoEvento($EVENTO_ID){
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT EVENTO_NOMBRE from EVENTO WHERE EVENTO_ID='".$EVENTO_ID."'";
+
+    $result = $mysqli->query($sql);
+
+    $nombre=$result->fetch_array()['EVENTO_NOMBRE'];
+    $sql = "SELECT EVENTO_ORGANIZADOR from EVENTO WHERE EVENTO_ID='".$EVENTO_ID."'";
+
+    $result = $mysqli->query($sql);
+    $profesores=array();
+    while($profesor=$result->fetch_array()){
+        array_push($profesores, $profesor['EVENTO_ORGANIZADOR']);
+    }
+    $sql = "SELECT CLIENTE_ID from CLIENTE_PARTICIPA_EVENTO WHERE EVENTO_ID='".$EVENTO_ID."'";
+    $result = $mysqli->query($sql);
+    $alumnos=array();
+    while($alumno=$result->fetch_array()){
+        array_push($alumnos, consultarNomCli($alumno['CLIENTE_ID']));
+    }
+    $toret=array ('CLASE_NOMBRE'=>$nombre,'CLASE_PROFESORES'=>$profesores,'CLASE_ALUMNOS'=>$alumnos);
+    return $toret;
+}
+
+function AñadirActividades($array) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT ACTIVIDAD_NOMBRE from ACTIVIDAD';
+    $result = $mysqli->query($sql);
+
+
+
+    $str = array('');
+    while ($tipo = $result->fetch_array()) {
+        array_push($str, $tipo['ACTIVIDAD_NOMBRE']);
+    }
+
+
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_ACT1',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+
+
+    $array[count($array)] = $añadido;
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_ACT2',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+    $array[count($array)] = $añadido;
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_ACT3',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+    $array[count($array)] = $añadido;
+    return $array;
+}
+function AñadirEventos($array) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT EVENTO_NOMBRE from EVENTO';
+    $result = $mysqli->query($sql);
+
+
+
+    $str = array('');
+    while ($tipo = $result->fetch_array()) {
+        array_push($str, $tipo['EVENTO_NOMBRE']);
+    }
+
+
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_EV1',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+
+
+    $array[count($array)] = $añadido;
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_EV2',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+    $array[count($array)] = $añadido;
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'BLOQUE_EV3',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => false
+    );
+    $array[count($array)] = $añadido;
+    return $array;
+}
+function consultarNomEvento($EVENTO_ID) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT EVENTO_NOMBRE FROM EVENTO WHERE EVENTO_ID='" . $EVENTO_ID . "'";
+    if (!$busqueda = $mysqli->query($sql)) {
+        return FALSE;
+    } else {
+        $resultado = $busqueda->fetch_array();
+        return $resultado['EVENTO_NOMBRE'];
+    }
+}
+function ConsultarIDEvento($EVENTO_NOMBRE) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT EVENTO_ID FROM EVENTO WHERE EVENTO_NOMBRE='" . $EVENTO_NOMBRE . "'";
+    $result = $mysqli->query($sql)->fetch_array();
+    return $result['EVENTO_ID'];
+}
+function ConsultarIDActividad($ACTIVIDAD_NOMBRE) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT ACTIVIDAD_ID FROM ACTIVIDAD WHERE ACTIVIDAD_NOMBRE='" . $ACTIVIDAD_NOMBRE . "'";
+    $result = $mysqli->query($sql)->fetch_array();
+    return $result['ACTIVIDAD_ID'];
+}
+
+
 ?>
