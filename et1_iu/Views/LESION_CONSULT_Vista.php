@@ -1,6 +1,7 @@
 <?php
 
 //Vista DEFAULT de Lesiones, muestra todas las lesiones del usuario (Empleado o Cliente) que hayamos seleccionado
+
 class LESION_Select {
 
     private $datos;
@@ -43,7 +44,14 @@ class LESION_Select {
 
                             </ul>
 
-                            <?php echo '<a href=\'' . $this->volver . $this->EMP_USER . "'>" . $strings['Volver'] . " </a>"; ?>
+                            <?php 
+                            if($this->CLIENTE_ID == ''){
+                                echo '<a href=\'' . $this->volver . $this->EMP_USER . "'>" . $strings['Volver'] . " </a>";
+                            }else{
+                                echo '<a href=\'' . $this->volver . $this->CLIENTE_ID . "'>" . $strings['Volver'] . " </a>";
+                            }
+?>
+                            
                    
 
                             

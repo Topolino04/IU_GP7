@@ -1,8 +1,6 @@
-
-
 <?php
 
-//VISTA PARA BUSCAR POR CAMPO LESION
+//Vista para filtrar los registros por alguno de sus campos
 
 class REGISTRO_Consultar {
 
@@ -26,9 +24,8 @@ class REGISTRO_Consultar {
             <?php
             include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
             include '../Functions/REGISTRODefForm.php';
-            
-           //  $lista = array('REGISTRO_CONSULTA_LESION_ID');
-           $lista = array('REGISTRO_CONSULTA_LESION_ID', 'REGISTRO_CONSULTA_LESION_FECHAHORA1', 'REGISTRO_CONSULTA_LESION_FECHAHORA2');
+
+            $lista = array('REGISTRO_CONSULTA_LESION_ID', 'REGISTRO_CONSULTA_LESION_FECHAHORA1', 'REGISTRO_CONSULTA_LESION_FECHAHORA2');
             ?>
             <span class="form-title">
                 <?php echo $strings['Consultar Registro'] ?><br>
@@ -48,15 +45,15 @@ class REGISTRO_Consultar {
                                 <input type='hidden' name='CLIENTE_ID' value="<?php echo $this->CLIENTE_ID ?>" readonly>
                                 <?php
                             }
-                            
+
                             createForm($lista, $form, $strings, $values = '', false, false);
-                             ?>
-                            <!--<input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA1" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo "";?>">
-                            <input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA2" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo "";?>">
+                            ?>
+                        <!--<input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA1" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo ""; ?>">
+                        <input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA2" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo ""; ?>">
                             -->
-                             <p> <br><b>Usuario </b>
-                                 <br><select name='USUARIO'>
-                             <option selected value="0"> Elige una opción </option>
+                            <p> <br><b>Usuario </b>
+                                <br><select name='USUARIO'>
+                                    <option selected value="0"> Elige una opción </option>
                                     <?php
                                     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
@@ -70,7 +67,7 @@ class REGISTRO_Consultar {
                                     ?>
                                 </select>
                             </p>
-                            
+
                             <input type='submit' name='accion' value=<?php echo $strings['Filtrar'] ?>>
 
                             </form>

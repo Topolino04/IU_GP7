@@ -1,6 +1,6 @@
 <?php
 
-//Vista DEFAULT de Lesiones, muestra todas las lesiones del usuario (Empleado o Cliente) que hayamos seleccionado
+//Vista DEFAULT de Registro -> Muestra quien y cuando consulto las lesiones de un usuario dado
 class LESION_Registro {
 
     private $datos;

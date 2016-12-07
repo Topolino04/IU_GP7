@@ -20,7 +20,6 @@ function get_data_form() {
 //Recoge la información procedente del formulario
 
     $LESION_NOM = $_REQUEST['LESION_NOM'];
-    $LESION_DESC = $_REQUEST['LESION_DESC'];
     $LESION_ESTADO = $_REQUEST['LESION_ESTADO'];
 
     //Realizamos las comprobaciones pertinentes para saber si nos encontramos en la Gestion de Empleados o en la Gestion de Lesiones
@@ -28,10 +27,20 @@ function get_data_form() {
         $LESION_ID = $_REQUEST['LESION_ID'];
         if (isset($_REQUEST['EMP_USER'])) {
             $EMP_USER = $_REQUEST['EMP_USER'];
-            $lesion = new LESION_MODEL($LESION_ID, $LESION_NOM, $LESION_DESC, $LESION_ESTADO, $EMP_USER, '');
+            if (isset($_REQUEST['LESION_DESC'])) {
+                $LESION_DESC = $_REQUEST['LESION_DESC'];
+                $lesion = new LESION_MODEL($LESION_ID, $LESION_NOM, $LESION_DESC, $LESION_ESTADO, $EMP_USER, '');
+            } else {
+                $lesion = new LESION_MODEL($LESION_ID, $LESION_NOM, '', $LESION_ESTADO, $EMP_USER, '');
+            }
         } else {
             $CLIENTE_ID = $_REQUEST['CLIENTE_ID'];
-            $lesion = new LESION_MODEL($LESION_ID, $LESION_NOM, $LESION_DESC, $LESION_ESTADO, '', $CLIENTE_ID);
+            if (isset($_REQUEST['LESION_DESC'])) {
+                $LESION_DESC = $_REQUEST['LESION_DESC'];
+                $lesion = new LESION_MODEL($LESION_ID, $LESION_NOM, $LESION_DESC, $LESION_ESTADO, '', $CLIENTE_ID);
+            } else {
+                $lesion = new LESION_MODEL($LESION_ID, $LESION_NOM, '', $LESION_ESTADO, '', $CLIENTE_ID);
+            }
         }
     } else {
         if (isset($_REQUEST['EMP_USER'])) {
@@ -54,23 +63,23 @@ function get_data_form1() {
         $REGISTRO_CONSULTA_LESION_FECHAHORA1 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA1'];
         echo $REGISTRO_CONSULTA_LESION_FECHAHORA1,
         $REGISTRO_CONSULTA_LESION_FECHAHORA2 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA2'];
-       // echo $REGISTRO_CONSULTA_LESION_FECHAHORA2;
+        // echo $REGISTRO_CONSULTA_LESION_FECHAHORA2;
         $USUARIO = $_REQUEST['USUARIO'];
-       // echo $USUARIO;
+        // echo $USUARIO;
         $EMP_USER = $_REQUEST['EMP_USER'];
         //echo $EMP_USER;
 
         $registro = new REGISTRO_MODEL($REGISTRO_CONSULTA_LESION_ID, $REGISTRO_CONSULTA_LESION_FECHAHORA1, $REGISTRO_CONSULTA_LESION_FECHAHORA2, $USUARIO, '', $EMP_USER);
-    } else{
+    } else {
         $REGISTRO_CONSULTA_LESION_ID = $_REQUEST['REGISTRO_CONSULTA_LESION_ID'];
         $REGISTRO_CONSULTA_LESION_FECHAHORA1 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA1'];
         $REGISTRO_CONSULTA_LESION_FECHAHORA2 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA2'];
         $USUARIO = $_REQUEST['USUARIO'];
         $CLIENTE_ID = $_REQUEST['CLIENTE_ID'];
-        
+
         $registro = new REGISTRO_MODEL($REGISTRO_CONSULTA_LESION_ID, $REGISTRO_CONSULTA_LESION_FECHAHORA1, $REGISTRO_CONSULTA_LESION_FECHAHORA2, $USUARIO, $CLIENTE_ID, '');
     }
-    
+
     return $registro;
 }
 
@@ -226,7 +235,7 @@ Switch ($_REQUEST['accion']) {
             if (!tienePermisos('LESION_Registro')) {
                 new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
             } else {
-                new LESION_Show($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+                new LESION_Registro($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
             }
         }
         break;
@@ -248,7 +257,7 @@ Switch ($_REQUEST['accion']) {
             if (!tienePermisos('LESION_Show')) {
                 new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
             } else {
-                new LESION_Show($datos, '../Controllers/EMPLEADO_Controller.php', '', $_REQUEST['CLIENTE_ID']);
+                new LESION_Show($datos, '../Controllers/CLIENTE_Controller.php', '', $_REQUEST['CLIENTE_ID']);
             }
         }
 }
