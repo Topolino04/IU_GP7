@@ -25,6 +25,118 @@ GRANT ALL PRIVILEGES ON `IU2016`.* TO 'iu2016'@'localhost' IDENTIFIED BY 'iu2016
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `HORARIO`
+--
+CREATE TABLE IF NOT EXISTS `HORARIO` (
+`BLOQUE_ID` int(3) NOT NULL,
+  `BLOQUE_FECHA` date NOT NULL,
+  `BLOQUE_DIA` int(1) NOT NULL,
+  `BLOQUE_HORAI` time NOT NULL,
+  `BLOQUE_HORAF` time NOT NULL,
+  `BLOQUE_LUGAR` int(100) NOT NULL,
+  `BLOQUE_ACT1` int(100) DEFAULT NULL,
+  `BLOQUE_ACT2` int(100) DEFAULT NULL,
+  `BLOQUE_ACT3` int(100) DEFAULT NULL,
+  `BLOQUE_EV1` int(100) DEFAULT NULL,
+  `BLOQUE_EV2` int(100) DEFAULT NULL,
+  `BLOQUE_EV3` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+ALTER TABLE `HORARIO`
+ ADD PRIMARY KEY (`BLOQUE_ID`);
+
+INSERT INTO `HORARIO` (`BLOQUE_ID`, `BLOQUE_FECHA`, `BLOQUE_DIA`, `BLOQUE_HORAI`, `BLOQUE_HORAF`, `BLOQUE_LUGAR`, `BLOQUE_ACT1`, `BLOQUE_ACT2`, `BLOQUE_ACT3`, `BLOQUE_EV1`, `BLOQUE_EV2`, `BLOQUE_EV3`) VALUES
+(1, '2016-11-28', 1, '02:00:00', '03:00:00', 1, 2, 1, 0, 0, 0, 0),
+(2, '2016-11-28', 1, '03:00:00', '04:00:00', 2, 2, 1, 0, 0, 0, 0),
+(3, '2016-11-28', 1, '08:00:00', '09:00:00', 1, 2, 0, 0, 0, 0, 0),
+(4, '2016-11-29', 2, '04:00:00', '05:00:00', 3, 3, 0, 0, 1, 0, 0),
+(5, '2016-11-29', 2, '05:00:00', '05:30:00', 2, 3, 0, 0, 0, 0, 0),
+(6, '2016-11-29', 2, '05:30:00', '07:00:00', 1, 2, 0, 0, 0, 0, 0),
+(7, '2016-11-30', 3, '09:00:00', '09:30:00', 3, 4, 1, 0, 0, 0, 0),
+(8, '2016-11-30', 3, '09:30:00', '10:00:00', 2, 4, 0, 0, 0, 0, 0),
+(9, '2016-11-30', 3, '10:00:00', '11:00:00', 2, 4, 2, 0, 0, 0, 0),
+(10, '2016-12-01', 4, '11:00:00', '12:00:00', 2, 0, 0, 0, 2, 0, 0),
+(11, '2016-12-01', 4, '12:00:00', '13:00:00', 2, 3, 0, 0, 1, 0, 0),
+(12, '2016-12-01', 4, '13:00:00', '13:30:00', 2, 1, 0, 0, 0, 0, 0),
+(13, '2016-12-02', 5, '04:00:00', '07:00:00', 3, 0, 0, 0, 1, 0, 0),
+(14, '2016-12-02', 5, '07:00:00', '07:30:00', 3, 0, 0, 0, 1, 0, 0),
+(15, '2016-12-02', 5, '15:00:00', '16:00:00', 2, 0, 0, 0, 1, 0, 0),
+(16, '2016-12-03', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(17, '2016-12-03', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(18, '2016-12-05', 1, '10:00:00', '13:00:00', 2, 3, 0, 0, 0, 0, 0),
+(19, '2016-12-05', 1, '14:00:00', '15:00:00', 3, 3, 0, 0, 0, 0, 0),
+(20, '2016-12-05', 1, '16:00:00', '17:00:00', 2, 1, 0, 0, 2, 0, 0),
+(21, '2016-12-06', 2, '10:00:00', '11:00:00', 1, 1, 0, 0, 0, 0, 0),
+(22, '2016-12-06', 2, '11:00:00', '12:00:00', 1, 1, 0, 0, 0, 0, 0),
+(23, '2016-12-06', 2, '12:00:00', '13:00:00', 2, 2, 0, 0, 0, 0, 0),
+(24, '2016-12-07', 3, '09:00:00', '09:30:00', 3, 4, 1, 0, 0, 0, 0),
+(25, '2016-12-07', 3, '09:30:00', '10:00:00', 2, 4, 0, 0, 0, 0, 0),
+(26, '2016-12-07', 3, '10:00:00', '11:00:00', 2, 4, 2, 0, 0, 0, 0),
+(27, '2016-12-08', 4, '11:00:00', '12:00:00', 2, 0, 0, 0, 2, 0, 0),
+(28, '2016-12-08', 4, '12:00:00', '13:00:00', 2, 3, 0, 0, 1, 0, 0),
+(29, '2016-12-08', 4, '13:00:00', '13:30:00', 2, 1, 0, 0, 0, 0, 0),
+(30, '2016-12-09', 5, '04:00:00', '07:00:00', 3, 0, 0, 0, 1, 0, 0),
+(31, '2016-12-09', 5, '07:00:00', '07:30:00', 3, 0, 0, 0, 1, 0, 0),
+(32, '2016-12-09', 5, '15:00:00', '16:00:00', 2, 0, 0, 0, 1, 0, 0),
+(33, '2016-12-10', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(34, '2016-12-10', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(35, '2016-12-12', 1, '10:00:00', '13:00:00', 2, 3, 0, 0, 0, 0, 0),
+(36, '2016-12-12', 1, '14:00:00', '15:00:00', 3, 3, 0, 0, 0, 0, 0),
+(37, '2016-12-12', 1, '16:00:00', '17:00:00', 2, 1, 0, 0, 2, 0, 0),
+(38, '2016-12-13', 2, '10:00:00', '11:00:00', 1, 1, 0, 0, 0, 0, 0),
+(39, '2016-12-13', 2, '11:00:00', '12:00:00', 1, 1, 0, 0, 0, 0, 0),
+(40, '2016-12-13', 2, '12:00:00', '13:00:00', 2, 2, 0, 0, 0, 0, 0),
+(41, '2016-12-14', 3, '09:00:00', '09:30:00', 3, 4, 1, 0, 0, 0, 0),
+(42, '2016-12-14', 3, '09:30:00', '10:00:00', 2, 4, 0, 0, 0, 0, 0),
+(43, '2016-12-14', 3, '10:00:00', '11:00:00', 2, 4, 2, 0, 0, 0, 0),
+(44, '2016-12-15', 4, '11:00:00', '12:00:00', 2, 0, 0, 0, 2, 0, 0),
+(45, '2016-12-15', 4, '12:00:00', '13:00:00', 2, 3, 0, 0, 1, 0, 0),
+(46, '2016-12-15', 4, '13:00:00', '13:30:00', 2, 1, 0, 0, 0, 0, 0),
+(47, '2016-12-16', 5, '04:00:00', '07:00:00', 3, 0, 0, 0, 1, 0, 0),
+(48, '2016-12-16', 5, '07:00:00', '07:30:00', 3, 0, 0, 0, 1, 0, 0),
+(49, '2016-12-16', 5, '15:00:00', '16:00:00', 2, 0, 0, 0, 1, 0, 0),
+(50, '2016-12-17', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(51, '2016-12-17', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(52, '2016-12-19', 1, '10:00:00', '13:00:00', 2, 3, 0, 0, 0, 0, 0),
+(53, '2016-12-19', 1, '14:00:00', '15:00:00', 3, 3, 0, 0, 0, 0, 0),
+(54, '2016-12-19', 1, '16:00:00', '17:00:00', 2, 1, 0, 0, 2, 0, 0),
+(55, '2016-12-20', 2, '10:00:00', '11:00:00', 1, 1, 0, 0, 0, 0, 0),
+(56, '2016-12-20', 2, '11:00:00', '12:00:00', 1, 1, 0, 0, 0, 0, 0),
+(57, '2016-12-20', 2, '12:00:00', '13:00:00', 2, 2, 0, 0, 0, 0, 0),
+(58, '2016-12-21', 3, '09:00:00', '09:30:00', 3, 4, 1, 0, 0, 0, 0),
+(59, '2016-12-21', 3, '09:30:00', '10:00:00', 2, 4, 0, 0, 0, 0, 0),
+(60, '2016-12-21', 3, '10:00:00', '11:00:00', 2, 4, 2, 0, 0, 0, 0),
+(61, '2016-12-22', 4, '11:00:00', '12:00:00', 2, 0, 0, 0, 2, 0, 0),
+(62, '2016-12-22', 4, '12:00:00', '13:00:00', 2, 3, 0, 0, 1, 0, 0),
+(63, '2016-12-22', 4, '13:00:00', '13:30:00', 2, 1, 0, 0, 0, 0, 0),
+(64, '2016-12-23', 5, '04:00:00', '07:00:00', 3, 0, 0, 0, 1, 0, 0),
+(65, '2016-12-23', 5, '07:00:00', '07:30:00', 3, 0, 0, 0, 1, 0, 0),
+(66, '2016-12-23', 5, '15:00:00', '16:00:00', 2, 0, 0, 0, 1, 0, 0),
+(67, '2016-12-24', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(68, '2016-12-24', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(69, '2016-12-26', 1, '10:00:00', '13:00:00', 2, 3, 0, 0, 0, 0, 0),
+(70, '2016-12-26', 1, '14:00:00', '15:00:00', 3, 3, 0, 0, 0, 0, 0),
+(71, '2016-12-26', 1, '16:00:00', '17:00:00', 2, 1, 0, 0, 2, 0, 0),
+(72, '2016-12-27', 2, '10:00:00', '11:00:00', 1, 1, 0, 0, 0, 0, 0),
+(73, '2016-12-27', 2, '11:00:00', '12:00:00', 1, 1, 0, 0, 0, 0, 0),
+(74, '2016-12-27', 2, '12:00:00', '13:00:00', 2, 2, 0, 0, 0, 0, 0),
+(75, '2016-12-28', 3, '09:00:00', '09:30:00', 3, 4, 1, 0, 0, 0, 0),
+(76, '2016-12-28', 3, '09:30:00', '10:00:00', 2, 4, 0, 0, 0, 0, 0),
+(77, '2016-12-28', 3, '10:00:00', '11:00:00', 2, 4, 2, 0, 0, 0, 0),
+(78, '2016-12-29', 4, '11:00:00', '12:00:00', 2, 0, 0, 0, 2, 0, 0),
+(79, '2016-12-29', 4, '12:00:00', '13:00:00', 2, 3, 0, 0, 1, 0, 0),
+(80, '2016-12-29', 4, '13:00:00', '13:30:00', 2, 1, 0, 0, 0, 0, 0),
+(81, '2016-12-30', 5, '04:00:00', '07:00:00', 3, 0, 0, 0, 1, 0, 0),
+(82, '2016-12-30', 5, '07:00:00', '07:30:00', 3, 0, 0, 0, 1, 0, 0),
+(83, '2016-12-30', 5, '15:00:00', '16:00:00', 2, 0, 0, 0, 1, 0, 0),
+(84, '2016-12-31', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0),
+(85, '2016-12-31', 6, '00:00:00', '01:00:00', 1, 2, 0, 0, 0, 0, 0);
+
+
+ALTER TABLE `HORARIO`
+MODIFY `BLOQUE_ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ACTIVIDAD`
 --
 
@@ -119,30 +231,41 @@ INSERT INTO `CATEGORIA` (`CATEGORIA_ID`, `CATEGORIA_NOMBRE`) VALUES
 -- Table structure for table `CLIENTE`
 --
 
+
 CREATE TABLE IF NOT EXISTS `CLIENTE` (
 `CLIENTE_ID` int(100) NOT NULL,
   `CLIENTE_DNI` varchar(10) NOT NULL,
   `CLIENTE_NOMBRE` varchar(30) NOT NULL,
-  `CLIENTE_APELLIDOS` varchar(50) NOT NULL,
-  `CLIENTE_DIRECCION` varchar(60) NOT NULL,
+  `CLIENTE_APELLIDOS` varchar(50) DEFAULT NULL,
+  `CLIENTE_DIRECCION` varchar(60) DEFAULT NULL,
   `CLIENTE_CORREO` varchar(70) DEFAULT NULL,
-  `CLIENTE_FECH_NAC` date NOT NULL,
-  `CLIENTE_TELEFONO` int(15) NOT NULL,
+  `CLIENTE_FECH_NAC` date DEFAULT NULL,
   `CLIENTE_PROFESION` varchar(50) DEFAULT NULL,
   `CLIENTE_COMENTARIOS` varchar(1000) DEFAULT NULL,
-  `CLIENTE_ESTADO` enum('Activo','Inactivo') CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `CLIENTE_ESTADO` enum('Activo','Inactivo') CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL,
+  `CLIENTE_DOM` varchar(500) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL,
+  `CLIENTE_LOPD` varchar(500) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL,
+  `CLIENTE_TELEFONO1` int(15) DEFAULT NULL,
+  `CLIENTE_TELEFONO2` int(15) DEFAULT NULL,
+  `CLIENTE_TELEFONO3` int(15) DEFAULT NULL,
+  `CLIENTE_TIPO` char(1) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=313 DEFAULT CHARSET=latin1;
+ALTER TABLE `CLIENTE`
+ ADD PRIMARY KEY (`CLIENTE_ID`);
+
 
 --
 -- Dumping data for table `CLIENTE`
 --
 
-INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`, `CLIENTE_TELEFONO`, `CLIENTE_PROFESION`, `CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`) VALUES
-(1, '12365487Z', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '2000-11-01', 999999999, 'panadero', '', 'Activo'),
-(2, '98765432W', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01', 99999998, 'médico', '', 'Activo'),
-(3, '89765644R', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01', 999399999, 'profesora', '', 'Activo'),
-(300, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24', 666668862, 'ingeniero', 'Karateka', 'Activo');
+INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`,`CLIENTE_PROFESION`,`CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`, `CLIENTE_DOM`,  `CLIENTE_LOPD`,`CLIENTE_TELEFONO1`,`CLIENTE_TELEFONO2`,`CLIENTE_TELEFONO3`, `CLIENTE_TIPO`) VALUES
+(1, '11378328K', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '1996-11-01', 'panadero', '','Activo','','',999999999,666666666,0,'1'  ),
+(2, '15953592X', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
+(3, '35248369H', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01','','','Activo','','', 999399999, 0, 0, '0'),
+(4, '36559850Q', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
 
+ ALTER TABLE `CLIENTE`
+MODIFY `CLIENTE_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- --------------------------------------------------------
 
 --
@@ -164,29 +287,6 @@ INSERT INTO `CLIENTE_ASISTE_ACTIVIDAD` (`CLIENTE_ID`, `ACTIVIDAD_ID`, `FECHA_ASI
 (1, 4, '2016-11-16'),
 (2, 2, '2016-11-02'),
 (3, 2, '2016-10-10');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `CLIENTE_EXTERNO`
---
-
-CREATE TABLE IF NOT EXISTS `CLIENTE_EXTERNO` (
-`CLIENTE_EXTERNO_ID` int(100) NOT NULL,
-  `CLIENTE_EXTERNO_NIF` char(9) NOT NULL,
-  `CLIENTE_EXTERNO_NOMBRE` varchar(20) NOT NULL,
-  `CLIENTE_EXTERNO_APELLIDOS` varchar(50) DEFAULT NULL,
-  `CLIENTE_EXTERNO_DIRECCION` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `CLIENTE_EXTERNO`
---
-
-INSERT INTO `CLIENTE_EXTERNO` (`CLIENTE_EXTERNO_ID`, `CLIENTE_EXTERNO_NIF`, `CLIENTE_EXTERNO_NOMBRE`, `CLIENTE_EXTERNO_APELLIDOS`, `CLIENTE_EXTERNO_DIRECCION`) VALUES
-(1, '11111111O', 'Isma', 'Vizcaya Vizcaya', 'ESEI 1'),
-(2, '11112111O', 'Abraham', 'Groba Groba', 'ESEI 2'),
-(3, '33332111O', 'Martin', 'Groba Groba', 'ESEI 7');
 
 -- --------------------------------------------------------
 
@@ -232,27 +332,6 @@ INSERT INTO `CLIENTE_PARTICIPA_EVENTO` (`CLIENTE_ID`, `EVENTO_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `CLIENTE_TIENE_DESCUENTO`
---
-
-CREATE TABLE IF NOT EXISTS `CLIENTE_TIENE_DESCUENTO` (
-  `CLIENTE_ID` int(100) NOT NULL,
-  `DESCUENTO_ID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `CLIENTE_TIENE_DESCUENTO`
---
-
-INSERT INTO `CLIENTE_TIENE_DESCUENTO` (`CLIENTE_ID`, `DESCUENTO_ID`) VALUES
-(1, 1),
-(2, 2),
-(300, 1),
-(300, 2);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `DESCUENTO`
 --
 
@@ -261,7 +340,8 @@ CREATE TABLE IF NOT EXISTS `DESCUENTO` (
   `DESCUENTO_VALOR` int(100) NOT NULL,
   `DESCUENTO_DESCRIPCION` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
+ALTER TABLE `DESCUENTO`
+ ADD PRIMARY KEY (`DESCUENTO_ID`);
 --
 -- Dumping data for table `DESCUENTO`
 --
@@ -271,6 +351,36 @@ INSERT INTO `DESCUENTO` (`DESCUENTO_ID`, `DESCUENTO_VALOR`, `DESCUENTO_DESCRIPCI
 (2, 15, 'Mas de 3 Actividades');
 
 -- --------------------------------------------------------
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CLIENTE_TIENE_DESCUENTO`
+--
+
+CREATE TABLE IF NOT EXISTS `CLIENTE_TIENE_DESCUENTO` (
+  `CLIENTE_ID` int(100) NOT NULL,
+  `DESCUENTO_ID` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ALTER TABLE `CLIENTE_TIENE_DESCUENTO`
+ ADD PRIMARY KEY (`CLIENTE_ID`,`DESCUENTO_ID`), ADD KEY `DESCUENTO_ID` (`DESCUENTO_ID`);
+
+ALTER TABLE `CLIENTE_TIENE_DESCUENTO`
+ADD CONSTRAINT `CLIENTE_TIENE_DESCUENTO_ibfk_2` FOREIGN KEY (`DESCUENTO_ID`) REFERENCES `DESCUENTO` (`DESCUENTO_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+ADD CONSTRAINT `CLIENTE_TIENE_DESCUENTO_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (`CLIENTE_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+
+--
+-- Dumping data for table `CLIENTE_TIENE_DESCUENTO`
+--
+
+INSERT INTO `CLIENTE_TIENE_DESCUENTO` (`CLIENTE_ID`, `DESCUENTO_ID`) VALUES
+(1, 1),
+(2, 2),
+(4, 1),
+(4, 2);
+
+
+
 
 --
 -- Table structure for table `DOCUMENTO`
@@ -457,12 +567,38 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 705),
 ('secret', 705),
 ('monit', 705),
-('ADMIN', 706),
-('monit', 706),
-('ADMIN', 707),
-('secret', 707),
-('ADMIN', 708),
-('secret', 708);
+
+	('ADMIN', 706),
+	('monit', 706),
+	('ADMIN', 707),
+	('secret', 707),
+	('ADMIN', 708),
+('secret', 708),
+('ADMIN', 800),
+('ADMIN', 801),
+('ADMIN', 802),
+('ADMIN', 803),
+('ADMIN', 804),
+('ADMIN', 805),
+('ADMIN', 806),
+('ADMIN', 807),
+('ADMIN', 808),
+('ADMIN', 809),
+('ADMIN', 810),
+('ADMIN', 811),
+('ADMIN', 812),
+('ADMIN', 813),
+('ADMIN', 814),
+('ADMIN', 815),
+('secret', 800),
+('secret', 801),
+('secret', 802),
+('secret', 803),
+('secret', 804),
+('secret', 805),
+('secret', 806),
+('secret', 807),
+('secret', 808);
 
 
 
@@ -557,7 +693,9 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (200, 'GESTION ACTIVIDADES'),
 (300, 'GESTION PAGOS'),
 (400, 'HACER CAJA'),
-(700, 'GESTION LESIONES');
+(700, 'GESTION LESIONES'),
+(800, 'GESTION HORARIO'),
+(801, 'GESTION CLIENTES');
 
 -- --------------------------------------------------------
 
@@ -623,9 +761,26 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (700, 703),
 (700, 704),
 (700, 705),
-(700, 706),
+
+	(700, 706),
 (700, 707),
-(700, 708);
+	(700, 708),
+(800, 800),
+(800, 801),
+(800, 802),
+(800, 803),
+(800, 804),
+(800, 805),
+(800, 806),
+(800, 807),
+(800, 808),
+(801, 809),
+(801, 810),
+(801, 811),
+(801, 812),
+(801, 813),
+(801, 814),
+(801, 815);
 
 
 -- --------------------------------------------------------
@@ -762,8 +917,8 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
 (303, '../Views/PAGO_SHOW_ALL_Vista.php', 'PAGO SHOW ALL'),
 (304, '../Views/PAGO_SHOW_Vista.php', 'PAGO SHOW'),
-(400, '../Views/CAJA_ADD_Vista.php', 'CAJA ADD'), 
-(401, '../Views/CAJA_SHOW_Vista.php', 'CAJA SHOW'), 
+(400, '../Views/CAJA_ADD_Vista.php', 'CAJA ADD'),
+(401, '../Views/CAJA_SHOW_Vista.php', 'CAJA SHOW'),
 (402, '../Views/CAJA_SHOW_ALL_Vista.php', 'CAJA SHOW ALL'),
 (700, '../Views/LESION_ADD_Vista.php', 'LESION ADD'),
 (701, '../Views/LESION_DELETE_Vista.php', 'LESION DELETE'),
@@ -771,9 +926,26 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (703, '../Views/LESION_SHOW_ALL_Vista.php', 'LESION SHOW ALL'),
 (704, '../Views/LESION_SHOW_Vista.php', 'LESION SHOW'),
 (705, '../Views/LESION_CONSULT_Vista.php', 'LESION CONSULT'),
-(706, '../Views/LESION_SHOW_REGISTRO_Vista.php', 'LESION REGISTRO'),
-(707, '../Views/LESION_CONSULT_REGISTRO_Vista.php', 'REGISTRO CONSULT'),
-(708, '../Views/LESION_REGISTRO_SELECT_Vista.php', 'REGISTRO SELECT');
+
+	(706, '../Views/LESION_SHOW_REGISTRO_Vista.php', 'LESION REGISTRO'),
+	(707, '../Views/LESION_CONSULT_REGISTRO_Vista.php', 'REGISTRO CONSULT'),
+(708, '../Views/LESION_REGISTRO_SELECT_Vista.php', 'REGISTRO SELECT'),
+(800, '../Views/CLIENTE_ADD_Vista.php', 'CLIENTE ADD'),
+(801, '../Views/CLIENTE_ADD_EXTERNO_Vista.php', 'CLIENTE ADD EXTERNO'),
+(802, '../Views/CLIENTE_DELETE_Vista.php', 'CLIENTE DELETE'),
+(803, '../Views/CLIENTE_EDIT_Vista.php', 'CLIENTE EDIT'),
+(804, '../Views/CLIENTE_SHOW_ACTIVIDADES_Vista.php', 'CLIENTE SHOW ACTIVIDADES'),
+(805, '../Views/CLIENTE_SHOW_ALL_Vista.php', 'CLIENTE SHOW ALL'),
+(806, '../Views/CLIENTE_SHOW_CONSULT_Vista.php', 'CLIENTE SHOW CONSULT'),
+(807, '../Views/CLIENTE_SHOW_LESIONES_Vista.php', 'CLIENTE SHOW LESIONES'),
+(808, '../Views/CLIENTE_SHOW_Vista.php', 'CLIENTE SHOW'),
+(809, '../Views/BLOQUE_ADD_Vista.php', 'BLOQUE ADD'),
+(810, '../Views/BLOQUE_DELETE_Vista.php', 'BLOQUE DELETE'),
+(811, '../Views/BLOQUE_EDIT_Vista.php', 'BLOQUE EDIT'),
+(812, '../Views/BLOQUE_SHOW_ACTEV_Vista.php', 'BLOQUE SHOW'),
+(813, '../Views/BLOQUE_SHOW_ALL_Vista.php', 'BLOQUE SHOW ALL'),
+(814, '../Views/BLOQUE_SHOW_Vista.php', 'BLOQUE SHOW'),
+(815, '../Views/CLASE_Vista.php', 'CLASE');
 
 
 -- --------------------------------------------------------
@@ -784,7 +956,7 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 
 CREATE TABLE IF NOT EXISTS `PAGO` (
 `PAGO_ID` int(100) NOT NULL,
-`CLIENTE_ID` int(255) NOT NULL,
+`CLIENTE_ID` int(100) NOT NULL,
 `PAGO_FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `PAGO_CONCEPTO` varchar(200) DEFAULT NULL,
 `PAGO_METODO` varchar(35) NOT NULL,
@@ -798,10 +970,10 @@ CREATE TABLE IF NOT EXISTS `PAGO` (
 -- Dumping data for table `PAGO`
 --
 INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_METODO`, `PAGO_ESTADO`, `PAGO_IMPORTE`) VALUES
-(1, 300, '2016-11-20 10:26:36', 'Curso de Karate','Contado',  'PAGADO', 500.00),
-(2, 300, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 'PENDIENTE', 270.90 ),
-(3, 300, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 'PAGADO', 217.95),
-(4, 300, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 'PENDIENTE', 1000.00);
+(1, 4, '2016-11-20 10:26:36', 'Curso de Karate','Contado',  'PAGADO', 500.00),
+(2, 4, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 'PENDIENTE', 270.90 ),
+(3, 4, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 'PAGADO', 217.95),
+(4, 4, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 'PENDIENTE', 1000.00);
 
 -- --------------------------------------------------------
 
@@ -859,7 +1031,6 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 2),
 (1, 3),
 (1, 4),
-(1, 5),
 (2, 5),
 (1, 101),
 (1, 200),
@@ -871,7 +1042,10 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (2, 400),
 (1, 700),
 (2, 700),
-(3, 700);
+(3, 700),
+(1,800),
+(1,801),
+(2,800);
 
 --
 -- Indexes for dumped tables
@@ -902,10 +1076,7 @@ ALTER TABLE `CATEGORIA`
  ADD PRIMARY KEY (`CATEGORIA_ID`);
 
 --
--- Indexes for table `CLIENTE`
---
-ALTER TABLE `CLIENTE`
- ADD PRIMARY KEY (`CLIENTE_ID`);
+
 
 --
 -- Indexes for table `CLIENTE_ASISTE_ACTIVIDAD`
@@ -913,11 +1084,7 @@ ALTER TABLE `CLIENTE`
 ALTER TABLE `CLIENTE_ASISTE_ACTIVIDAD`
  ADD PRIMARY KEY (`CLIENTE_ID`,`ACTIVIDAD_ID`), ADD KEY `ACTIVIDAD_ID` (`ACTIVIDAD_ID`);
 
---
--- Indexes for table `CLIENTE_EXTERNO`
---
-ALTER TABLE `CLIENTE_EXTERNO`
- ADD PRIMARY KEY (`CLIENTE_EXTERNO_ID`);
+
 
 --
 -- Indexes for table `CLIENTE_INSCRIPCION_ACTIVIDAD`
@@ -934,14 +1101,11 @@ ALTER TABLE `CLIENTE_PARTICIPA_EVENTO`
 --
 -- Indexes for table `CLIENTE_TIENE_DESCUENTO`
 --
-ALTER TABLE `CLIENTE_TIENE_DESCUENTO`
- ADD PRIMARY KEY (`CLIENTE_ID`,`DESCUENTO_ID`), ADD KEY `DESCUENTO_ID` (`DESCUENTO_ID`);
 
 --
 -- Indexes for table `DESCUENTO`
 --
-ALTER TABLE `DESCUENTO`
- ADD PRIMARY KEY (`DESCUENTO_ID`);
+
 
 --
 -- Indexes for table `DOCUMENTO`
@@ -1069,13 +1233,9 @@ MODIFY `CATEGORIA_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `CLIENTE`
 --
-ALTER TABLE `CLIENTE`
-MODIFY `CLIENTE_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT for table `CLIENTE_EXTERNO`
---
-ALTER TABLE `CLIENTE_EXTERNO`
-MODIFY `CLIENTE_EXTERNO_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `DESCUENTO`
 --
@@ -1100,7 +1260,7 @@ MODIFY `FACTURA_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `FUNCIONALIDAD`
 --
 ALTER TABLE `FUNCIONALIDAD`
-MODIFY `FUNCIONALIDAD_ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `FUNCIONALIDAD_ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=900;
 --
 -- AUTO_INCREMENT for table `LESION`
 --
@@ -1115,7 +1275,7 @@ MODIFY `LUGAR_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `PAGINA`
 --
 ALTER TABLE `PAGINA`
-MODIFY `PAGINA_ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `PAGINA_ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=900;
 --
 -- AUTO_INCREMENT for table `PAGO`
 --
@@ -1172,9 +1332,7 @@ ADD CONSTRAINT `CLIENTE_PARTICIPA_EVENTO_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFE
 --
 -- Constraints for table `CLIENTE_TIENE_DESCUENTO`
 --
-ALTER TABLE `CLIENTE_TIENE_DESCUENTO`
-ADD CONSTRAINT `CLIENTE_TIENE_DESCUENTO_ibfk_2` FOREIGN KEY (`DESCUENTO_ID`) REFERENCES `DESCUENTO` (`DESCUENTO_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `CLIENTE_TIENE_DESCUENTO_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (`CLIENTE_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
 
 --
 -- Constraints for table `DOCUMENTO`
