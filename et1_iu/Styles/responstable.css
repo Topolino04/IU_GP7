@@ -7,6 +7,7 @@ If you like this solution, you might also want to check out the 1.0 version:
   https://gist.github.com/jordyvanraaij/9069194
 
 */
+
 .responstable {
 
   margin: 1em 0;
@@ -54,7 +55,7 @@ If you like this solution, you might also want to check out the 1.0 version:
 .responstable td {
   display: block;
   word-wrap: break-word;
-  max-width: 7em;
+
 }
 .responstable td:first-child {
   display: table-cell;

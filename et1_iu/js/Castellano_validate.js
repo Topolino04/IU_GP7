@@ -299,6 +299,156 @@ function valida_envia() {
 }
 
 
+function valida_envia_CLIENTE() {
+
+    if (!nif(document.form.CLIENTE_DNI.value)) {
+        document.form.CLIENTE_DNI.focus();
+        return false;
+    }
+
+//Validamos un campo o área de texto, por ejemplo el campo nombre
+    if (document.form.CLIENTE_NOMBRE.value.length == 0) {
+        alert("Introduzca un valor para el nombre");
+        document.form.CLIENTE_NOMBRE.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_NOMBRE.value.length < 2) {
+        alert("Nombre demasiado corto (mínimo 2 caracteres)");
+        document.form.CLIENTE_NOMBRE.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_NOMBRE.value.length > 25) {
+        alert("Nombre demasiado largo (máximo 25 caracteres)");
+        document.form.CLIENTE_NOMBRE.focus();
+        return false;
+    }
+
+
+    if (document.form.CLIENTE_APELLIDOS.value.length == 0) {
+        alert("Introduzca un valor para el apellido");
+        document.form.CLIENTE_APELLIDOS.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_APELLIDOS.value.length < 2) {
+        alert("Apellido demasiado corto (mínimo 2 caracteres)");
+        document.form.CLIENTE_APELLIDOS.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_APELLIDOS.value.length > 50) {
+        alert("Apellido demasiado largo (máximo 50 caracteres)");
+        document.form.CLIENTE_APELLIDOS.focus();
+        return false;
+    }
+
+
+    if (document.form.CLIENTE_FECH_NAC.value == false) {
+        alert("Introduzca un valor  para la fecha de nacimiento");
+        document.form.EMP_FECH_NAC.focus();
+        return false;
+    }
+    if (!validarFechaMenorActual(document.form.CLIENTE_FECH_NAC.value)) {
+        alert("¿Viene del futuro?");
+        document.form.CLIENTE_FECH_NAC.focus();
+        return false;
+    }
+    if (((document.form.CLIENTE_CORREO.value.length == 0) || !validarEmail(document.form.CLIENTE_CORREO.value))) {
+        alert("Introduzca una dirección de email válida");
+        document.form.CLIENTE_CORREO.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_PROFESION.value.length == 0) {
+        alert("Introduzca profesión");
+        document.form.CLIENTE_PROFESION.focus();
+        return false;
+    }
+    valor = document.form.CLIENTE_TELEFONO1.value;
+    if (!(/^\d{9}$/.test(valor))) {
+        alert("Tiene que escribir un teléfono de 9 dígitos");
+        document.form.CLIENTE_TELEFONO1.focus();
+        return false;
+    }
+    if(document.form.CLIENTE_TELEFONO2.value.length!==0) {
+        valor = document.form.CLIENTE_TELEFONO2.value;
+        if (!(/^\d{9}$/.test(valor))) {
+            alert("Tiene que escribir un teléfono de 9 dígitos");
+            document.form.CLIENTE_TELEFONO2.focus();
+            return false;
+        }
+    }
+    if(document.form.CLIENTE_TELEFONO3.value.length!==0) {
+        valor = document.form.CLIENTE_TELEFONO3.value;
+        if (!(/^\d{9}$/.test(valor))) {
+            alert("Tiene que escribir un teléfono de 9 dígitos");
+            document.form.CLIENTE_TELEFONO3.focus();
+            return false;
+        }
+    }
+
+
+
+    if (document.form.CLIENTE_DIRECCION.value.length == 0) {
+        alert("Introduzca dirección");
+        document.form.CLIENTE_DIRECCION.focus();
+        return false;
+    }
+
+
+
+
+    return true;
+
+}
+//Recibe fecha en formato DD/MM/YYYY
+function dia_semana(fecha){
+    fecha=fecha.split('-');
+    if(fecha.length!=3){
+        return null;
+    }
+    //Vector para calcular día de la semana de un año regular.
+    var regular =[0,3,3,6,1,4,6,2,5,0,3,5];
+    //Vector para calcular día de la semana de un año bisiesto.
+    var bisiesto=[0,3,4,0,2,5,0,3,6,1,4,6];
+    //Vector para hacer la traducción de resultado en día de la semana.
+    var semana=['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    //Día especificado en la fecha recibida por parametro.
+    var dia=fecha[2];
+    //Módulo acumulado del mes especificado en la fecha recibida por parametro.
+    var mes=fecha[1]-1;
+    //Año especificado por la fecha recibida por parametros.
+    var anno=fecha[0];
+    //Comparación para saber si el año recibido es bisiesto.
+    if((anno % 4 == 0) && !(anno % 100 == 0 && anno % 400 != 0))
+        mes=bisiesto[mes];
+    else
+        mes=regular[mes];
+    //Se retorna el resultado del calculo del día de la semana.
+    return semana[Math.ceil(Math.ceil(Math.ceil((anno-1)%7)+Math.ceil((Math.floor((anno-1)/4)-Math.floor((3*(Math.floor((anno-1)/100)+1))/4))%7)+mes+dia%7)%7)];
+}
+
+function valida_envia_BLOQUE() {
+
+    if (validarFechaMenorActual(document.form.BLOQUE_FECHA.value)) {
+        alert("Seleccione una fecha futura");
+        document.form.BLOQUE_FECHA.focus();
+        return false;
+    }
+
+    if (document.form.BLOQUE_HORAI.value>document.form.BLOQUE_HORAF.value) {
+        alert("La hora final debe de ser posterior que la hora inicial");
+        document.form.BLOQUE_HORAF.focus();
+        return false;
+    }
+    if (dia_semana(document.form.BLOQUE_FECHA.value)==='Domingo') {
+        alert("Los domingos el centro permanece cerrado");
+        document.form.BLOQUE_FECHA.focus();
+        return false;
+    }
+    return true;
+}
+
+
+
+
 
 
 
