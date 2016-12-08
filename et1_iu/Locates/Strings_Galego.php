@@ -278,6 +278,7 @@ $strings = array(
 	'Lesion borrada correctamente'=>'Lesión borrada correctamente',
 	'Lesion registrada correctamente'=>'Lesión rexistrada correctamente',
 	// GESTION DE CLIENTES
+        'CLIENTE_ID'=>'ID Cliente',
 	'CLIENTE_DNI'=>'DNI ',
 	'CLIENTE_TIPO'=>'Tipo*',
 	'Nota'=>'*E=Externo, S=Socio',
@@ -343,6 +344,42 @@ $strings = array(
 	'EVENTOS'=>'EVENTOS',
 	'clase'=>'clase',
 	'profesores'=>'PROFESORES',
-	'alumnos'=>'ALUMNOS:'
+	'alumnos'=>'ALUMNOS:',
+    
+    //ENVIO NOTIFICACIONS ->EMPLEADOS/CLIENTES
+    'Enviar Notificacion'=>'Enviar Notificación',
+    'ENVIAR NOTIFICACION'=>'Enviar Notificación',
+    'Clientes'=>'Seguinte',
+    'Empleados'=>'Continuar',
+    'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
+    'Notificacion sobre Empleados'=>'Notificación sobre Empregados',
+    'Actividades'=>'Actividade',
+    'SELECT'=>'Selección',
+    'Seleccionar'=>'Seleccionar',
+    'email'=>'email',
+    'DEST'=>'Destinatarios',
+    'NOTIFICACION_REMITENTE'=>'Dirección GMAIL do remitente',
+    'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL do remitente',
+    'NOTIFICACION_NOMBRE_REMITENTE'=>'Nome completo',
+    'NOTIFICACION_ASUNTO'=>'Asunto',
+    'NOTIFICACION_CUERPO'=>'Corpo',
+    'Mensaje'=>'Mensaxe',
+    'Redactar Email'=>'Redactar Correo',
+    'Enviar'=>'Enviar',
+    'Notificacion enviada con exito'=>'Notificación enviada con éxito',
+    'Ha ocurrido un error durante el envio de las notificaciones'=>'Ocurriu un erro durante o envío das notificaciones',
+    
+    //ENVIO NOTIFICACIONES -> ACTIVIDADES
+    'actividad'=>'actividade',
+    'Actividad'=>'Confirmar',
+    'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
+    'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
+    'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOME',
+    
+    //ENVIO NOTIFICACIONES ->EVENTOS
+    'Eventos'=>'Evento',
+    'Evento'=>'Seleccionar',
+    'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+
 )
 ?>

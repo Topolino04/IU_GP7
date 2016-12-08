@@ -30,36 +30,36 @@ class NOTIFICACION_Model {
     function Enviar_Email() {
 
         $this->mail->isSMTP();
-        $this->mail->SMTPDebug = 1;
+        $this->mail->SMTPDebug = 2;
         $this->mail->SMTPAuth = true;
-        //$this->mail->SMTPSecure = 'ssl';
-        $this->mail->SMTPSecure = 'tls';
+        $this->mail->SMTPSecure = 'ssl';
+        //$this->mail->SMTPSecure = 'tls';
         $this->mail->Host = 'smtp.gmail.com';
-        //$this->mail->Port = 465;
-        $this->mail->Port = 587;
+        $this->mail->Port = 465;
+        //$this->mail->Port = 587;
         $this->mail->Username = $this->NOTIFICACION_REMITENTE;
         $this->mail->Password = $this->NOTIFICACION_PASSWORD;
-        $this->mail->setFrom($this->NOTIFICACION_REMITENTE, '');
-        $this->mail->addReplyTo($this->NOTIFICACION_REMITENTE, '');
+        $this->mail->setFrom($this->NOTIFICACION_REMITENTE, $this->NOTIFICACION_NOMBRE_REMITENTE);
+        $this->mail->addReplyTo($this->NOTIFICACION_REMITENTE, $this->NOTIFICACION_NOMBRE_REMITENTE);
         $this->mail->Subject = $this->NOTIFICACION_ASUNTO;
         $this->mail->msgHTML($this->NOTIFICACION_CUERPO);
 
         //indico destinatario
 
-        $this->NOTIFICACION_DESTINATARIOS = explode(',', $this->NOTIFICACION_DESTINATARIOS);
+        //$this->NOTIFICACION_DESTINATARIOS = explode(',', $this->NOTIFICACION_DESTINATARIOS);
         //var_dump($this->NOTIFICACION_DESTINATARIOS);
 
-        foreach ($this->NOTIFICACION_DESTINATARIOS as $address) {
-            $this->mail->addAddress($address);
-            echo $address;
-            if ($this->mail->send()) {
-                return ("Notificacion enviada con exito");
-            } else
-                return ("Ha ocurrido un error durante el envio de las notificaciones");
-        }
+//        foreach ($this->NOTIFICACION_DESTINATARIOS as $address) {
+//            $this->mail->addAddress($address);
+//           // echo $address;
+//            if ($this->mail->send()) {
+//                return ("Notificacion enviada con exito");
+//            } else
+//                return ("Ha ocurrido un error durante el envio de las notificaciones");
+//        }
         
-//        $this->mail->addAddress("ivanddf1994@hotmail.com", '');
-//        $this->mail->send();
+        $this->mail->addAddress("ivanddf1994@hotmail.com", $this->NOTIFICACION_NOMBRE_REMITENTE);
+        $this->mail->send();
 
 
 
