@@ -46,12 +46,12 @@ class REGISTRO_Consultar {
                                 <?php
                             }
 
-                            createForm($lista, $form, $strings, '', array('REGISTRO_CONSULTA_LESION_ID'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA1'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA2'=>false,), false);
+                            createFormI($lista, $form, $strings, '', array('REGISTRO_CONSULTA_LESION_ID'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA1'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA2'=>false,), false);
                             ?>
                                 
-                            <p> <br><b>Usuario </b>
+                            <p> <br><b> <?php echo $strings['Usuario'] ?> </b>
                                 <br><select name='USUARIO'>
-                                    <option selected value="0"> Elige una opción </option>
+                                    <option selected value="0"> <?php echo $strings['Elige una opcion'] ?> </option>
                                     <?php
                                     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 

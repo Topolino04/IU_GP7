@@ -44,7 +44,7 @@ class NOTIFICACION_ACTIVIDAD_Select {
 
                             </ul>
 
-                            <?php echo '<a href=\'' . $this->volver . $strings['Actividad']. "'>" . $strings['Volver'] . " </a>"; ?></li>		
+                            <?php echo '<a href=\'' . $this->volver ."'>" . $strings['Volver'] . " </a>"; ?></li>		
                         </div>
                     </nav>
                     <table id='btable' border = 1>
@@ -69,7 +69,7 @@ class NOTIFICACION_ACTIVIDAD_Select {
                             echo "<td>";
                             ?><form method="post">
                                 <input type="radio" name="actividad" value="<?php echo $this->datos [$j]['ACTIVIDAD_ID']; ?>"/> <br/><?php
-                                echo $this->datos [$j]['ACTIVIDAD_ID'];
+                               // echo $this->datos [$j]['ACTIVIDAD_ID'];
                                 echo "</td>";
                                 foreach ($this->datos [$j] as $clave => $valor) {
                                     for ($i = 0; $i < count($lista); $i++) {
