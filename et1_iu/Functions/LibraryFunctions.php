@@ -2846,7 +2846,7 @@ function createFormI($listFields, $fieldsDef, $strings, $values, $required, $noe
 
                         if (is_bool($required)) {
                             if (!$required) {
-                                $str .= ' ';
+                                $str .= '';
                             } else {
                                 $str .= ' required ';
                             }

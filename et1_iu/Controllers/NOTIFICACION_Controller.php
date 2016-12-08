@@ -37,22 +37,23 @@ function get_data_form() {
         $NOTIFICACION_ASUNTO = $_REQUEST['NOTIFICACION_ASUNTO'];
         $NOTIFICACION_CUERPO = $_REQUEST['NOTIFICACION_CUERPO'];
 
-        $notificacion = new NOTIFICACION_Model($NOTIFICACION_REMITENTE, $NOTIFICACION_PASSWORD, $NOTIFICACION_NOMBRE_REMITENTE, $NOTIFICACION_DESTINATARIOS, $NOTIFICACION_ASUNTO, $NOTIFICACION_CUERPO);
+        $notificacion = new NOTIFICACION_Model($NOTIFICACION_REMITENTE, $NOTIFICACION_PASSWORD, $NOTIFICACION_NOMBRE_REMITENTE, $NOTIFICACION_DESTINATARIOS, $NOTIFICACION_ASUNTO, $NOTIFICACION_CUERPO,'','','');
 
         return $notificacion;
     }
 }
 
-//function get_data_form1() {
-//
-//    if (isset($_REQUEST['actividad'])) {
-//        $ACTIVIDAD_ID = $_REQUEST['actividad'];
-//        //echo $ACTIVIDAD_ID;
-//        $actividad = new actividad($ACTIVIDAD_ID, '', '', '', '', '');
-//    }
-//
-//    return $actividad;
-//}
+function get_data_form1() {
+
+        $NOTIFICACION_REMITENTE = $_REQUEST['NOTIFICACION_REMITENTE'];
+        $NOTIFICACION_FECHAHORA1 = $_REQUEST['NOTIFICACION_FECHAHORA1'];
+        $NOTIFICACION_FECHAHORA2 = $_REQUEST['NOTIFICACION_FECHAHORA2'];
+        $NOTIFICACION_DESTINATARIOS = $_REQUEST['NOTIFICACION_DESTINATARIO'];
+        $EMP_USER = $_REQUEST['EMP_USER'];
+        
+        $notificacion = new NOTIFICACION_Model($NOTIFICACION_REMITENTE, '', '', $NOTIFICACION_DESTINATARIOS, '','', $NOTIFICACION_FECHAHORA1, $NOTIFICACION_FECHAHORA2, $EMP_USER);
+        return $notificacion;
+}
 
 if (!isset($_REQUEST['accion'])) {
     $_REQUEST['accion'] = '';
@@ -144,6 +145,20 @@ Switch ($_REQUEST['accion']) {
             $notificacion = get_data_form();
             $respuesta = $notificacion->Enviar_Email();
             new Mensaje($respuesta, 'NOTIFICACION_Controller.php');
+        }
+        break;
+
+    case $strings['Consultar']: //Enviar
+        if (!isset($_REQUEST['NOTIFICACION_REMITENTE'])) {
+            if (!tienePermisos('NOTIFICACION_Consultar')) {
+                new Mensaje('No tienes los permisos necesarios', 'EMPLEADOS_Controller.php');
+            } else {
+                    new NOTIFICACION_Consultar('NOTIFICACION_Controller.php?');
+                }
+        } else {
+            $notificacion = get_data_form1();
+            $datos = $notificacion->Consultar();
+            new NOTIFICACION_Select($datos, '../Controllers/NOTIFICACION_Controller.php');
         }
         break;
 
