@@ -12,21 +12,24 @@ $form = array(
         'validation' => '',
         'readonly' => false
     ),
+
     1 => array(
-        'type' => 'password',
-        'name' => 'NOTIFICACION_PASSWORD',
+        'type' => 'date',
+        'name' => 'NOTIFICACION_FECHAHORA1',
         'value' => '',
-        'size' => 15,
-        'required' => true,
+        'min' => '1900-01-01',
+        'max' => '2018-01-01',
+        'required' => false,
         'pattern' => '',
         'validation' => '',
         'readonly' => false
     ),
     2 => array(
-        'type' => 'text',
-        'name' => 'NOTIFICACION_NOMBRE_REMITENTE',
-        'value' => 'MOOVETT',
-        'size' => 35,
+        'type' => 'date',
+        'name' => 'NOTIFICACION_FECHAHORA2',
+        'value' => '',
+        'min' => '1900-01-01',
+        'max' => '2018-01-01',
         'required' => false,
         'pattern' => '',
         'validation' => '',
@@ -34,7 +37,7 @@ $form = array(
     ),
     3 => array(
         'type' => 'text',
-        'name' => 'NOTIFICACION_ASUNTO',
+        'name' => 'NOTIFICACION_DESTINATARIO',
         'value' => '',
         'size' => 35,
         'required' => false,
@@ -42,4 +45,5 @@ $form = array(
         'validation' => '',
         'readonly' => false
     )
+    
 );

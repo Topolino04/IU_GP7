@@ -51,7 +51,7 @@ class REGISTRO_Consultar {
                                 
                             <p> <br><b> <?php echo $strings['Usuario'] ?> </b>
                                 <br><select name='USUARIO'>
-                                    <option selected value="0"> <?php echo $strings['Elige una opcion'] ?> </option>
+                                    <option selected value=""> <?php echo $strings['Elige una opcion'] ?> </option>
                                     <?php
                                     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
@@ -66,7 +66,7 @@ class REGISTRO_Consultar {
                                 </select>
                             </p>
 
-                            <input type='submit' name='accion' value=<?php echo $strings['Filtrar'] ?>>
+                            <input type='submit' onclick="return valida_filtrar_fecha()" name='accion' value=<?php echo $strings['Filtrar'] ?>>
 
                             </form>
                             <?php

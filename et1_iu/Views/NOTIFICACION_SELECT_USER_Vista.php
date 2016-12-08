@@ -71,7 +71,7 @@ class NOTIFICACION_USER_Select {
                             if ($this->usuario == 'EMP') {
                                 ?><form method="post">
                                     <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['EMP_EMAIL']; ?>"/> <br/><?php
-                                   //echo $this->datos [$j]['EMP_EMAIL'];
+                                    //echo $this->datos [$j]['EMP_EMAIL'];
                                     echo "</td>";
                                 } else {
                                     ?><form method="post">
@@ -98,10 +98,10 @@ class NOTIFICACION_USER_Select {
 
                                     <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
                                         <?php if ($this->usuario == 'EMP') { ?>
-                                            <input type='submit' name='accion' value=<?php echo $strings['Empleados'] ?>> 
+                                            <input type='submit'  name='accion' value=<?php echo $strings['Empleados'] ?>> 
                                         <?php } else { ?>
-                                            <input type='submit' name='accion' value=<?php echo $strings['Clientes'] ?>> 
-                                            <?php }
+                                            <input type='submit'  name='accion' value=<?php echo $strings['Clientes'] ?>> 
+                                        <?php }
                                         ?>
 
                                     </form>
