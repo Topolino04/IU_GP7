@@ -46,11 +46,9 @@ class REGISTRO_Consultar {
                                 <?php
                             }
 
-                            createForm($lista, $form, $strings, $values = '', false, false);
+                            createForm($lista, $form, $strings, '', array('REGISTRO_CONSULTA_LESION_ID'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA1'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA2'=>false,), false);
                             ?>
-                        <!--<input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA1" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo ""; ?>">
-                        <input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA2" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo ""; ?>">
-                            -->
+                                
                             <p> <br><b>Usuario </b>
                                 <br><select name='USUARIO'>
                                     <option selected value="0"> Elige una opción </option>

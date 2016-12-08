@@ -7,6 +7,7 @@ class NOTIFICACION_ACTIVIDAD_Select {
     private $datos;
     private $volver;
 
+
     function __construct($array, $volver) {
         $this->datos = $array;
         $this->volver = $volver;
@@ -43,7 +44,7 @@ class NOTIFICACION_ACTIVIDAD_Select {
 
                             </ul>
 
-                            <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>		
+                            <?php echo '<a href=\'' . $this->volver . $strings['Actividad']. "'>" . $strings['Volver'] . " </a>"; ?></li>		
                         </div>
                     </nav>
                     <table id='btable' border = 1>

@@ -446,9 +446,56 @@ function valida_envia_BLOQUE() {
     return true;
 }
 
+function valida_envia_LESION(){
+    
+     if (document.form.LESION_NOM.value.length == 0) {
+        alert("Introduzca un valor para el nombre");
+        document.form.LESION_NOM.focus();
+        return false;
+    }
+    if (document.form.LESION_NOM.value.length > 50) {
+        alert("Nombre demasiado largo (máximo 100 caracteres)");
+        document.form.LESION_NOM.focus();
+        return false;
+    }
+
+    if (document.form.LESION_DESC.value.length > 200) {
+        alert("Comentario demasiado largo (máximo 200 caracteres)");
+        document.form.LESION_DESC.focus();
+        return false;
+    }
+    return true;
+}
 
 
+function valida_envia_EMAIL(){
+    
+     if (((document.form.NOTIFICACION_REMITENTE.value.length == 0) || !validarEmail(document.form.NOTIFICACION_REMITENTE.value))) {
+        alert("Introduzca una dirección de gmail válida");
+        document.form.NOTIFICACION_REMITENTE.focus();
+        return false;
+    }
+    
+    if (document.form.NOTIFICACION_PASSWORD.value.length == 0) {
+        alert("Introduzca un valor para la contraseña");
+        document.form.NOTIFICACION_PASSWORD.focus();
+        return false;
+    }
 
+    if (document.form.NOTIFICACION_PASSWORD.value.length < 8) {
+        alert("Contraseña demasiado corta (mínimo 8 caracteres)");
+        document.form.NOTIFICACION_PASSWORD.focus();
+        return false;
+    }
+    
+    if (document.form.NOTIFICACION_CUERPO.value.length == 0) {
+        alert("No se pueden mandar emails vacios, redacte su email");
+        document.form.NOTIFICACION_CUERPO.focus();
+        return false;
+    }
+
+    return true;
+}
 
 
 

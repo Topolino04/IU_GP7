@@ -1,15 +1,17 @@
 <?php
 
-class NOTIFICACION_CLIENTE_Select {
+class NOTIFICACION_USER_Select {
 
-    //VISTA PARA LISTAR LOS CLIENTES DESTINATARIOS
+    //VISTA PARA LISTAR LOS USUARUIS DESTINATARIOS.
 
     private $datos;
     private $volver;
+    private $usuario;   //Para diferenciar entre Clientes y Empleados
 
-    function __construct($array, $volver) {
+    function __construct($array, $volver, $usuario) {
         $this->datos = $array;
         $this->volver = $volver;
+        $this->usuario = $usuario;
         $this->render();
     }
 
@@ -24,7 +26,11 @@ class NOTIFICACION_CLIENTE_Select {
             ?>
             <div>
                 <?php
-                $lista = array('SELECT', 'EMP_USER', 'EMP_NOMBRE', 'EMP_APELLIDO', 'EMP_EMAIL');
+                if ($this->usuario == 'EMP') {
+                    $lista = array('SELECT', 'EMP_USER', 'EMP_NOMBRE', 'EMP_APELLIDO', 'EMP_EMAIL');
+                } else {
+                    $lista = array('SELECT', 'CLIENTE_ID', 'CLIENTE_NOMBRE', 'CLIENTE_APELLIDOS', 'CLIENTE_CORREO');
+                }
                 ?>
                 <head>
                     <link rel="stylesheet" href="../Styles/styles.css" type="text/css" media="screen" />
@@ -52,59 +58,64 @@ class NOTIFICACION_CLIENTE_Select {
                             foreach ($lista as $titulo) {
 
                                 echo "<th>";
-                                ?>
-                                <?php
                                 echo $strings[$titulo];
-                                ?>
-                                </th>
-                                <?php
+                                echo "</th>";
                             }
                             ?>
                         </tr>
                         <?php
                         for ($j = 0; $j < count($this->datos); $j++) {
                             echo "<tr>";
-                           // var_dump($this->datos);
+                            // var_dump($this->datos);
                             echo "<td>";
-                            ?><form method="post">
-                                <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['EMP_EMAIL'];?>"/> <br/><?php
-                            echo $this->datos [$j]['EMP_EMAIL'];
-                            echo "</td>";
-                            foreach ($this->datos [$j] as $clave => $valor) {
-                                for ($i = 0; $i < count($lista); $i++) {
-                                    if ($clave === $lista[$i]) {
-
-                                        echo "<td>";
-
-                                        echo $valor;
-
+                            if ($this->usuario == 'EMP') {
+                                ?><form method="post">
+                                    <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['EMP_EMAIL']; ?>"/> <br/><?php
+                                    echo $this->datos [$j]['EMP_EMAIL'];
+                                    echo "</td>";
+                                } else {
+                                    ?><form method="post">
+                                        <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['CLIENTE_CORREO']; ?>"/> <br/><?php
+                                        echo $this->datos [$j]['CLIENTE_CORREO'];
                                         echo "</td>";
                                     }
+                                    foreach ($this->datos [$j] as $clave => $valor) {
+                                        for ($i = 0; $i < count($lista); $i++) {
+                                            if ($clave === $lista[$i]) {
+
+                                                echo "<td>";
+                                                echo $valor;
+                                                echo "</td>";
+                                            }
+                                        }
+                                    }
+
+                                    echo "<tr>";
                                 }
+                                ?>
+                                </table>
+                                <h3>
+
+                                    <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
+                                        <?php if ($this->usuario == 'EMP') { ?>
+                                            <input type='submit' name='accion' value=<?php echo $strings['Empleados'] ?>> 
+                                        <?php } else { ?>
+                                            <input type='submit' name='accion' value=<?php echo $strings['Clientes'] ?>> 
+                                            <?php }
+                                        ?>
+
+                                    </form>
+
+                                </h3>
+                                </div> <!--fin de div de muestra de datos -->
+
+
+
+                                </div>
+
+                                <?php
                             }
 
-                            echo "<tr>";
+                            //fin metodo render
                         }
-                        ?>
-          
-                    </table>
-<h3>
-
-                    <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
-        
-                        <input type='submit' name='accion' value=<?php echo $strings['Clientes']?>>
-                    </form>
-
-                </h3>
-                </div> <!-- fin de div de muestra de datos -->
-      
- 
-
-            </div>
-
-            <?php
-        }
-
-        //fin metodo render
-    }
-    
+                        

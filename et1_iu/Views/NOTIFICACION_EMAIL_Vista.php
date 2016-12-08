@@ -5,10 +5,12 @@ class NOTIFICACION_EMAIL {
 
     private $datos;
     private $volver;
+    private $return;
 
-    function __construct($datos, $volver) {
+    function __construct($datos, $volver, $return) {
         $this->datos = $datos;
         $this->volver = $volver;
+        $this->return = $return;
         $this->render();
     }
 
@@ -38,23 +40,23 @@ class NOTIFICACION_EMAIL {
                     <form id="form" name="form"  action='NOTIFICACION_Controller.php' method='post' >
                         <ul class="form-style-1">
                             <?php
-                            $dest = implode(",", $this->datos);
-                           // echo $dest;
+                            $dest = implode(",", $this->datos); //Convierto el array en una cadena de texto
                             ?>
                           <input type='hidden' name='NOTIFICACION_DESTINATARIOS' value="<?php echo $dest ?>" >
                             <?php
                            
-                            createForm($lista, $form, $strings, '', true, false);
+                            createForm($lista, $form, $strings, '', array('NOTIFICACION_NOMBRE_REMITENTE'=>false,'NOTIFICACION_ASUNTO'=>false), false);
                             ?>
                           <p>
-                         <br><b>Mensaje </b>
-                            <textarea rows="30" cols="70" name="NOTIFICACION_CUERPO"></textarea>
+                         <br><b><?php $strings['Mensaje'] ?> </b>
+                            <textarea rows="25" cols="70" name="NOTIFICACION_CUERPO"></textarea>
                             
-                            <input type='submit' name='accion' value=<?php echo $strings['Enviar'] ?>>
-                            </form>
-                            <?php
-                            echo '<a  class="form-link" href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>";
+                            <input type='submit' onclick="return valida_envia_EMAIL()" name='accion' value=<?php echo $strings['Enviar'] ?>>
+                             <?php
+                            echo '<a  class="form-link" href=\'' . $this->volver . $this->return . "'>" . $strings['Volver'] . " </a>";
                             ?>
+                            </form>
+                           
 
                             </h3>
                             </p>

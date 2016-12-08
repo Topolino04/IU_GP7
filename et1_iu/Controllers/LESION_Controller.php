@@ -45,10 +45,20 @@ function get_data_form() {
     } else {
         if (isset($_REQUEST['EMP_USER'])) {
             $EMP_USER = $_REQUEST['EMP_USER'];
-            $lesion = new LESION_MODEL('', $LESION_NOM, $LESION_DESC, $LESION_ESTADO, $EMP_USER, '');
+            if (isset($_REQUEST['LESION_DESC'])) {
+                $LESION_DESC = $_REQUEST['LESION_DESC'];
+                $lesion = new LESION_MODEL('', $LESION_NOM, $LESION_DESC, $LESION_ESTADO, $EMP_USER, '');
+            } else {
+                $lesion = new LESION_MODEL('', $LESION_NOM, '', $LESION_ESTADO, $EMP_USER, '');
+            }
         } else {
             $CLIENTE_ID = $_REQUEST['CLIENTE_ID'];
-            $lesion = new LESION_MODEL('', $LESION_NOM, $LESION_DESC, $LESION_ESTADO, '', $CLIENTE_ID);
+            if (isset($_REQUEST['LESION_DESC'])) {
+                $LESION_DESC = $_REQUEST['LESION_DESC'];
+                $lesion = new LESION_MODEL('', $LESION_NOM, $LESION_DESC, $LESION_ESTADO, '', $CLIENTE_ID);
+            } else {
+                $lesion = new LESION_MODEL('', $LESION_NOM, '', $LESION_ESTADO, '', $CLIENTE_ID);
+            }
         }
     }
 

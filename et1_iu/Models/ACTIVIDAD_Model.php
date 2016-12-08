@@ -207,4 +207,25 @@ class actividad
 
         }
     }
+    
+        function ConsultarClientesActividad(){
+        $this->ConectarBD();
+        $sql = "SELECT CLIENTE_ID, CLIENTE_NOMBRE, CLIENTE_APELLIDOS, CLIENTE_CORREO FROM CLIENTE WHERE CLIENTE_ID IN (SELECT CLIENTE_ID FROM CLIENTE_INSCRIPCION_ACTIVIDAD WHERE ACTIVIDAD_ID = '" . $this->ACTIVIDAD_ID . "')";
+        if (!($resultado = $this->mysqli->query($sql))) {
+            return 'Error en la consulta sobre la base de datos';
+        } else {
+
+            $toret = array();
+            $i = 0;
+
+            while ($fila = $resultado->fetch_array()) {
+
+
+                $toret[$i] = $fila;
+                $i++;
+            }
+
+        }
+            return $toret;
+    }
 }

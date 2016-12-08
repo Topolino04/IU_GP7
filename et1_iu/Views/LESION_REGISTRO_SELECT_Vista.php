@@ -68,15 +68,11 @@ class REGISTRO_Select {
                                 foreach ($lista as $titulo) {
                                  
                                     echo "<th>";
-                                    ?>
-                                    <?php
                                     echo $strings[$titulo];
-                                    ?>
-                                    </th>
-                                    <?php
+                                    echo "</th>";
                                 }
                                 ?>
-                            </tr>
+                            </tr>  
                             <?php
                             for ($j = 0; $j < count($this->datos); $j++) {
                                 echo "<tr>";

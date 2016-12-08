@@ -260,7 +260,7 @@ ALTER TABLE `CLIENTE`
 
 INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`,`CLIENTE_PROFESION`,`CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`, `CLIENTE_DOM`,  `CLIENTE_LOPD`,`CLIENTE_TELEFONO1`,`CLIENTE_TELEFONO2`,`CLIENTE_TELEFONO3`, `CLIENTE_TIPO`) VALUES
 (1, '11378328K', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '1996-11-01', 'panadero', '','Activo','','',999999999,666666666,0,'1'  ),
-(2, '15953592X', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
+(2, '15953592X', 'Marcos', 'Rodriguez Fernandez', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
 (3, '35248369H', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01','','','Activo','','', 999399999, 0, 0, '0'),
 (4, '36559850Q', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
 
@@ -954,7 +954,7 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (707, '../Views/LESION_CONSULT_REGISTRO_Vista.php', 'REGISTRO CONSULT'),
 (708, '../Views/LESION_REGISTRO_SELECT_Vista.php', 'REGISTRO SELECT'),
 (709, '../Views/NOTIFICACION_SHOW_ALL_Vista.php', 'SHOW ALL NOTIFICACION'),
-(710, '../Views/NOTIFICACION_SELECT_CLIENTE_Vista.php', 'SELECT CLIENTE'),
+(710, '../Views/NOTIFICACION_SELECT_USER_Vista.php', 'SELECT CLIENTE'),
 (711, '../Views/NOTIFICACION_EMAIL_Vista.php', 'SEND EMAIL'),
 (712, '../Views/NOTIFICACION_SELECT_ACTIVIDAD_Vista.php', 'SHOW ACTIVIDAD'),
 (713, '../Views/NOTIFICACION_CLIENTE_ACTIVIDAD_Vista.php', 'SHOW CLIENTE ACTIVIDAD'),
