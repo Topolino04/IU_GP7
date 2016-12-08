@@ -27,16 +27,37 @@ class NOTIFICACION_Model {
         $this->mail = new PHPMailer();
     }
 
+    //Función para la conexión a la base de datos
+    function ConectarBD() {
+        $this->mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+        if ($this->mysqli->connect_errno) {
+            echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
+        }
+    }
+
+    function Insertar() {
+        $this->ConectarBD();
+        $sql = "INSERT INTO NOTIFICACION (NOTIFICACION_REMITENTE, NOTIFICACION_DESTINATARIO, EMP_USER) VALUES ('" . $this->NOTIFICACION_REMITENTE . "', '" . $this->NOTIFICACION_DESTINATARIOS . "','" . $_SESSION['login'] . "')";
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        } else {
+            return $resultado;
+        }
+    }
+
     function Enviar_Email() {
+
+        $cont = 0;
 
         $this->mail->isSMTP();
         $this->mail->SMTPDebug = 2;
         $this->mail->SMTPAuth = true;
-        $this->mail->SMTPSecure = 'ssl';
-        //$this->mail->SMTPSecure = 'tls';
-        $this->mail->Host = 'smtp.gmail.com';
+        $this->mail->SMTPSecure = "ssl";
+        //$this->mail->SMTPSecure = "tls";
+        $this->mail->Host = "smtp.gmail.com";
+        //$this->mail->Host = gethostbyname('smtp.gmail.com');
         $this->mail->Port = 465;
-        //$this->mail->Port = 587;
+       //$this->mail->Port = 587;
         $this->mail->Username = $this->NOTIFICACION_REMITENTE;
         $this->mail->Password = $this->NOTIFICACION_PASSWORD;
         $this->mail->setFrom($this->NOTIFICACION_REMITENTE, $this->NOTIFICACION_NOMBRE_REMITENTE);
@@ -44,29 +65,28 @@ class NOTIFICACION_Model {
         $this->mail->Subject = $this->NOTIFICACION_ASUNTO;
         $this->mail->msgHTML($this->NOTIFICACION_CUERPO);
 
-        //indico destinatario
-
-        //$this->NOTIFICACION_DESTINATARIOS = explode(',', $this->NOTIFICACION_DESTINATARIOS);
-        //var_dump($this->NOTIFICACION_DESTINATARIOS);
-
-//        foreach ($this->NOTIFICACION_DESTINATARIOS as $address) {
+        //PARTE QUE LO HACE BIEN PERO NO ENVIA
+//        $destinatarios = explode(',', $this->NOTIFICACION_DESTINATARIOS);
+//        // var_dump($destinatarios);
+//        foreach ($destinatarios as $address) {
 //            $this->mail->addAddress($address);
-//           // echo $address;
 //            if ($this->mail->send()) {
-//                return ("Notificacion enviada con exito");
-//            } else
+//                $cont = $cont + 1;
+//            } else {
 //                return ("Ha ocurrido un error durante el envio de las notificaciones");
+//            }
 //        }
-        
-        $this->mail->addAddress("ivanddf1994@hotmail.com", $this->NOTIFICACION_NOMBRE_REMITENTE);
-        $this->mail->send();
-
-
-
-//        if (mail($this->NOTIFICACION_DESTINATARIOS, $this->NOTIFICACION_ASUNTO, $this->NOTIFICACION_CUERPO)) { //Funcion para mandar el email
+//        if ($cont = count($destinatarios)) {
+//            $this->Insertar();
 //            return ("Notificacion enviada con exito");
-//        } else
-//            return ("Ha ocurrido un error durante el envio de las notificaciones");
+//        }
+//   
+
+        $this->mail->addAddress("ivanddf1994@hotmail.com", $this->NOTIFICACION_NOMBRE_REMITENTE);
+        if (!$this->mail->send()) {
+           return ("Ha ocurrido un error durante el envio de las notificaciones");
+        } else
+            return ("Notificacion enviada con exito");
     }
 
 }

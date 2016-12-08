@@ -71,12 +71,12 @@ class NOTIFICACION_USER_Select {
                             if ($this->usuario == 'EMP') {
                                 ?><form method="post">
                                     <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['EMP_EMAIL']; ?>"/> <br/><?php
-                                    echo $this->datos [$j]['EMP_EMAIL'];
+                                   //echo $this->datos [$j]['EMP_EMAIL'];
                                     echo "</td>";
                                 } else {
                                     ?><form method="post">
                                         <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['CLIENTE_CORREO']; ?>"/> <br/><?php
-                                        echo $this->datos [$j]['CLIENTE_CORREO'];
+                                        //echo $this->datos [$j]['CLIENTE_CORREO'];
                                         echo "</td>";
                                     }
                                     foreach ($this->datos [$j] as $clave => $valor) {

@@ -65,7 +65,7 @@ function get_data_form() {
     return $lesion;
 }
 
-function get_data_form1() {
+function get_data_form_Registro() {
 
     if (isset($_REQUEST['EMP_USER'])) {
         $REGISTRO_CONSULTA_LESION_ID = $_REQUEST['REGISTRO_CONSULTA_LESION_ID'];
@@ -73,11 +73,8 @@ function get_data_form1() {
         $REGISTRO_CONSULTA_LESION_FECHAHORA1 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA1'];
         echo $REGISTRO_CONSULTA_LESION_FECHAHORA1,
         $REGISTRO_CONSULTA_LESION_FECHAHORA2 = $_REQUEST['REGISTRO_CONSULTA_LESION_FECHAHORA2'];
-        // echo $REGISTRO_CONSULTA_LESION_FECHAHORA2;
         $USUARIO = $_REQUEST['USUARIO'];
-        // echo $USUARIO;
         $EMP_USER = $_REQUEST['EMP_USER'];
-        //echo $EMP_USER;
 
         $registro = new REGISTRO_MODEL($REGISTRO_CONSULTA_LESION_ID, $REGISTRO_CONSULTA_LESION_FECHAHORA1, $REGISTRO_CONSULTA_LESION_FECHAHORA2, $USUARIO, '', $EMP_USER);
     } else {
@@ -211,26 +208,26 @@ Switch ($_REQUEST['accion']) {
         }
         break;
 
-    case $strings['Filtrar']:  //Consulta de lesiones -> Se utiliza para filtrar el SHOW_ALL de Lesiones de un Usuario
+    case $strings['Filtrar']:  //Consulta de Registros -> Se utiliza para filtrar el SHOW_ALL de Registro de Lesiones de un Usuario
         if (!isset($_REQUEST['REGISTRO_CONSULTA_LESION_ID'])) {
             if (isset($_REQUEST['EMP_USER'])) {
                 new REGISTRO_Consultar('LESION_Controller.php?accion=Registro&EMP_USER=', $_REQUEST['EMP_USER'], '');
             } else {
-                new REGISTRO_Consultar('LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+                new REGISTRO_Consultar('LESION_Controller.php?accion=Registro&CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
             }
         } else {
-            $registro = get_data_form1();
+            $registro = get_data_form_Registro();
             $datos = $registro->Consultar();
             if (isset($_REQUEST['EMP_USER'])) {
-                new REGISTRO_Select($datos, '../Controllers/LESION_Controller.php?EMP_USER=', $_REQUEST['EMP_USER'], '');
+                new REGISTRO_Select($datos, '../Controllers/LESION_Controller.php?accion=Registro&EMP_USER=', $_REQUEST['EMP_USER'], '');
             } else
-                new LESION_Select($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
+                new REGISTRO_Select($datos, '../Controllers/LESION_Controller.php?accion=Registro&CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
         }
         break;
 
 
 
-    case $strings['Registro']:  //Consulta de lesiones -> Se utiliza para filtrar el SHOW_ALL de Lesiones de un Usuario
+    case $strings['Registro']:  //Muestra el registro de consulta de los empleados sobre las lesiones de un usuario
         if (isset($_REQUEST['EMP_USER'])) {
             $lesion = new LESION_MODEL('', '', '', '', $_REQUEST['EMP_USER'], '');
             $datos = $lesion->ConsultarRegistro();
