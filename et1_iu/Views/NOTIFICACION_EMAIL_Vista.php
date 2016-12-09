@@ -1,6 +1,6 @@
 <?php
 
-//VISTA PARA INSERTAR PAGOS
+//VISTA para redactar el email a enviar
 class NOTIFICACION_EMAIL {
 
     private $datos;

@@ -1,11 +1,9 @@
 <?php
 
-//VISTA INICIAL DE LA GESTION DE PAGOS
+//VISTA INICIAL DE LA GESTION DE NOTIFICACIONES
 class NOTIFICACION_Default {
 
     private $volver;
-
-    //private $ACTIVIDAD_ID;
 
     function __construct($volver) {
         $this->volver = $volver;
@@ -39,7 +37,7 @@ class NOTIFICACION_Default {
                             </ul>
 
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?>
-                             <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Consultar']; ?>'><?php echo $strings['Consultar'] ?></a>
+                             <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Registro']; ?>'><?php echo $strings['Registro'] ?></a>
 
                         </div>
                     </nav>

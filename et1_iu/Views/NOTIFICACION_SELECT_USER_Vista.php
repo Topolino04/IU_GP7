@@ -35,6 +35,20 @@ class NOTIFICACION_USER_Select {
                 <head>
                     <link rel="stylesheet" href="../Styles/styles.css" type="text/css" media="screen" />
                     <link rel="stylesheet" type="text/css" href="../Styles/print.css" media="print" />
+
+                    <script type="text/javascript">
+                        function marcar(source)
+                        {
+                            checkboxes = document.getElementsByTagName('input'); //obtenemos todos los controles del tipo Input
+                            for (i = 0; i < checkboxes.length; i++) //recoremos todos los controles
+                            {
+                                if (checkboxes[i].type == "checkbox") //solo si es un checkbox entramos
+                                {
+                                    checkboxes[i].checked = source.checked; //si es un checkbox le damos el valor del checkbox que lo llamó (Marcar/Desmarcar Todos)
+                                }
+                            }
+                        }
+                    </script>
                 </head>
                 <div id="wrapper">
 
@@ -62,6 +76,7 @@ class NOTIFICACION_USER_Select {
                                 echo "</th>";
                             }
                             ?>
+                        <input type="checkbox" onclick="marcar(this);" /> Marcar/Desmarcar Todo
                         </tr>
                         <?php
                         for ($j = 0; $j < count($this->datos); $j++) {
@@ -69,7 +84,7 @@ class NOTIFICACION_USER_Select {
                             // var_dump($this->datos);
                             echo "<td>";
                             if ($this->usuario == 'EMP') {
-                                ?><form method="post">
+                                ?><form id="form1" method="post">
                                     <input type="checkbox" name="email[]" value="<?php echo $this->datos [$j]['EMP_EMAIL']; ?>"/> <br/><?php
                                     //echo $this->datos [$j]['EMP_EMAIL'];
                                     echo "</td>";
@@ -93,12 +108,14 @@ class NOTIFICACION_USER_Select {
                                     echo "<tr>";
                                 }
                                 ?>
+
                                 </table>
+
                                 <h3>
 
                                     <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
                                         <?php if ($this->usuario == 'EMP') { ?>
-                                            <input type='submit'  name='accion' value=<?php echo $strings['Empleados'] ?>> 
+                                            <input type='submit' onclick="return validar()" name='accion' value=<?php echo $strings['Empleados'] ?>> 
                                         <?php } else { ?>
                                             <input type='submit'  name='accion' value=<?php echo $strings['Clientes'] ?>> 
                                         <?php }

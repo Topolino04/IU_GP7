@@ -230,7 +230,7 @@ Switch ($_REQUEST['accion']) {
             $lesion = new LESION_MODEL('', '', '', '', $_REQUEST['EMP_USER'], '');
             $datos = $lesion->ConsultarRegistro();
             if (!tienePermisos('LESION_Registro')) {
-                new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', $_REQUEST['EMP_USER'], '');
+                new Mensaje_LESION('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', $_REQUEST['EMP_USER'], '');
             } else {
                 new LESION_Registro($datos, '../Controllers/LESION_Controller.php?EMP_USER=', $_REQUEST['EMP_USER'], '');
             }
@@ -238,7 +238,7 @@ Switch ($_REQUEST['accion']) {
             $lesion = new LESION_MODEL('', '', '', '', '', $_REQUEST['CLIENTE_ID']);
             $datos = $lesion->ConsultarRegistro();
             if (!tienePermisos('LESION_Registro')) {
-                new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
+                new Mensaje_LESION('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
             } else {
                 new LESION_Registro($datos, '../Controllers/LESION_Controller.php?CLIENTE_ID=', '', $_REQUEST['CLIENTE_ID']);
             }
@@ -252,7 +252,7 @@ Switch ($_REQUEST['accion']) {
             $lesion = new LESION_MODEL('', '', '', '', $_REQUEST['EMP_USER'], '');
             $datos = $lesion->ConsultarTodo();
             if (!tienePermisos('LESION_Show')) {
-                new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', $_REQUEST['EMP_USER'], '');
+                new Mensaje_LESION('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', $_REQUEST['EMP_USER'], '');
             } else {
                 new LESION_Show($datos, '../Controllers/EMPLEADO_Controller.php', $_REQUEST['EMP_USER'], '');
             }
@@ -260,7 +260,7 @@ Switch ($_REQUEST['accion']) {
             $lesion = new LESION_MODEL('', '', '', '', '', $_REQUEST['CLIENTE_ID']);
             $datos = $lesion->ConsultarTodo();
             if (!tienePermisos('LESION_Show')) {
-                new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
+                new Mensaje_LESION('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php', '', $_REQUEST['CLIENTE_ID']);
             } else {
                 new LESION_Show($datos, '../Controllers/CLIENTE_Controller.php', '', $_REQUEST['CLIENTE_ID']);
             }

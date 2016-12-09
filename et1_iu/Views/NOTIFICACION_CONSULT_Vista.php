@@ -1,15 +1,16 @@
 
-
 <?php
 
-//Vista para Filtrar el conjunto de las lesiones
+//Vista para Filtrar el conjunto de notificaciones por un campo o combinacion de varios campos
 
 class NOTIFICACION_Consultar {
 
-    var $volver;
+    private $volver;
+    private $return;
 
-    function __construct($volver) {
+    function __construct($volver, $return) {
         $this->volver = $volver;
+        $this->return = $return;
         $this->render();
     }
 
@@ -31,7 +32,7 @@ class NOTIFICACION_Consultar {
                 </p>
                 <p>
                 <h3>
-                    <form action='NOTIFICACION_Controller.php' method='post'>
+                    <form id="form" name="form" action='NOTIFICACION_Controller.php' method='post'>
                         <ul class="form-style-1">
 
                             <?php
@@ -55,11 +56,11 @@ class NOTIFICACION_Consultar {
                                 </select>
                             </p>
 
-                            <input type='submit' name='accion' value=<?php echo $strings['Consultar'] ?>>
+                            <input type='submit' onclick= "return valida_fecha()" name='accion' value=<?php echo $strings['Consultar'] ?>>
 
                             </form>
                             <?php
-                            echo '<a  class="form-link" href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>";
+                            echo '<a  class="form-link" href=\'' . $this->volver . $this->return."'>" . $strings['Volver'] . " </a>";
                             ?>
                             </h3>
                             </p>
