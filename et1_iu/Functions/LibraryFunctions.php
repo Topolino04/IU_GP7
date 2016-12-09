@@ -1500,6 +1500,12 @@ function añadirFuncionalidades($NOM) {
 		case "GESTION FACTURAS":
                     ?><a style="font-size:20px;" href='../Controllers/FACTURA_Controller.php'><?php echo $stringsCF['Gestion de Facturas'] ?></a><br><br> <?php
                     break;
+		case "GESTION LUGARES":
+                    ?><a style="font-size:20px;" href='../Controllers/LUGAR_Controller.php'><?php echo $strings['Gestion de Lugares'] ?></a><br><br> <?php
+                    break;
+		case "GESTION EVENTOS":
+                    ?><a style="font-size:20px;" href='../Controllers/EVENTO_Controller.php'><?php echo $strings['Gestion de Eventos'] ?></a><br><br> <?php
+                    break;
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
                     echo "<a style='font-size:20px;'href='../Controllers/" . $link . "'>" . ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID']) . " </a><br><br>";
