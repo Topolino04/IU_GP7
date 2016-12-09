@@ -383,15 +383,14 @@ $strings = array(
     'Ha ocurrido un error durante el envio de las notificaciones'=>'Ha ocurrido un error durante el envío de las notificaciones',
 
     //ENVIO NOTIFICACIONES -> ACTIVIDADES
-    'actividad'=>'actividad',
     'Actividad'=>'Confirmar',
     'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
     'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
-    'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
+    'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
     'Seleccionar'=>'Seleccionar',
-    'actividad'=>'actividad',
-    'LUGAR_NOMBRE' => 'Nombre lugar',
-    'CATEGORIA_NOMBRE' => 'Nombre categoria',
+    'actividad'=>'Actividad',
+    'LUGAR_NOMBRE' => 'Nombre Lugar',
+    'CATEGORIA_NOMBRE' => 'Nombre Categoria',
 
 
     //ENVIO NOTIFICACIONES ->EVENTOS
