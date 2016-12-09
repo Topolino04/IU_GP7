@@ -177,7 +177,7 @@ $strings = array(
 	'Asistencia Monitores'=>'Asistencia Monitores',
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
-
+    
     //GESTION DE PAGOS
     'GESTION PAGOS'=>'GESTION PAGOS',
     'Gestión de Pagos'=>'Gestion de Pagos',
@@ -224,11 +224,8 @@ $strings = array(
     'Borrar Descuento' => 'Borrar Descuento',
     'Modificar Descuento'=>'Modificar Descuento',
     "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
-    'Descuentos' => 'Descuentos',
-    'Aplicado' => 'Aplicado',
-    'Guardar'=> 'Guardar',
-    'Asignacion de descuentos correcta'=>'Asignacion de descuentos correcta',
-
+ 
+    
     //GESTION ACTIVIDADES
     'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
     'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
@@ -242,7 +239,7 @@ $strings = array(
     'ACTIVIDAD_ID' => 'Identificador Actividad',
     'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
     'ACTIVIDAD_PRECIO' => 'Precio Actividad',
-    'ACTIVIDAD_DESCRIPCION' => 'Descripción actividad',
+    'ACTIVIDAD_DESCRIPCION' => 'Descripción actividad', 
     'CATEGORIA_ID' => 'Identificador categoría',
     'Modificar' => 'Modificar',
     'Borrar' => 'Borrar',
@@ -252,10 +249,8 @@ $strings = array(
     'Insertar' => 'Insertar',
     'Consultar actividad' => 'Consultar actividad',
     'ACTIVO' => 'Activo',
-    'CONSULTAR BORRADO' => 'Consultar Inactivas',
+    'CONSULTAR BORRADO' => 'ConsultarOcultas',
     'Consultar' => 'Consultar',
-    'CATEGORIA_NOMBRE' => 'Nombre categoría',
-	
 
     //GESTION LESIONES
     'Lesiones'=>'Lesiones',
@@ -267,8 +262,6 @@ $strings = array(
     'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Fecha y Hora',
     'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Fecha Inicio',
     'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'Fecha Fin',
-    'Elige una opcion' => 'Elige una opción',
-    'Usuario'=>'Usuario',
     'USUARIO'=>'Realizada por',
     'Consultar Lesion'=>'Buscar lesión',
     'Buscar'=>'Filtrar',
@@ -282,7 +275,7 @@ $strings = array(
     'Lesion borrada correctamente'=>'Lesión borrada correctamente',
     'Lesion registrada correctamente'=>'Lesión registrada correctamente',
 
-
+    
     // GESTION DE CLIENTES
     'CLIENTE_ID'=>'ID Cliente',
     'CLIENTE_DNI'=>'DNI',
@@ -352,49 +345,111 @@ $strings = array(
     'clase'=>'clase',
     'profesores'=>'PROFESORES',
     'alumnos'=>'ALUMNOS:',
-
-
+    
+    
     //ENVIO NOTIFICACIONES ->EMPLEADOS/CLIENTES
     'Enviar Notificacion'=>'Enviar Notificación',
     'ENVIAR NOTIFICACION'=>'Enviar Notificación',
     'Clientes'=>'Siguiente',
-    'Empleados'=>'Continuar',
     'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
-    'Notificacion sobre Empleados'=>'Notificación sobre Empleados',
+    'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
+    'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
     'Actividades'=>'Actividad',
+    'Eventos'=>'Evento',
     'SELECT'=>'Selección',
     'Seleccionar'=>'Seleccionar',
     'email'=>'email',
     'DEST'=>'Destinatarios',
-    'NOTIFICACION_REMITENTE'=>'Dirección GMAIL del remitente',
+    'NOTIFICACION_REMITENTE'=>'Direccion GMAIL del remitente',
     'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL del remitente',
     'NOTIFICACION_NOMBRE_REMITENTE'=>'Nombre completo',
     'NOTIFICACION_ASUNTO'=>'Asunto',
     'NOTIFICACION_CUERPO'=>'Cuerpo',
-    'NOTIFICACION_FECHAHORA'=>'Fecha y Hora',
-    'NOTIFICACION_FECHAHORA1'=>'Fecha Inicio',
-    'NOTIFICACION_FECHAHORA2'=>'Fecha Fin',
-    'NOTIFICACION_DESTINATARIO'=>'Destinatario',
-    'Consultar Notificacion'=>'Filtrar Notificación',
-      'Mensaje'=>'Mensaje',
     'Redactar Email'=>'Redactar Email',
     'Enviar'=>'Enviar',
     'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
     'Ha ocurrido un error durante el envio de las notificaciones'=>'Ha ocurrido un error durante el envío de las notificaciones',
-
+	'Gestion de Lugares'=>'Gestion de Lugares',
+	'GESTION DE LUGARES'=>'Gestion de Lugares',
+	'GESTION LUGARES'=>'Gestion de Lugares',
+	'Listar personas'=>'Listar Personas',
+	'Lugar' => 'Lugar',
+	'Insertar Lugar'=>'Insertar Lugar',
+	'Modificar Lugar'=>'Modificar Lugar',
+	'El lugar se ha modificado con exito'=>'El lugar se ha modificado con éxito',
+	'Consultar lugar'=>'Consultar Lugar',
+	'El lugar ha sido borrado correctamente' => 'El lugar ha sido borrado correctamente',
+	'El lugar no existe' => 'El lugar no existe',
+	'El lugar se ha modificado con éxito' => 'El lugar se ha modificado con éxito',
+	'El lugar ya existe en la base de datos' => 'El lugar ya existe en la base de datos',
+	'EVENTO_ID'=>'ID DEL EVENTO',
+	'EVENTO_NOMBRE'=>'NOMBRE DEL EVENTO',
+	'EVENTO_ORGANIZADOR'=>'ORGANIZADOR DEL EVENTO',
+	'EVENTO_DESCRIPCION'=>'DESCRIPCION DEL EVENTO',
+	'CLIENTE_ID'=>'Codigo Cliente',
+	'PAGO_IMPORTE'=>'Importe',
+	'PAGO_ESTADO'=>'Estado del Pago',
+	'Evento añadido con exito'=>'Evento añadido con exito',
+	'El evento ha sido borrado correctamente'=>'El evento ha sido borrado correctamente',
+	'Consultar evento'=>'Consultar evento',
+	'Insertar Evento'=>'Insertar Evento',
+	'Modificar Evento'=>'Modificar Evento',
+	'Borrar Evento'=>'Borrar Evento',
+	'Borrar Lugar'=>'Borrar Lugar',
+	'Gestion de Lugares'=>'Gestion de Lugares',////////////
+	'Insertar Persona a Evento'=>'Insertar Persona a Evento',
+	'Consultar Persona de evento'=>'Consultar Persona de evento',
+	'Modificar Persona de Evento'=>'Modificar Persona de Evento',
+	'Borrar Persona de Evento'=>'Borrar Persona de Evento',
+	'gestion de lugares'=>'gestion de lugares',
+	'El evento se ha modificado con exito'=>'El evento se ha modificado con exito',
+	'El evento ya existe en la base de datos'=>'El evento ya existe en la base de datos',
+	'GESTION LUGARES'=>'GESTION LUGARES',
+	'titulo'=>'titulo',
+	'insertar lugar' => 'insertar lugar',
+	'INSERTAR LUGAR'=>'INSERTAR LUGAR',
+	'lugar añadido con exito'=>'lugar añadido con exito',
+	'Lugar Añadido con exito'=>'Lugar Añadido con exito',
+	'Insertar Lugar' => 'Insertar Lugar',
+	'LUGAR_ID' => 'Clave del lugar',
+	'La pagina ya existe en la base de datos' => 'La página ya existe en la base de datos',/////////
+	'El lugar ya existe en la base de datos' => 'Ellugar ya existe en la base de datos',
+	'Introduzca un valor para la clave de la pagina' => 'Introduzca un valor para la clave de la página',
+	'Introduzca un valor para la clave del lugar' => 'Introduzca un valor para la clave del lugar',
+	'La pagina ha sido borrada correctamente' => 'La página ha sido borrada correctamente',
+	'El lugar ha sido borrado correctamente' => 'El lugar ha sido borrado correctamente',
+	'La pagina no existe' => 'La página no existe',
+	'El lugar no existe' => 'El lugar no existe',
+	'La pagina se ha modificado con exito' => 'La página se ha modificado con éxito',
+	'El lugar se ha modificado con exito' => 'El lugar se ha modificado con éxito',
+	'Se ha producido un error en la modificacion de la pagina' => 'Se ha producido un error en la modificación de la página',
+	'Se ha producido un error en la modificacion del lugar' => 'Se ha producido un error en la modificación del lugar',
+	'insertar lugar' => 'insertar lugar',
+	'INSERTAR LUGAR'=>'INSERTAR LUGAR',
+	'lugar añadido con exito'=>'lugar añadido con exito',
+	'Lugar Añadido con exito'=>'Lugar Añadido con exito',
+	'Insertar Lugar' => 'Insertar Lugar',
+	'LUGAR_NOMBRE'=>' NOMBRE LUGAR',
+	'El evento no existe'=>'El evento no existe',
+	'Gestion de Eventos'=>'Gestion de Eventos',
+	'GESTION DE EVENTOS'=>'GESTION DE EVENTOS',
+	'GESTION EVENTOS'=>'Gestion de Eventos',
+	'IDENTIFICADOR'=>'Codigo inscripcion',
+	'Persona añadida al Evento con exito'=>'Persona añadida al Evento con exito',
+	'La persona ya se agrego al evento'=>'La persona ya se agrego al evento',
+	'La persona ya se agrego al evento'=>'La persona ya se agrego al evento',
+	'Evento y DNI cliente en uso'=>'Evento y DNI cliente en uso',
+    
     //ENVIO NOTIFICACIONES -> ACTIVIDADES
     'actividad'=>'actividad',
-    'Actividad'=>'Confirmar',
-    'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
+    'Actividad'=>'Actividad',
     'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
     'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
     'Seleccionar'=>'Seleccionar',
     'actividad'=>'actividad',
-
+    
     //ENVIO NOTIFICACIONES ->EVENTOS
-    'Eventos'=>'Evento',
-    'Evento'=>'Seleccionar',
-    'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+    'Evento'=>'Evento'
 
 
 
