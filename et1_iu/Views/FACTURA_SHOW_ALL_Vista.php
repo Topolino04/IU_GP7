@@ -1,7 +1,7 @@
 <?php
 
-class Caja_Show{
-	//VISTA POR DEFECTO
+class Factura_Default{
+	//VISTA PARA LISTAR FACTURAS
 
 	private $datos;
 	private $volver;
@@ -28,7 +28,7 @@ class Caja_Show{
 					<div>
 						<?php
 
-						$lista = array('CAJA_FECHA','CAJA_INGRESOS');
+						$lista = array('FACTURA_ID', 'FACTURA_FECHA', 'CLIENTE_NIF', 'CLIENTE_NOMBRE','CLIENTE_APELLIDOS','FACTURA_ESTADO');
 
 
 						?>
@@ -50,8 +50,7 @@ class Caja_Show{
 									</ul>
 
 									<?php echo '<a href=\'' . $this->volver . "'>" . $stringsCF['Volver'] . " </a>"; ?></li>
-									<a href='./CAJA_Controller.php?accion=<?php echo $stringsCF['Insertar']?>'><?php echo $stringsCF['Añadir Ingresos Extra']?></a>
-									<a href='./CAJA_Controller.php?accion=<?php echo $stringsCF['Listar Cajas']?>'><?php echo $stringsCF['Listar Cajas']?></a>
+									<a href='./FACTURA_Controller.php?accion=<?php echo $stringsCF['Insertar']?>'><?php echo $stringsCF['Crear Factura']?></a>
 
 
 								</div>
@@ -104,9 +103,21 @@ class Caja_Show{
 
 								?>
 
-								
-
-
+								<td>
+									<a href='FACTURA_Controller.php?FACTURA_ID=<?php echo $this->datos[$j]['FACTURA_ID'] . '&accion='.$stringsCF['Modificar']; ?>'><?php echo $stringsCF['Modificar'] ?></a>
+								</td>
+								<td>
+									<a href='FACTURA_Controller.php?FACTURA_ID=<?php echo $this->datos[$j]['FACTURA_ID'] . '&accion='.$stringsCF['Borrar']; ?>'><?php echo $stringsCF['Borrar'] ?></a>
+								</td>
+								<td>
+									<a href='FACTURA_Controller.php?FACTURA_ID=<?php echo $this->datos[$j]['FACTURA_ID'] . '&accion='.$stringsCF['Consultar/Imprimir']; ?>'><?php echo $stringsCF['Consultar/Imprimir'] ?></a>
+								</td>
+								<td>
+									<a href='LINEA_FACTURA_Controller.php?FACTURA_ID=<?php echo $this->datos[$j]['FACTURA_ID'] . '&accion='.$stringsCF['Añadir']; ?>'><?php echo $stringsCF['Añadir lineas factura'] ?></a>
+								</td>
+								<td>
+									<a href='LINEA_FACTURA_Controller.php?FACTURA_ID=<?php echo $this->datos[$j]['FACTURA_ID'] . '&accion='.$stringsCF['Lineas Factura']; ?>'><?php echo $stringsCF['Lineas Factura'] ?></a>
+								</td>
 								<?php
 
 								echo "<tr>";
@@ -122,23 +133,10 @@ class Caja_Show{
 				<?php
 				echo '<a class="form-link" href=\'' . $this->volver . "'>" . $stringsCF['Volver'] . " </a>";
 				?>
-				
-				
 				</h3>
 			</p>
-			<p style="align:center; margin:0px 250px;">
-			<i style="font-size:14px; color:white;">
-					<br>
-					<br>
-					<br>
-					<?php echo $stringsCF['Aviso']; ?>
-				</i>
-			</p>
+
 		</div>
-				</div>
-	
-			<p><i><? echo $stringsCF['Aviso'];?></i></p>
-		
 
 		<?php
 	} //fin metodo render
