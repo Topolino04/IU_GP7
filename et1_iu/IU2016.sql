@@ -641,21 +641,23 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 -- Table structure for table `EVENTO`
 --
 
-CREATE TABLE IF NOT EXISTS `EVENTO` (
-`EVENTO_ID` int(100) NOT NULL,
+CREATE TABLE IF NOT EXISTS `evento` (
+  `EVENTO_ID` int(100) NOT NULL,
   `EVENTO_NOMBRE` varchar(100) NOT NULL,
   `EVENTO_ORGANIZADOR` varchar(100) NOT NULL,
-  `EVENTO_DESCRIPCION` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `EVENTO_DESCRIPCION` varchar(100) DEFAULT NULL,
+  `LUGAR_NOMBRE` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `EVENTO`
 --
 
-INSERT INTO `EVENTO` (`EVENTO_ID`, `EVENTO_NOMBRE`, `EVENTO_ORGANIZADOR`, `EVENTO_DESCRIPCION`) VALUES
-(1, 'Charla con ...', 'Manuel do Miñio', NULL),
-(2, 'Coloquio sobre...', 'Ramon Espinar', NULL),
-(3, 'Taller de....', 'Juan Sanchez', NULL);
+INSERT INTO `evento` (`EVENTO_ID`, `EVENTO_NOMBRE`, `EVENTO_ORGANIZADOR`, `EVENTO_DESCRIPCION`, `LUGAR_NOMBRE`) VALUES
+(1, 'Charla con ...', 'Manuel do Miï¿½io', 'SADSDASsada', 'Sala1'),
+(2, 'Coloquio sobre...', 'Ramon Espinar', 'ASD', 'Piscina'),
+(3, 'Taller de....', 'Juan Sanchez', 'ASD', 'SALA1'),
+
 
 -- --------------------------------------------------------
 
@@ -678,7 +680,26 @@ INSERT INTO `EVENTO_ALBERGA_LUGAR` (`EVENTO_ID`, `LUGAR_ID`) VALUES
 (3, 3);
 
 -- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `evento_tiene_pago`
+--
 
+CREATE TABLE `evento_tiene_pago` (
+  `IDENTIFICADOR` int(4) NOT NULL,
+  `EVENTO_NOMBRE` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `CLIENTE_DNI` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
+  `PAGO_IMPORTE` int(5) NOT NULL,
+  `PAGO_ESTADO` varchar(20) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+--
+-- Dumping data for table `evento_tiene_pago`
+--
+
+INSERT INTO `evento_tiene_pago` (`IDENTIFICADOR`, `EVENTO_NOMBRE`, `CLIENTE_DNI`, `PAGO_IMPORTE`, `PAGO_ESTADO`) VALUES
+(2, 'Coloquio sobre...', '11378328K', 30, 'PENDIENTE'),
+(5, 'prueba', '35248369H', 3399999, 'PENDIENTE'),
+(6, 'Taller de....', '15953592X', 21, 'Pagado'),
+(16, 'Charla con ...', '15953592X', 21, 'Pagado');
 --
 -- Table structure for table `FACTURA`
 --
@@ -728,6 +749,8 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (300, 'GESTION PAGOS'),
 (400, 'HACER CAJA'),
 (401, 'GESTION FACTURAS'),
+(600, 'GESTION LUGARES'),
+(601, 'GESTION EVENTOS'),
 (700, 'GESTION LESIONES'),
 (701, 'ENVIAR NOTIFICACION'),
 (800, 'GESTION HORARIO'),
@@ -1237,6 +1260,11 @@ ALTER TABLE `EVENTO`
 ALTER TABLE `EVENTO_ALBERGA_LUGAR`
  ADD PRIMARY KEY (`EVENTO_ID`,`LUGAR_ID`), ADD KEY `LUGAR_ID` (`LUGAR_ID`);
 
+ --
+-- Indices de la tabla `evento_tiene_pago`
+--
+ALTER TABLE `evento_tiene_pago`
+  ADD PRIMARY KEY (`IDENTIFICADOR`);
 --
 -- Indexes for table `FACTURA`
 --
