@@ -254,7 +254,9 @@ $strings = array(
     'ACTIVO' => 'Activo',
     'CONSULTAR BORRADO' => 'Consultar Inactivas',
     'Consultar' => 'Consultar',
-    'CATEGORIA_NOMBRE' => 'Nombre categoría',
+    'LUGAR_NOMBRE' => 'Nombre Lugar',
+    'CATEGORIA_NOMBRE' => 'Nombre Categoria',
+    
 	
 
     //GESTION LESIONES
@@ -389,8 +391,7 @@ $strings = array(
     'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
     'Seleccionar'=>'Seleccionar',
     'actividad'=>'Actividad',
-    'LUGAR_NOMBRE' => 'Nombre Lugar',
-    'CATEGORIA_NOMBRE' => 'Nombre Categoria',
+    
 
 
     //ENVIO NOTIFICACIONES ->EVENTOS
