@@ -249,8 +249,9 @@ $strings = array(
 	'Insertar' => 'Insertar',
 	'Consultar actividad' => 'Consultar actividad',
 	'ACTIVO' => 'Activo',
-	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'CONSULTAR BORRADO' => 'Consultar Inactivas',
 	'Consultar' => 'Consultar',
+	'CATEGORIA_NOMBRE' => 'Nombre categoría',
 	
 	
 	
