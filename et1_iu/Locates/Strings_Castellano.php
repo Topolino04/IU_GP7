@@ -177,7 +177,7 @@ $strings = array(
 	'Asistencia Monitores'=>'Asistencia Monitores',
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
-    
+
     //GESTION DE PAGOS
     'GESTION PAGOS'=>'GESTION PAGOS',
     'Gestión de Pagos'=>'Gestion de Pagos',
@@ -224,8 +224,11 @@ $strings = array(
     'Borrar Descuento' => 'Borrar Descuento',
     'Modificar Descuento'=>'Modificar Descuento',
     "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- 
-    
+    'Descuentos' => 'Descuentos',
+    'Aplicado' => 'Aplicado',
+    'Guardar'=> 'Guardar',
+    'Asignacion de descuentos correcta'=>'Asignacion de descuentos correcta',
+
     //GESTION ACTIVIDADES
     'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
     'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
@@ -239,7 +242,7 @@ $strings = array(
     'ACTIVIDAD_ID' => 'Identificador Actividad',
     'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
     'ACTIVIDAD_PRECIO' => 'Precio Actividad',
-    'ACTIVIDAD_DESCRIPCION' => 'Descripción actividad', 
+    'ACTIVIDAD_DESCRIPCION' => 'Descripción actividad',
     'CATEGORIA_ID' => 'Identificador categoría',
     'Modificar' => 'Modificar',
     'Borrar' => 'Borrar',
@@ -275,7 +278,7 @@ $strings = array(
     'Lesion borrada correctamente'=>'Lesión borrada correctamente',
     'Lesion registrada correctamente'=>'Lesión registrada correctamente',
 
-    
+
     // GESTION DE CLIENTES
     'CLIENTE_ID'=>'ID Cliente',
     'CLIENTE_DNI'=>'DNI',
@@ -345,8 +348,8 @@ $strings = array(
     'clase'=>'clase',
     'profesores'=>'PROFESORES',
     'alumnos'=>'ALUMNOS:',
-    
-    
+
+
     //ENVIO NOTIFICACIONES ->EMPLEADOS/CLIENTES
     'Enviar Notificacion'=>'Enviar Notificación',
     'ENVIAR NOTIFICACION'=>'Enviar Notificación',
@@ -369,7 +372,7 @@ $strings = array(
     'Enviar'=>'Enviar',
     'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
     'Ha ocurrido un error durante el envio de las notificaciones'=>'Ha ocurrido un error durante el envío de las notificaciones',
-    
+
     //ENVIO NOTIFICACIONES -> ACTIVIDADES
     'actividad'=>'actividad',
     'Actividad'=>'Actividad',
@@ -377,7 +380,7 @@ $strings = array(
     'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
     'Seleccionar'=>'Seleccionar',
     'actividad'=>'actividad',
-    
+
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Evento'=>'Evento'
 

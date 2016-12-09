@@ -127,25 +127,17 @@ class CLIENTE_Show {
                             <a href='CLIENTE_Controller.php?CLIENTE_DNI=<?php echo $this->datos[$j]['CLIENTE_DNI'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                         </td>
                         <td>
-
-
                             <a href='CLIENTE_Controller.php?CLIENTE_DNI=<?php echo $this->datos[$j]['CLIENTE_DNI'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
-
                         </td>
                         <td>
-
-
                             <a href='CLIENTE_Controller.php?CLIENTE_DNI=<?php echo $this->datos[$j]['CLIENTE_DNI'] . '&accion=' . $strings['Actividades']; ?>'><?php echo $strings['Actividades'] ?></a>
-
                         </td>
                         <td>
-
-
                             <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->datos[$j]['CLIENTE_ID'] . '&accion=' . $strings['Lesiones']; ?>'><?php echo $strings['Lesiones'] ?></a>
-
                         </td>
-
-
+                        <td>
+                            <a href='Gestion_de_Descuentos_Controller.php?CLIENTE_ID=<?php echo $this->datos[$j]['CLIENTE_ID'] . '&accion=' . $strings['Descuentos']; ?>'><?php echo $strings['Descuentos'] ?></a>
+                        </td>
                         </tr>
                 <?php
             }
@@ -171,4 +163,3 @@ class CLIENTE_Show {
 
 //fin metodo render
         }
-        

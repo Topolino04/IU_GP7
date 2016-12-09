@@ -12,4 +12,6 @@
     'Borrar Descuento' => 'Borrar Descuento',
     'Modificar Descuento'=>'Modificar Descuento',
     "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
+    'Descuentos' => 'Descuentos',
+    'Aplicado' => 'Aplicado',
 //-------------------- DESCUENTOS --------------------
