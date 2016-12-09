@@ -390,6 +390,9 @@ $strings = array(
     'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
     'Seleccionar'=>'Seleccionar',
     'actividad'=>'actividad',
+    'LUGAR_NOMBRE' => 'Nombre lugar',
+    'CATEGORIA_NOMBRE' => 'Nombre categoria',
+
 
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Eventos'=>'Evento',
