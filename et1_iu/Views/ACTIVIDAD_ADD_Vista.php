@@ -56,4 +56,4 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 <?php
 } //fin metodo render
 
-?>
+}
