@@ -106,7 +106,7 @@ class Caja_default{
 				</h3>
 			</p>
 
-		</div>
+
 
 		<?php
 	} //fin metodo render

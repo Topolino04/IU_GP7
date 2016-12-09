@@ -62,11 +62,31 @@ class actividad
 	{
 
 		$this->ConectarBD();
-		$sql = "SELECT * FROM ACTIVIDAD WHERE ACTIVIDAD_NOMBRE = '".$this->ACTIVIDAD_NOMBRE."'";
+		$sql = "SELECT * FROM ACTIVIDAD WHERE ACTIVIDAD_NOMBRE = '".$this->ACTIVIDAD_NOMBRE."' OR CATEGORIA_ID = '". $this->CATEGORIA_ID . "'";
         $resultado=$this->mysqli->query($sql);
 
+		if (!($resultado = $this->mysqli->query($sql))){
+            return 'Error en la consulta sobre la base de datos';
+        }
+        else{
+			
+            $toret=array();
+            $i=0;
 
-		    if ($resultado->num_rows===0){
+            while ($fila= $resultado->fetch_array()) {
+
+
+                $toret[$i]=$fila;
+                $i++;
+				
+
+            }
+
+
+            return $toret;
+
+        }
+		    /*if ($resultado->num_rows===0){
 		        echo "";
             }
             else {
@@ -74,7 +94,7 @@ class actividad
                 $toret[0] = $resultado->fetch_array();
 
                 return $toret;
-            }
+            }*/
 
 	}
 	
