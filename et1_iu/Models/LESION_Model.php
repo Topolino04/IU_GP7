@@ -57,15 +57,18 @@ class LESION_MODEL {
         } else {
             $sql = "INSERT INTO REGISTRO_CONSULTA_LESION (USUARIO, CLIENTE_ID) VALUES ('" . $_SESSION['login'] . "', '" . $this->CLIENTE_ID . "')";
         }
-        $resultado = $this->mysqli->query($sql);
-        return $resultado;
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        } else {
+            return $resultado;
+        }
     }
 
 //Esta funcion la utilizamos para filtrar dentro de todas las lesiones de un usuario y poder buscar por algun parametro en concreto
     function Consultar() {
         $this->ConectarBD();
         if ($this->CLIENTE_ID == '') {
-            $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND ((LESION_ID ='".$this->LESION_ID."') OR (LESION_NOM = '".$this->LESION_NOM."') OR (LESION_ESTADO ='" . $this->LESION_ESTADO . "')) ";
+            $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND ((LESION_ID ='" . $this->LESION_ID . "') OR (LESION_NOM = '" . $this->LESION_NOM . "') OR (LESION_ESTADO ='" . $this->LESION_ESTADO . "')) ";
         } else {
             $sql = "SELECT LESION_ID, LESION_NOM, LESION_DESC, LESION_ESTADO FROM LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND ((LESION_ID ='" . $this->LESION_ID . "') OR (LESION_NOM ='" . $this->LESION_NOM . "') OR (LESION_ESTADO ='" . $this->LESION_ESTADO . "')) ";
         }

@@ -265,6 +265,8 @@ $strings = array(
     'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Fecha y Hora',
     'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Fecha Inicio',
     'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'Fecha Fin',
+    'Elige una opcion' => 'Elige una opción',
+    'Usuario'=>'Usuario',
     'USUARIO'=>'Realizada por',
     'Consultar Lesion'=>'Buscar lesión',
     'Buscar'=>'Filtrar',
@@ -354,20 +356,25 @@ $strings = array(
     'Enviar Notificacion'=>'Enviar Notificación',
     'ENVIAR NOTIFICACION'=>'Enviar Notificación',
     'Clientes'=>'Siguiente',
+    'Empleados'=>'Continuar',
     'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
-    'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
-    'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+    'Notificacion sobre Empleados'=>'Notificación sobre Empleados',
     'Actividades'=>'Actividad',
-    'Eventos'=>'Evento',
     'SELECT'=>'Selección',
     'Seleccionar'=>'Seleccionar',
     'email'=>'email',
     'DEST'=>'Destinatarios',
-    'NOTIFICACION_REMITENTE'=>'Direccion GMAIL del remitente',
+    'NOTIFICACION_REMITENTE'=>'Dirección GMAIL del remitente',
     'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL del remitente',
     'NOTIFICACION_NOMBRE_REMITENTE'=>'Nombre completo',
     'NOTIFICACION_ASUNTO'=>'Asunto',
     'NOTIFICACION_CUERPO'=>'Cuerpo',
+    'NOTIFICACION_FECHAHORA'=>'Fecha y Hora',
+    'NOTIFICACION_FECHAHORA1'=>'Fecha Inicio',
+    'NOTIFICACION_FECHAHORA2'=>'Fecha Fin',
+    'NOTIFICACION_DESTINATARIO'=>'Destinatario',
+    'Consultar Notificacion'=>'Filtrar Notificación',
+      'Mensaje'=>'Mensaje',
     'Redactar Email'=>'Redactar Email',
     'Enviar'=>'Enviar',
     'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
@@ -375,14 +382,17 @@ $strings = array(
 
     //ENVIO NOTIFICACIONES -> ACTIVIDADES
     'actividad'=>'actividad',
-    'Actividad'=>'Actividad',
+    'Actividad'=>'Confirmar',
+    'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
     'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
     'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
     'Seleccionar'=>'Seleccionar',
     'actividad'=>'actividad',
 
     //ENVIO NOTIFICACIONES ->EVENTOS
-    'Evento'=>'Evento'
+    'Eventos'=>'Evento',
+    'Evento'=>'Seleccionar',
+    'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
 
 
 

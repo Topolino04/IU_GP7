@@ -29,7 +29,8 @@ class Caja
 	function Insertar()
 	{
 		$this->ConectarBD();
-		
+		    //Solo me crea una para cada día
+			//No va a devolver ningun mensaje por pantalla aunque le tenga los return
 			$sql = "select CAJA_FECHA from CAJA where CAJA_FECHA = '".$this->CAJA_FECHA."'";
 			$resultado = $this->mysqli->query($sql);
 			if ($resultado->num_rows==0){
@@ -39,8 +40,7 @@ class Caja
 				 $id = $id + $this->CAJA_ID;
 				 $sql = "INSERT INTO CAJA ( CAJA_ID, CAJA_FECHA, CAJA_INGRESOS, CAJA_GASTOS, CAJA_BALANCE) VALUES (";
 				 $sql = $sql. $id . ", '".$this->CAJA_FECHA."', ".$this->CAJA_INGRESOS.",0,0)";
-				 if (!($resultado = $this->mysqli->query($sql))){
-				 //$this->mysqli->query($sql);				
+				 if (!($resultado = $this->mysqli->query($sql))){				
 					return false;
 				 }
 				 else{
@@ -49,7 +49,7 @@ class Caja
 						
 			}	
 			else {
-				return 'Caja ya creada en el dia actual';
+				return false;
 			}
 	}
 
@@ -62,6 +62,7 @@ class Caja
 	//Consultar una caja
 	function Consultar()
 	{
+		//Devuelve la información que se va a mostrar de la caja
 		$this->ConectarBD();
 		$sql = "select CAJA_FECHA, CAJA_INGRESOS from CAJA where CAJA_FECHA = '".$this->CAJA_FECHA."'";
         $resultado=$this->mysqli->query($sql);
@@ -82,6 +83,7 @@ class Caja
 	//Actualizar los ingresos de la caja
 	function Actualizar()
 	{
+		//Actualiza el valor de la caja teniendo en cuenta los pagos realizados y los ingresos extra
 		$this->ConectarBD();
 		$sql = "select * from CAJA where CAJA_FECHA = '".$this->CAJA_FECHA."'";
 		$result = $this->mysqli->query($sql);
@@ -92,16 +94,11 @@ class Caja
 			if (!($resultado = $this->mysqli->query($sql))) {
 				return 'Error en la consulta sobre la base de datos';
 			} else {
-				//  $resultado['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($this->CLIENTE_ID));
-				//$resultado['PAGO_IMPORTE_FINAL']= $this->PAGO_IMPORTE*CalcularDescuentoCliente($this->CLIENTE_ID);
 				$i = 0;
 				while ($fila = $resultado->fetch_array()) {
 					$toret[$i] = $fila; 
-					//var_dump($fila);
 					$toret[$i]['PAGO_DESCUENTO']=100*(1-CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
 					$toret[$i]['PAGO_IMPORTE_FINAL']=$toret[$i]['PAGO_IMPORTE']*CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']);
-                
-					//var_dump($toret[$i]);
 					$i++;
 				}
             }
@@ -109,12 +106,6 @@ class Caja
 			for($i=0;$i<count($toret);$i++){
 				$pagos = $pagos + $toret[$i]['PAGO_IMPORTE_FINAL'];
 			}
-			
-			/*
-            $sql ="SELECT ROUND(SUM(PAGO_IMPORTE),2) FROM PAGO WHERE PAGO_FECHA LIKE '".$this->CAJA_FECHA."%' AND PAGO_ESTADO = 'PAGADO'";
-            $resultsql = $this->mysqli->query($sql)->fetch_array();
-			$pagos = $resultsql[0];
-			*/
 			$sql ="SELECT CAJA_GASTOS FROM CAJA WHERE CAJA_FECHA LIKE '".$this->CAJA_FECHA."'";
 			$resultsql = $this->mysqli->query($sql)->fetch_array();
 			$ingresos = $resultsql[0];
@@ -124,16 +115,17 @@ class Caja
 				return "Error en la consulta sobre la base de datos";
 			}
 			else{
-				return "La caja se ha modificado con exito";
+				return false;
 			}
 		}
 		else
-			return "La caja no existe";
+			return false;
 	}
 	
 	//Listar todas las cajas
     function ConsultarTodo()
     {
+		//Devuelve la información que se va a mostrar de las caja al listar
         $this->ConectarBD();
         $sql = "select CAJA_FECHA,CAJA_INGRESOS from CAJA ORDER BY CAJA_FECHA";
         if (!($resultado = $this->mysqli->query($sql))){
@@ -160,6 +152,7 @@ class Caja
 	//Añadir ingresos extra a una caja
 	function Ingresos()
 	{
+		//Permite añadir ingresos extra a la caja, dinero que por cualquier razón no se haya metido como un "pago"
 		$this->ConectarBD();
 		$sql = "select CAJA_INGRESOS from CAJA where CAJA_FECHA = '".$this->CAJA_FECHA."'";
 		$result = $this->mysqli->query($sql);
@@ -179,7 +172,7 @@ class Caja
 			}
 		}
 		else
-			return "La caja no existe";
+			return false;
 	}
 }
 ?>

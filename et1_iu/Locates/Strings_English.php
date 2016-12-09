@@ -270,6 +270,8 @@ $strings = array(
 	'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Date and Time',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Start Time',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'End Time',
+        'Elige una opcion'=>'Choose an option',
+        'Usuario'=>'User',
 	'USUARIO'=>'Realized by',
 	'Consultar Lesion'=>'Search Injury',
 	'Buscar'=>'Filter',
@@ -283,6 +285,7 @@ $strings = array(
 	'Lesion borrada correctamente'=>'Injury deleted successfully',
 	'Lesion registrada correctamente'=>'Injury registered successfully',
 	// GESTION DE CLIENTES
+        'CLIENTE_ID'=>'ID Customer',
 	'CLIENTE_DNI'=>'ID',
 	'CLIENTE_DNI'=>'Type*',
 	'Nota'=>'*E=External, S=Associate',
@@ -348,6 +351,47 @@ $strings = array(
 	'EVENTOS'=>'EVENTS',
 	'clase'=>'class',
 	'profesores'=>'TEACHERS',
-	'alumnos'=>'STUDENTS:'
+	'alumnos'=>'STUDENTS:',
+    
+    //ENVIO NOTIFICACIONES->EMPLEADOS/CLIENTES
+    'Enviar Notificacion'=>'Send Notification',
+    'ENVIAR NOTIFICACION'=>'Send Notificatión',
+    'Clientes'=>'Next',
+    'Empleados'=>'Continue',
+    'Notificacion sobre Clientes'=>'Customer Notification',
+    'Notificacion sobre Empleados'=>'Employees Notification',
+    'Actividades'=>'Activity',
+    'SELECT'=>'Selection',
+    'Seleccionar'=>'Select',
+    'email'=>'email',
+    'DEST'=>'Recipients',
+    'NOTIFICACION_REMITENTE'=>"Sender's GMAIL address",
+    'NOTIFICACION_PASSWORD'=>"Sender's GMAIL password",
+    'NOTIFICACION_NOMBRE_REMITENTE'=>"Sender's GMAIL name",
+    'NOTIFICACION_ASUNTO'=>'Subject',
+    'NOTIFICACION_CUERPO'=>'Message',
+    'NOTIFICACION_FECHAHORA'=>'Date and Time',
+    'NOTIFICACION_FECHAHORA1'=>'Start Date',
+    'NOTIFICACION_FECHAHORA2'=>'End Date',
+    'NOTIFICACION_DESTINATARIO'=>'Addressee',
+    'Consultar Notificacion'=>'Search Notification',
+    'Mensaje'=>'Message',
+    'Redactar Email'=>'Write E-mail',
+    'Enviar'=>'Submit',
+    'Notificacion enviada con exito'=>'Notification sent successfully',
+    'Ha ocurrido un error durante el envio de las notificaciones'=>'An error occurred while sending notifications',
+    
+    //ENVIO NOTIFICACIONES -> ACTIVIDADES
+    'actividad'=>'activity',
+    'Actividad'=>'Confirm',
+    'Notificacion sobre Actividades'=>'Activity Notification',
+    'ACTIVIDAD_ID'=>'ACTIVITY_ID',
+    'ACTIVIDAD_NOMBRE'=>'ACTIVITY_NAME',
+    
+    //ENVIO NOTIFICACIONES ->EVENTOS
+    'Eventos'=>'Event',
+    'Evento'=>'Select',
+    'Notificacion sobre Eventos'=>'Event Notification',
+
 )
 ?>

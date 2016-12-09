@@ -6,10 +6,12 @@ class NOTIFICACION_CLIENTE_ACTIVIDAD_Show {
 
     private $datos;
     private $volver;
+    private $return;
 
-    function __construct($array, $volver) {
+    function __construct($array, $volver, $return) {
         $this->datos = $array;
         $this->volver = $volver;
+        $this->return = $return;
         $this->render();
     }
 
@@ -43,7 +45,7 @@ class NOTIFICACION_CLIENTE_ACTIVIDAD_Show {
 
                             </ul>
 
-                            <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>		
+                            <?php echo '<a href=\'' . $this->volver . $this->return ."'>" . $strings['Volver'] . " </a>"; ?></li>		
                         </div>
                     </nav>
                     <table id='btable' border = 1>
@@ -52,12 +54,8 @@ class NOTIFICACION_CLIENTE_ACTIVIDAD_Show {
                             foreach ($lista as $titulo) {
 
                                 echo "<th>";
-                                ?>
-                                <?php
                                 echo $strings[$titulo];
-                                ?>
-                                </th>
-                                <?php
+                                echo "</th>";
                             }
                             ?>
                         </tr>
@@ -67,7 +65,7 @@ class NOTIFICACION_CLIENTE_ACTIVIDAD_Show {
                             echo "<tr>";
                             echo "<td>";
                             ?><form method="post">
-                                <input type="checkbox" name="email[]" checked="checked" readonly="readonly" onclick="javascript: return false;" value="<?php echo $this->datos [$j]['CLIENTE_CORREO']; ?> "/> <br/><?php
+                                <input type="checkbox" name="email[]" checked="checked"  value="<?php echo $this->datos [$j]['CLIENTE_CORREO']; ?> "/> <br/><?php
                                 echo $this->datos [$j]['CLIENTE_CORREO'];
                                 echo "</td>";
                                 foreach ($this->datos [$j] as $clave => $valor) {

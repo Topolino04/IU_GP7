@@ -19,7 +19,7 @@ function render(){
 	include '../Functions/ACTIVIDADDefForm.php';
 
 
-	$lista = array('ACTIVIDAD_NOMBRE');
+	$lista = array('ACTIVIDAD_NOMBRE','CATEGORIA_ID');
 
 ?>
 		<h1><span class="form-title">

@@ -46,14 +46,12 @@ class REGISTRO_Consultar {
                                 <?php
                             }
 
-                            createForm($lista, $form, $strings, $values = '', false, false);
+                            createFormI($lista, $form, $strings, '', array('REGISTRO_CONSULTA_LESION_ID'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA1'=>false,'REGISTRO_CONSULTA_LESION_FECHAHORA2'=>false,), false);
                             ?>
-                        <!--<input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA1" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo ""; ?>">
-                        <input type="date" name="REGISTRO_CONSULTA_LESION_FECHAHORA2" step="1" min="2000-01-01" max="2018-12-31" value="<?php echo ""; ?>">
-                            -->
-                            <p> <br><b>Usuario </b>
+                                
+                            <p> <br><b> <?php echo $strings['Usuario'] ?> </b>
                                 <br><select name='USUARIO'>
-                                    <option selected value="0"> Elige una opción </option>
+                                    <option selected value=""> <?php echo $strings['Elige una opcion'] ?> </option>
                                     <?php
                                     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
@@ -68,7 +66,7 @@ class REGISTRO_Consultar {
                                 </select>
                             </p>
 
-                            <input type='submit' name='accion' value=<?php echo $strings['Filtrar'] ?>>
+                            <input type='submit' onclick="return valida_filtrar_fecha()" name='accion' value=<?php echo $strings['Filtrar'] ?>>
 
                             </form>
                             <?php

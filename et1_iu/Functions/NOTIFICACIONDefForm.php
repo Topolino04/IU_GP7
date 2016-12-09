@@ -4,17 +4,7 @@
 $form = array(
     0 => array(
         'type' => 'text',
-        'name' => 'LESION_ID',
-        'value' => '',
-        'size' => 10,
-        'required' => true,
-        'pattern' => '',
-        'validation' => '',
-        'readonly' => false
-    ),
-    1 => array(
-        'type' => 'text',
-        'name' => 'LESION_NOM',
+        'name' => 'NOTIFICACION_REMITENTE',
         'value' => '',
         'size' => 35,
         'required' => true,
@@ -22,23 +12,34 @@ $form = array(
         'validation' => '',
         'readonly' => false
     ),
+    1 => array(
+        'type' => 'password',
+        'name' => 'NOTIFICACION_PASSWORD',
+        'value' => '',
+        'size' => 15,
+        'required' => true,
+        'pattern' => '',
+        'validation' => '',
+        'readonly' => false
+    ),
     2 => array(
         'type' => 'text',
-        'name' => 'LESION_DESC',
-        'value' => '',
-        'size' => 75,
+        'name' => 'NOTIFICACION_NOMBRE_REMITENTE',
+        'value' => 'MOOVETT',
+        'size' => 35,
         'required' => false,
         'pattern' => '',
         'validation' => '',
         'readonly' => false
     ),
     3 => array(
-        'type' => 'select',
-        'name' => 'LESION_ESTADO',
-        'multiple' => 'false',
+        'type' => 'text',
+        'name' => 'NOTIFICACION_ASUNTO',
         'value' => '',
-        'options' => array('Superada', 'Pendiente', 'Cronica'),
+        'size' => 35,
+        'required' => false,
+        'pattern' => '',
+        'validation' => '',
         'readonly' => false
     )
 );
-?>
