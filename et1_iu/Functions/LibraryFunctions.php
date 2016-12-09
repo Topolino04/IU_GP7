@@ -3243,6 +3243,21 @@ function sePuedeModificar($FACTURA_ID)
              }
          }
      }
+	 //Listo las lugares para un select
+    function listarLugares()
+     {
+     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+         if ($mysqli->connect_errno) {
+             echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+         }
+         $sql = "SELECT * FROM LUGAR ,ACTIVIDAD_ALBERGA_LUGAR ,ACTIVIDAD WHERE LUGAR.LUGAR_ID =ACTIVIDAD_ALBERGA_LUGAR.LUGAR_ID AND ACTIVIDAD_ALBERGA_LUGAR.ACTIVIDAD_ID = ACTIVIDAD.ACTIVIDAD_ID;";
+         $resultado=$mysqli->query($sql);
+         if ($resultado->num_rows!=0){
+             while($row=$resultado->fetch_array()){
+                 echo "<option value= '". $row['LUGAR_ID'] . "' > " . $row['LUGAR_NOMBRE'] . "</option<tr>"; 
+             }
+         }
+     }
 
 
 ?>
