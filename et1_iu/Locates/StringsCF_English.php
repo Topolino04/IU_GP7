@@ -22,7 +22,7 @@ $stringsCF = array(
 'Gestiones Principales'=>'Main options',
 'Asistencia Monitores'=>'Instructors Assistance',
 'Gestiones Secundarias'=>'Secondary options',
-'Usuario'=>'User'
+'Usuario'=>'User',
 
 'La caja se ha modificado con exito' => 'The box has been modified succesfully',
 'La caja no existe' => 'The box doesnt exist',

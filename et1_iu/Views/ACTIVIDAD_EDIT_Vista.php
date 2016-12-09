@@ -30,13 +30,7 @@ class Actividad_Edit{
 
 
 				?>
-				<li> Categoria </li>
-					<select name = "CATEGORIA_ID">
-					<?php
-					listarCategorias();
-					?>
 				
-					</select> <br>
 			</h2>
 			</p>
 			<p>
@@ -53,6 +47,13 @@ class Actividad_Edit{
 					createForm($lista,$DefForm,$strings,$this->valores,array('ACTIVIDAD_NOMBRE'=>false),array('ACTIVIDAD_ID'=>true,'ACTIVIDAD_PRECIO'=>false,'ACTIVIDAD_DESCRIPCION'=>false,'CATEGORIA_ID'=>false,'ACTIVO'=>false));
 
 					?>
+					<li> Categoria </li>
+					<select name = "CATEGORIA_ID">
+					<?php
+					listarCategorias();
+					?>
+				
+					</select> <br>
 					<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php

@@ -254,7 +254,9 @@ $strings = array(
     'ACTIVO' => 'Activo',
     'CONSULTAR BORRADO' => 'Consultar Inactivas',
     'Consultar' => 'Consultar',
-    'CATEGORIA_NOMBRE' => 'Nombre categoría',
+    'LUGAR_NOMBRE' => 'Nombre Lugar',
+    'CATEGORIA_NOMBRE' => 'Nombre Categoria',
+    
 	
 
     //GESTION LESIONES
@@ -383,13 +385,14 @@ $strings = array(
     'Ha ocurrido un error durante el envio de las notificaciones'=>'Ha ocurrido un error durante el envío de las notificaciones',
 
     //ENVIO NOTIFICACIONES -> ACTIVIDADES
-    'actividad'=>'actividad',
     'Actividad'=>'Confirmar',
     'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
     'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
-    'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOMBRE',
+    'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
     'Seleccionar'=>'Seleccionar',
-    'actividad'=>'actividad',
+    'actividad'=>'Actividad',
+    
+
 
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Eventos'=>'Evento',

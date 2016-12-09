@@ -28,7 +28,7 @@ class Actividad_default_borradas{
 					<div>
 						<?php
 
-						$lista = array('ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION', 'CATEGORIA_ID');
+						$lista = array('ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION', 'CATEGORIA_NOMBRE','LUGAR_NOMBRE');
 
 
 						?>

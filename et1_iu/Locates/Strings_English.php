@@ -231,11 +231,13 @@ $strings = array(
 	"El descuento se ha modificado con éxito"=> "Discount modified successfully",
 	"El descuento se ha modificado con éxito"=> "Discount modified successfully",
 
-	'La actividad ya existe en la base de datos' => 'Activity already exists',
-	'Introduzca un valor para la clave de la actividad' => 'Enter a value for the key',
-	'La actividad ha sido borrada correctamente' => 'Activity deleted successfully',
+
+		//GESTION ACTIVIDADES
+	'La actividad ya existe en la base de datos' => 'Activity already exists in the data base',
+	'Introduzca un valor para la clave de la actividad' => 'Enter a value for the activity key',
+	'La actividad ha sido borrada correctamente' => 'Activity has been deleted successfully',
 	'La actividad no existe' => 'Activity does not exist',
-	'La actividad se ha modificado con exito' => 'Activity modified successfully',
+	'La actividad se ha modificado con exito' => 'Activity has been successfully modified',
 	'Se ha producido un error en la modificacion de la actividad' => 'Error while modifying activity',
 	'Añadida con exito' => 'Added successfully',
 
@@ -252,11 +254,13 @@ $strings = array(
 	'Modificar Actividad' => 'Modify Activity',
 	'Borrar Actividad' => 'Delete Activity',
 	'Insertar' => 'Insert',
-	'Consultar actividad' => 'Consult activity',
+	'Consultar actividad' => 'Consult Activity',
 	'ACTIVO' => 'Active',
-	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'CONSULTAR BORRADO' => 'Consult Inactives',
 	'Consultar' => 'Consult',
-
+	'CATEGORIA_NOMBRE' => 'Category Name',
+	'LUGAR_NOMBRE' => 'Place Name',
+    'CATEGORIA_NOMBRE' => 'Category Name',
 
 
 
@@ -385,8 +389,8 @@ $strings = array(
     'actividad'=>'activity',
     'Actividad'=>'Confirm',
     'Notificacion sobre Actividades'=>'Activity Notification',
-    'ACTIVIDAD_ID'=>'ACTIVITY_ID',
-    'ACTIVIDAD_NOMBRE'=>'ACTIVITY_NAME',
+    'ACTIVIDAD_ID'=>'Activity ID',
+    'ACTIVIDAD_NOMBRE'=>'Activity Name',
     
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Eventos'=>'Event',
