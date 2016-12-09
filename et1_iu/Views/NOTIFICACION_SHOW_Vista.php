@@ -1,15 +1,17 @@
 <?php
 
-//Vista DEFAULT de Lesiones, muestra todas las lesiones del usuario (Empleado o Cliente) que hayamos seleccionado
+//Vista DEFAULT de Notificaciones, muestra todas las Notificaciones que sea han hecho
 
 class NOTIFICACION_Select {
 
     private $datos;
     private $volver;
+    private $return;
 
-    function __construct($array, $volver) {
+    function __construct($array, $volver, $return) {
         $this->datos = $array;
         $this->volver = $volver;
+        $this->return = $return;
         $this->render();
     }
 
@@ -39,34 +41,42 @@ class NOTIFICACION_Select {
 
                             </ul>
 
-        <?php
-        echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>";
-        ?>
+                            <?php
+    
+                            if ($this->return == '') {
+                                echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>";
+                            } else {
+                                echo '<a href=\'' . $this->volver . $this->return . "'>" . $strings['Volver'] . " </a>";
+                            }
+                                
+                            if ($this->return == '') { ?>
+                                <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Consultar']; ?>'><?php echo $strings['Consultar'] ?></a>
+                            <?php } ?>
 
-                        </div>
-                    </nav>
+                            </div>
+                        </nav>
 
 
-        <?php
-        $lista = array('NOTIFICACION_REMITENTE', 'NOTIFICACION_FECHAHORA', 'NOTIFICACION_DESTINATARIO', 'EMP_USER');
-        ?>
+                        <?php
+                        $lista = array('NOTIFICACION_REMITENTE', 'NOTIFICACION_FECHAHORA', 'NOTIFICACION_DESTINATARIO', 'EMP_USER');
+                        ?>
 
-                    <div >
-                        <table  id="btable"  class="responstable" border = 1>
-                            <tr>
-        <?php
-        foreach ($lista as $titulo) {
-
-            echo "<th>";
-            ?>
+                        <div >
+                            <table  id="btable"  class="responstable" border = 1>
+                                <tr>
                                     <?php
-                                    echo $strings[$titulo];
+                                    foreach ($lista as $titulo) {
+
+                                        echo "<th>";
+                                        ?>
+                                        <?php
+                                        echo $strings[$titulo];
+                                        ?>
+                                        </th>
+                                        <?php
+                                    }
                                     ?>
-                                    </th>
-                                    <?php
-                                }
-                                ?>
-                            </tr>
+                                </tr>
                                 <?php
                                 for ($j = 0; $j < count($this->datos); $j++) {
                                     echo "<tr>";
@@ -82,14 +92,14 @@ class NOTIFICACION_Select {
                                         }
                                     }
                                     ?>
-                                <?php
-                                echo "<tr>";
-                            }
-                            ?> 
+                                    <?php
+                                    echo "<tr>";
+                                }
+                                ?> 
 
-                        </table>
-                    </div>
-        <?php
-    }
-
-}
+                            </table>
+                        </div>
+                        <?php
+                    }
+                }
+                

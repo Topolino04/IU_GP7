@@ -500,3 +500,34 @@ function valida_envia_EMAIL() {
 
 
 
+//function validar(){
+//    var isValid = false;
+//
+//    for(i=0; i< document.form1.elements['email[]'].length; i++){
+//        if(document.form1.elements['email[]'][i].checked){
+//            isValid = true
+//        }
+//    }
+//    if (isValid == false){
+//        alert("No has marcado nada");
+//        return false;
+//    } else 
+//        return true
+//}
+//
+//function valida_fecha() {
+//
+//    if ((document.form.NOTIFICACION_FECHAHORA1.value == false) && (document.form.NOTIFICACION_FECHAHORA2.value != false)) {
+//        alert("Si establece una Fecha Fin debe establecer una Fecha Inicio");
+//        document.form.NOTIFICACION_FECHAHORA1.focus();
+//        return false;
+//    }
+//    if ((document.form.NOTIFICACION_FECHAHORA1.value != false) && (document.form.NOTIFICACION_FECHAHORA2.value == false)) {
+//        alert("Si establece una Fecha Inicio debe establecer una Fecha Fin");
+//        document.form.NOTIFICACION_FECHAHORA2.focus();
+//        return false;
+//    }
+//    
+//    return true;
+//
+//}

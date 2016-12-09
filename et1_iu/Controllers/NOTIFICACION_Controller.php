@@ -104,7 +104,6 @@ Switch ($_REQUEST['accion']) {
                     new NOTIFICACION_ACTIVIDAD_Select($datos, '../Controllers/NOTIFICACION_Controller.php');
                 }
             } else {
-                //$actividad = get_data_form1();
                 $actividad = get_data_form();
                 $datos = $actividad->ConsultarClientesActividad();
                 new NOTIFICACION_CLIENTE_ACTIVIDAD_Show($datos, '../Controllers/NOTIFICACION_Controller.php?accion=', $strings['Actividad']);
@@ -140,7 +139,7 @@ Switch ($_REQUEST['accion']) {
 //        break;
 
 
-    case $strings['Enviar']: //Enviar
+    case $strings['Enviar']: //Enviar Email
         if (isset($_REQUEST['NOTIFICACION_ASUNTO'])) {
             $notificacion = get_data_form();
             $respuesta = $notificacion->Enviar_Email();
@@ -148,17 +147,28 @@ Switch ($_REQUEST['accion']) {
         }
         break;
 
-    case $strings['Consultar']: //Enviar
+    case $strings['Registro']: //Mostrar todo el contenido de la tabla de Registro de Notificaciones
+            $notificacion = new NOTIFICACION_Model("", "", "", "", "", "", "", "", "");
+            $datos = $notificacion->Consultar();
+            if(!tienePermisos('NOTIFICACION_Select')){
+               new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php');
+            } else {
+                new NOTIFICACION_Select($datos, '../Controllers/NOTIFICACION_Controller.php', '');
+            }
+
+        break;
+        
+    case $strings['Consultar']: //Filtrar resultados segun campos o combinacion de campos
         if (!isset($_REQUEST['NOTIFICACION_REMITENTE'])) {
             if (!tienePermisos('NOTIFICACION_Consultar')) {
-                new Mensaje('No tienes los permisos necesarios', 'EMPLEADOS_Controller.php');
+                new Mensaje('No tienes los permisos necesarios', 'NOTIFICACION_Controller.php');
             } else {
-                    new NOTIFICACION_Consultar('NOTIFICACION_Controller.php?');
+                new NOTIFICACION_Consultar('../Controllers/NOTIFICACION_Controller.php?accion=', $strings['Registro']);
                 }
         } else {
             $notificacion = get_data_form1();
             $datos = $notificacion->Consultar();
-            new NOTIFICACION_Select($datos, '../Controllers/NOTIFICACION_Controller.php');
+            new NOTIFICACION_Select($datos, '../Controllers/NOTIFICACION_Controller.php?accion=', $strings['Registro']);
         }
         break;
 
