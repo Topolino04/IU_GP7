@@ -3149,6 +3149,79 @@ function createFormI($listFields, $fieldsDef, $strings, $values, $required, $noe
     }
 }
 
+function existeCliente($CLIENTE_NIF, $CLIENTE_NOMBRE, $CLIENTE_APELLIDOS)
+	{
+		//Función para comprobar si un nif ya existe, para evitar que haya dos personas con nombres y/o apellidos diferentes y el mismo nif
+		$mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+		if ($mysqli->connect_errno) {
+			echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+		}
+		$sql = "SELECT CLIENTE_NOMBRE,CLIENTE_APELLIDOS FROM CLIENTE WHERE CLIENTE_DNI = '".$CLIENTE_NIF."'";
+		$resultado=$mysqli->query($sql);
+		if ($resultado->num_rows==0){
+			return false;
+		}
+		else{
+			$resultado=$resultado->fetch_array();
+		    if ($resultado['CLIENTE_NOMBRE'] == $CLIENTE_NOMBRE AND $resultado['CLIENTE_APELLIDOS'] == $CLIENTE_APELLIDOS){
+				return false;	
+            }
+            else {
+				return true;
+            }
+		}
+
+	}
+function consultarID($CLIENTE_NIF, $CLIENTE_NOMBRE, $CLIENTE_APELLIDOS)
+	{
+		//Función para consultar el id de un cliente, si al crear una nueva factura el cliente no existe, lo introduce en la base de datos,
+		//si ya existe simplemente crea la factura
+
+		$mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+		if ($mysqli->connect_errno) {
+			echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+		}
+		$sql = "SELECT CLIENTE_ID FROM CLIENTE WHERE CLIENTE_DNI = '".$CLIENTE_NIF."'";
+        $resultado=$mysqli->query($sql);
+
+
+		    if ($resultado->num_rows==0){
+				$unidad = 1;
+				$sql = "SELECT COALESCE(MAX(CLIENTE_ID),0) AS MAXIMO FROM CLIENTE";
+				$resultado = $mysqli->query($sql);
+				$result = $resultado->fetch_array();
+				$max = $result['MAXIMO'];
+				$result=$max+$unidad;
+		        $sql = "INSERT INTO CLIENTE (CLIENTE_ID, CLIENTE_DNI, CLIENTE_NOMBRE, CLIENTE_APELLIDOS) VALUES (".$result.", '".$CLIENTE_NIF."', '".$CLIENTE_NOMBRE."', '".$CLIENTE_APELLIDOS."')";
+				$resultado=$mysqli->query($sql);
+				return $result;
+					
+            }
+            else {
+				$result =  $resultado->fetch_array();
+				$result = $result['CLIENTE_ID'];
+				return $result;
+            }
+
+	}
+	
+function sePuedeModificar($FACTURA_ID)
+	{
+		//Función para verificar si una factura se puede modificar
+		$mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+		if ($mysqli->connect_errno) {
+			echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+		}
+		$sql = "SELECT FACTURA_ESTADO FROM FACTURA WHERE FACTURA_ID = ".$FACTURA_ID." AND FACTURA_ESTADO = 'COBRADA'";
+		$resultado=$mysqli->query($sql);
+		if ($resultado->num_rows==0){
+			return true;
+		}
+		else{
+			return false;
+		}
+
+	}
 
 
 ?>
