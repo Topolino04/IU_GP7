@@ -226,10 +226,12 @@ $strings = array(
 	"El descuento se ha modificado con éxito"=> "O desconto modificouse con éxito",
 	"El descuento se ha modificado con éxito"=> "O desconto modificouse con éxito",
 
-	'La actividad ya existe en la base de datos' => 'A actividade xa existe en la base de datos',
+	//Actividade
+	
+	'La actividad ya existe en la base de datos' => 'A actividade xa existe na base de datos',
 	'Introduzca un valor para la clave de la actividad' => 'Introduza un valor para a clave da actividade',
 	'La actividad ha sido borrada correctamente' => 'A actividade foi borrada correctamente',
-	'La actividad no existe' => 'A actividade no existe',
+	'La actividad no existe' => 'A actividade non existe',
 	'La actividad se ha modificado con exito' => 'A actividade foi modificada con éxito',
 	'Se ha producido un error en la modificacion de la actividad' => 'Produciuse un erro na modificación da actividade',
 	'Añadida con exito' => 'Engadida con exito',
@@ -243,14 +245,16 @@ $strings = array(
 	'CATEGORIA_ID' => 'Identificador categoría',
 	'Modificar' => 'Modificar',
 	'Borrar' => 'Borrar',
-	'Insertar Actividad' => 'Inserir Actividade',
+	'Insertar Actividad' => 'Insertar Actividade',
 	'Modificar Actividad' => 'Modificar Actividade',
 	'Borrar Actividad' => 'Borrar Actividade',
-	'Insertar' => 'Inserir',
+	'Insertar' => 'Insertar',
 	'Consultar actividad' => 'Consultar actividade',
 	'ACTIVO' => 'Activo',
-	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'CONSULTAR BORRADO' => 'Consultar Inactivas',
 	'Consultar' => 'Consultar',
+	'LUGAR_NOMBRE' => 'Nome Lugar',
+    'CATEGORIA_NOMBRE' => 'Nome Categoría',
 
 
 
@@ -377,11 +381,11 @@ $strings = array(
     'Ha ocurrido un error durante el envio de las notificaciones'=>'Ocurriu un erro durante o envío das notificaciones',
     
     //ENVIO NOTIFICACIONES -> ACTIVIDADES
-    'actividad'=>'actividade',
+    'actividad'=>'Actividade',
     'Actividad'=>'Confirmar',
     'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
-    'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
-    'ACTIVIDAD_NOMBRE'=>'ACTIVIDAD_NOME',
+    'ACTIVIDAD_ID'=>'Identificador Actividade',
+    'ACTIVIDAD_NOMBRE'=>'Nome Actividade',
     
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Eventos'=>'Evento',
