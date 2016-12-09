@@ -23,13 +23,20 @@ class Actividad_Edit{
 				include '../Functions/ACTIVIDADDefForm.php';
 				//include '../Functions/LibraryFunctions.php';
 
-				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION', 'CATEGORIA_ID','ACTIVO');
+				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','ACTIVO');
 
 
 
 
 
 				?>
+				<li> Categoria </li>
+					<select name = "CATEGORIA_ID">
+					<?php
+					listarCategorias();
+					?>
+				
+					</select> <br>
 			</h2>
 			</p>
 			<p>
