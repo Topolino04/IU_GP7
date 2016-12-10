@@ -395,6 +395,7 @@ $strings = array(
     'Notificacion sobre Actividades'=>'Activity Notification',
     'ACTIVIDAD_ID'=>'Activity ID',
     'ACTIVIDAD_NOMBRE'=>'Activity Name',
+    'Actividad_Monitor'=>'Follow',
     
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Eventos'=>'Event',
