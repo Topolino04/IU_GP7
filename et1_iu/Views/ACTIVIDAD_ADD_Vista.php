@@ -42,15 +42,12 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 					listarCategorias();
 					?>
 					</select> <br>
-<<<<<<< HEAD
-=======
 					<li> Lugar </li>
 				<select name = "LUGAR_ID">
 					<?php
 					listarLugares();
 					?>
 					</select> <br>
->>>>>>> master
 				<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Insertar'] ?>>
 				</form>
 				<?php
@@ -64,8 +61,6 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 	} //fin metodo render
 
 }
-<<<<<<< HEAD
-?>
-=======
 
->>>>>>> master
+?>
+

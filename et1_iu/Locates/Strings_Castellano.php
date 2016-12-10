@@ -178,8 +178,6 @@ $strings = array(
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
 
-
-
     //GESTION DE PAGOS
     'GESTION PAGOS'=>'GESTION PAGOS',
 
@@ -211,10 +209,6 @@ $strings = array(
     'PAGO_DESCUENTO'=>'Descuento [%]',
     'PAGO_IMPORTE_FINAL'=>'Importe Final [€]',
 
-
-
-
-<<<<<<< HEAD
         'DESCUENTO_ID' =>'Clave',
         'DESCUENTO_VALOR'=>'Porcentaje',
         'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -256,10 +250,7 @@ $strings = array(
 	'CONSULTAR BORRADO' => 'Consultar Inactivas',
 	'Consultar' => 'Consultar',
 	'CATEGORIA_NOMBRE' => 'Nombre categoría',
-	
-	
-	
-=======
+
     //GESTION DESCUENTOS
     'DESCUENTO_ID' =>'Clave',
     'DESCUENTO_VALOR'=>'Porcentaje',
@@ -307,9 +298,7 @@ $strings = array(
     'Consultar' => 'Consultar',
     'LUGAR_NOMBRE' => 'Nombre Lugar',
     'CATEGORIA_NOMBRE' => 'Nombre Categoria',
-    
->>>>>>> master
-	
+
 
     //GESTION LESIONES
     'Lesiones'=>'Lesiones',

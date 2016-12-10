@@ -24,14 +24,7 @@ class Actividad_Edit{
 				//include '../Functions/LibraryFunctions.php';
 
 				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','ACTIVO');
-<<<<<<< HEAD
-=======
 
-
-
-
-
->>>>>>> master
 				?>
 				
 			</h2>
