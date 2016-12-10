@@ -230,6 +230,10 @@ $strings = array(
 	'Modificar Descuento'=>'Modify Discount',
 	"El descuento se ha modificado con éxito"=> "Discount modified successfully",
 	"El descuento se ha modificado con éxito"=> "Discount modified successfully",
+	'Descuentos' => 'Discounts',
+	    'Aplicado' => 'Applied',
+  'Guardar'=> 'Save',
+   'Asignacion de descuentos correcta'=>'Right discount assingment',
 
 	'La actividad ya existe en la base de datos' => 'Activity already exists',
 	'Introduzca un valor para la clave de la actividad' => 'Enter a value for the key',
@@ -254,9 +258,10 @@ $strings = array(
 	'Insertar' => 'Insert',
 	'Consultar actividad' => 'Consult activity',
 	'ACTIVO' => 'Active',
-	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'CONSULTAR BORRADO' => 'Consult Inactive',
 	'Consultar' => 'Consult',
-
+	'LUGAR_NOMBRE' => 'Place',
+	'CATEGORIA_NOMBRE' => 'Category',
 
 
 
@@ -271,6 +276,8 @@ $strings = array(
 	'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Start Time',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'End Time',
 	'USUARIO'=>'Realized by',
+	'Elige una opcion' => 'Choose option',
+	'Usuario'=>'User',
 	'Consultar Lesion'=>'Search Injury',
 	'Buscar'=>'Filter',
 	'Registro'=>'Register',
@@ -282,6 +289,7 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Injury modified successfully',
 	'Lesion borrada correctamente'=>'Injury deleted successfully',
 	'Lesion registrada correctamente'=>'Injury registered successfully',
+	'Generar'=>'Export and see',
 	// GESTION DE CLIENTES
 	'CLIENTE_DNI'=>'ID',
 	'CLIENTE_DNI'=>'Type*',
@@ -348,6 +356,73 @@ $strings = array(
 	'EVENTOS'=>'EVENTS',
 	'clase'=>'class',
 	'profesores'=>'TEACHERS',
-	'alumnos'=>'STUDENTS:'
+	'alumnos'=>'STUDENTS:',
+	'Gestión de Actividades2' => 'Activities Management(with calendar)',
+	//gestion horario
+
+	'Insertar Horario'=>'Insert Schedule',
+	'HORARIO_NOMBRE'=>'Name',
+	'HORARIO_FECHAI'=>'Initial date',
+	'HORARIO_FECHAF'=>'End date',
+	'HORARIO_ID'=>'HORARIO_ID',
+
+	'Modificar Horario'=>'Modify Schedule',
+	'El HORARIO se ha modificado con éxito'=>'Schedule edited successfully',
+	'Borrar Horario'=>'Delete Schedule',
+	'El HORARIO ha sido borrado correctamente'=>'Schedule deleted successfully',
+	'Consultar Horario'=>'Show Schedule',
+	'Domingo'=>'Sunday',
+	'BLOQUE_HORARIO'=>'Schedule',
+	'PROFESORES'=>'TEACHERS:',
+	'ACTIVIDAD_DIA'=>'Day',
+	'ACTIVIDAD_HORARIO'=>'Schedule',
+	'CATEGORIA_NOMBRE'=>'Category',
+	'Continuar'=>'Continue',
+	'profesor'=>'teacher',
+	'LUGARES'=>'PLACES:',
+	'ACTIVIDAD_BLOQUE'=>'Select possible hours:',
+	'No hay bloques definidos para ese día en ese horario'=>'There is not possible hours',
+	'Continuar'=>'Continue',
+	'Gestion de Posibles'=>'Possible hours management',
+
+	//ENVIO NOTIFICACIONES->EMPLEADOS/CLIENTES
+	'Enviar Notificacion'=>'Send Notification',
+	'ENVIAR NOTIFICACION'=>'Send Notificatión',
+	'Clientes'=>'Next',
+	'Empleados'=>'Continue',
+	'Notificacion sobre Clientes'=>'Customer Notification',
+	'Notificacion sobre Empleados'=>'Employees Notification',
+	'Actividades'=>'Activity',
+	'SELECT'=>'Selection',
+	'Seleccionar'=>'Select',
+	'email'=>'email',
+	'DEST'=>'Recipients',
+	'NOTIFICACION_REMITENTE'=>"Sender's GMAIL address",
+	'NOTIFICACION_PASSWORD'=>"Sender's GMAIL password",
+	'NOTIFICACION_NOMBRE_REMITENTE'=>"Sender's GMAIL name",
+	'NOTIFICACION_ASUNTO'=>'Subject',
+	'NOTIFICACION_CUERPO'=>'Message',
+	'NOTIFICACION_FECHAHORA'=>'Date and Time',
+	'NOTIFICACION_FECHAHORA1'=>'Start Date',
+	'NOTIFICACION_FECHAHORA2'=>'End Date',
+	'NOTIFICACION_DESTINATARIO'=>'Addressee',
+	'Consultar Notificacion'=>'Search Notification',
+	'Mensaje'=>'Message',
+	'Redactar Email'=>'Write E-mail',
+	'Enviar'=>'Submit',
+	'Notificacion enviada con exito'=>'Notification sent successfully',
+	'Ha ocurrido un error durante el envio de las notificaciones'=>'An error occurred while sending notifications',
+
+	//ENVIO NOTIFICACIONES -> ACTIVIDADES
+	'actividad'=>'activity',
+	'Actividad'=>'Confirm',
+	'Notificacion sobre Actividades'=>'Activity Notification',
+	'ACTIVIDAD_ID'=>'Activity ID',
+	'ACTIVIDAD_NOMBRE'=>'Activity Name',
+
+	//ENVIO NOTIFICACIONES ->EVENTOS
+	'Eventos'=>'Event',
+	'Evento'=>'Select',
+	'Notificacion sobre Eventos'=>'Event Notification',
 )
 ?>

@@ -178,7 +178,7 @@ $strings = array(
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
     
-    
+    //GESTION DE PAGOS
         'GESTION PAGOS'=>'GESTION PAGOS',
     'Gestión de Pagos'=>'Gestion de Pagos',
 'PAGO_ID'=> 'Identificador del pago',
@@ -210,7 +210,7 @@ $strings = array(
 
 
 
-
+//GESTION DESCUENTOS
         'DESCUENTO_ID' =>'Clave',
         'DESCUENTO_VALOR'=>'Porcentaje',
         'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -225,6 +225,10 @@ $strings = array(
         'Modificar Descuento'=>'Modificar Descuento',
         "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
  "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
+	'Descuentos' => 'Descuentos',
+	    'Aplicado' => 'Aplicado',
+    'Guardar'=> 'Guardar',
+    'Asignacion de descuentos correcta'=>'Asignacion de descuentos correcta',
  
 	'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
 	'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
@@ -235,6 +239,7 @@ $strings = array(
 	'Añadida con exito' => 'Añadida con exito',
 
 	'Gestión de Actividades' => 'Gestión de Actividades',
+	'Gestión de Actividades2' => 'Gestión de Actividades(Con calendario)',
 	'Consultar pagina' => 'Consultar página',
 	'ACTIVIDAD_ID' => 'Identificador Actividad',
 	'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
@@ -249,13 +254,14 @@ $strings = array(
 	'Insertar' => 'Insertar',
 	'Consultar actividad' => 'Consultar actividad',
 	'ACTIVO' => 'Activo',
-	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'CONSULTAR BORRADO' => 'Consultar Inactivas',
 	'Consultar' => 'Consultar',
 
+	'LUGAR_NOMBRE' => 'Nombre Lugar',
+	   'CATEGORIA_NOMBRE' => 'Nombre Categoria',
 
 
-
-
+//GESTION DE LESIONES
 	'Lesiones'=>'Lesiones',
 	'LESION_ID'=>'ID de la lesión',
 	'LESION_NOM'=>'Nombre de la lesión',
@@ -265,6 +271,8 @@ $strings = array(
 	'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Fecha y Hora',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Fecha Inicio',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'Fecha Fin',
+	'Elige una opcion' => 'Elige una opción',
+ 'Usuario'=>'Usuario',
 	'USUARIO'=>'Realizada por',
 	'Consultar Lesion'=>'Buscar lesión',
 	'Buscar'=>'Filtrar',
@@ -277,6 +285,7 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Lesión modificada correctamente',
 	'Lesion borrada correctamente'=>'Lesión borrada correctamente',
 	'Lesion registrada correctamente'=>'Lesión registrada correctamente',
+	'Generar'=>'Exportar y Ver',
 
 	// GESTION DE CLIENTES
 	'CLIENTE_DNI'=>'DNI ',
@@ -310,6 +319,20 @@ $strings = array(
 	'Insertar_Externo'=>'Insertar Externo',
 	'InsertarExterno'=>'InsertarExterno',
 	'Gestion de Clientes'=>'Gestión de Clientes',
+	'HORARIO_RANGO1I'=>'Apertura Lunes:',
+	'HORARIO_RANGO1F'=>'Cierre Lunes:',
+	'HORARIO_RANGO2I'=>'Apertura Martes:',
+	'HORARIO_RANGO2F'=>'Cierre Martes:',
+	'HORARIO_RANGO3I'=>'Apertura Miércoles:',
+	'HORARIO_RANGO3F'=>'Cierre Miércoles:',
+	'HORARIO_RANGO4I'=>'Apertura Jueves:',
+	'HORARIO_RANGO4F'=>'Cierre Jueves:',
+	'HORARIO_RANGO5I'=>'Apertura Viernes:',
+	'HORARIO_RANGO5F'=>'Cierre Viernes:',
+	'HORARIO_RANGO6I'=>'Apertura Sábado:',
+	'HORARIO_RANGO6F'=>'Cierre Sábado:',
+
+
 
 	//GESTION DE CLIENTES
 	//HORARIO
@@ -320,14 +343,14 @@ $strings = array(
 	'Jueves'=>'Jueves',
 	'Viernes'=>'Viernes',
 	'Sabado'=>'Sabado',
-	'Insertar Bloque'=>'Insertar Bloque',
+	'Insertar Bloque'=>'Insertar Hora Posible',
 	'BLOQUE_ID'=>'ID',
 	'BLOQUE_FECHA'=>'Fecha',
 	'BLOQUE_DIA'=>'Día',
 	'BLOQUE_HORAI'=>'Hora Inicio',
 	'BLOQUE_HORAF'=>'Hora Fin',
 	'BLOQUE_LUGAR'=>'Lugar',
-	'Borrar Bloque'=>'Borrar Bloque',
+	'Borrar Bloque'=>'Borrar Hora Posible',
 	'El BLOQUE no existe'=>'El bloque no existe',
 	'El BLOQUE ha sido borrado correctamente'=>'El bloque ha sido borrado correctamente',
 	'Modificar Bloque'=>'Modificar Bloque',
@@ -345,7 +368,77 @@ $strings = array(
 	'EVENTOS'=>'EVENTOS',
 	'clase'=>'clase',
 	'profesores'=>'PROFESORES',
-	'alumnos'=>'ALUMNOS:'
+	'alumnos'=>'ALUMNOS:',
+	//gestion horario
+
+	'Insertar Horario'=>'Insertar Horario',
+	'HORARIO_NOMBRE'=>'Nombre',
+	'HORARIO_FECHAI'=>'Fecha Inicial',
+	'HORARIO_FECHAF'=>'Fecha Final',
+	'HORARIO_ID'=>'HORARIO_ID',
+	'Modificar Rol'=>'Modificar Rol',
+	'Modificar Horario'=>'Modificar Horario',
+	'El HORARIO se ha modificado con éxito'=>'El horario se ha modificado con éxito',
+	'Borrar Horario'=>'Borrar Horario',
+	'El HORARIO ha sido borrado correctamente'=>'El HORARIO ha sido borrado correctamente',
+	'Consultar Horario'=>'Consultar Horario',
+	'Domingo'=>'Domingo',
+	'BLOQUE_HORARIO'=>'Horario',
+	'PROFESORES'=>'PROFESORES:',
+	'ACTIVIDAD_DIA'=>'Día de la semana',
+	'ACTIVIDAD_HORARIO'=>'Horario',
+	'CATEGORIA_NOMBRE'=>'Nombre de la categoria',
+	'Continuar'=>'Continuar',
+	'profesor'=>'profesor',
+	'LUGARES'=>'LUGARES:',
+	'ACTIVIDAD_BLOQUE'=>'Seleccione horas posibles:',
+	'No hay bloques definidos para ese día en ese horario'=>'No hay bloques definidos para ese día en ese horario',
+	'Continuar'=>'Continuar',
+	'Gestion de Posibles'=>'Gestión de horas posibles',
+	//ENVIO NOTIFICACIONES ->EMPLEADOS/CLIENTES
+	'Enviar Notificacion'=>'Enviar Notificación',
+	'ENVIAR NOTIFICACION'=>'Enviar Notificación',
+	'Clientes'=>'Siguiente',
+	'Empleados'=>'Continuar',
+	'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
+	'Notificacion sobre Empleados'=>'Notificación sobre Empleados',
+	'Actividades'=>'Actividad',
+	'SELECT'=>'Selección',
+	'Seleccionar'=>'Seleccionar',
+	'email'=>'email',
+	'DEST'=>'Destinatarios',
+	'NOTIFICACION_REMITENTE'=>'Dirección GMAIL del remitente',
+	'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL del remitente',
+	'NOTIFICACION_NOMBRE_REMITENTE'=>'Nombre completo',
+	'NOTIFICACION_ASUNTO'=>'Asunto',
+	'NOTIFICACION_CUERPO'=>'Cuerpo',
+	'NOTIFICACION_FECHAHORA'=>'Fecha y Hora',
+	'NOTIFICACION_FECHAHORA1'=>'Fecha Inicio',
+	'NOTIFICACION_FECHAHORA2'=>'Fecha Fin',
+	'NOTIFICACION_DESTINATARIO'=>'Destinatario',
+	'Consultar Notificacion'=>'Filtrar Notificación',
+	'Mensaje'=>'Mensaje',
+	'Redactar Email'=>'Redactar Email',
+	'Enviar'=>'Enviar',
+	'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
+	'Ha ocurrido un error durante el envio de las notificaciones'=>'Ha ocurrido un error durante el envío de las notificaciones',
+
+	//ENVIO NOTIFICACIONES -> ACTIVIDADES
+	'Actividad'=>'Confirmar',
+	'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
+	'ACTIVIDAD_ID'=>'ACTIVIDAD_ID',
+	'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
+	'Seleccionar'=>'Seleccionar',
+	'actividad'=>'Actividad',
+
+
+
+	//ENVIO NOTIFICACIONES ->EVENTOS
+	'Eventos'=>'Evento',
+	'Evento'=>'Seleccionar',
+	'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+
+
 
 
 
