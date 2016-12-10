@@ -207,14 +207,36 @@ Switch ($_REQUEST['accion']) {
         break;
 
 
-    case $strings['Generar']:  //Consulta de lesiones -> Se utiliza para filtrar el SHOW_ALL de Lesiones de un Usuario
+    case $strings['Generar']:  //Exportar el registro de accesos a las lesiones de un usuario
 
         if (isset($_REQUEST['EMP_USER'])) {
             $registro = new REGISTRO_MODEL('', '', '', '', '', $_REQUEST['EMP_USER']);
+            $mensaje = $registro->generarRegistro();
+            new Mensaje_LESION($mensaje, '../Controllers/LESION_Controller.php?accion=Registro&EMP_USER=',$_REQUEST['EMP_USER'], '');
         } else {
             $registro = new REGISTRO_MODEL('', '', '', '', $_REQUEST['CLIENTE_ID'], '');
+             $mensaje = $registro->generarRegistro();
+            new Mensaje_LESION($mensaje, '../Controllers/LESION_Controller.php?accion=Registro&CLIENTE_ID=','', $_REQUEST['CLIENTE_ID']);
         }
-        $registro->generarRegistro();
+        
+        break;
+        
+         case $strings['Ver']:  //Permite ver el archivo generado al exportar el registro de accesos a las lesiones de un usuario
+
+        if (isset($_REQUEST['EMP_USER'])) {
+          $registro = '../Registros/Registro_' . $_REQUEST['EMP_USER'] . '.txt';
+          if(file_exists($registro)){
+              new VER_REGISTRO_VISTA($registro, $_REQUEST['EMP_USER'],'');
+          } else
+              new Mensaje_LESION('No existe el registro. Exportelo primero', '../Controllers/LESION_Controller.php?accion=Registro&EMP_USER=',$_REQUEST['EMP_USER'], '');
+        } else {
+             $registro = '../Registros/Registro_' . $_REQUEST['CLIENTE_ID'] . '.txt';
+          if(file_exists($registro)){
+              new VER_REGISTRO_VISTA($registro,'', $_REQUEST['CLIENTE_ID']);
+          } else
+              new Mensaje_LESION('No existe el registro. Exportelo primero', '../Controllers/LESION_Controller.php?accion=Registro&CLIENTE_ID=','', $_REQUEST['CLIENTE_ID']);
+        }
+        
         break;
 
 

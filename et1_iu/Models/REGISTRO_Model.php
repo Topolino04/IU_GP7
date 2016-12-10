@@ -104,9 +104,9 @@ class REGISTRO_MODEL {
         }
 
         if ($this->CLIENTE_ID == '') {
-            $registro = '../Registro/Registro_' . $this->EMP_USER . '.txt';
+            $registro = '../Registros/Registro_' . $this->EMP_USER . '.txt';
         } else {
-            $registro = '../Registro/Registro_' . $this->CLIENTE_ID . '.txt';
+            $registro = '../Registros/Registro_' . $this->CLIENTE_ID . '.txt';
         }
 
         $file = fopen($registro, "w") or die("Problemas");
@@ -117,9 +117,9 @@ class REGISTRO_MODEL {
         fwrite($file, "--------------------------------------------------------------------------------");
         fwrite($file, "\r\n");
         if ($this->CLIENTE_ID == '') {
-            fwrite($file, "REGISTRO DE CONSULTA DEL USUARIO: " . $this->EMP_USER . "");
+            fwrite($file, "REGISTRO DE CONSULTA DEL EMPLEADO: " . $this->EMP_USER . "");
         } else {
-            fwrite($file, "REGISTRO DE CONSULTA DEL USUARIO: " . $this->CLIENTE_ID . "");
+            fwrite($file, "REGISTRO DE CONSULTA DEL CLIENTE: " . $this->CLIENTE_ID . "");
         }
         fwrite($file, "\r\n");
         fwrite($file, '--------------------------------------------------------------------------------');
@@ -137,14 +137,8 @@ class REGISTRO_MODEL {
             }
         }
         fclose($file);
-        //unlink("../Registro/".$this->EMP_USER.".txt");
 
-        $fp = fopen($registro, "r");
-        while (!feof($fp)) {
-            $linea = fgets($fp);
-            echo $linea . "<br />";
-        }
-        fclose($fp);
+        return ("Registro exportado correctamente");
     }
 
 }

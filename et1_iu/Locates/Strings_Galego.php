@@ -283,7 +283,10 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Lesión modificada correctamente',
 	'Lesion borrada correctamente'=>'Lesión borrada correctamente',
 	'Lesion registrada correctamente'=>'Lesión rexistrada correctamente',
-	'Generar'=>'Exportar e Ver',
+	'Generar'=>'Exportar',
+        'Ver'=>'Ver',
+        'No existe el registro. Exportelo primero'=>'Non existe o rexistro. Exporteo primeiro',
+        'Registro exportado correctamente'=> 'Rexistro exportado correctamente',
 	// GESTION DE CLIENTES
         'CLIENTE_ID'=>'ID Cliente',
 	'CLIENTE_DNI'=>'DNI ',
