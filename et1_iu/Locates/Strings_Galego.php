@@ -225,6 +225,10 @@ $strings = array(
 	'Modificar Descuento'=>'Modificar Desconto',
 	"El descuento se ha modificado con éxito"=> "O desconto modificouse con éxito",
 	"El descuento se ha modificado con éxito"=> "O desconto modificouse con éxito",
+	'Descuentos' => 'Descontos',
+	'Aplicado' => 'Aplicado',
+	'Guardar'=> 'Gardar',
+	'Asignacion de descuentos correcta'=>'Asignacion de descontos correcta',
 
 	//Actividade
 	
@@ -269,8 +273,10 @@ $strings = array(
 	'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Data e Hora',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Data Inicio',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'Data Fin',
-        'Elige una opcion'=>'Elixe unha opción',
-        'Usuario'=>'Usuario',
+
+	'Elige una opcion' => 'Elixe unha opción',
+	'Usuario'=>'Usuario',
+
 	'USUARIO'=>'Realizada por',
 	'Consultar Lesion'=>'Buscar lesión',
 	'Buscar'=>'Filtrar',
@@ -283,10 +289,12 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Lesión modificada correctamente',
 	'Lesion borrada correctamente'=>'Lesión borrada correctamente',
 	'Lesion registrada correctamente'=>'Lesión rexistrada correctamente',
+
 	'Generar'=>'Exportar',
         'Ver'=>'Ver',
         'No existe el registro. Exportelo primero'=>'Non existe o rexistro. Exporteo primeiro',
         'Registro exportado correctamente'=> 'Rexistro exportado correctamente',
+
 	// GESTION DE CLIENTES
         'CLIENTE_ID'=>'ID Cliente',
 	'CLIENTE_DNI'=>'DNI ',
@@ -355,6 +363,37 @@ $strings = array(
 	'clase'=>'clase',
 	'profesores'=>'PROFESORES',
 	'alumnos'=>'ALUMNOS:',
+
+	'Gestión de Actividades2' => 'Xestión de Actividades(Con calendario)',
+	//gestion horario
+
+	'Insertar Horario'=>'Insertar Horario',
+	'HORARIO_NOMBRE'=>'Nome',
+	'HORARIO_FECHAI'=>'Data Inicial',
+	'HORARIO_FECHAF'=>'Data Final',
+	'HORARIO_ID'=>'HORARIO_ID',
+
+	'Modificar Horario'=>'Modificar Horario',
+	'El HORARIO se ha modificado con éxito'=>'O horario se modificouse con éxito',
+	'Borrar Horario'=>'Borrar Horario',
+	'El HORARIO ha sido borrado correctamente'=>'O horario borrouse correctamente',
+	'Consultar Horario'=>'Consultar Horario',
+	'Domingo'=>'Domingo',
+	'BLOQUE_HORARIO'=>'Horario',
+	'PROFESORES'=>'PROFESORES:',
+	'ACTIVIDAD_DIA'=>'Día da semana',
+	'ACTIVIDAD_HORARIO'=>'Horario',
+	'CATEGORIA_NOMBRE'=>'Nome da categoria',
+	'Continuar'=>'Continuar',
+	'profesor'=>'profesor',
+	'LUGARES'=>'LUGARES:',
+	'ACTIVIDAD_BLOQUE'=>'Seleccione horas posibles:',
+	'No hay bloques definidos para ese día en ese horario'=>'Non hai bloques definidos para ese día nese horario',
+	'Continuar'=>'Continuar',
+	'Gestion de Posibles'=>'Xestión de horas posibles',
+
+	
+
     
     //ENVIO NOTIFICACIONS ->EMPLEADOS/CLIENTES
     'Enviar Notificacion'=>'Enviar Notificación',

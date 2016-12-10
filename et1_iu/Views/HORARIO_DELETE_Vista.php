@@ -1,6 +1,6 @@
 <?php
 
-class BLOQUE_Borrar{
+class HORARIO_Borrar{
 	//VISTA PARA BORRAR ROLES
 
 	private $valores;
@@ -18,10 +18,10 @@ class BLOQUE_Borrar{
 			<h2>
 				<?php
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				include '../Functions/BLOQUEDELETEDefForm.php';
+				include '../Functions/HORARIODefForm.php';
 
 
-				$lista = array('BLOQUE_ID','BLOQUE_HORARIO','BLOQUE_FECHA','BLOQUE_HORAI','BLOQUE_HORAF');
+				$lista = array('HORARIO_ID','HORARIO_NOMBRE','HORARIO_FECHAI','HORARIO_FECHAF');
 
 
 
@@ -32,22 +32,21 @@ class BLOQUE_Borrar{
 			</p>
 			<p>
 			<h1><span class="form-title">
-				<?php echo $strings['Borrar Bloque']?><br>
+				<?php echo $strings['Borrar Horario']?><br>
 			</h1>
 			<h3>
 
-				<form action='BLOQUE_Controller.php' method='post' >
+				<form action='HORARIO_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
 
-					createForm($lista,$form2,$strings,$this->valores,false,true); ?></br>
+					createForm($lista,$DefForm,$strings,$this->valores,false,true);
 
-
+					?>
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
-						</ul>
 				</form>
 				<?php
-				echo '<a class="form-link" href=\'BLOQUE_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'HORARIO_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>

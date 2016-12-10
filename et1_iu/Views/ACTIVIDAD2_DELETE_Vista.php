@@ -1,7 +1,7 @@
 <?php
 
-class BLOQUE_Borrar{
-	//VISTA PARA BORRAR ROLES
+class Actividad_delete{
+	//VISTA PARA BORRAR PAGINAS
 
 	private $valores;
 
@@ -18,36 +18,33 @@ class BLOQUE_Borrar{
 			<h2>
 				<?php
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				include '../Functions/BLOQUEDELETEDefForm.php';
+				include '../Functions/ACTIVIDAD2DefForm.php';
 
 
-				$lista = array('BLOQUE_ID','BLOQUE_HORARIO','BLOQUE_FECHA','BLOQUE_HORAI','BLOQUE_HORAF');
-
-
-
+				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','CATEGORIA_ID');
 
 
 				?>
 			</h2>
 			</p>
 			<p>
-			<h1><span class="form-title">
-				<?php echo $strings['Borrar Bloque']?><br>
+			<h1>
+			<span class="form-title">
+				<?php echo $strings['Borrar Actividad']?><br>
 			</h1>
 			<h3>
 
-				<form action='BLOQUE_Controller.php' method='post' >
+				<form action='ACTIVIDAD2_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
 
-					createForm($lista,$form2,$strings,$this->valores,false,true); ?></br>
+					createForm($lista,$DefForm,$strings,$this->valores,false,true);
 
-
+					?>
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
-						</ul>
 				</form>
 				<?php
-				echo '<a class="form-link" href=\'BLOQUE_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'ACTIVIDAD2_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>

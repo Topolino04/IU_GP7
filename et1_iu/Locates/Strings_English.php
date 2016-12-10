@@ -230,6 +230,10 @@ $strings = array(
 	'Modificar Descuento'=>'Modify Discount',
 	"El descuento se ha modificado con éxito"=> "Discount modified successfully",
 	"El descuento se ha modificado con éxito"=> "Discount modified successfully",
+	'Descuentos' => 'Discounts',
+	    'Aplicado' => 'Applied',
+  'Guardar'=> 'Save',
+   'Asignacion de descuentos correcta'=>'Right discount assingment',
 
 
 		//GESTION ACTIVIDADES
@@ -256,11 +260,13 @@ $strings = array(
 	'Insertar' => 'Insert',
 	'Consultar actividad' => 'Consult Activity',
 	'ACTIVO' => 'Active',
+
 	'CONSULTAR BORRADO' => 'Consult Inactives',
 	'Consultar' => 'Consult',
 	'CATEGORIA_NOMBRE' => 'Category Name',
 	'LUGAR_NOMBRE' => 'Place Name',
     'CATEGORIA_NOMBRE' => 'Category Name',
+
 
 
 
@@ -277,6 +283,8 @@ $strings = array(
         'Elige una opcion'=>'Choose an option',
         'Usuario'=>'User',
 	'USUARIO'=>'Realized by',
+	'Elige una opcion' => 'Choose option',
+	'Usuario'=>'User',
 	'Consultar Lesion'=>'Search Injury',
 	'Buscar'=>'Filter',
 	'Registro'=>'Register',
@@ -288,10 +296,12 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Injury modified successfully',
 	'Lesion borrada correctamente'=>'Injury deleted successfully',
 	'Lesion registrada correctamente'=>'Injury registered successfully',
+
 	'Generar'=>'Export',
         'Ver'=>'Show',
         'No existe el registro. Exportelo primero'=>'There is no record. Export it first',
         'Registro exportado correctamente'=> 'Registry successfully exported',
+
 	// GESTION DE CLIENTES
         'CLIENTE_ID'=>'ID Customer',
 	'CLIENTE_DNI'=>'ID',
@@ -360,6 +370,35 @@ $strings = array(
 	'clase'=>'class',
 	'profesores'=>'TEACHERS',
 	'alumnos'=>'STUDENTS:',
+
+	'Gestión de Actividades2' => 'Activities Management(with calendar)',
+	//gestion horario
+
+	'Insertar Horario'=>'Insert Schedule',
+	'HORARIO_NOMBRE'=>'Name',
+	'HORARIO_FECHAI'=>'Initial date',
+	'HORARIO_FECHAF'=>'End date',
+	'HORARIO_ID'=>'HORARIO_ID',
+
+	'Modificar Horario'=>'Modify Schedule',
+	'El HORARIO se ha modificado con éxito'=>'Schedule edited successfully',
+	'Borrar Horario'=>'Delete Schedule',
+	'El HORARIO ha sido borrado correctamente'=>'Schedule deleted successfully',
+	'Consultar Horario'=>'Show Schedule',
+	'Domingo'=>'Sunday',
+	'BLOQUE_HORARIO'=>'Schedule',
+	'PROFESORES'=>'TEACHERS:',
+	'ACTIVIDAD_DIA'=>'Day',
+	'ACTIVIDAD_HORARIO'=>'Schedule',
+	'CATEGORIA_NOMBRE'=>'Category',
+	'Continuar'=>'Continue',
+	'profesor'=>'teacher',
+	'LUGARES'=>'PLACES:',
+	'ACTIVIDAD_BLOQUE'=>'Select possible hours:',
+	'No hay bloques definidos para ese día en ese horario'=>'There is not possible hours',
+	'Continuar'=>'Continue',
+	'Gestion de Posibles'=>'Possible hours management',
+
     
     //ENVIO NOTIFICACIONES->EMPLEADOS/CLIENTES
     'Enviar Notificacion'=>'Send Notification',
@@ -401,6 +440,7 @@ $strings = array(
     'Eventos'=>'Event',
     'Evento'=>'Select',
     'Notificacion sobre Eventos'=>'Event Notification',
+
 
 )
 ?>
