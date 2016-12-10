@@ -435,6 +435,10 @@ $strings = array(
     'Eventos'=>'Evento',
     'Evento'=>'Seleccionar',
     'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+    'EVENTO_ID'=>'ID Evento',
+    'EVENTO_NOMBRE'=>'Nome',
+    'EVENTO_ORGANIZADOR'=>'Organizador',
+    'EVENTO_DESCRIPCION'=>'Descrición'
 
 )
 ?>
