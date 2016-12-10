@@ -282,8 +282,11 @@ $strings = array(
     'Borrar Lesion'=>'Borrar lesión',
     'Lesion modificada correctamente'=>'Lesión modificada correctamente',
     'Lesion borrada correctamente'=>'Lesión borrada correctamente',
-    'Lesion registrada correctamente'=>'Lesión registrada correctamente',
-	'Generar'=>'Exportar y Ver',
+    'Lesion registrada correctamente'=>'Lesión registrada correctamente',   
+    'Generar'=>'Exportar',
+    'Ver'=>'Ver',
+    'No existe el registro. Exportelo primero'=>'No existe el registro. Exportelo primero',
+   'Registro exportado correctamente'=> 'Registro exportado correctamente',
 
 
     // GESTION DE CLIENTES
