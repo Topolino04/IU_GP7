@@ -1,6 +1,6 @@
 <?php
 
-class BLOQUE_Show{
+class HORARIO_Show{
 	//VISTA PARA LISTAR ROLES
 
 	private $datos;
@@ -44,15 +44,15 @@ class BLOQUE_Show{
 								</ul>
 
 								<?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
-								<a href='./BLOQUE_Controller.php?accion=<?php echo $strings['Consultar']?>'><?php echo $strings['Consultar']?></a>
-								<a href='./BLOQUE_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
+								<a href='./HORARIO_Controller.php?accion=<?php echo $strings['Consultar']?>'><?php echo $strings['Consultar']?></a>
+								<a href='./HORARIO_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
 
 
 							</div>
 						</nav>
 						<?php
 
-						$lista = array('BLOQUE_ID','BLOQUE_HORARIO','BLOQUE_DIA','BLOQUE_FECHA','BLOQUE_HORAI','BLOQUE_HORAF');
+						$lista = array('HORARIO_NOMBRE','HORARIO_FECHAI','HORARIO_FECHAF');
 
 
 						?>
@@ -80,13 +80,12 @@ class BLOQUE_Show{
 							</tr>
 							<?php
 
-							$semana=array($strings['Domingo'],$strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']);
+
 							for ($j=0;$j<count($this->datos);$j++){
 
 
 
 							echo "<tr>";
-
 							foreach ($this->datos [$j] as $clave => $valor) {
                                 for ($i = 0; $i < count($lista); $i++) {
                                     if ($clave === $lista[$i]) {
@@ -95,11 +94,7 @@ class BLOQUE_Show{
                                     <?php
 
                                     echo "<td>";
-										if($clave==='BLOQUE_DIA'){
-											echo $semana[$valor];
-										} else if($clave==='BLOQUE_HORARIO'){
-											echo ConsultarNomHorario($valor);
-										} else
+
 
                                     echo $valor;
 
@@ -114,12 +109,11 @@ class BLOQUE_Show{
 
 							?>
 
+
 							<td>
-								<a href='BLOQUE_Controller.php?BLOQUE_ID=<?php echo $this->datos[$j]['BLOQUE_ID'] .'&accion='.$strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
+								<a href='HORARIO_Controller.php?HORARIO_NOMBRE=<?php echo $this->datos[$j]['HORARIO_NOMBRE'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
 							</td>
-							<td>
-								<a href='BLOQUE_Controller.php?BLOQUE_ID=<?php echo $this->datos[$j]['BLOQUE_ID'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
-							</td>
+
 
 								<?php
 
