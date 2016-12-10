@@ -288,6 +288,7 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Injury modified successfully',
 	'Lesion borrada correctamente'=>'Injury deleted successfully',
 	'Lesion registrada correctamente'=>'Injury registered successfully',
+	'Generar'=>'Export and view',
 	// GESTION DE CLIENTES
         'CLIENTE_ID'=>'ID Customer',
 	'CLIENTE_DNI'=>'ID',
