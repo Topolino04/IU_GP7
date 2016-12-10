@@ -4304,5 +4304,24 @@ function sePuedeModificar($FACTURA_ID)
         return $toret;
         
     }
+<<<<<<< HEAD
+}
+ //Listo las categorías para un select
+    function listarCategorias()
+    {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+        if ($mysqli->connect_errno) {
+            echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        }
+        $sql = "SELECT * FROM CATEGORIA;";
+        $resultado=$mysqli->query($sql);
+        if ($resultado->num_rows!=0){
+            while($row=$resultado->fetch_array()){
+                echo "<option value= '". $row['CATEGORIA_ID'] . "' > " . $row['CATEGORIA_NOMBRE'] . "</option<tr>"; 
+            }
+        }
+    }
+=======
 
+>>>>>>> master
 ?>

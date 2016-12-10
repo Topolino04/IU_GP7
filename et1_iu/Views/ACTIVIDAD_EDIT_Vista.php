@@ -24,11 +24,14 @@ class Actividad_Edit{
 				//include '../Functions/LibraryFunctions.php';
 
 				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','ACTIVO');
+<<<<<<< HEAD
+=======
 
 
 
 
 
+>>>>>>> master
 				?>
 				
 			</h2>
@@ -42,8 +45,10 @@ class Actividad_Edit{
 
 				<form  id="form" name="form" action='ACTIVIDAD_Controller.php' method='post' >
 					<ul class="form-style-1">
-					<?php
+					
 
+
+					<?php
 					createForm($lista,$DefForm,$strings,$this->valores,array('ACTIVIDAD_NOMBRE'=>false),array('ACTIVIDAD_ID'=>true,'ACTIVIDAD_PRECIO'=>false,'ACTIVIDAD_DESCRIPCION'=>false,'CATEGORIA_ID'=>false,'ACTIVO'=>false));
 
 					?>

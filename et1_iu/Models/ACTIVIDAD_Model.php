@@ -259,6 +259,12 @@ class actividad {
             return $toret;
         }
     }
+<<<<<<< HEAD
+   
+
+}
+=======
 
 
 }
+>>>>>>> master
