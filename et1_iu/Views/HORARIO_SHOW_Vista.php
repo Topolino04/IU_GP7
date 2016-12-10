@@ -2,7 +2,7 @@
 
 <?php
 
-class BLOQUE_Consultar{
+class HORARIO_Consultar{
 
 //VISTA PARA CONSULTAR ROLES
 	function __construct(){
@@ -18,30 +18,30 @@ class BLOQUE_Consultar{
 				<?php
 
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				$lista = array('BLOQUE_HORARIO','BLOQUE_FECHA');
+				$lista = array('HORARIO_NOMBRE');
 
 				?>
 			<span class="form-title">
-				<?php echo $strings['Consultar Bloque']?><br>
+				<?php echo $strings['Consultar Horario']?><br>
 			</h2>
 			</p>
 			<p>
 			<h3>
 
-				<form action='BLOQUE_Controller.php' method='post'>
+				<form action='HORARIO_Controller.php' method='post'>
 					<ul class="form-style-1">
 					<?php
 
-					include '../Functions/BLOQUEDELETEDefForm.php';
+					include '../Functions/HORARIODefForm.php';
 
 
-					createForm($lista,$form2,$strings,$values='',false,false);
+					createForm($lista,$DefForm,$strings,$values='',false,false);
 					?>
 					<input type='submit' name='accion' value=<?php echo $strings['Consultar'] ?>><br>
 
 				</form>
 				<?php
-				echo '<a  class="form-link" href=\'BLOQUE_Controller.php\'>' . $strings['Volver'] . '</a>';
+				echo '<a  class="form-link" href=\'HORARIO_Controller.php\'>' . $strings['Volver'] . '</a>';
 				?>
 
 			</h3>

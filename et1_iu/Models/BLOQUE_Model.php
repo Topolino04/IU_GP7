@@ -5,33 +5,21 @@ include '../Functions/LibraryFunctions.php';
 class BLOQUE_MODEL
 {
 	var $BLOQUE_ID;
+	var $BLOQUE_HORARIO;
 	var $BLOQUE_FECHA;
 	var $BLOQUE_DIA;
 	var $BLOQUE_HORAI;
 	var $BLOQUE_HORAF;
-	var $BLOQUE_LUGAR;
-	var $BLOQUE_ACT1;
-	var $BLOQUE_ACT2;
-	var $BLOQUE_ACT3;
-	var $BLOQUE_EV1;
-	var $BLOQUE_EV2;
-	var $BLOQUE_EV3;
 	var $mysqli;
 
 //Constructor de la clase BLOQUE
-function __construct( $BLOQUE_FECHA, $BLOQUE_HORAI, $BLOQUE_HORAF,  $BLOQUE_LUGAR,$BLOQUE_ACT1,$BLOQUE_ACT2,$BLOQUE_ACT3,$BLOQUE_EV1,$BLOQUE_EV2,$BLOQUE_EV3)
-{
-
+function __construct($BLOQUE_HORARIO, $BLOQUE_FECHA, $BLOQUE_DIA,$BLOQUE_HORAI, $BLOQUE_HORAF)
+{	$this->BLOQUE_HORARIO = $BLOQUE_HORARIO;
+	$this->BLOQUE_DIA = $BLOQUE_DIA;
     $this->BLOQUE_FECHA = $BLOQUE_FECHA;
-	$this->BLOQUE_ACT1=$BLOQUE_ACT1;
-	$this->BLOQUE_ACT2=$BLOQUE_ACT2;
-	$this->BLOQUE_ACT3=$BLOQUE_ACT3;
-	$this->BLOQUE_EV1=$BLOQUE_EV1;
-	$this->BLOQUE_EV2=$BLOQUE_EV2;
-	$this->BLOQUE_EV3=$BLOQUE_EV3;
 	$this->BLOQUE_HORAI = $BLOQUE_HORAI;
 	$this->BLOQUE_HORAF = $BLOQUE_HORAF;
-	$this->BLOQUE_LUGAR = $BLOQUE_LUGAR;
+
 
 }
 
@@ -50,7 +38,7 @@ function Insertar()
     $this->ConectarBD();
 
 		
-        $sql = "select * from HORARIO where BLOQUE_FECHA = '".$this->BLOQUE_FECHA."' AND BLOQUE_LUGAR='".$this->BLOQUE_LUGAR."' AND ((BLOQUE_HORAI>='".$this->BLOQUE_HORAI."' AND BLOQUE_HORAI<'".$this->BLOQUE_HORAF."') OR (BLOQUE_HORAI<'".$this->BLOQUE_HORAI."' AND BLOQUE_HORAF>'".$this->BLOQUE_HORAI."'))";
+        $sql = "select * from HORAS_POSIBLES where BLOQUE_HORARIO='". $this->BLOQUE_HORARIO."' AND BLOQUE_DIA = '".$this->BLOQUE_DIA."' AND BLOQUE_HORAI='".$this->BLOQUE_HORAI."' AND BLOQUE_HORAF='".$this->BLOQUE_HORAF."'";
 
 
 		if (!$result = $this->mysqli->query($sql)){
@@ -59,10 +47,17 @@ function Insertar()
 		else {
 	
 			if ($result->num_rows == 0){
+				$sql="SELECT HORARIO_FECHAI, HORARIO_FECHAF FROM HORARIO WHERE HORARIO_ID='".$this->BLOQUE_HORARIO."'";
+				$result=$this->mysqli->query($sql);
+				$fila=$result->fetch_array();
 
-					$sql = "INSERT INTO HORARIO(BLOQUE_FECHA, BLOQUE_DIA, BLOQUE_HORAI, BLOQUE_HORAF,  BLOQUE_LUGAR, BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3, BLOQUE_EV1,BLOQUE_EV2,BLOQUE_EV3) VALUES ('" . $this->BLOQUE_FECHA . "', '" . date("w", strtotime($this->BLOQUE_FECHA)) . "', '" . $this->BLOQUE_HORAI . "', '" . $this->BLOQUE_HORAF . "', '" . $this->BLOQUE_LUGAR . "', '" . $this->BLOQUE_ACT1 . "', '" . $this->BLOQUE_ACT2 . "', '" . $this->BLOQUE_ACT3 . "', '" . $this->BLOQUE_EV1 . "', '" . $this->BLOQUE_EV2 . "', '" . $this->BLOQUE_EV3 . "')";
+				$fechas=crearFechas($fila['HORARIO_FECHAI'],$fila['HORARIO_FECHAF'], $this->BLOQUE_DIA);
+				for($i=0;$i<count($fechas);$i++) {
+
+					$sql = "INSERT INTO HORAS_POSIBLES(BLOQUE_HORARIO, BLOQUE_FECHA, BLOQUE_DIA, BLOQUE_HORAI, BLOQUE_HORAF) VALUES ('" . $this->BLOQUE_HORARIO . "','" .$fechas[$i] . "','".$this->BLOQUE_DIA."','".$this->BLOQUE_HORAI."','".$this->BLOQUE_HORAF."')";
 
 					$this->mysqli->query($sql);
+				}
 				return 'Inserción realizada con éxito';
 			}
 			else
@@ -83,7 +78,7 @@ function Consultar()
 {
     include '../Locates/Strings_Castellano.php';
     $this->ConectarBD();
-    $sql = "select * from HORARIO where BLOQUE_FECHA ='".$this->BLOQUE_FECHA."'";
+    $sql = "select * from HORAS_POSIBLES where  BLOQUE_FECHA ='".$this->BLOQUE_FECHA."' AND BLOQUE_HORARIO='".ConsultarIDHorario($this->BLOQUE_HORARIO)."'";
 
 	$resultado = $this->mysqli->query($sql);
 
@@ -108,7 +103,7 @@ function Consultar()
 	function ConsultarTodo()
 	{
 		$this->ConectarBD();
-		$sql = "select * from HORARIO ORDER BY BLOQUE_ID";
+		$sql = "select * from HORAS_POSIBLES ORDER BY BLOQUE_ID";
 		if (!($resultado = $this->mysqli->query($sql))){
 			return 'Error en la consulta sobre la base de datos';
 		}
@@ -137,12 +132,18 @@ function Consultar()
 function Borrar($BLOQUE_ID)
 {
     $this->ConectarBD();
-    $sql = "select * from HORARIO where BLOQUE_ID='".$BLOQUE_ID."'";
+    $sql = "select * from HORAS_POSIBLES where BLOQUE_ID='".$BLOQUE_ID."'";
     $result = $this->mysqli->query($sql);
     if ($result->num_rows == 1)
     {
-        $sql = "delete from HORARIO  where BLOQUE_ID = '".$BLOQUE_ID."'";
-        $this->mysqli->query($sql);
+
+		$sql = "delete from CALENDARIO  where CALENDARIO_BLOQUE = '".$BLOQUE_ID."'";
+		$this->mysqli->query($sql);
+        $sql = "delete from HORAS_POSIBLES  where BLOQUE_ID = '".$BLOQUE_ID."'";
+
+		$this->mysqli->query($sql);
+
+
 
     	return "El BLOQUE ha sido borrado correctamente";
     }
@@ -153,13 +154,13 @@ function Borrar($BLOQUE_ID)
 function RellenaDatos($BLOQUE_ID)
 {
     $this->ConectarBD();
-    $sql = "select * from HORARIO where BLOQUE_ID='".$BLOQUE_ID."'";
+    $sql = "select * from HORAS_POSIBLES where BLOQUE_ID='".$BLOQUE_ID."'";
     if (!($resultado = $this->mysqli->query($sql))){
 	return 'Error en la consulta sobre la base de datos';
 	}
     else{
 	$result = $resultado->fetch_array();
-	$result['BLOQUE_LUGAR']=consultarNomLugar($result['BLOQUE_LUGAR']);
+$result['BLOQUE_HORARIO']=ConsultarNomHorario($result['BLOQUE_HORARIO']);
 	return $result;
 	}
 }
@@ -167,26 +168,25 @@ function RellenaDatos($BLOQUE_ID)
 function Modificar($BLOQUE_ID)
 {
     $this->ConectarBD();
-    $sql = "select * from HORARIO where BLOQUE_ID= '".$BLOQUE_ID."'";
+    $sql = "select * from HORAS_POSIBLES where BLOQUE_ID= '".$BLOQUE_ID."'";
 
 
     $result = $this->mysqli->query($sql);
     if ($result->num_rows == 1)
-    { $sql = "select * from HORARIO where BLOQUE_FECHA = '".$this->BLOQUE_FECHA."' AND BLOQUE_LUGAR='".$this->BLOQUE_LUGAR."' AND BLOQUE_ID!='".$BLOQUE_ID."' AND ((BLOQUE_HORAI>='".$this->BLOQUE_HORAI."' AND BLOQUE_HORAI<'".$this->BLOQUE_HORAF."') OR (BLOQUE_HORAI<'".$this->BLOQUE_HORAI."' AND BLOQUE_HORAF>'".$this->BLOQUE_HORAI."'))";
+    { //$sql = "select * from HORAS_POSIBLES where BLOQUE_HORARIO='".$this->BLOQUE_HORARIO."' AND BLOQUE_FECHA = '".$this->BLOQUE_FECHA."'  AND BLOQUE_ID!='".$BLOQUE_ID."' AND ((BLOQUE_HORAI>='".$this->BLOQUE_HORAI."' AND BLOQUE_HORAI<'".$this->BLOQUE_HORAF."') OR (BLOQUE_HORAI<'".$this->BLOQUE_HORAI."' AND BLOQUE_HORAF>'".$this->BLOQUE_HORAI."'))";
 
-
-		$result = $this->mysqli->query($sql);
-		if ($result->num_rows === 0) {
-			$sql = "UPDATE HORARIO SET BLOQUE_FECHA = '" . $this->BLOQUE_FECHA . "', BLOQUE_LUGAR='" . $this->BLOQUE_LUGAR . "', BLOQUE_ACT1='" . $this->BLOQUE_ACT1 . "', BLOQUE_ACT2='" . $this->BLOQUE_ACT2 . "', BLOQUE_ACT3='" . $this->BLOQUE_ACT3 . "', BLOQUE_EV1='" . $this->BLOQUE_EV1 . "', BLOQUE_EV2='" . $this->BLOQUE_EV2 . "', BLOQUE_EV3='" . $this->BLOQUE_EV3 . "', BLOQUE_HORAI='" . $this->BLOQUE_HORAI . "', BLOQUE_HORAF='" . $this->BLOQUE_HORAF . "', BLOQUE_DIA='" . date("w", strtotime($this->BLOQUE_FECHA)) . "' WHERE BLOQUE_ID = '" . $BLOQUE_ID . "'";
+		//$result = $this->mysqli->query($sql);
+		//if ($result->num_rows === 0) {
+			$sql = "UPDATE HORAS_POSIBLES SET BLOQUE_HORARIO='". $this->BLOQUE_HORARIO."', BLOQUE_FECHA = '" . $this->BLOQUE_FECHA .  "', BLOQUE_HORAI='" . $this->BLOQUE_HORAI . "', BLOQUE_HORAF='" . $this->BLOQUE_HORAF . "', BLOQUE_DIA='" . date("w", strtotime($this->BLOQUE_FECHA)) . "' WHERE BLOQUE_ID = '" . $BLOQUE_ID . "'";
 
 			$this->mysqli->query($sql);
 
 
 			return "El BLOQUE se ha modificado con éxito";
-		}
-		else {
-			return 'El BLOQUE ya está ocupado';
-		}
+		//}
+		//else {
+		//	return 'El BLOQUE ya está ocupado';
+		//}
 	}
 
     else
@@ -195,56 +195,5 @@ function Modificar($BLOQUE_ID)
 
 
 
-function ConsultarActEv($BLOQUE_ID)
-{
-	$this->ConectarBD();
-$toret=array();
-	$sql = "select BLOQUE_ACT1, BLOQUE_ACT2, BLOQUE_ACT3 from HORARIO WHERE BLOQUE_ID=".$BLOQUE_ID;
-
-	if (!($resultado = $this->mysqli->query($sql))){
-		return 'Error en la consulta sobre la base de datos';
-	}
-	else{
-
-		$lista=array('BLOQUE_ACT1', 'BLOQUE_ACT2', 'BLOQUE_ACT3');
-
-		$i=0;
-
-		$fila= $resultado->fetch_array();
-
-
-		foreach($fila as $clave=>$valor){
-			if(in_array($clave, $lista) && $valor!=='0' && $clave!==0) {
-				$toret['ACTIVIDADES'][$i] = consultarNomActividad($valor);
-				$i++;
-			}
-
-		}
-
-		$sql = "select BLOQUE_EV1, BLOQUE_EV2, BLOQUE_EV3 from HORARIO WHERE BLOQUE_ID=".$BLOQUE_ID;
-
-
-		$resultado = $this->mysqli->query($sql);
-
-		$lista=array('BLOQUE_EV1', 'BLOQUE_EV2', 'BLOQUE_EV3');
-
-
-			$i = 0;
-
-			$fila = $resultado->fetch_array();
-
-			foreach ($fila as $clave => $valor) {
-				if (in_array($clave, $lista) && $valor!='0'  && $clave!==0) {
-					$toret['EVENTOS'][$i] = consultarNomEvento($valor);
-					$i++;
-				}
-			}
-
-		return $toret;
-		}
-
-
-
-	}
 }
 ?>

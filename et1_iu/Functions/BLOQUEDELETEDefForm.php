@@ -42,7 +42,7 @@ $form2 = array(
 	),
 		4 => array(
 	'type' => 'text',
-	'name' => 'BLOQUE_LUGAR',
+	'name' => 'BLOQUE_HORARIO',
 	'value' => '',
 	'size' => 50,
 	'required' => true,

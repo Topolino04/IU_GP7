@@ -1,6 +1,6 @@
 <?php
 
-class BLOQUE_Modificar{
+class HORARIO_Modificar{
 //VISTA PARA MODIFICAR ROLES
     private $valores;
 
@@ -18,10 +18,10 @@ class BLOQUE_Modificar{
 			<h2>
 				<?php
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				include '../Functions/BLOQUEDELETEDefForm.php';
+				include '../Functions/HORARIODefForm.php';
 				//include '../Functions/LibraryFunctions.php';
 
-				$lista = array('BLOQUE_ID','BLOQUE_HORARIO','BLOQUE_FECHA', 'BLOQUE_HORAI', 'BLOQUE_HORAF');
+				$lista = array('HORARIO_ID','HORARIO_NOMBRE','HORARIO_FECHAI','HORARIO_FECHAF');
 
 
 
@@ -33,23 +33,21 @@ class BLOQUE_Modificar{
 			</p>
 			<p>
 			<h1><span class="form-title">
-				<?php echo $strings['Modificar Bloque']?><br>
+				<?php echo $strings['Modificar Horario']?><br>
 			</h1>
 			<h3>
 
-				<form  id="form" name="form" action='BLOQUE_Controller.php' method='post' >
+				<form  id="form" name="form" action='HORARIO_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
 
-					createForm($lista,$form2,$strings,$this->valores,true,array('BLOQUE_ID'=>true,'BLOQUE_HORARIO'=>true,'BLOQUE_FECHA'=>true));?></br>
+					createForm($lista,$DefForm,$strings,$this->valores,true,array('HORARIO_ID'=>true));
 
-
-
-					<input type='submit' name='accion' onclick="return valida_envia_BLOQU()" value=<?php echo $strings['Modificar'] ?>>
-				</ul>
+					?>
+					<input type='submit' name='accion' onclick="return valida_envia2()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php
-				echo '<a  class="form-link" href=\'BLOQUE_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a  class="form-link" href=\'HORARIO_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>
