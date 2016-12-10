@@ -208,7 +208,18 @@ $strings = array(
     'PAGO_METODO'=>'Método de Pago',
     'PAGO_DESCUENTO'=>'Descuento [%]',
     'PAGO_IMPORTE_FINAL'=>'Importe Final [€]',
+    'PAGADO'=>'PAGADO',
+    'PENDIENTE'=>'PENDIENTE',
+    'Efectivo'=>'Efectivo',
+    'Tarjeta Credito/Debito'=>'Tarjeta Credito/Debito',
+    'Domiciliacion Bancaria'=>'Domiciliacion Bancaria',
+'No seleccionado'=>'No Seleccionado',
 
+    
+    
+    
+    
+    
         'DESCUENTO_ID' =>'Clave',
         'DESCUENTO_VALOR'=>'Porcentaje',
         'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -337,7 +348,7 @@ $strings = array(
 
 
 	// GESTION DE CLIENTES
-	'CLIENTE_DNI'=>'DNI ',
+
 	'CLIENTE_NOMBRE'=>'Nombre',
 	'CLIENTE_APELLIDOS'=>'Apellidos',
 	'CLIENTE_FECH_NAC'=>'Fecha de nacimiento',

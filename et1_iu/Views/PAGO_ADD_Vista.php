@@ -38,20 +38,18 @@ class PAGO_Insertar {
 
 //----- Añadir Select de estado ----- MULTILENGUAJE!!
                             ?>
-                            <br><b>Método de Pago </b>
+                            <br><b><?php echo$strings['PAGO_METODO'] ?></b>
                             <select name="PAGO_METODO" size="1" required="required">
-                                <option value=" - n/d - " selected=" - n/d - "> - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                <option value="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+                                <option value='No seleccionado'  selected='<?php echo $strings['No seleccionado']?>'><?php echo $strings['No seleccionado']?></option>
+                                <option value='Efectivo'><?php echo $strings['Efectivo']?></option>
+                                <option value='Tarjeta Credito/Deito'><?php echo $strings['Tarjeta Credito/Debito']?></option>
+                                <option value='Domiciliacion Bancaria'><?php echo $strings['Domiciliacion Bancaria']?></option>
                             </select><br>
 
-                            <br><b>Estado </b>
+                            <br><b><?php echo $strings['PAGO_ESTADO']?></b>
                             <select name="PAGO_ESTADO" size="1" required="required">
-                                <option value="PENDIENTE">PENDIENTE</option>
-                                <option value="PAGADO">PAGADO</option>
+                                <option value='PENDIENTE'  selected='<?php echo $strings['PENDIENTE']?>'><?php echo $strings['PENDIENTE']?></option>
+                                <option value='PAGADO'><?php echo $strings['PAGADO']?></option>
                             </select><br>
 
                             <input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Insertar'] ?>>

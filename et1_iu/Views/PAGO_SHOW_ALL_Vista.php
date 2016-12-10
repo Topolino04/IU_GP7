@@ -50,13 +50,11 @@ class PAGO_Show {
 
 
                     <?php
-
                     $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO', 'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
-
                     ?>
 
 
-                    <?php // echo $strings['EMP_USER'] . ' : ' . $_SESSION['login']; ?>
+                    <?php // echo $strings['EMP_USER'] . ' : ' . $_SESSION['login'];  ?>
 
                     <div >
                         <table  id="btable"  class="responstable" border = 1>
@@ -83,7 +81,30 @@ class PAGO_Show {
                                     for ($i = 0; $i < count($lista); $i++) {
                                         if ($clave === $lista[$i]) {
                                             echo "<td>";
-                                            echo $valor;
+                                            switch ($valor) {
+                                                case 'PAGADO':
+                                                    echo $strings['PAGADO'];
+                                                    break;
+                                                case'PENDIENTE':
+                                                    echo $strings['PENDIENTE'];
+                                                    break;
+                                                case 'Efectivo':
+                                                    echo $strings['Efectivo'];
+                                                    break;
+                                                case 'Tarjeta de Credito/Debito':
+                                                    echo $strings['Tarjeta Credito/Debito'];
+                                                    break;
+                                                case'Domiciliacion Bancaria':
+                                                    echo $strings['Domiciliacion Bancaria'];
+                                                    break;
+                                                case'No seleccionado':
+                                                    echo $strings['No seleccionado'];
+                                                    break;
+                                                default :
+                                                    echo $valor;
+                                                    break;
+                                            }
+                                            //  echo $valor;
                                             echo "</td>";
                                         }
                                     }
@@ -91,17 +112,17 @@ class PAGO_Show {
                                 ?>
 
                                 <?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
-                      
 
-                                  
+
+
 
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
-                                  <td>
+                                <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
                                 </td>
-                                
+
                                 <td>
                                     <?php if ((file_exists('../Recibos/Recibo_' . $this->datos[$j]['PAGO_ID'] . '.txt')) && ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO')) { ?>
                                         <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
@@ -116,7 +137,7 @@ class PAGO_Show {
                                     ?>
 
                                 </td>
-                                
+
 
                                 <?php
                                 echo "<tr>";
@@ -141,5 +162,3 @@ class PAGO_Show {
 
 //fin metodo render
 }
-
-                           
