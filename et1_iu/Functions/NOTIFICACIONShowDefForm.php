@@ -4,17 +4,7 @@
 $form = array(
     0 => array(
         'type' => 'text',
-        'name' => 'LESION_ID',
-        'value' => '',
-        'size' => 10,
-        'required' => true,
-        'pattern' => '',
-        'validation' => '',
-        'readonly' => false
-    ),
-    1 => array(
-        'type' => 'text',
-        'name' => 'LESION_NOM',
+        'name' => 'NOTIFICACION_REMITENTE',
         'value' => '',
         'size' => 35,
         'required' => true,
@@ -22,23 +12,38 @@ $form = array(
         'validation' => '',
         'readonly' => false
     ),
-    2 => array(
-        'type' => 'text',
-        'name' => 'LESION_DESC',
+
+    1 => array(
+        'type' => 'date',
+        'name' => 'NOTIFICACION_FECHAHORA1',
         'value' => '',
-        'size' => 75,
+        'min' => '1900-01-01',
+        'max' => '2018-01-01',
+        'required' => false,
+        'pattern' => '',
+        'validation' => '',
+        'readonly' => false
+    ),
+    2 => array(
+        'type' => 'date',
+        'name' => 'NOTIFICACION_FECHAHORA2',
+        'value' => '',
+        'min' => '1900-01-01',
+        'max' => '2018-01-01',
         'required' => false,
         'pattern' => '',
         'validation' => '',
         'readonly' => false
     ),
     3 => array(
-        'type' => 'select',
-        'name' => 'LESION_ESTADO',
-        'multiple' => 'false',
+        'type' => 'text',
+        'name' => 'NOTIFICACION_DESTINATARIO',
         'value' => '',
-        'options' => array('Superada', 'Pendiente', 'Cronica'),
+        'size' => 35,
+        'required' => false,
+        'pattern' => '',
+        'validation' => '',
         'readonly' => false
     )
+    
 );
-?>

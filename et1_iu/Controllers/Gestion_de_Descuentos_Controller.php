@@ -2,6 +2,7 @@
 
 include '../Models/DESCUENTO_Model.php';
 include '../Views/MENSAJE_Vista.php';
+
 if (!IsAuthenticated()){
 	header('Location:../index.php');
 }
@@ -68,12 +69,27 @@ if (!isset($_REQUEST['accion'])){
 					new DESCUENTO_Modificar($valores, 'Gestion_de_Descuentos_Controller.php');
 				}
 			} else {
-				
+
 				$descuento = get_data_form();
 				$respuesta = $descuento->Modificar();
 				new Mensaje($respuesta, 'Gestion_de_Descuentos_Controller.php');
 			}
 			break;
+		case $strings['Descuentos']:
+			$descuento = new DESCUENTO_MODEL('', '','');
+			$datos = $descuento->ConsultarDescuentosDeCliente($_GET["CLIENTE_ID"]);
+			if (!tienePermisos('DESCUENTO_Show_Por_Cliente')) {
+				new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php');
+			} else {
+				new DESCUENTO_Show_Por_Cliente($datos, './CLIENTE_Controller.php');
+			}
+			break;
+
+			case $strings['Guardar']:
+				$descuento = new DESCUENTO_MODEL('', '','');
+				$respuesta = $descuento->AsignarDescuentos($_GET["CLIENTE_ID"],$_POST['descuentos']);
+				new Mensaje($respuesta, './CLIENTE_Controller.php');
+				break;
 		default:
 			//La vista por defecto lista los descuentos
 			$descuento = new DESCUENTO_MODEL('', '','');
@@ -81,7 +97,6 @@ if (!isset($_REQUEST['accion'])){
 			if (!tienePermisos('DESCUENTO_Show')) {
 				new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php');
 			} else {
-
 				new DESCUENTO_Show($datos, '../Views/DEFAULT_Vista.php');
 			}
 	}

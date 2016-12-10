@@ -148,11 +148,11 @@ function valida_envia4() {
 //----------------------------------------------------------
 function valida_envia_PAGO() {
 
-if (!nif(document.form.CLIENTE_DNI.value)) {
+    if (!nif(document.form.CLIENTE_DNI.value)) {
         document.form.CLIENTE_DNI.focus();
         return false;
     }
-    
+
     if (document.form.PAGO_CONCEPTO.value.length == 0) {
         alert("Introduzca un valor para el concepto");
         document.form.PAGO_CONCEPTO.focus();
@@ -367,7 +367,7 @@ function valida_envia_CLIENTE() {
         document.form.CLIENTE_TELEFONO1.focus();
         return false;
     }
-    if(document.form.CLIENTE_TELEFONO2.value.length!==0) {
+    if (document.form.CLIENTE_TELEFONO2.value.length !== 0) {
         valor = document.form.CLIENTE_TELEFONO2.value;
         if (!(/^\d{9}$/.test(valor))) {
             alert("Tiene que escribir un teléfono de 9 dígitos");
@@ -375,7 +375,7 @@ function valida_envia_CLIENTE() {
             return false;
         }
     }
-    if(document.form.CLIENTE_TELEFONO3.value.length!==0) {
+    if (document.form.CLIENTE_TELEFONO3.value.length !== 0) {
         valor = document.form.CLIENTE_TELEFONO3.value;
         if (!(/^\d{9}$/.test(valor))) {
             alert("Tiene que escribir un teléfono de 9 dígitos");
@@ -399,30 +399,30 @@ function valida_envia_CLIENTE() {
 
 }
 //Recibe fecha en formato DD/MM/YYYY
-function dia_semana(fecha){
-    fecha=fecha.split('-');
-    if(fecha.length!=3){
+function dia_semana(fecha) {
+    fecha = fecha.split('-');
+    if (fecha.length != 3) {
         return null;
     }
     //Vector para calcular día de la semana de un año regular.
-    var regular =[0,3,3,6,1,4,6,2,5,0,3,5];
+    var regular = [0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5];
     //Vector para calcular día de la semana de un año bisiesto.
-    var bisiesto=[0,3,4,0,2,5,0,3,6,1,4,6];
+    var bisiesto = [0, 3, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
     //Vector para hacer la traducción de resultado en día de la semana.
-    var semana=['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    var semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     //Día especificado en la fecha recibida por parametro.
-    var dia=fecha[2];
+    var dia = fecha[2];
     //Módulo acumulado del mes especificado en la fecha recibida por parametro.
-    var mes=fecha[1]-1;
+    var mes = fecha[1] - 1;
     //Año especificado por la fecha recibida por parametros.
-    var anno=fecha[0];
+    var anno = fecha[0];
     //Comparación para saber si el año recibido es bisiesto.
-    if((anno % 4 == 0) && !(anno % 100 == 0 && anno % 400 != 0))
-        mes=bisiesto[mes];
+    if ((anno % 4 == 0) && !(anno % 100 == 0 && anno % 400 != 0))
+        mes = bisiesto[mes];
     else
-        mes=regular[mes];
+        mes = regular[mes];
     //Se retorna el resultado del calculo del día de la semana.
-    return semana[Math.ceil(Math.ceil(Math.ceil((anno-1)%7)+Math.ceil((Math.floor((anno-1)/4)-Math.floor((3*(Math.floor((anno-1)/100)+1))/4))%7)+mes+dia%7)%7)];
+    return semana[Math.ceil(Math.ceil(Math.ceil((anno - 1) % 7) + Math.ceil((Math.floor((anno - 1) / 4) - Math.floor((3 * (Math.floor((anno - 1) / 100) + 1)) / 4)) % 7) + mes + dia % 7) % 7)];
 }
 
 function valida_envia_BLOQUE() {
@@ -433,12 +433,12 @@ function valida_envia_BLOQUE() {
         return false;
     }
 
-    if (document.form.BLOQUE_HORAI.value>document.form.BLOQUE_HORAF.value) {
+    if (document.form.BLOQUE_HORAI.value > document.form.BLOQUE_HORAF.value) {
         alert("La hora final debe de ser posterior que la hora inicial");
         document.form.BLOQUE_HORAF.focus();
         return false;
     }
-    if (dia_semana(document.form.BLOQUE_FECHA.value)==='Domingo') {
+    if (dia_semana(document.form.BLOQUE_FECHA.value) === 'Domingo') {
         alert("Los domingos el centro permanece cerrado");
         document.form.BLOQUE_FECHA.focus();
         return false;
@@ -446,12 +446,88 @@ function valida_envia_BLOQUE() {
     return true;
 }
 
+function valida_envia_LESION() {
+
+    if (document.form.LESION_NOM.value.length == 0) {
+        alert("Introduzca un valor para el nombre");
+        document.form.LESION_NOM.focus();
+        return false;
+    }
+    if (document.form.LESION_NOM.value.length > 50) {
+        alert("Nombre demasiado largo (máximo 100 caracteres)");
+        document.form.LESION_NOM.focus();
+        return false;
+    }
+
+    if (document.form.LESION_DESC.value.length > 200) {
+        alert("Comentario demasiado largo (máximo 200 caracteres)");
+        document.form.LESION_DESC.focus();
+        return false;
+    }
+    return true;
+}
+
+
+function valida_envia_EMAIL() {
+
+    if (((document.form.NOTIFICACION_REMITENTE.value.length == 0) || !validarEmail(document.form.NOTIFICACION_REMITENTE.value))) {
+        alert("Introduzca una dirección de gmail válida");
+        document.form.NOTIFICACION_REMITENTE.focus();
+        return false;
+    }
+
+    if (document.form.NOTIFICACION_PASSWORD.value.length == 0) {
+        alert("Introduzca un valor para la contraseña");
+        document.form.NOTIFICACION_PASSWORD.focus();
+        return false;
+    }
+
+    if (document.form.NOTIFICACION_PASSWORD.value.length < 8) {
+        alert("Contraseña demasiado corta (mínimo 8 caracteres)");
+        document.form.NOTIFICACION_PASSWORD.focus();
+        return false;
+    }
+
+    if (document.form.NOTIFICACION_CUERPO.value.length == 0) {
+        alert("No se pueden mandar emails vacios, redacte su email");
+        document.form.NOTIFICACION_CUERPO.focus();
+        return false;
+    }
+
+    return true;
+}
 
 
 
 
-
-
-
-
-
+//function validar(){
+//    var isValid = false;
+//
+//    for(i=0; i< document.form1.elements['email[]'].length; i++){
+//        if(document.form1.elements['email[]'][i].checked){
+//            isValid = true
+//        }
+//    }
+//    if (isValid == false){
+//        alert("No has marcado nada");
+//        return false;
+//    } else 
+//        return true
+//}
+//
+//function valida_fecha() {
+//
+//    if ((document.form.NOTIFICACION_FECHAHORA1.value == false) && (document.form.NOTIFICACION_FECHAHORA2.value != false)) {
+//        alert("Si establece una Fecha Fin debe establecer una Fecha Inicio");
+//        document.form.NOTIFICACION_FECHAHORA1.focus();
+//        return false;
+//    }
+//    if ((document.form.NOTIFICACION_FECHAHORA1.value != false) && (document.form.NOTIFICACION_FECHAHORA2.value == false)) {
+//        alert("Si establece una Fecha Inicio debe establecer una Fecha Fin");
+//        document.form.NOTIFICACION_FECHAHORA2.focus();
+//        return false;
+//    }
+//    
+//    return true;
+//
+//}
