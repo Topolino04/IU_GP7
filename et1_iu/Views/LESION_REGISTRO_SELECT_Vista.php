@@ -1,6 +1,6 @@
 <?php
 
-//Vista DEFAULT de Lesiones, muestra todas las lesiones del usuario (Empleado o Cliente) que hayamos seleccionado
+//Vista como resultado de filtrar los registros de consulta sobre las lesiones de un usuario
 class REGISTRO_Select {
 
     private $datos;
@@ -43,7 +43,13 @@ class REGISTRO_Select {
 
                             </ul>
 
-                            <?php echo '<a href=\'' . $this->volver . $this->EMP_USER . "'>" . $strings['Volver'] . " </a>"; ?>
+                            <?php 
+                                if($this->CLIENTE_ID == ''){
+                                echo '<a href=\'' . $this->volver . $this->EMP_USER . "'>" . $strings['Volver'] . " </a>"; 
+                                }else {
+                                echo '<a href=\'' . $this->volver . $this->CLIENTE_ID . "'>" . $strings['Volver'] . " </a>";     
+                                }
+                            ?>
                    
 
                             
@@ -62,15 +68,11 @@ class REGISTRO_Select {
                                 foreach ($lista as $titulo) {
                                  
                                     echo "<th>";
-                                    ?>
-                                    <?php
                                     echo $strings[$titulo];
-                                    ?>
-                                    </th>
-                                    <?php
+                                    echo "</th>";
                                 }
                                 ?>
-                            </tr>
+                            </tr>  
                             <?php
                             for ($j = 0; $j < count($this->datos); $j++) {
                                 echo "<tr>";

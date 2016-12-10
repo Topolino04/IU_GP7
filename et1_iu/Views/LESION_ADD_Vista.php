@@ -49,12 +49,12 @@ class LESION_Insertar {
                                 <input type='hidden' name='CLIENTE_ID' value="<?php echo $this->CLIENTE_ID ?>" readonly>
                                 <?php
                             }
-                            createForm($lista, $form, $strings, '', true, false);
+                            createForm($lista, $form, $strings, '', array('LESION_DESC'=>false), false);
 
 //----- Añadir Select de estado -----
                             ?>
 
-                            <input type='submit' name='accion' value=<?php echo $strings['Insertar'] ?>>
+                            <input type='submit' onclick="return valida_envia_LESION()" name='accion' value=<?php echo $strings['Insertar'] ?>>
                             </form>
                             <?php
                             if ($this->CLIENTE_ID == '') {

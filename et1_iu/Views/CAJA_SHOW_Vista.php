@@ -122,10 +122,23 @@ class Caja_Show{
 				<?php
 				echo '<a class="form-link" href=\'' . $this->volver . "'>" . $stringsCF['Volver'] . " </a>";
 				?>
+				
+				
 				</h3>
 			</p>
-
+			<p style="align:center; margin:0px 250px;">
+			<i style="font-size:14px; color:white;">
+					<br>
+					<br>
+					<br>
+					<?php echo $stringsCF['Aviso']; ?>
+				</i>
+			</p>
 		</div>
+				</div>
+	
+			<p><i><? echo $stringsCF['Aviso'];?></i></p>
+		
 
 		<?php
 	} //fin metodo render

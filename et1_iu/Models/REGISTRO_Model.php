@@ -1,6 +1,6 @@
 <?php
 
-//Clase para Lesiones
+//Clase para Registro de Lesiones
 class REGISTRO_MODEL {
 
     var $REGISTRO_CONSULTA_LESION_ID;
@@ -11,7 +11,7 @@ class REGISTRO_MODEL {
     var $EMP_USER;
 
 //Constructor de la clase lesion
-    function __construct($REGISTRO_CONSULTA_LESION_ID, $USUARIO, $CLIENTE_ID, $EMP_USER) {
+    function __construct($REGISTRO_CONSULTA_LESION_ID, $REGISTRO_CONSULTA_LESION_FECHAHORA1, $REGISTRO_CONSULTA_LESION_FECHAHORA2, $USUARIO, $CLIENTE_ID, $EMP_USER) {
         $this->REGISTRO_CONSULTA_LESION_ID = $REGISTRO_CONSULTA_LESION_ID;
         $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 = $REGISTRO_CONSULTA_LESION_FECHAHORA1;
         $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 = $REGISTRO_CONSULTA_LESION_FECHAHORA2;
@@ -30,11 +30,43 @@ class REGISTRO_MODEL {
 
     function Consultar() {
         $this->ConectarBD();
+
         if ($this->CLIENTE_ID == '') {
-            //$sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO, EMP_USER FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND REGISTRO_CONSULTA_LESION_ID ='" . $this->REGISTRO_CONSULTA_LESION_ID . "' OR (DATE(REGISTRO_CONSULTA_LESION_FECHAHORA) BETWEEN '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND " . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "') OR USUARIO LIKE '" . $this->USUARIO . " ";
-        $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' OR USUARIO LIKE '" .$this->USUARIO . "' ";
+            if ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO == '') { //000
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' ";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO != '') { //001
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND USUARIO = '" . $this->USUARIO . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO == '') { //010
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND (REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "')";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO != '') { //011
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND (REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "') AND USUARIO = '" . $this->USUARIO . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO == '') { //100
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO != '') { //101
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' AND USUARIO = '" . $this->USUARIO . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO == '') { //110
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' AND (REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "')";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO != '') { //111
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' AND (REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "') AND USUARIO = '" . $this->USUARIO . "'";
+            }
         } else {
-            $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO, CLIENTE_ID FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_ID ='" . $this->REGISTRO_CONSULTA_LESION_ID . "' OR DATE(REGISTRO_CONSULTA_LESION_FECHAHORA) BETWEEN '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND " . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "' OR USUARIO LIKE '" . $this->USUARIO . " ";
+            if ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO == '') { //000
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' ";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO != '') { //001
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND USUARIO = '" . $this->USUARIO . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO == '') { //010
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO != '') { //011
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "' AND USUARIO = '" . $this->USUARIO . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO == '') { //100
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE ECLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO != '') { //101
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' AND USUARIO = '" . $this->USUARIO . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO == '') { //110
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' AND REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "'";
+            } elseif ($this->REGISTRO_CONSULTA_LESION_ID != '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 != '' && $this->USUARIO != '') { //111
+                $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "' AND REGISTRO_CONSULTA_LESION_ID = '" . $this->REGISTRO_CONSULTA_LESION_ID . "' AND REGISTRO_CONSULTA_LESION_FECHAHORA BETWEEN  '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 . "' AND '" . $this->REGISTRO_CONSULTA_LESION_FECHAHORA2 . "' AND USUARIO = '" . $this->USUARIO . "'";
+            }
         }
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'No se ha podido conectar con la base de datos';
@@ -47,6 +79,66 @@ class REGISTRO_MODEL {
             }
             return $toret;
         }
+    }
+
+    function generarRegistro() {
+        $this->ConectarBD();
+        if ($this->CLIENTE_ID == '') {
+            $sql = "SELECT * FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "'";
+        } else {
+            $sql = "SELECT * FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "'";
+        }
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        }
+
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        } else {
+            $toret = array();
+            $i = 0;
+            while ($fila = $resultado->fetch_array()) {
+                $toret[$i] = $fila;
+                $i++;
+            }
+        }
+
+        if ($this->CLIENTE_ID == '') {
+            $registro = '../Registros/Registro_' . $this->EMP_USER . '.txt';
+        } else {
+            $registro = '../Registros/Registro_' . $this->CLIENTE_ID . '.txt';
+        }
+
+        $file = fopen($registro, "w") or die("Problemas");
+        fwrite($file, '--------------------------------------------------------------------------------');
+        fwrite($file, "\r\n");
+        fwrite($file, '-------------------------------//   MOOVETT   //------------------------------');
+        fwrite($file, "\r\n");
+        fwrite($file, "--------------------------------------------------------------------------------");
+        fwrite($file, "\r\n");
+        if ($this->CLIENTE_ID == '') {
+            fwrite($file, "REGISTRO DE CONSULTA DEL EMPLEADO: " . $this->EMP_USER . "");
+        } else {
+            fwrite($file, "REGISTRO DE CONSULTA DEL CLIENTE: " . $this->CLIENTE_ID . "");
+        }
+        fwrite($file, "\r\n");
+        fwrite($file, '--------------------------------------------------------------------------------');
+        fwrite($file, "\r\n");
+
+        for ($j = 0; $j < count($toret); $j++) {
+            fwrite($file, "\r\n");
+            fwrite($file, "ID del REGISTRO: [REGISTRO_CONSULTA_LESION]    FECHA Y HORA: [REGISTRO_CONSULTA_LESION_FECHAHORA]   REALIZADO POR [EMP_USER]");
+            foreach ($toret [$j] as $clave => $valor) {
+                $template = file_get_contents($registro);
+                $template = str_replace('[REGISTRO_CONSULTA_LESION]', $toret[$j]['REGISTRO_CONSULTA_LESION_ID'], $template);
+                $template = str_replace('[REGISTRO_CONSULTA_LESION_FECHAHORA]', $toret[$j]['REGISTRO_CONSULTA_LESION_FECHAHORA'], $template);
+                $template = str_replace('[EMP_USER]', $toret[$j]['USUARIO'], $template);
+                file_put_contents($registro, $template);
+            }
+        }
+        fclose($file);
+
+        return ("Registro exportado correctamente");
     }
 
 }

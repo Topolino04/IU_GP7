@@ -25,7 +25,7 @@ class LESION_Borrar {
         <h2>
             <?php
             include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
-            include '../Functions/LESIONDefForm.php';
+            include '../Functions/LESIONDelDefForm.php';
 
             $lista = array('LESION_ID', 'LESION_NOM', 'LESION_DESC', 'LESION_ESTADO');
             ?>
@@ -46,7 +46,7 @@ class LESION_Borrar {
                                 <?php
                             } else {
                                 ?> 
-                                <input type='text' name='CLIENTE_ID' value="<?php echo $this->CLIENTE_ID ?>" readonly>
+                                <input type='hidden' name='CLIENTE_ID' value="<?php echo $this->CLIENTE_ID ?>" readonly>
                                 <?php
                             }
                             createForm($lista, $form, $strings, $this->valores, false, true); //$form2

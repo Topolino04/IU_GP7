@@ -36,7 +36,7 @@ include '../Locates/StringsCF_'.$_SESSION['IDIOMA'].'.php';
 					<?php
 					createForm($lista,$DefForm,$stringsCF,'',true,false);
 ?>
-				<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $stringsCF['Insertar'] ?>>
+				<input type='submit' name='accion' value=<?php echo $stringsCF['Insertar'] ?>>
 				</form>
 				<br>
 <?php
