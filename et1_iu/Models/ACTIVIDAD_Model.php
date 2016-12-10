@@ -197,7 +197,6 @@ class actividad {
 
     function ConsultarClientesActividad() {
         $this->ConectarBD();
-        echo $this->ACTIVIDAD_ID;
         $sql = "SELECT CLIENTE_ID, CLIENTE_NOMBRE, CLIENTE_APELLIDOS, CLIENTE_CORREO FROM CLIENTE WHERE CLIENTE_ID IN (SELECT CLIENTE_ID FROM CLIENTE_ASISTE_ACTIVIDAD WHERE ACTIVIDAD_ID = '" . $this->ACTIVIDAD_ID . "')";
         if (!($resultado = $this->mysqli->query($sql))) {
             return 'Error en la consulta sobre la base de datos';
@@ -213,7 +212,6 @@ class actividad {
                 $i++;
             }
         }
-        echo count($toret);
         return $toret;
         
     }

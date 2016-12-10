@@ -62,7 +62,7 @@ class NOTIFICACION_Default {
                                     <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Actividad']; ?>'><?php echo $strings['Notificacion sobre Actividades'] ?></a>
                                 </p>
                                 <br>
-                                <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Eventos']; ?>'><?php echo $strings['Notificacion sobre Eventos'] ?></a>
+                                <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Evento']; ?>'><?php echo $strings['Notificacion sobre Eventos'] ?></a>
                                 <?php } ?>
                             </form>
 

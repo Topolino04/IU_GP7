@@ -382,7 +382,7 @@ $strings = array(
     'NOTIFICACION_FECHAHORA2'=>'Fecha Fin',
     'NOTIFICACION_DESTINATARIO'=>'Destinatario',
     'Consultar Notificacion'=>'Filtrar Notificación',
-      'Mensaje'=>'Mensaje',
+    'Mensaje'=>'Mensaje',
     'Redactar Email'=>'Redactar Email',
     'Enviar'=>'Enviar',
     'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
@@ -403,6 +403,10 @@ $strings = array(
     'Eventos'=>'Evento',
     'Evento'=>'Seleccionar',
     'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+    'EVENTO_ID'=>'ID Evento',
+    'EVENTO_NOMBRE'=>'Nombre',
+    'EVENTO_ORGANIZADOR'=>'Organizador',
+    'EVENTO_DESCRIPCION'=>'Descripción'
 
 
 
