@@ -30,7 +30,7 @@ class REGISTRO_MODEL {
 
     function Consultar() {
         $this->ConectarBD();
-       
+
         if ($this->CLIENTE_ID == '') {
             if ($this->REGISTRO_CONSULTA_LESION_ID == '' && $this->REGISTRO_CONSULTA_LESION_FECHAHORA1 == '' && $this->USUARIO == '') { //000
                 $sql = "SELECT REGISTRO_CONSULTA_LESION_ID, REGISTRO_CONSULTA_LESION_FECHAHORA, USUARIO FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "' ";
@@ -79,6 +79,72 @@ class REGISTRO_MODEL {
             }
             return $toret;
         }
+    }
+
+    function generarRegistro() {
+        $this->ConectarBD();
+        if ($this->CLIENTE_ID == '') {
+            $sql = "SELECT * FROM REGISTRO_CONSULTA_LESION WHERE EMP_USER = '" . $this->EMP_USER . "'";
+        } else {
+            $sql = "SELECT * FROM REGISTRO_CONSULTA_LESION WHERE CLIENTE_ID = '" . $this->CLIENTE_ID . "'";
+        }
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        }
+
+        if (!$resultado = $this->mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        } else {
+            $toret = array();
+            $i = 0;
+            while ($fila = $resultado->fetch_array()) {
+                $toret[$i] = $fila;
+                $i++;
+            }
+        }
+
+        if ($this->CLIENTE_ID == '') {
+            $registro = '../Registro/Registro_' . $this->EMP_USER . '.txt';
+        } else {
+            $registro = '../Registro/Registro_' . $this->CLIENTE_ID . '.txt';
+        }
+
+        $file = fopen($registro, "w") or die("Problemas");
+        fwrite($file, '--------------------------------------------------------------------------------');
+        fwrite($file, "\r\n");
+        fwrite($file, '-------------------------------//   MOOVETT   //------------------------------');
+        fwrite($file, "\r\n");
+        fwrite($file, "--------------------------------------------------------------------------------");
+        fwrite($file, "\r\n");
+        if ($this->CLIENTE_ID == '') {
+            fwrite($file, "REGISTRO DE CONSULTA DEL USUARIO: " . $this->EMP_USER . "");
+        } else {
+            fwrite($file, "REGISTRO DE CONSULTA DEL USUARIO: " . $this->CLIENTE_ID . "");
+        }
+        fwrite($file, "\r\n");
+        fwrite($file, '--------------------------------------------------------------------------------');
+        fwrite($file, "\r\n");
+
+        for ($j = 0; $j < count($toret); $j++) {
+            fwrite($file, "\r\n");
+            fwrite($file, "ID del REGISTRO: [REGISTRO_CONSULTA_LESION]    FECHA Y HORA: [REGISTRO_CONSULTA_LESION_FECHAHORA]   REALIZADO POR [EMP_USER]");
+            foreach ($toret [$j] as $clave => $valor) {
+                $template = file_get_contents($registro);
+                $template = str_replace('[REGISTRO_CONSULTA_LESION]', $toret[$j]['REGISTRO_CONSULTA_LESION_ID'], $template);
+                $template = str_replace('[REGISTRO_CONSULTA_LESION_FECHAHORA]', $toret[$j]['REGISTRO_CONSULTA_LESION_FECHAHORA'], $template);
+                $template = str_replace('[EMP_USER]', $toret[$j]['USUARIO'], $template);
+                file_put_contents($registro, $template);
+            }
+        }
+        fclose($file);
+        //unlink("../Registro/".$this->EMP_USER.".txt");
+
+        $fp = fopen($registro, "r");
+        while (!feof($fp)) {
+            $linea = fgets($fp);
+            echo $linea . "<br />";
+        }
+        fclose($fp);
     }
 
 }

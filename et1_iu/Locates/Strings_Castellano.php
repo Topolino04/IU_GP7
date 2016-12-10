@@ -283,6 +283,7 @@ $strings = array(
     'Lesion modificada correctamente'=>'Lesión modificada correctamente',
     'Lesion borrada correctamente'=>'Lesión borrada correctamente',
     'Lesion registrada correctamente'=>'Lesión registrada correctamente',
+	'Generar'=>'Exportar y Ver',
 
 
     // GESTION DE CLIENTES

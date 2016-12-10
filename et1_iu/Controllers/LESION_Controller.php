@@ -206,6 +206,18 @@ Switch ($_REQUEST['accion']) {
         }
         break;
 
+
+    case $strings['Generar']:  //Consulta de lesiones -> Se utiliza para filtrar el SHOW_ALL de Lesiones de un Usuario
+
+        if (isset($_REQUEST['EMP_USER'])) {
+            $registro = new REGISTRO_MODEL('', '', '', '', '', $_REQUEST['EMP_USER']);
+        } else {
+            $registro = new REGISTRO_MODEL('', '', '', '', $_REQUEST['CLIENTE_ID'], '');
+        }
+        $registro->generarRegistro();
+        break;
+
+
     case $strings['Filtrar']:  //Consulta de Registros -> Se utiliza para filtrar el SHOW_ALL de Registro de Lesiones de un Usuario
         if (!isset($_REQUEST['REGISTRO_CONSULTA_LESION_ID'])) {
             if (isset($_REQUEST['EMP_USER'])) {
