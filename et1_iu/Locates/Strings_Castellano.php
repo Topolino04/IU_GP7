@@ -395,6 +395,7 @@ $strings = array(
     'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
     'Seleccionar'=>'Seleccionar',
     'actividad'=>'Actividad',
+    'Actividad_Monitor'=>'Seguir',
     
 
 
