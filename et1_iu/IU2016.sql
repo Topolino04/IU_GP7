@@ -809,7 +809,7 @@ CREATE TABLE IF NOT EXISTS `CAJA` (
   `CAJA_ID` int(100) NOT NULL,
   `CAJA_FECHA` date NOT NULL,
   `CAJA_INGRESOS` decimal(65,2) NOT NULL,
-  `CAJA_GASTOS` int(100) NOT NULL,
+  `CAJA_GASTOS` decimal(65,2) NOT NULL,
   `CAJA_BALANCE` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -818,10 +818,10 @@ CREATE TABLE IF NOT EXISTS `CAJA` (
 --
 
 INSERT INTO `CAJA` (`CAJA_ID`, `CAJA_FECHA`, `CAJA_INGRESOS`, `CAJA_GASTOS`, `CAJA_BALANCE`) VALUES
-(1, '2016-11-18', 1000.00, 500, 500),
-(2, '2016-11-17', 2000.00, 1000, 1000),
-(3, '2016-11-19', 1500.00, 1000, 500),
-(4, '2016-11-20', 2000.00, 500, 1500);
+(1, '2016-11-18', 1000.00, 500.00, 500),
+(2, '2016-11-17', 2000.00, 1000.00, 1000),
+(3, '2016-11-19', 1500.00, 1000.00, 500),
+(4, '2016-11-20', 2000.00, 500.00, 1500);
 
 -- --------------------------------------------------------
 
@@ -879,7 +879,7 @@ ALTER TABLE `CLIENTE`
 
 INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_APELLIDOS`, `CLIENTE_DIRECCION`, `CLIENTE_CORREO`, `CLIENTE_FECH_NAC`,`CLIENTE_PROFESION`,`CLIENTE_COMENTARIOS`, `CLIENTE_ESTADO`, `CLIENTE_DOM`,  `CLIENTE_LOPD`,`CLIENTE_TELEFONO1`,`CLIENTE_TELEFONO2`,`CLIENTE_TELEFONO3`, `CLIENTE_TIPO`) VALUES
 (1, '11378328K', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '1996-11-01', 'panadero', '','Activo','','',999999999,666666666,0,'1'  ),
-(2, '15953592X', 'Marcos', 'Rodríguez Fernández', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
+(2, '15953592X', 'Marcos', 'Rodriguez Fernandez', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
 (3, '35248369H', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01','','','Activo','','', 999399999, 0, 0, '0'),
 (4, '36559850Q', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
 
@@ -1173,6 +1173,7 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('secret', 402),
 ('ADMIN', 403),
 ('secret', 403),
+
 	('ADMIN', 404),
 ('secret', 404),
 ('ADMIN', 405),
@@ -1187,6 +1188,8 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 	('secret', 409),
 	('ADMIN', 410),
 	('secret', 410),
+
+
 ('ADMIN', 700),
 ('secret', 700),
 ('ADMIN', 701),
@@ -1202,31 +1205,35 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 705),
 ('secret', 705),
 ('monit', 705),
-
-	('ADMIN', 706),
-	('monit', 706),
-	('ADMIN', 707),
-	('secret', 707),
-	('ADMIN', 708),
+('ADMIN', 706),
+('monit', 706),
+('ADMIN', 707),
+('secret', 707),
+('ADMIN', 708),
 ('secret', 708),
 ('ADMIN', 709),
 ('secret', 709),
-	('monit', 709),
-	('ADMIN', 710),
-		('secret', 710),
-	('ADMIN', 711),
-	('secret', 711),
-	('monit', 711),
-	('ADMIN', 712),
-	('secret', 712),
-	('monit', 712),
-	('ADMIN', 713),
-	('secret', 713),
-	('monit', 713),
-	('ADMIN', 714),
-	('secret', 714),
-	('ADMIN', 715),
-	('secret', 715),
+
+
+('monit', 709),
+('ADMIN', 710),
+('secret', 710),
+('ADMIN', 711),
+('secret', 711),
+('monit', 711),
+('ADMIN', 712),
+('secret', 712),
+('monit', 712),
+('ADMIN', 713),
+('secret', 713),
+('monit', 713),
+('ADMIN', 714),
+('secret', 714),
+('ADMIN', 715),
+('secret', 715),
+('ADMIN', 716),
+('secret', 716),
+
 ('ADMIN', 800),
 ('ADMIN', 801),
 ('ADMIN', 802),
@@ -1533,6 +1540,7 @@ INSERT INTO `FACTURA` (`FACTURA_ID`, `CLIENTE_ID`, `FACTURA_FECHA`, `CLIENTE_NIF
 (2, 1, '2016-12-08 18:58:58', '12365487Z', 'Javier', 'Ibarra Ramos', 'PENDIENTE'),
 (3, 3, '2016-12-08 18:59:15', '89765644R', 'Raquel', 'Iglesias Iglesias', 'COBRADA'),
 (4, 3, '2016-12-08 18:59:28', '89765644R', 'Raque', 'Iglesias Iglesias', 'PENDIENTE');
+
 -- --------------------------------------------------------
 
 --
@@ -1561,10 +1569,14 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (401, 'GESTION FACTURAS'),
 (700, 'GESTION LESIONES'),
 (701, 'ENVIAR NOTIFICACION'),
+
 (800, 'GESTION CLIENTES'),
 (801, 'GESTION POSIBLES'),
 (802, 'GESTION HORARIO'),
 (803, 'GESTION ACTIVIDADES2');
+
+(800, 'GESTION HORARIO'),
+
 
 -- --------------------------------------------------------
 
@@ -1630,6 +1642,14 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (401, 406),
 (401, 407),
 (401, 408),
+
+(401, 403), 
+(401, 404), 
+(401, 405), 
+(401, 406), 
+(401, 407), 
+(401, 408), 
+
 (401,409),
 (401,410),
 (700, 700),
@@ -1648,6 +1668,10 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (701, 713),
 (701, 714),
 (701, 715),
+
+
+(700, 716),
+
 (800, 800),
 (800, 801),
 (800, 802),
@@ -1708,6 +1732,7 @@ INSERT INTO `LESION` (`LESION_ID`, `LESION_NOM`, `LESION_DESC`, `LESION_ESTADO`,
 (11, 'Distension tendon rotuliano', 'Pendientes de alta medica','Superada', NULL, 3),
 (12, 'Desgarro muscular cuadriceps', 'Carga de trabajo controlada. Estiramientos al finalizar la sesion','Superada', NULL, 3),
 (13, 'Condropatia rotuliana', 'Fortalecimiento del cuadriceps','Pendiente', NULL, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -1747,7 +1772,7 @@ INSERT INTO `LINEA_FACTURA` (`LINEA_FACTURA_ID`, `FACTURA_ID`, `LINEA_FACTURA_CO
 --
 
 CREATE TABLE IF NOT EXISTS `LUGAR` (
-`LUGAR_ID` int(100) NOT NULL,
+  `LUGAR_ID` int(100) NOT NULL,
   `LUGAR_NOMBRE` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -1759,6 +1784,19 @@ INSERT INTO `LUGAR` (`LUGAR_ID`, `LUGAR_NOMBRE`) VALUES
 (1, 'Sala1'),
 (2, 'Piscina'),
 (3, 'Sala3');
+-- --------------------------------------------------------
+--
+-- Table structure for table `NOTIFICACION`
+--
+
+CREATE TABLE IF NOT EXISTS `NOTIFICACION` (
+  `NOTIFICACION_ID` int(100) NOT NULL,
+  `NOTIFICACION_REMITENTE` varchar(100) NOT NULL,
+  `NOTIFICACION_FECHAHORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `NOTIFICACION_DESTINATARIO` varchar(10000) NOT NULL,
+  `EMP_USER` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
 -- --------------------------------------------------------
 --
 -- Table structure for table `NOTIFICACION`
@@ -1854,6 +1892,9 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (713, '../Views/NOTIFICACION_CLIENTE_ACTIVIDAD_Vista.php', 'SHOW CLIENTE ACTIVIDAD'),
 (714, '../Views/NOTIFICACION_CONSULT_Vista.php', 'NOTIFICACION CONSULT'),
 (715, '../Views/NOTIFICACION_SHOW_Vista.php', 'NOTIFICACION SHOW'),
+
+(716, '../Views/VER_REGISTRO_Vista.php', 'SHOW TXT'),
+
 (800, '../Views/CLIENTE_ADD_Vista.php', 'CLIENTE ADD'),
 (801, '../Views/CLIENTE_ADD_EXTERNO_Vista.php', 'CLIENTE ADD EXTERNO'),
 (802, '../Views/CLIENTE_DELETE_Vista.php', 'CLIENTE DELETE'),
@@ -1978,7 +2019,9 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (2, 300),
 (1, 400), 
 (1, 401),
-(2, 400),
+
+(2, 400), 
+
 (2, 401),
 (1, 700),
 (2, 700),
@@ -2128,6 +2171,12 @@ ALTER TABLE `LINEA_FACTURA`
 --
 ALTER TABLE `LUGAR`
  ADD PRIMARY KEY (`LUGAR_ID`);
+--
+-- Indexes for table `NOTIFICACION`
+--
+ALTER TABLE `NOTIFICACION`
+ ADD PRIMARY KEY (`NOTIFICACION_ID`), ADD KEY `EMP_USER` (`EMP_USER`);
+
 --
 -- Indexes for table `NOTIFICACION`
 --
@@ -2356,6 +2405,12 @@ ADD CONSTRAINT `LESION_ibfk_2` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `CLIENTE` (
 --
 ALTER TABLE `LINEA_FACTURA`
 ADD CONSTRAINT `LINEA_FACTURA_ibfk_1` FOREIGN KEY (`FACTURA_ID`) REFERENCES `FACTURA` (`FACTURA_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+--
+-- Constraints for table `NOTIFICACION`
+--
+ALTER TABLE `NOTIFICACION`
+ADD CONSTRAINT `NOTIFICACION_ibfk_1` FOREIGN KEY (`EMP_USER`) REFERENCES `EMPLEADOS` (`EMP_USER`);
+
 --
 -- Constraints for table `NOTIFICACION`
 --

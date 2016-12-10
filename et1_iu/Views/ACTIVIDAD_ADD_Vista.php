@@ -19,7 +19,7 @@ function render(){
 include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 				include '../Functions/ACTIVIDADDefForm.php';
 
-				$lista = array('ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','CATEGORIA_ID');
+				$lista = array('ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','ACTIVO');
 
 ?>
 			</h2>
@@ -36,12 +36,23 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 					<?php
 					createForm($lista,$DefForm,$strings,'',true,false);
 ?>
+				<li> Categoria </li>
+				<select name = "CATEGORIA_ID">
+					<?php
+					listarCategorias();
+					?>
+					</select> <br>
+					<li> Lugar </li>
+				<select name = "LUGAR_ID">
+					<?php
+					listarLugares();
+					?>
+					</select> <br>
 				<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Insertar'] ?>>
 				</form>
-				<br>
-<?php
+				<?php
 				echo '<a class="form-link" href=\'ACTIVIDAD_Controller.php\'>' . $strings['Volver'] . " </a>";
-?>
+				?>
 			</h3>
 		</p>
 
@@ -51,3 +62,4 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 } //fin metodo render
 
 }
+

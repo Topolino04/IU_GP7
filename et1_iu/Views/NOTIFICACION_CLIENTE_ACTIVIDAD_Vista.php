@@ -86,7 +86,10 @@ class NOTIFICACION_CLIENTE_ACTIVIDAD_Show {
 
                         <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
 
-                            <input type='submit' name='accion' value=<?php echo $strings['Actividad'] ?>>
+
+
+                            <input type='submit' name='accion' value=<?php echo $this->return ?>>
+
                         </form>
 
                     </h3>

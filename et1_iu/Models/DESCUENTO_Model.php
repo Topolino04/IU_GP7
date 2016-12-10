@@ -65,23 +65,46 @@ function Consultar()
 	return $toret;
 	}
 }
-	function ConsultarTodo()
-	{
-		$this->ConectarBD();
-		$sql = "SELECT * from DESCUENTO";
-		if (!($resultado = $this->mysqli->query($sql))){
-			return 'Error en la consulta sobre la base de datos';
-		}
-		else{
-			$toret=array();
-			$i=0;
-			while ($fila= $resultado->fetch_array()) {
-				$toret[$i]=$fila;
-				$i++;
-			}
-			return $toret;
-		}
+function ConsultarTodo()
+{
+	$this->ConectarBD();
+	$sql = "SELECT * from DESCUENTO";
+	if (!($resultado = $this->mysqli->query($sql))){
+		return 'Error en la consulta sobre la base de datos';
 	}
+	else{
+		$toret=array();
+		$i=0;
+		while ($fila= $resultado->fetch_array()) {
+			$toret[$i]=$fila;
+			$i++;
+		}
+		return $toret;
+	}
+}
+function ConsultarDescuentosDeCliente($CLIENTE_ID)
+{
+	$this->ConectarBD();
+	$sql = "SELECT *,(	SELECT COUNT(*)
+          	FROM CLIENTE_TIENE_DESCUENTO C, DESCUENTO D
+          	WHERE D.DESCUENTO_ID = C.DESCUENTO_ID AND DESCUENTO.DESCUENTO_ID =C.DESCUENTO_ID AND  C.CLIENTE_ID = {$CLIENTE_ID}) as APLICADO
+
+FROM `DESCUENTO`
+WHERE 1
+            ";
+	if (!($resultado = $this->mysqli->query($sql))){
+		return 'Error en la consulta sobre la base de datos';
+	}
+	else{
+		$toret=array();
+		$i=0;
+		while ($fila= $resultado->fetch_array()) {
+			$toret[$i]=$fila;
+			$i++;
+		}
+		return $toret;
+	}
+}
 //Borrado de la descuento
 function Borrar()
 {
@@ -143,6 +166,21 @@ function CalcularDescuentoUsuario($CLIENTE_ID){
 	if($res < 0)	return 0;
 	else return $res;
 }
-
+function AsignarDescuentos($CLIENTE_ID , $DESCUENTOS_IDS){
+	$this->ConectarBD();
+	$sql ="DELETE FROM CLIENTE_TIENE_DESCUENTO WHERE CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID};";
+	if(sizeof($DESCUENTOS_IDS)>0)
+		$sql = $sql."INSERT INTO CLIENTE_TIENE_DESCUENTO (CLIENTE_ID,DESCUENTO_ID) VALUES";
+	foreach($DESCUENTOS_IDS as $DESCUENTO_ID){
+		$sql = $sql."({$CLIENTE_ID},{$DESCUENTO_ID}),";
+	}
+	$sql = trim($sql, ',');
+	$sql = $sql.";";
+	//echo $sql;
+	if($result = $this->mysqli->multi_query($sql))
+		return "Asignacion de descuentos correcta";
+	else
+		return 'Error en la consulta sobre la base de datos';
+}
 }
 ?>

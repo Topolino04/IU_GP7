@@ -37,7 +37,9 @@ class NOTIFICACION_Default {
                             </ul>
 
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?>
-                             <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Registro']; ?>'><?php echo $strings['Registro'] ?></a>
+
+                            <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Registro']; ?>'><?php echo $strings['Registro'] ?></a>
+
 
                         </div>
                     </nav>
@@ -45,31 +47,39 @@ class NOTIFICACION_Default {
                     <div >
                         <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
                             <br>
-                            <p>
-                                <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Empleados']; ?>'><?php echo $strings['Notificacion sobre Empleados'] ?></a>
-                            </p>
-                            <br>
-                            <p>
-                                <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Clientes']; ?>'><?php echo $strings['Notificacion sobre Clientes'] ?></a>
-                            </p>
-                            <br>
-                            <p>
-                                <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Actividad']; ?>'><?php echo $strings['Notificacion sobre Actividades'] ?></a>
-                            </p>
-                            <br>
+
+                            <?php if (consultarRol($_SESSION['login']) == 3) { ?>
+                                <p>
+                                    <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Actividad_Monitor']; ?>'><?php echo $strings['Notificacion sobre Actividades'] ?></a>
+                                </p>
+                                <?php } else { ?>
+                                <p>
+                                    <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Empleados']; ?>'><?php echo $strings['Notificacion sobre Empleados'] ?></a>
+                                </p>
+                                <br>
+                                <p>
+                                    <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Clientes']; ?>'><?php echo $strings['Notificacion sobre Clientes'] ?></a>
+                                </p>
+                                <br>
+                                <p>
+                                    <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Actividad']; ?>'><?php echo $strings['Notificacion sobre Actividades'] ?></a>
+                                </p>
+                                <br>
                                 <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Eventos']; ?>'><?php echo $strings['Notificacion sobre Eventos'] ?></a>
-                        </form>
+                                <?php } ?>
+                            </form>
 
+                        </div>
                     </div>
-                </div>
-                <h3>
-                    <p>
-                </h3>
-                </p>
+                    <h3>
+                        <p>
+                    </h3>
+                    </p>
 
-        </div>
+            </div>
 
-        <?php
+            <?php
+        }
     }
+    
 
-}

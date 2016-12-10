@@ -230,10 +230,12 @@ $strings = array(
 	'Guardar'=> 'Gardar',
 	'Asignacion de descuentos correcta'=>'Asignacion de descontos correcta',
 
-	'La actividad ya existe en la base de datos' => 'A actividade xa existe en la base de datos',
+	//Actividade
+	
+	'La actividad ya existe en la base de datos' => 'A actividade xa existe na base de datos',
 	'Introduzca un valor para la clave de la actividad' => 'Introduza un valor para a clave da actividade',
 	'La actividad ha sido borrada correctamente' => 'A actividade foi borrada correctamente',
-	'La actividad no existe' => 'A actividade no existe',
+	'La actividad no existe' => 'A actividade non existe',
 	'La actividad se ha modificado con exito' => 'A actividade foi modificada con éxito',
 	'Se ha producido un error en la modificacion de la actividad' => 'Produciuse un erro na modificación da actividade',
 	'Añadida con exito' => 'Engadida con exito',
@@ -247,14 +249,16 @@ $strings = array(
 	'CATEGORIA_ID' => 'Identificador categoría',
 	'Modificar' => 'Modificar',
 	'Borrar' => 'Borrar',
-	'Insertar Actividad' => 'Inserir Actividade',
+	'Insertar Actividad' => 'Insertar Actividade',
 	'Modificar Actividad' => 'Modificar Actividade',
 	'Borrar Actividad' => 'Borrar Actividade',
-	'Insertar' => 'Inserir',
+	'Insertar' => 'Insertar',
 	'Consultar actividad' => 'Consultar actividade',
 	'ACTIVO' => 'Activo',
-	'CONSULTAR BORRADO' => 'ConsultarOcultas',
+	'CONSULTAR BORRADO' => 'Consultar Inactivas',
 	'Consultar' => 'Consultar',
+	'LUGAR_NOMBRE' => 'Nome Lugar',
+    'CATEGORIA_NOMBRE' => 'Nome Categoría',
 
 
 
@@ -269,8 +273,10 @@ $strings = array(
 	'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Data e Hora',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Data Inicio',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'Data Fin',
+
 	'Elige una opcion' => 'Elixe unha opción',
 	'Usuario'=>'Usuario',
+
 	'USUARIO'=>'Realizada por',
 	'Consultar Lesion'=>'Buscar lesión',
 	'Buscar'=>'Filtrar',
@@ -283,8 +289,14 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Lesión modificada correctamente',
 	'Lesion borrada correctamente'=>'Lesión borrada correctamente',
 	'Lesion registrada correctamente'=>'Lesión rexistrada correctamente',
-	'Generar'=>'Exportar e Ver',
+
+	'Generar'=>'Exportar',
+        'Ver'=>'Ver',
+        'No existe el registro. Exportelo primero'=>'Non existe o rexistro. Exporteo primeiro',
+        'Registro exportado correctamente'=> 'Rexistro exportado correctamente',
+
 	// GESTION DE CLIENTES
+        'CLIENTE_ID'=>'ID Cliente',
 	'CLIENTE_DNI'=>'DNI ',
 	'CLIENTE_TIPO'=>'Tipo*',
 	'Nota'=>'*E=Externo, S=Socio',
@@ -351,6 +363,7 @@ $strings = array(
 	'clase'=>'clase',
 	'profesores'=>'PROFESORES',
 	'alumnos'=>'ALUMNOS:',
+
 	'Gestión de Actividades2' => 'Xestión de Actividades(Con calendario)',
 	//gestion horario
 
@@ -379,44 +392,49 @@ $strings = array(
 	'Continuar'=>'Continuar',
 	'Gestion de Posibles'=>'Xestión de horas posibles',
 
-	//ENVIO NOTIFICACIONS ->EMPLEADOS/CLIENTES
-	'Enviar Notificacion'=>'Enviar Notificación',
-	'ENVIAR NOTIFICACION'=>'Enviar Notificación',
-	'Clientes'=>'Seguinte',
-	'Empleados'=>'Continuar',
-	'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
-	'Notificacion sobre Empleados'=>'Notificación sobre Empregados',
-	'Actividades'=>'Actividade',
-	'SELECT'=>'Selección',
-	'Seleccionar'=>'Seleccionar',
-	'email'=>'email',
-	'DEST'=>'Destinatarios',
-	'NOTIFICACION_REMITENTE'=>'Dirección GMAIL do remitente',
-	'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL do remitente',
-	'NOTIFICACION_NOMBRE_REMITENTE'=>'Nome completo',
-	'NOTIFICACION_ASUNTO'=>'Asunto',
-	'NOTIFICACION_CUERPO'=>'Corpo',
-	'NOTIFICACION_FECHAHORA'=>'Data e Hora',
-	'NOTIFICACION_FECHAHORA1'=>'Data Inicio',
-	'NOTIFICACION_FECHAHORA2'=>'Data fin',
-	'NOTIFICACION_DESTINATARIO'=>'Destinatario',
-	'Consultar Notificacion'=>'Filtrar Notification',
-	'Mensaje'=>'Mensaxe',
-	'Redactar Email'=>'Redactar Correo',
-	'Enviar'=>'Enviar',
-	'Notificacion enviada con exito'=>'Notificación enviada con éxito',
-	'Ha ocurrido un error durante el envio de las notificaciones'=>'Ocurriu un erro durante o envío das notificaciones',
+	
 
-	//ENVIO NOTIFICACIONES -> ACTIVIDADES
-	'actividad'=>'Actividade',
-	'Actividad'=>'Confirmar',
-	'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
-	'ACTIVIDAD_ID'=>'Identificador Actividade',
-	'ACTIVIDAD_NOMBRE'=>'Nome Actividade',
+    
+    //ENVIO NOTIFICACIONS ->EMPLEADOS/CLIENTES
+    'Enviar Notificacion'=>'Enviar Notificación',
+    'ENVIAR NOTIFICACION'=>'Enviar Notificación',
+    'Clientes'=>'Seguinte',
+    'Empleados'=>'Continuar',
+    'Notificacion sobre Clientes'=>'Notificación sobre Clientes',
+    'Notificacion sobre Empleados'=>'Notificación sobre Empregados',
+    'Actividades'=>'Actividade',
+    'SELECT'=>'Selección',
+    'Seleccionar'=>'Seleccionar',
+    'email'=>'email',
+    'DEST'=>'Destinatarios',
+    'NOTIFICACION_REMITENTE'=>'Dirección GMAIL do remitente',
+    'NOTIFICACION_PASSWORD'=>'Contraseña GMAIL do remitente',
+    'NOTIFICACION_NOMBRE_REMITENTE'=>'Nome completo',
+    'NOTIFICACION_ASUNTO'=>'Asunto',
+    'NOTIFICACION_CUERPO'=>'Corpo',
+    'NOTIFICACION_FECHAHORA'=>'Data e Hora',
+    'NOTIFICACION_FECHAHORA1'=>'Data Inicio',
+    'NOTIFICACION_FECHAHORA2'=>'Data fin',
+    'NOTIFICACION_DESTINATARIO'=>'Destinatario',
+    'Consultar Notificacion'=>'Filtrar Notification',
+    'Mensaje'=>'Mensaxe',
+    'Redactar Email'=>'Redactar Correo',
+    'Enviar'=>'Enviar',
+    'Notificacion enviada con exito'=>'Notificación enviada con éxito',
+    'Ha ocurrido un error durante el envio de las notificaciones'=>'Ocurriu un erro durante o envío das notificaciones',
+    
+    //ENVIO NOTIFICACIONES -> ACTIVIDADES
+    'actividad'=>'Actividade',
+    'Actividad'=>'Confirmar',
+    'Notificacion sobre Actividades'=>'Notificación sobre Actividades',
+    'ACTIVIDAD_ID'=>'Identificador Actividade',
+    'ACTIVIDAD_NOMBRE'=>'Nome Actividade',
+    'Actividad_Monitor'=>'Seguir',
+    
+    //ENVIO NOTIFICACIONES ->EVENTOS
+    'Eventos'=>'Evento',
+    'Evento'=>'Seleccionar',
+    'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
 
-	//ENVIO NOTIFICACIONES ->EVENTOS
-	'Eventos'=>'Evento',
-	'Evento'=>'Seleccionar',
-	'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
 )
 ?>

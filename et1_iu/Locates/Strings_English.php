@@ -235,11 +235,13 @@ $strings = array(
   'Guardar'=> 'Save',
    'Asignacion de descuentos correcta'=>'Right discount assingment',
 
-	'La actividad ya existe en la base de datos' => 'Activity already exists',
-	'Introduzca un valor para la clave de la actividad' => 'Enter a value for the key',
-	'La actividad ha sido borrada correctamente' => 'Activity deleted successfully',
+
+		//GESTION ACTIVIDADES
+	'La actividad ya existe en la base de datos' => 'Activity already exists in the data base',
+	'Introduzca un valor para la clave de la actividad' => 'Enter a value for the activity key',
+	'La actividad ha sido borrada correctamente' => 'Activity has been deleted successfully',
 	'La actividad no existe' => 'Activity does not exist',
-	'La actividad se ha modificado con exito' => 'Activity modified successfully',
+	'La actividad se ha modificado con exito' => 'Activity has been successfully modified',
 	'Se ha producido un error en la modificacion de la actividad' => 'Error while modifying activity',
 	'Añadida con exito' => 'Added successfully',
 
@@ -256,12 +258,15 @@ $strings = array(
 	'Modificar Actividad' => 'Modify Activity',
 	'Borrar Actividad' => 'Delete Activity',
 	'Insertar' => 'Insert',
-	'Consultar actividad' => 'Consult activity',
+	'Consultar actividad' => 'Consult Activity',
 	'ACTIVO' => 'Active',
-	'CONSULTAR BORRADO' => 'Consult Inactive',
+
+	'CONSULTAR BORRADO' => 'Consult Inactives',
 	'Consultar' => 'Consult',
-	'LUGAR_NOMBRE' => 'Place',
-	'CATEGORIA_NOMBRE' => 'Category',
+	'CATEGORIA_NOMBRE' => 'Category Name',
+	'LUGAR_NOMBRE' => 'Place Name',
+    'CATEGORIA_NOMBRE' => 'Category Name',
+
 
 
 
@@ -275,6 +280,8 @@ $strings = array(
 	'REGISTRO_CONSULTA_LESION_FECHAHORA'=> 'Date and Time',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA1'=> 'Start Time',
 	'REGISTRO_CONSULTA_LESION_FECHAHORA2'=> 'End Time',
+        'Elige una opcion'=>'Choose an option',
+        'Usuario'=>'User',
 	'USUARIO'=>'Realized by',
 	'Elige una opcion' => 'Choose option',
 	'Usuario'=>'User',
@@ -289,8 +296,14 @@ $strings = array(
 	'Lesion modificada correctamente'=>'Injury modified successfully',
 	'Lesion borrada correctamente'=>'Injury deleted successfully',
 	'Lesion registrada correctamente'=>'Injury registered successfully',
-	'Generar'=>'Export and see',
+
+	'Generar'=>'Export',
+        'Ver'=>'Show',
+        'No existe el registro. Exportelo primero'=>'There is no record. Export it first',
+        'Registro exportado correctamente'=> 'Registry successfully exported',
+
 	// GESTION DE CLIENTES
+        'CLIENTE_ID'=>'ID Customer',
 	'CLIENTE_DNI'=>'ID',
 	'CLIENTE_DNI'=>'Type*',
 	'Nota'=>'*E=External, S=Associate',
@@ -357,6 +370,7 @@ $strings = array(
 	'clase'=>'class',
 	'profesores'=>'TEACHERS',
 	'alumnos'=>'STUDENTS:',
+
 	'Gestión de Actividades2' => 'Activities Management(with calendar)',
 	//gestion horario
 
@@ -385,44 +399,48 @@ $strings = array(
 	'Continuar'=>'Continue',
 	'Gestion de Posibles'=>'Possible hours management',
 
-	//ENVIO NOTIFICACIONES->EMPLEADOS/CLIENTES
-	'Enviar Notificacion'=>'Send Notification',
-	'ENVIAR NOTIFICACION'=>'Send Notificatión',
-	'Clientes'=>'Next',
-	'Empleados'=>'Continue',
-	'Notificacion sobre Clientes'=>'Customer Notification',
-	'Notificacion sobre Empleados'=>'Employees Notification',
-	'Actividades'=>'Activity',
-	'SELECT'=>'Selection',
-	'Seleccionar'=>'Select',
-	'email'=>'email',
-	'DEST'=>'Recipients',
-	'NOTIFICACION_REMITENTE'=>"Sender's GMAIL address",
-	'NOTIFICACION_PASSWORD'=>"Sender's GMAIL password",
-	'NOTIFICACION_NOMBRE_REMITENTE'=>"Sender's GMAIL name",
-	'NOTIFICACION_ASUNTO'=>'Subject',
-	'NOTIFICACION_CUERPO'=>'Message',
-	'NOTIFICACION_FECHAHORA'=>'Date and Time',
-	'NOTIFICACION_FECHAHORA1'=>'Start Date',
-	'NOTIFICACION_FECHAHORA2'=>'End Date',
-	'NOTIFICACION_DESTINATARIO'=>'Addressee',
-	'Consultar Notificacion'=>'Search Notification',
-	'Mensaje'=>'Message',
-	'Redactar Email'=>'Write E-mail',
-	'Enviar'=>'Submit',
-	'Notificacion enviada con exito'=>'Notification sent successfully',
-	'Ha ocurrido un error durante el envio de las notificaciones'=>'An error occurred while sending notifications',
+    
+    //ENVIO NOTIFICACIONES->EMPLEADOS/CLIENTES
+    'Enviar Notificacion'=>'Send Notification',
+    'ENVIAR NOTIFICACION'=>'Send Notificatión',
+    'Clientes'=>'Next',
+    'Empleados'=>'Continue',
+    'Notificacion sobre Clientes'=>'Customer Notification',
+    'Notificacion sobre Empleados'=>'Employees Notification',
+    'Actividades'=>'Activity',
+    'SELECT'=>'Selection',
+    'Seleccionar'=>'Select',
+    'email'=>'email',
+    'DEST'=>'Recipients',
+    'NOTIFICACION_REMITENTE'=>"Sender's GMAIL address",
+    'NOTIFICACION_PASSWORD'=>"Sender's GMAIL password",
+    'NOTIFICACION_NOMBRE_REMITENTE'=>"Sender's GMAIL name",
+    'NOTIFICACION_ASUNTO'=>'Subject',
+    'NOTIFICACION_CUERPO'=>'Message',
+    'NOTIFICACION_FECHAHORA'=>'Date and Time',
+    'NOTIFICACION_FECHAHORA1'=>'Start Date',
+    'NOTIFICACION_FECHAHORA2'=>'End Date',
+    'NOTIFICACION_DESTINATARIO'=>'Addressee',
+    'Consultar Notificacion'=>'Search Notification',
+    'Mensaje'=>'Message',
+    'Redactar Email'=>'Write E-mail',
+    'Enviar'=>'Submit',
+    'Notificacion enviada con exito'=>'Notification sent successfully',
+    'Ha ocurrido un error durante el envio de las notificaciones'=>'An error occurred while sending notifications',
+    
+    //ENVIO NOTIFICACIONES -> ACTIVIDADES
+    'actividad'=>'activity',
+    'Actividad'=>'Confirm',
+    'Notificacion sobre Actividades'=>'Activity Notification',
+    'ACTIVIDAD_ID'=>'Activity ID',
+    'ACTIVIDAD_NOMBRE'=>'Activity Name',
+    'Actividad_Monitor'=>'Follow',
+    
+    //ENVIO NOTIFICACIONES ->EVENTOS
+    'Eventos'=>'Event',
+    'Evento'=>'Select',
+    'Notificacion sobre Eventos'=>'Event Notification',
 
-	//ENVIO NOTIFICACIONES -> ACTIVIDADES
-	'actividad'=>'activity',
-	'Actividad'=>'Confirm',
-	'Notificacion sobre Actividades'=>'Activity Notification',
-	'ACTIVIDAD_ID'=>'Activity ID',
-	'ACTIVIDAD_NOMBRE'=>'Activity Name',
 
-	//ENVIO NOTIFICACIONES ->EVENTOS
-	'Eventos'=>'Event',
-	'Evento'=>'Select',
-	'Notificacion sobre Eventos'=>'Event Notification',
 )
 ?>
