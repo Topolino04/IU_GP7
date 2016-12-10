@@ -209,21 +209,7 @@ $strings = array(
     'PAGO_DESCUENTO'=>'Descuento [%]',
     'PAGO_IMPORTE_FINAL'=>'Importe Final [€]',
 
-        'DESCUENTO_ID' =>'Clave',
-        'DESCUENTO_VALOR'=>'Porcentaje',
-        'DESCUENTO_DESCRIPCION'=>'Descripcion',
-        'Clave'=>'Clave',
-        'Descuento'=>'Porcentaje',
-        'Descripcion'=>'Descripcion',
-        'Insertar Descuento'=> 'Insertar Descuento',
-        'Introduzca un valor entre 0 y 100'=>'Introduzca un valor entre 0 y 100',
-        "El descuento no existe" => "El descuento no existe",
-        'El descuento ha sido borrado correctamente' => 'El descuento ha sido borrado correctamente',
-        'Borrar Descuento' => 'Borrar Descuento',
-        'Modificar Descuento'=>'Modificar Descuento',
-        "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- 
+
 	'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
 	'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
 	'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
@@ -252,6 +238,7 @@ $strings = array(
 	'CATEGORIA_NOMBRE' => 'Nombre categoría',
 
     //GESTION DESCUENTOS
+	'Gestion de descuentos' =>'Gestión de Descuentos',
     'DESCUENTO_ID' =>'Clave',
     'DESCUENTO_VALOR'=>'Porcentaje',
     'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -424,7 +411,6 @@ $strings = array(
 	'HORARIO_FECHAI'=>'Fecha Inicial',
 	'HORARIO_FECHAF'=>'Fecha Final',
 	'HORARIO_ID'=>'HORARIO_ID',
-	'Modificar Rol'=>'Modificar Rol',
 	'Modificar Horario'=>'Modificar Horario',
 	'El HORARIO se ha modificado con éxito'=>'El horario se ha modificado con éxito',
 	'Borrar Horario'=>'Borrar Horario',
