@@ -43,62 +43,86 @@ class PAGO_Modificar {
 
 
                             <br><b>Método de Pago </b>
-                             <select name="PAGO_METODO" size="1" required="required">
-                            <?php
+                            <select name="PAGO_METODO" size="1" required="required">
+                                <?php
                                 switch ($this->valores['PAGO_METODO']) {
-                                    case ' - n/d - ': ?>
+                                    case ' - n/d - ':
+                                        ?>
                                         <option value=" - n/d - " selected=" - n/d - "> - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                    <?php    break;
-                                    case 'Contado': ?>
+                                        <option value="Contado">Contado</option>
+                                        <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
+                                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                                        <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
+                                        <option value="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+
+                                        <?php break;
+                                    case 'Contado':
+                                        ?>
                                         <option value=" - n/d - " > - n/d - </option>
                                         <option value="Contado" selected="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                       
-                                     <?php   break;
-                                    case 'Tarjeta de Credito/Debito': ?>
-                                <option value=" - n/d - " > - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito" selected="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                     <?php   break;
-                                    case 'Transferencia Bancaria': ?>
-                                <option value=" - n/d - " > - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria" selected="Trasferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                   <?php     break; 
-                                    case 'Ingreso en Cuenta': ?>
-                                <option value=" - n/d - " > - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta" selected="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                     <?php   break;
+                                        <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
+                                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                                        <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
+                                        <option value="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+
+                <?php break;
+            case 'Tarjeta de Credito/Debito':
+                ?>
+                                        <option value=" - n/d - " > - n/d - </option>
+                                        <option value="Contado">Contado</option>
+                                        <option value="Tarjeta de Credito/Debito" selected="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
+                                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                                        <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
+                                        <option value="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+
+                <?php break;
+            case 'Transferencia Bancaria':
+                ?>
+                                        <option value=" - n/d - " > - n/d - </option>
+                                        <option value="Contado">Contado</option>
+                                        <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
+                                        <option value="Transferencia Bancaria" selected="Trasferencia Bancaria">Transferencia Bancaria</option>
+                                        <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
+                                        <option value="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+
+                <?php break;
+            case 'Ingreso en Cuenta':
+                ?>
+                                        <option value=" - n/d - " > - n/d - </option>
+                                        <option value="Contado">Contado</option>
+                                        <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
+                                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                                        <option value="Ingreso en Cuenta" selected="Ingreso en Cuenta">Ingreso en Cuenta</option>
+                                        <option value="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+
+                <?php break;
+            case 'Domiciliacion Bancaria':
+                ?>
+                                        <option value="Domiciliacion Bancaria" selected="Domiciliacion Bancaria">Domiciliacion Bancaria</option>
+                                        <option value=" - n/d - " > - n/d - </option>
+                                        <option value="Contado">Contado</option>
+                                        <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
+                                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                                        <option value="Ingreso en Cuenta" >Ingreso en Cuenta</option>
+                                        <?php
+                                        break;
                                 }
                                 ?>
-                             </select><br>
-                            
+                            </select><br>
+
                             <br><b>Estado </b>
                             <select name="PAGO_ESTADO" size="1" required="required">
                                 <?php
                                 if ($this->valores['PAGO_ESTADO'] == 'PENDIENTE') {
                                     ?><option value="PENDIENTE" selected="PENDIENTE">PENDIENTE</option>
                                     <option value="PAGADO">PAGADO</option>
-                                    <?php
-                                } else {
-                                    ?><option value="PENDIENTE" >PENDIENTE</option>
+            <?php
+        } else {
+            ?><option value="PENDIENTE" >PENDIENTE</option>
                                     <option value="PAGADO" selected="PAGADO">PAGADO</option>
-                                    <?php
-                                }
-                                ?>
+            <?php
+        }
+        ?>
 
                             </select><br>
 
@@ -113,9 +137,9 @@ class PAGO_Modificar {
 
                             </div>
 
-                            <?php
-                        }
+        <?php
+    }
 
 //fin metodo render
-                    }
-                    ?>
+}
+?>

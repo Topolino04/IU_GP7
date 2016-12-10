@@ -2547,6 +2547,11 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     file_put_contents($recibo_ID, $template);
 }
 
+function borrarRecibo($PAGO_ID){
+    $recibo_ID = "../Recibos/Recibo_" . $PAGO_ID . ".txt";
+    unlink($recibo_ID);
+}
+
 function CalcularDescuentoCliente($CLIENTE_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {

@@ -881,7 +881,7 @@ INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_A
 (1, '11378328K', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '1996-11-01', 'panadero', '','Activo','','',999999999,666666666,0,'1'  ),
 (2, '15953592X', 'Marcos', 'Rodriguez Fernandez', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
 (3, '35248369H', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01','','','Activo','','', 999399999, 0, 0, '0'),
-(4, '36559850Q', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
+(4, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
 
  ALTER TABLE `CLIENTE`
 MODIFY `CLIENTE_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;

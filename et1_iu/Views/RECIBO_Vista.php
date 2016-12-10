@@ -12,7 +12,7 @@ class ReciboVista {
         include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
         echo '<html>';
       echo "<object data='".$this->recibo."' width='700' height='500'></object><br><br><br><br><br>";
-        echo '<a  class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . '</a>';
+        //echo '<a  class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . '</a>'; BOTON VOLVER
         echo '</html>';
     }
     

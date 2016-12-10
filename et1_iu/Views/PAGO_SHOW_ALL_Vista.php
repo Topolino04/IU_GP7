@@ -91,23 +91,17 @@ class PAGO_Show {
                                 ?>
 
                                 <?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
+                      
 
+                                  
 
-
-                                <td>
-                                    <?php 
-                                    if (!consultarEstadoPago($this->datos[$j]['PAGO_ID'])){ ?>
-                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Realizar Pago']; ?>'><?php echo $strings['Realizar Pago'] ?></a>
-                                   <?php }
-                                    else { ?>
-                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
-                                    <?php } ?>
-                                       
-                                   
-                                </td>
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
+                                  <td>
+                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
+                                </td>
+                                
                                 <td>
                                     <?php if ((file_exists('../Recibos/Recibo_' . $this->datos[$j]['PAGO_ID'] . '.txt')) && ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO')) { ?>
                                         <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
@@ -147,3 +141,5 @@ class PAGO_Show {
 
 //fin metodo render
 }
+
+                           

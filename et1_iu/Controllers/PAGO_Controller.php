@@ -104,7 +104,7 @@ Switch ($_REQUEST['accion']) {
         } else {
             $pago = get_data_form();
             $respuesta = $pago->Borrar();
-
+//$pago->borrarRecibo();
             new Mensaje($respuesta, 'PAGO_Controller.php');
         }
         break;
