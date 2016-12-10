@@ -1,6 +1,6 @@
 <?php
 
-//Vista DEFAULT de Lesiones, muestra todas las lesiones del usuario (Empleado o Cliente) que hayamos seleccionado
+//Vista DEFAULT de Registro -> Muestra quien y cuando consulto las lesiones de un usuario dado
 class LESION_Registro {
 
     private $datos;
@@ -48,11 +48,16 @@ class LESION_Registro {
                                 echo '<a href=\'' . $this->volver . $this->EMP_USER . "'>" . $strings['Volver'] . " </a>";
                                 ?>      
                                 <a href='LESION_Controller.php?EMP_USER=<?php echo $this->EMP_USER . '&accion=' . $strings['Filtrar']; ?>'><?php echo $strings['Buscar'] ?></a>
+                                <a href='LESION_Controller.php?EMP_USER=<?php echo $this->EMP_USER . '&accion=' . $strings['Generar']; ?>'><?php echo $strings['Generar'] ?></a>
+                                <a href='LESION_Controller.php?EMP_USER=<?php echo $this->EMP_USER . '&accion=' . $strings['Ver']; ?>'><?php echo $strings['Ver'] ?></a>
+
                                 <?php
                             } else {
                                 echo '<a href=\'' . $this->volver . $this->CLIENTE_ID . "'>" . $strings['Volver'] . " </a>";
                                 ?>
                                 <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->CLIENTE_ID . '&accion=' . $strings['Filtrar']; ?>'><?php echo $strings['Buscar'] ?></a>
+                                <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->CLIENTE_ID . '&accion=' . $strings['Generar']; ?>'><?php echo $strings['Generar'] ?></a>
+                                <a href='LESION_Controller.php?CLIENTE_ID=<?php echo $this->CLIENTE_ID . '&accion=' . $strings['Ver']; ?>'><?php echo $strings['Ver'] ?></a>
                             <?php }
                             ?>
 

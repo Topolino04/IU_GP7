@@ -1,7 +1,7 @@
 <?php
 
-class Actividad_default{
-	//VISTA PARA LISTAR ACTIVIDADES
+class Linea_Factura_Default{
+	//VISTA PARA LISTAR LINEAS FACTURA
 
 	private $datos;
 	private $volver;
@@ -21,14 +21,14 @@ class Actividad_default{
 					<?php
 
 
-					include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
+					include '../Locates/StringsCF_'.$_SESSION['IDIOMA'].'.php';
 
 
 					?>
 					<div>
 						<?php
 
-						$lista = array('ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION', 'CATEGORIA_NOMBRE','LUGAR_NOMBRE');
+						$lista = array('LINEA_FACTURA_CONCEPTO', 'LINEA_FACTURA_UNIDADES','LINEA_FACTURA_PRECIOUD');
 
 
 						?>
@@ -44,15 +44,14 @@ class Actividad_default{
 
 
 									<ul>
-										<li><a href="../Functions/Desconectar.php"><?php echo  $strings['Cerrar Sesión']; ?></a></li>
-										<li><?php echo $strings['Usuario'].": ". $_SESSION['login']; ?></li>
+										<li><a href="../Functions/Desconectar.php"><?php echo  $stringsCF['Cerrar Sesión']; ?></a></li>
+										<li><?php echo $stringsCF['Usuario'].": ". $_SESSION['login']; ?></li>
 
 									</ul>
 
-									<?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
-									<a href='./ACTIVIDAD_Controller.php?accion=<?php echo $strings['Consultar']?>'><?php echo $strings['Consultar']?></a>
-									<a href='./ACTIVIDAD_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
-									<a href='./ACTIVIDAD_Controller.php?accion=<?php echo $strings['CONSULTAR BORRADO']?>'><?php echo $strings['CONSULTAR BORRADO']?></a>
+									<?php echo '<a href=\'' . $this->volver . "'>" . $stringsCF['Volver'] . " </a>"; ?></li>
+									
+
 
 								</div>
 							</nav>
@@ -66,7 +65,7 @@ class Actividad_default{
 
 									?>
 									<?php
-									echo $strings[$titulo];
+									echo $stringsCF[$titulo];
 									?>
 									</th>
 									<?php
@@ -77,8 +76,11 @@ class Actividad_default{
 
 
 							for ($j=0;$j<count($this->datos);$j++){
+
+
+
 								echo "<tr>";
-								foreach ($this->datos[$j] as $clave => $valor) {
+								foreach ($this->datos [$j] as $clave => $valor) {
 									for ($i = 0; $i < count($lista); $i++) {
 										if ($clave === $lista[$i]) {
 											?>
@@ -102,13 +104,11 @@ class Actividad_default{
 								?>
 
 								<td>
-									<a href='ACTIVIDAD_Controller.php?ACTIVIDAD_NOMBRE=<?php echo $this->datos[$j]['ACTIVIDAD_NOMBRE'] . '&accion='.$strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
+									<a href='LINEA_FACTURA_Controller.php?LINEA_FACTURA_ID=<?php echo $this->datos[$j]['LINEA_FACTURA_ID'] . '&accion='.$stringsCF['Modificar']; ?>'><?php echo $stringsCF['Modificar'] ?></a>
 								</td>
 								<td>
-									<a href='ACTIVIDAD_Controller.php?ACTIVIDAD_NOMBRE=<?php echo $this->datos[$j]['ACTIVIDAD_NOMBRE'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
+									<a href='LINEA_FACTURA_Controller.php?LINEA_FACTURA_ID=<?php echo $this->datos[$j]['LINEA_FACTURA_ID'] . '&accion='.$stringsCF['Borrar']; ?>'><?php echo $stringsCF['Borrar'] ?></a>
 								</td>
-
-
 								<?php
 
 								echo "<tr>";
@@ -122,7 +122,7 @@ class Actividad_default{
 					<h3>
 			<p>
 				<?php
-				echo '<a class="form-link" href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'' . $this->volver . "'>" . $stringsCF['Volver'] . " </a>";
 				?>
 				</h3>
 			</p>
