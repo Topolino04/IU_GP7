@@ -215,11 +215,6 @@ $strings = array(
     'Domiciliacion Bancaria'=>'Domiciliacion Bancaria',
 'No seleccionado'=>'No Seleccionado',
 
-    
-    
-    
-    
-    
         'DESCUENTO_ID' =>'Clave',
         'DESCUENTO_VALOR'=>'Porcentaje',
         'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -234,7 +229,7 @@ $strings = array(
         'Modificar Descuento'=>'Modificar Descuento',
         "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
  "El descuento se ha modificado con éxito"=> "El descuento se ha modificado con éxito",
- 
+
 	'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
 	'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
 	'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
@@ -263,6 +258,7 @@ $strings = array(
 	'CATEGORIA_NOMBRE' => 'Nombre categoría',
 
     //GESTION DESCUENTOS
+	'Gestion de descuentos' =>'Gestión de Descuentos',
     'DESCUENTO_ID' =>'Clave',
     'DESCUENTO_VALOR'=>'Porcentaje',
     'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -435,7 +431,6 @@ $strings = array(
 	'HORARIO_FECHAI'=>'Fecha Inicial',
 	'HORARIO_FECHAF'=>'Fecha Final',
 	'HORARIO_ID'=>'HORARIO_ID',
-	'Modificar Rol'=>'Modificar Rol',
 	'Modificar Horario'=>'Modificar Horario',
 	'El HORARIO se ha modificado con éxito'=>'El horario se ha modificado con éxito',
 	'Borrar Horario'=>'Borrar Horario',

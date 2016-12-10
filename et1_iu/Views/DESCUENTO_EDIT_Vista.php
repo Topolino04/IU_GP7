@@ -31,7 +31,7 @@ class DESCUENTO_Modificar{
 			</h1>
 			<h3>
 
-				<form  id="form" name="form" action='Gestion_de_Descuentos_Controller.php' method='post' >
+				<form  id="form" name="form" action='DESCUENTOS_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
                         createForm($lista,$DefForm,$strings,$this->valores,true,false);
@@ -40,7 +40,7 @@ class DESCUENTO_Modificar{
 					<input type='submit' name='accion' onclick="return valida_envia2()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php
-				echo '<a  class="form-link" href=\'Gestion_de_Descuentos_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a  class="form-link" href=\'DESCUENTOS_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>

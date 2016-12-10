@@ -31,7 +31,7 @@ class DESCUENTO_Borrar{
 			</h1>
 			<h3>
 
-				<form action='Gestion_de_Descuentos_Controller.php' method='post' >
+				<form action='DESCUENTOS_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
 					createForm($lista,$DefForm,$strings,$this->valores,false,true);
@@ -39,7 +39,7 @@ class DESCUENTO_Borrar{
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
 				</form>
 				<?php
-				echo '<a class="form-link" href=\'Gestion_de_Descuentos_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'DESCUENTOS_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>

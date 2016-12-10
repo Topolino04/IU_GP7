@@ -33,14 +33,14 @@ if (!isset($_REQUEST['accion'])){
 		case $strings['Insertar']: //Inserción de roles
 			if (!isset($_REQUEST['DESCUENTO_VALOR'])) {
 				if (!tienePermisos('DESCUENTO_Insertar')) {
-					new Mensaje('No tienes los permisos necesarios', 'Gestion_de_Descuentos_Controller.php');
+					new Mensaje('No tienes los permisos necesarios', 'DESCUENTOS_Controller.php');
 				} else {
 					new DESCUENTO_Insertar();
 				}
 			} else {
 				$descuento = get_data_form();
 				$respuesta = $descuento->Insertar();
-				new Mensaje($respuesta, 'Gestion_de_Descuentos_Controller.php');
+				new Mensaje($respuesta, 'DESCUENTOS_Controller.php');
 			}
 			break;
 		case $strings['Borrar']: //Borrado de roles
@@ -48,14 +48,14 @@ if (!isset($_REQUEST['accion'])){
 				$descuento = new DESCUENTO_MODEL($_REQUEST['DESCUENTO_ID'], '','');
 				$valores = $descuento->RellenaDatos();
 				if (!tienePermisos('DESCUENTO_Borrar')) {
-					new Mensaje('No tienes los permisos necesarios', 'Gestion_de_Descuentos_Controller.php');
+					new Mensaje('No tienes los permisos necesarios', 'DESCUENTOS_Controller.php');
 				} else {
-					new DESCUENTO_Borrar($valores, 'Gestion_de_Descuentos_Controller.php');
+					new DESCUENTO_Borrar($valores, 'DESCUENTOS_Controller.php');
 				}
 			} else {
 				$descuento = get_data_form();
 				$respuesta = $descuento->Borrar();
-				new Mensaje($respuesta, 'Gestion_de_Descuentos_Controller.php');
+				new Mensaje($respuesta, 'DESCUENTOS_Controller.php');
 			}
 			break;
 		case $strings['Modificar']: //Modificación de roles
@@ -64,15 +64,15 @@ if (!isset($_REQUEST['accion'])){
 				$descuento = new DESCUENTO_MODEL($_REQUEST['DESCUENTO_ID'], '','');
 				$valores = $descuento->RellenaDatos();
 				if (!tienePermisos('DESCUENTO_Modificar')) {
-					new Mensaje('No tienes los permisos necesarios', 'Gestion_de_Descuentos_Controller.php');
+					new Mensaje('No tienes los permisos necesarios', 'DESCUENTOS_Controller.php');
 				} else {
-					new DESCUENTO_Modificar($valores, 'Gestion_de_Descuentos_Controller.php');
+					new DESCUENTO_Modificar($valores, 'DESCUENTOS_Controller.php');
 				}
 			} else {
 
 				$descuento = get_data_form();
 				$respuesta = $descuento->Modificar();
-				new Mensaje($respuesta, 'Gestion_de_Descuentos_Controller.php');
+				new Mensaje($respuesta, 'DESCUENTOS_Controller.php');
 			}
 			break;
 		case $strings['Descuentos']:
