@@ -19,31 +19,28 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 //Genera los includes según las páginas a las que tiene acceso
 
 function get_data_form(){
+	include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 //Recoge la información procedente del formulario
-	$titulos=array('BLOQUE_FECHA', 'BLOQUE_HORAI', 'BLOQUE_HORAF',  'BLOQUE_LUGAR','BLOQUE_ACT1','BLOQUE_ACT2','BLOQUE_ACT3','BLOQUE_EV1','BLOQUE_EV2','BLOQUE_EV3');
+	$titulos=array('BLOQUE_HORARIO','BLOQUE_FECHA', 'BLOQUE_DIA', 'BLOQUE_HORAI', 'BLOQUE_HORAF');
+	$semana=array($strings['Domingo'],$strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']);
 
 	foreach($titulos as $titulo){
 		if (!isset($_REQUEST[$titulo])){
 			$_REQUEST[$titulo]='';
 		}
 	}
-
+	$BLOQUE_HORARIO=ConsultarIDHorario($_REQUEST['BLOQUE_HORARIO']);
 	$BLOQUE_FECHA=$_REQUEST['BLOQUE_FECHA'];
+	$BLOQUE_DIA=array_search($_REQUEST['BLOQUE_DIA'],$semana);
 	$BLOQUE_HORAI=$_REQUEST['BLOQUE_HORAI'];
 	$BLOQUE_HORAF=$_REQUEST['BLOQUE_HORAF'];
-	$BLOQUE_LUGAR=ConsultarIDLugar($_REQUEST['BLOQUE_LUGAR']);
-	$BLOQUE_ACT1=ConsultarIDActividad($_REQUEST['BLOQUE_ACT1']);
-	$BLOQUE_ACT2=ConsultarIDActividad($_REQUEST['BLOQUE_ACT2']);
-	$BLOQUE_ACT3=ConsultarIDActividad($_REQUEST['BLOQUE_ACT3']);
-	$BLOQUE_EV1=ConsultarIDEvento($_REQUEST['BLOQUE_EV1']);
-	$BLOQUE_EV2=ConsultarIDEvento($_REQUEST['BLOQUE_EV2']);
-	$BLOQUE_EV3=ConsultarIDEvento($_REQUEST['BLOQUE_EV3']);
+
 	
 
 
 	$accion = $_REQUEST['accion'];
 
-	$bloque = new BLOQUE_MODEL( $BLOQUE_FECHA, $BLOQUE_HORAI, $BLOQUE_HORAF,  $BLOQUE_LUGAR,$BLOQUE_ACT1,$BLOQUE_ACT2,$BLOQUE_ACT3,$BLOQUE_EV1,$BLOQUE_EV2,$BLOQUE_EV3);
+	$bloque = new BLOQUE_MODEL($BLOQUE_HORARIO, $BLOQUE_FECHA,$BLOQUE_DIA, $BLOQUE_HORAI, $BLOQUE_HORAF);
 
 	return $bloque;
 }
@@ -54,7 +51,7 @@ if (!isset($_REQUEST['accion'])){
 }
 	Switch ($_REQUEST['accion']) {
 		case $strings['Insertar']: //Inserción de roles
-			if (!isset($_REQUEST['BLOQUE_FECHA'])) {
+			if (!isset($_REQUEST['BLOQUE_DIA'])) {
 				if (!tienePermisos('BLOQUE_Insertar')) {
 					new Mensaje('No tienes los permisos necesarios', 'BLOQUE_Controller.php');
 				} else {
@@ -72,9 +69,9 @@ if (!isset($_REQUEST['accion'])){
 
 		case $strings['Borrar']: //Borrado de roles
 
-			if (!isset($_REQUEST['BLOQUE_FECHA'])) {
-				$rol = new BLOQUE_MODEL('','','','','','','','','','');
-				$valores = $rol->RellenaDatos($_REQUEST['BLOQUE_ID']);
+			if (!isset($_REQUEST['BLOQUE_HORAI'])) {
+				$bloque = new BLOQUE_MODEL('','','','','');
+				$valores = $bloque->RellenaDatos($_REQUEST['BLOQUE_ID']);
 				if (!tienePermisos('BLOQUE_Borrar')) {
 					new Mensaje('No tienes los permisos necesarios', 'BLOQUE_Controller.php');
 				} else {
@@ -86,17 +83,17 @@ if (!isset($_REQUEST['accion'])){
 
 
 
-				$rol = get_data_form();
-				$respuesta = $rol->Borrar($_REQUEST['BLOQUE_ID']);
+				$bloque = get_data_form();
+				$respuesta = $bloque->Borrar($_REQUEST['BLOQUE_ID']);
 				new Mensaje($respuesta, 'BLOQUE_Controller.php');
 			}
 			break;
 
 		case $strings['Modificar']: //Modificación de roles
 
-			if (!isset($_REQUEST['BLOQUE_FECHA'])) {
+			if (!isset($_REQUEST['BLOQUE_HORAI'])) {
 
-				$bloque = new BLOQUE_MODEL('','','','','','','','','','');
+				$bloque = new BLOQUE_MODEL('','','','','');
 				$valores = $bloque->RellenaDatos($_REQUEST['BLOQUE_ID']);
 				if (!tienePermisos('BLOQUE_Modificar')) {
 					new Mensaje('No tienes los permisos necesarios', 'BLOQUE_Controller.php');
@@ -124,23 +121,14 @@ if (!isset($_REQUEST['accion'])){
 				}
 			} else {
 
-				$bloque=new BLOQUE_MODEL($_REQUEST ['BLOQUE_FECHA'],'','','','','','','','','');
+				$bloque=new BLOQUE_MODEL($_REQUEST ['BLOQUE_HORARIO'],$_REQUEST ['BLOQUE_FECHA'],'','','');
 				$datos = $bloque->Consultar();
 				new BLOQUE_Show($datos, 'BLOQUE_Controller.php');
 			}
 
 
 			break;
-		case $strings['ActEv']: //Nos muestra las páginas que tiene asociadas una funcionalidad
-			$bloque=new BLOQUE_MODEL('','', '', '','','','','','','');
-			$valores=$bloque->ConsultarActEv($_REQUEST['BLOQUE_ID']);
-			if(!tienePermisos('BLOQUE_Show_ActEv')){
-				new Mensaje('No tienes los permisos necesarios','BLOQUE_Controller.php');
-			}
-			else {
-				new BLOQUE_Show_ActEv($valores, 'BLOQUE_Controller.php');
-			}
-			break;
+		
 		case 'clase':
 		    if(isset ($_REQUEST['actividad'])) {
                 $infoAct = infoActividad($_REQUEST['actividad']);
@@ -156,7 +144,7 @@ if (!isset($_REQUEST['accion'])){
 		default:
 			//La vista por defecto lista las funcionalidades
 			if (!isset($_REQUEST['BLOQUE_FECHA'])) {
-				$bloque = new BLOQUE_MODEL('', '','', '','','','','','','');
+				$bloque = new BLOQUE_MODEL('', '','', '','');
 			} else {
 				$bloque = get_data_form();
 
