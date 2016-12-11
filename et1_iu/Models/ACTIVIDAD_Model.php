@@ -137,15 +137,7 @@ class actividad
             return $toret;
 
         }
-		    /*if ($resultado->num_rows===0){
-		        echo "";
-            }
-            else {
-                $toret = array();
-                $toret[0] = $resultado->fetch_array();
 
-                return $toret;
-            }*/
 
 	}
 
@@ -167,7 +159,7 @@ class actividad
 	}
 
 
-	//Devuelve la información correspondiente a una página
+	//Devuelve la información correspondiente a una actividad
 	function RellenaDatos()
 	{
 		$this->ConectarBD();
@@ -183,7 +175,7 @@ class actividad
 		}
 	}
 
-	//Devuelve la información correspondiente a una página
+	//Devuelve la información correspondiente a una actividad
 	function RellenaDatosCalendarioActividad()
 	{
 		$this->ConectarBD();

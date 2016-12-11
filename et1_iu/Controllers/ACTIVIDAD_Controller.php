@@ -153,9 +153,6 @@ if (!isset($_REQUEST['accion'])){
 				if (!tienePermisos('ACTIVIDAD_Edit')) {
 					new Mensaje('No tienes los permisos necesarios', 'ACTIVIDAD_Controller.php');
 				} else {
-					//var_dump($valores);
-					//var_dump($valores2);
-					//exit;
 					new Actividad_Edit($valores, $valores2, 'ACTIVIDAD_Controller.php');
 				}
 			} else {
@@ -194,7 +191,6 @@ if (!isset($_REQUEST['accion'])){
 			if (!tienePermisos('Actividad_default_borradas')) {
 				new Mensaje('No tienes los permisos necesarios', 'ACTIVIDAD_Controller.php');
 			} else {
-				//var_dump($datos);
 				new Actividad_default_borradas($datos, 'ACTIVIDAD_Controller.php');
 			}
 			break;
