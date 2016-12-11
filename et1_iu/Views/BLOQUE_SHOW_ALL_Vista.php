@@ -1,7 +1,7 @@
 <?php
 
 class BLOQUE_Show{
-	//VISTA PARA LISTAR ROLES
+	//VISTA PARA LISTAR HORAS POSIBLES
 
 	private $datos;
 	private $volver;
