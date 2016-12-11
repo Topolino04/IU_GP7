@@ -1,7 +1,7 @@
 <?php
 
-class Actividad_default{
-	//VISTA PARA LISTAR ACTIVIDADES
+class Categoria_Default{
+	//VISTA PARA LISTAR CATEGORIAS
 
 	private $datos;
 	private $volver;
@@ -28,7 +28,7 @@ class Actividad_default{
 					<div>
 						<?php
 
-						$lista = array('ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION', 'CATEGORIA_ID');
+						$lista = array('CATEGORIA_ID','CATEGORIA_NOMBRE');
 
 
 						?>
@@ -50,9 +50,9 @@ class Actividad_default{
 									</ul>
 
 									<?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
-									<a href='./ACTIVIDAD2_Controller.php?accion=<?php echo $strings['Consultar']?>'><?php echo $strings['Consultar']?></a>
-									<a href='./ACTIVIDAD2_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
-									<a href='./ACTIVIDAD2_Controller.php?accion=<?php echo $strings['CONSULTAR BORRADO']?>'><?php echo $strings['CONSULTAR BORRADO']?></a>
+									<a href='./CATEGORIA_Controller.php?accion=<?php echo $strings['Consultar']?>'><?php echo $strings['Consultar']?></a>
+									<a href='./CATEGORIA_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
+
 
 								</div>
 							</nav>
@@ -102,10 +102,10 @@ class Actividad_default{
 								?>
 
 								<td>
-									<a href='ACTIVIDAD2_Controller.php?ACTIVIDAD_NOMBRE=<?php echo $this->datos[$j]['ACTIVIDAD_NOMBRE'] . '&accion='.$strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
+									<a href='CATEGORIA_Controller.php?CATEGORIA_NOMBRE=<?php echo $this->datos[$j]['CATEGORIA_NOMBRE'] . '&accion='.$strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
 								</td>
 								<td>
-									<a href='ACTIVIDAD2_Controller.php?ACTIVIDAD_NOMBRE=<?php echo $this->datos[$j]['ACTIVIDAD_NOMBRE'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
+									<a href='CATEGORIA_Controller.php?CATEGORIA_NOMBRE=<?php echo $this->datos[$j]['CATEGORIA_NOMBRE'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
 								</td>
 
 
