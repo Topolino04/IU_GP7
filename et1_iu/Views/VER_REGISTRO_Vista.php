@@ -14,15 +14,14 @@ class VER_REGISTRO_VISTA {
     
     function render() {
         include '../Locates/Strings_' . $_SESSION['IDIOMA'] . '.php';
-        echo '<html>';
-      echo "<object data='".$this->registro."' width='700' height='500'></object><br><br><br><br><br>";
+        leerFichero($this->registro);
+        echo "<br><br>";
         if( $this->CLIENTE_ID == ''){
             echo '<a  class="form-link" href=\'LESION_Controller.php?accion=Registro&EMP_USER='.$this->EMP_USER. '\'>' . $strings['Volver'] . '</a>';
         } else{
             echo '<a  class="form-link" href=\'LESION_Controller.php?accion=Registro&CLIENTE_ID='.$this->CLIENTE_ID. '\'>' . $strings['Volver'] . '</a>';
         }
         
-        echo '</html>';
     }
 
 }
