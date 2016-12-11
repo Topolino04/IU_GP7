@@ -13,7 +13,23 @@ class CLASE{
 		$this->CLASE_PROFESORES=$CLASE_PROFESORES;
 		$this->CLASE_ALUMNOS=$CLASE_ALUMNOS;
 		$this->volver=$volver;
-		$this->render();
+		if(consultarRol($_SESSION['login'])==='3'){
+
+			$esprofe=0;
+			for($i=0;$i<count($this->CLASE_PROFESORES);$i++){
+				if($this->CLASE_PROFESORES[$i]===$_SESSION['login']){
+					$esprofe=1;
+				}
+			}
+			if($esprofe===1){
+				$this->render();
+			}
+			else {
+				new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php');
+			}
+		}
+		else{
+		$this->render();}
 	}
 
 	function render(){
