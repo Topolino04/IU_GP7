@@ -1822,20 +1822,13 @@ CREATE TABLE IF NOT EXISTS `NOTIFICACION` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
---
--- Table structure for table `NOTIFICACION`
---
 
-CREATE TABLE IF NOT EXISTS `NOTIFICACION` (
-  `NOTIFICACION_ID` int(100) NOT NULL,
-  `NOTIFICACION_REMITENTE` varchar(100) NOT NULL,
-  `NOTIFICACION_FECHAHORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `NOTIFICACION_DESTINATARIO` varchar(10000) NOT NULL,
-  `EMP_USER` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
--- --------------------------------------------------------
-
+INSERT INTO `NOTIFICACION` (`NOTIFICACION_ID`,`NOTIFICACION_REMITENTE`, `NOTIFICACION_FECHAHORA`, `NOTIFICACION_DESTINATARIO`, `EMP_USER`) VALUES
+(1, 'ivanddf1994@gmail.com', '2016-11-20 12:54:36' , 'ivanddf1994@hotmail.com', 'ADMIN'),
+(2, 'ivanddf1994@gmail.com', '2016-11-22 09:11:36' , 'mpugaegea@hotmail.com', 'ADMIN'),
+(3, 'ivanddf1994@gmail.com', '2016-11-22 10:29:36' , 'rigle@hotmail.com.com' , 'secret'),
+(4, 'ivanddf1994@gmail.com', '2016-11-02 16:26:36' , 'ivanddf1994@hotmail.com', 'ADMIN'),
+(5, 'ivanddf1994@gmail.com', '2016-12-01 20:45:36' , 'rigle@hotmail.com.com', 'monit');
 --
 -- Table structure for table `PAGINA`
 --
