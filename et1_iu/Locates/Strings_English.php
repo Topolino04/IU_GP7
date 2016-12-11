@@ -462,23 +462,7 @@ $strings = array(
     'Invitado'=>'Guest',
     'Asignacion de invitados correcta' => 'Guest assignment correct',
     'FECHA' => 'DATE',
-    'EVENTO_DESCRIPCION'=>'Description',
-
-		// SESIONES DE FISIOTERAPIA
-	'Gestion de Fisio' => 'Management of physiotherapy',
-	'FISIO_NOMBRE' => 'Name',
-	'FISIO_DESCRIPCION' => 'Description',
-	'Consultar fisio' => 'Show physiotherapy session',
-	'Modificar Fisio' => 'Edit physiotherapy session',
-	'FISIO_ID' => 'Physiotherapy session key',
-	'Borrar Fisio' => 'Delete physiotherapy session',
-	'Insertar Fisio' => 'Add physiotherapy session',
-	'FISIO_LUGAR' => 'Plae of physiotherapy session',
-	'FISIO_HORARIO' => 'Time of physiotherapy session',
-	'FISIO_BLOQUE' => 'Time of physiotherapy session',
-	'Fisio añadido con exito' => 'Physiotherapy session added',
-	'El fisio se ha modificado con exito' => 'Physiotherapy session added eddited',
-	'El fisio ha sido borrado correctamente' => 'Physiotherapy session added deleted'
+    'EVENTO_DESCRIPCION'=>'Description'
 
 
 )
