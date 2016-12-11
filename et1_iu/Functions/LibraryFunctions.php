@@ -4403,24 +4403,7 @@ function listarLugares() {
     }
 }
 
-function ConsultarEventos() {
-    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
-    if ($mysqli->connect_errno) {
-        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
-    $sql = "SELECT * FROM EVENTO ";
-    if (!$resultado = $mysqli->query($sql)) {
-        return 'No se ha podido conectar con la base de datos';
-    } else {
-        $toret = array();
-        $i = 0;
-        while ($fila = $resultado->fetch_array()) {
-            $toret[$i] = $fila;
-            $i++;
-        }
-        return $toret;
-    }
-}
+
 
  function ConsultarEventos(){
          $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
