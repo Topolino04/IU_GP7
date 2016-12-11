@@ -150,10 +150,7 @@ class HORARIO_MODEL
         }
     }
 
-    //Nos devuelve la información de las funcionalidades asignadas a ese HORARIO
-
-
-//Borrado de la funcionalidad
+    
     function Borrar($BLOQUE_HORARIO)
     {
         $this->ConectarBD();
