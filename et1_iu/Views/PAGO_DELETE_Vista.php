@@ -37,50 +37,18 @@ class PAGO_Borrar {
                             <?php
                             createForm($lista, $form, $strings, $this->valores, false, true); //$form2
                             ?>
-                            
-                            <br><b>Método de Pago </b>
-                            <?php
-                            switch ($this->valores['PAGO_METODO']) {
-                                case 'Contado':
-                                    ?>
-                                    <input type="text" name="PAGO_METODO" value="Contado" readonly><br>
-                                    <?php break;
-                                case 'Tarjeta de Credito/Debito':
-                                    ?>
-                                    <input type="text" name="PAGO_METODO" value="Tarjeta de Credito/Debito" readonly><br>
-                                    <?php break;
-                                case 'Transferencia Bancaria':
-                                    ?>
-                                    <input type="text" name="PAGO_METODO" value="Transferencia Bancaria" readonly><br>
-                                    <?php break;
-                                case 'Ingreso en Cuenta':
-                                    ?>
-                                    <input type="text" name="PAGO_METODO" value="Ingreso en Cuenta" readonly><br>
-                <?php
-                break;
-        }
-        ?>
 
-                            <br><b>Estado </b>
-
-
-                            <?php
-                            if ($this->valores['PAGO_ESTADO'] == 'PENDIENTE') {
-                                ?><input type="text" name="PAGO_ESTADO" value="PENDIENTE" readonly><br>
-                                <?php
-                            } else {
-                                ?><input type="text" name="PAGO_ESTADO" value="PAGADO" readonly><br>
-            <?php
-            //readonly
-        }
-        ?>
+                            <br><b><?php echo$strings['PAGO_METODO'] ?></b>
+                            <input type="text" name="PAGO_METODO" value='<?php echo $strings [$this->valores['PAGO_METODO']] ?>' readonly><br>
+                            <br><b><?php echo $strings['PAGO_ESTADO'] ?></b>
+                            <input type="text" name="PAGO_ESTADO" value='<?php echo $strings [$this->valores['PAGO_ESTADO']] ?>' readonly><br>
 
 
                             <input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
                             </form>
-        <?php
-        echo '<a class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . " </a>";
-        ?>
+                            <?php
+                            echo '<a class="form-link" href=\'PAGO_Controller.php\'>' . $strings['Volver'] . " </a>";
+                            ?>
                             </h3>
                             </p>
 

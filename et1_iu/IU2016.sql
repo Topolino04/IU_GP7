@@ -881,7 +881,7 @@ INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_A
 (1, '11378328K', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '1996-11-01', 'panadero', '','Activo','','',999999999,666666666,0,'1'  ),
 (2, '15953592X', 'Marcos', 'Rodriguez Fernandez', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
 (3, '35248369H', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01','','','Activo','','', 999399999, 0, 0, '0'),
-(4, '36559850Q', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
+(4, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
 
  ALTER TABLE `CLIENTE`
 MODIFY `CLIENTE_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
@@ -1133,10 +1133,18 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 21),
 ('ADMIN', 22),
 ('ADMIN', 23),
+('ADMIN', 100),
+('ADMIN', 101),
+('ADMIN', 102),
+('ADMIN', 103),
+('ADMIN', 104),
+('ADMIN', 105),
 ('ADMIN', 106),
 ('ADMIN', 107),
 ('ADMIN', 108),
 ('ADMIN', 109),
+('ADMIN', 110),
+('ADMIN', 111),
 ('ADMIN', 200),
 ('ADMIN', 201),
 ('ADMIN', 202),
@@ -1174,21 +1182,30 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 403),
 ('secret', 403),
 
-	('ADMIN', 404),
+('ADMIN', 404),
 ('secret', 404),
 ('ADMIN', 405),
 ('secret', 405),
-	('ADMIN', 406),
-	('secret', 406),
-	('ADMIN', 407),
-	('secret', 407),
-	('ADMIN', 408),
-	('secret', 408),
-	('ADMIN', 409),
-	('secret', 409),
-	('ADMIN', 410),
-	('secret', 410),
-
+('ADMIN', 406),
+('secret', 406),
+('ADMIN', 407),
+('secret', 407),
+('ADMIN', 408),
+('secret', 408),
+('ADMIN', 409),
+('secret', 409),
+('ADMIN', 410),
+('secret', 410),
+('ADMIN', 600),
+('ADMIN', 601),
+('ADMIN', 602),
+('ADMIN', 603),
+('ADMIN', 604),
+('ADMIN', 605),
+('ADMIN', 606),
+('ADMIN', 607),
+('ADMIN', 608),
+('ADMIN', 609),
 
 ('ADMIN', 700),
 ('secret', 700),
@@ -1272,6 +1289,7 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 
 CREATE TABLE IF NOT EXISTS `EVENTO` (
 `EVENTO_ID` int(100) NOT NULL,
+  `EVENTO_FISIO` TINYINT(1) NOT NULL,
   `EVENTO_NOMBRE` varchar(100) NOT NULL,
   `EVENTO_ORGANIZADOR` varchar(100) NOT NULL,
   `EVENTO_DESCRIPCION` varchar(100) DEFAULT NULL
@@ -1281,10 +1299,11 @@ CREATE TABLE IF NOT EXISTS `EVENTO` (
 -- Dumping data for table `EVENTO`
 --
 
-INSERT INTO `EVENTO` (`EVENTO_ID`, `EVENTO_NOMBRE`, `EVENTO_ORGANIZADOR`, `EVENTO_DESCRIPCION`) VALUES
-(1, 'Charla con ...', 'Manuel do Miñio', NULL),
-(2, 'Coloquio sobre...', 'Ramon Espinar', NULL),
-(3, 'Taller de....', 'Juan Sanchez', NULL);
+INSERT INTO `EVENTO` (`EVENTO_ID`,`EVENTO_FISIO`, `EVENTO_NOMBRE`, `EVENTO_ORGANIZADOR`, `EVENTO_DESCRIPCION`) VALUES
+  (1,0, 'Charla con ...', 'Manuel do Miñio', NULL),
+  (2,1, 'Sesion con', 'Ramon Espinar', NULL),
+  (3,0, 'Coloquio sobre...', 'Ramon Espinar', NULL),
+  (4,0, 'Taller de....', 'Juan Sanchez', NULL);
 
 -- --------------------------------------------------------
 
@@ -1564,11 +1583,14 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (3, 'GESTION FUNCIONALIDADES'),
 (4, 'GESTION PAGINAS'),
 (5, 'CONSULTA EMPLEADOS'),
-(101, 'Gestion de Descuentos'),
+(100, 'GESTION FISIO'),
+(101, 'GESTION DESCUENTOS'),
 (200, 'GESTION ACTIVIDADES'),
 (300, 'GESTION PAGOS'),
 (400, 'HACER CAJA'),
 (401, 'GESTION FACTURAS'),
+(600, 'GESTION LUGARES'),
+(601, 'GESTION EVENTOS'),
 (700, 'GESTION LESIONES'),
 (701, 'ENVIAR NOTIFICACION'),
 
@@ -1620,10 +1642,18 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (2, 21),
 (2, 22),
 (2, 23),
-(101,106),
-(101,107),
-(101,108),
-(101,109),
+(100, 105),
+(100, 106),
+(100, 107),
+(100, 108),
+(100, 109),
+(100, 110),
+(100, 111),
+(101,100),
+(101,101),
+(101,102),
+(101,103),
+(101,104),
 (200,200),
 (200,201),
 (200,202),
@@ -1647,6 +1677,19 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 
 (401,409),
 (401,410),
+
+(600, 607),
+(600, 608),
+(600, 609),
+(600, 610),
+(600, 611),
+(601, 600),
+(601, 601),
+(601, 602),
+(601, 603),
+(601, 604),
+(601, 605),
+(601, 606),
 (700, 700),
 (700, 701),
 (700, 702),
@@ -1839,10 +1882,18 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (21, '../Views/ROL_SHOW_ALL_Vista.php', 'ROL SHOW ALL'),
 (22, '../Views/ROL_SHOW_FUNCIONES_Vista.php', 'ROL SHOW FUNCIONES'),
 (23, '../Views/ROL_SHOW_Vista.php', 'ROL SHOW'),
-(106, '../Views/DESCUENTO_ADD_Vista.php', 'DESCUENTO ADD'),
-(107, '../Views/DESCUENTO_DELETE_Vista.php', 'DESCUENTO DELETE'),
-(108, '../Views/DESCUENTO_EDIT_Vista.php', 'DESCUENTO EDIT'),
-(109, '../Views/DESCUENTO_SHOW_ALL_Vista.php', 'DESCUENTO SHOW ALL'),
+(100, '../Views/DESCUENTO_ADD_Vista.php', 'DESCUENTO ADD'),
+(101, '../Views/DESCUENTO_DELETE_Vista.php', 'DESCUENTO DELETE'),
+(102, '../Views/DESCUENTO_EDIT_Vista.php', 'DESCUENTO EDIT'),
+(103, '../Views/DESCUENTO_SHOW_ALL_Vista.php', 'DESCUENTO SHOW ALL'),
+(104, '../Views/DESCUENTO_SHOW_CLIENTE_Vista.php', 'DESCUENTO SHOW CLIENTE'),
+(105, '../Views/FISIO_ADD_HORAS_Vista.php', 'FISIO ADD HORAS'),
+(106, '../Views/FISIO_ADD_Vista.php', 'FISIO ADD'),
+(107, '../Views/FISIO_DEFAULT_Vista.php', 'FISIO DEFAULT'),
+(108, '../Views/FISIO_DELETE_Vista.php', 'FISIO DELETE'),
+(109, '../Views/FISIO_EDIT_Vista.php', 'FISIO EDIT'),
+(110, '../Views/FISIO_SHOW_INVITADOS_Vista.php', 'FISIO SHOW INVITADOS'),
+(111, '../Views/FISIO_SHOW_Vista.php', 'FISIO SHOW'),
 (200, '../Views/ACTIVIDAD_ADD_Vista.php', 'ACTIVIDAD ADD'),
 (201, '../Views/ACTIVIDAD_DELETE_Vista.php', 'ACTIVIDAD DELETE'),
 (202, '../Views/ACTIVIDAD_SHOW_Vista.php', 'ACTIVIDAD SHOW'),
@@ -1865,6 +1916,18 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (408, '../Views/LINEA_FACTURA_ADD_Vista.php', 'LINEA FACTURA ADD'),
 (409, '../Views/LINEA_FACTURA_EDIT_Vista.php', 'LINEA FACTURA EDIT'),
 (410, '../Views/LINEA_FACTURA_SHOW_ALL_Vista.php', 'LINEA FACTURA SHOW ALL'),
+(600, '../Views/EVENTO_DEFAULT_Vista.php', 'EVENTO DEFAULT'),
+(601, '../Views/EVENTO_ADD_Vista.php', 'EVENTO ADD'),
+(602, '../Views/EVENTO_ADD_HORAS_Vista.php', 'EVENTO ADD'),
+(603, '../Views/EVENTO_EDIT_Vista.php', 'EVENTO EDIT'),
+(604, '../Views/EVENTO_DELETE_Vista.php', 'EVENTO DELETE'),
+(605, '../Views/EVENTO_SHOW_Vista.php', 'EVENTO SHOW'),
+(606, '../Views/EVENTO_SHOW_INVITADOS_Vista.php', 'EVENTO SHOW'),
+(607, '../Views/LUGAR_DEFAULT_Vista.php', 'LUGAR DEFAULT'),
+(608, '../Views/LUGAR_ADD_Vista.php', 'LUGAR ADD'),
+(609, '../Views/LUGAR_EDIT_Vista.php', 'LUGAR EDIT'),
+(610, '../Views/LUGAR_DELETE_Vista.php', 'LUGAR DELETE'),
+(611, '../Views/LUGAR_SHOW_Vista.php', 'LUGAR SHOW'),
 (700, '../Views/LESION_ADD_Vista.php', 'LESION ADD'),
 (701, '../Views/LESION_DELETE_Vista.php', 'LESION DELETE'),
 (702, '../Views/LESION_EDIT_Vista.php', 'LESION EDIT'),
@@ -1938,10 +2001,10 @@ CREATE TABLE IF NOT EXISTS `PAGO` (
 -- Dumping data for table `PAGO`
 --
 INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_METODO`, `PAGO_ESTADO`, `PAGO_IMPORTE`) VALUES
-(1, 4, '2016-11-20 10:26:36', 'Curso de Karate','Contado',  'PAGADO', 500.00),
-(2, 4, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 'PENDIENTE', 270.90 ),
-(3, 4, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 'PAGADO', 217.95),
-(4, 4, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 'PENDIENTE', 1000.00);
+(1, 4, '2016-8-25 10:26:36', 'Curso de Karate','Domiciliacion Bancaria',  'PAGADO', 500.00),
+(2, 3, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta Credito/Debito', 'PAGADO', 270.90 ),
+(3, 2, '2016-9-2 12:30:15', 'Chandal oficial Moovett', 'Efectivo', 'PENDIENTE', 49.95),
+(4, 1, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Domiciliacion Bancaria', 'PENDIENTE', 1000.00);
 
 -- --------------------------------------------------------
 
@@ -2000,29 +2063,30 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 3),
 (1, 4),
 (2, 5),
+(1, 100),
 (1, 101),
 (1, 200),
-(2,200),
-(3,200),
+(2, 200),
+(3, 200),
 (1, 300),
 (2, 300),
 (1, 400),
 (1, 401),
-
 (2, 400),
-
 (2, 401),
+(1, 600),
+(1, 601),
 (1, 700),
 (2, 700),
 (3, 700),
 (1, 701),
 (2, 701),
 (3, 701),
-(1,800),
-(1,801),
-(1,802),
-(1,803),
-(2,800);
+(1, 800),
+(1, 801),
+(1, 802),
+(1, 803),
+(2, 800);
 --
 -- Indexes for dumped tables
 --
@@ -2365,8 +2429,8 @@ ADD CONSTRAINT `EMPLEADOS_PAGINA_PAGINA_PAGINA_ID_fk` FOREIGN KEY (`PAGINA_ID`) 
 -- Constraints for table `EVENTO_ALBERGA_LUGAR`
 --
 ALTER TABLE `EVENTO_ALBERGA_LUGAR`
-ADD CONSTRAINT `EVENTO_ALBERGA_LUGAR_ibfk_2` FOREIGN KEY (`LUGAR_ID`) REFERENCES `LUGAR` (`LUGAR_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `EVENTO_ALBERGA_LUGAR_ibfk_1` FOREIGN KEY (`EVENTO_ID`) REFERENCES `EVENTO` (`EVENTO_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ADD CONSTRAINT `EVENTO_ALBERGA_LUGAR_ibfk_2` FOREIGN KEY (`LUGAR_ID`) REFERENCES `LUGAR` (`LUGAR_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `EVENTO_ALBERGA_LUGAR_ibfk_1` FOREIGN KEY (`EVENTO_ID`) REFERENCES `EVENTO` (`EVENTO_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `FACTURA`
@@ -2420,8 +2484,8 @@ ADD CONSTRAINT `REGISTRO_CONSULTA_LESION_ibfk3` FOREIGN KEY (`USUARIO`) REFERENC
 -- Filtros para la tabla `CALENDARIO`
 --
 ALTER TABLE `CALENDARIO`
-ADD CONSTRAINT `CALENDARIO_ibfk_1` FOREIGN KEY (`CALENDARIO_ACTIVIDAD`) REFERENCES `ACTIVIDAD` (`ACTIVIDAD_ID`),
-ADD CONSTRAINT `CALENDARIO_ibfk_2` FOREIGN KEY (`CALENDARIO_EVENTO`) REFERENCES `EVENTO` (`EVENTO_ID`),
+ADD CONSTRAINT `CALENDARIO_ibfk_1` FOREIGN KEY (`CALENDARIO_ACTIVIDAD`) REFERENCES `ACTIVIDAD` (`ACTIVIDAD_ID`) ,
+ADD CONSTRAINT `CALENDARIO_ibfk_2` FOREIGN KEY (`CALENDARIO_EVENTO`) REFERENCES `EVENTO` (`EVENTO_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `CALENDARIO_ibfk_3` FOREIGN KEY (`CALENDARIO_BLOQUE`) REFERENCES `HORAS_POSIBLES` (`BLOQUE_ID`);
 
 --

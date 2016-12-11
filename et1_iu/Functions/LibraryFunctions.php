@@ -2021,6 +2021,15 @@ function añadirFuncionalidades($NOM) {
                 case "GESTION DESCUENTOS":
                     ?><a style="font-size:20px;" href='../Controllers/DESCUENTOS_Controller.php'><?php echo $strings['Gestion de descuentos'] ?></a><br><br> <?php
                     break;
+                case "GESTION LUGARES":
+                    ?><a style="font-size:20px;" href='../Controllers/LUGAR_Controller.php'><?php echo $strings['Gestion de Lugares'] ?></a><br><br> <?php
+                    break;
+                case "GESTION EVENTOS":
+                    ?><a style="font-size:20px;" href='../Controllers/EVENTO_Controller.php'><?php echo $strings['Gestion de Eventos'] ?></a><br><br> <?php
+                    break;
+                case "GESTION FISIO":
+                    ?><a style="font-size:20px;" href='../Controllers/FISIO_Controller.php'><?php echo $strings['Gestion de Fisio'] ?></a><br><br> <?php
+                    break;
 
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
@@ -2564,6 +2573,11 @@ function generarRecibo($PAGO_ID, $PAGO_FECHA, $EMPLEADO, $CLIENTE_ID, $PAGO_CONC
     file_put_contents($recibo_ID, $template);
 }
 
+function borrarRecibo($PAGO_ID){
+    $recibo_ID = "../Recibos/Recibo_" . $PAGO_ID . ".txt";
+    unlink($recibo_ID);
+}
+
 function CalcularDescuentoCliente($CLIENTE_ID) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
     if ($mysqli->connect_errno) {
@@ -2575,12 +2589,18 @@ function CalcularDescuentoCliente($CLIENTE_ID) {
 			AND  CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID}";
     $result = $mysqli->query($sql);
     $resultado = $result->fetch_array();
+
+  if($resultado['TOTAL']==NULL){
+      return 0;
+  }
+  else {
     $res = 1 - (((float) $resultado["TOTAL"]) / 100);
     if ($res < 0) {
         return 0;
     } else {
         return $res;
     }
+  }
 }
 
 function consultarEstadoPago($PAGO_ID) {
@@ -3649,7 +3669,72 @@ function AñadirHorarios2($array) {
     $array[count($array)] = $añadido;
     return $array;
 }
+function AñadirHorarios3($array) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT HORARIO_NOMBRE from HORARIO';
+
+    $result = $mysqli->query($sql);
+
+
+
+    $str = array();
+    while ($tipo = $result->fetch_array()) {
+        array_push($str, $tipo['HORARIO_NOMBRE']);
+    }
+
+
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'EVENTO_HORARIO',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => 'false'
+    );
+
+
+    $array[count($array)] = $añadido;
+    return $array;
+}
+function AñadirHorarios4($array) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT HORARIO_NOMBRE from HORARIO';
+
+    $result = $mysqli->query($sql);
+
+
+
+    $str = array();
+    while ($tipo = $result->fetch_array()) {
+        array_push($str, $tipo['HORARIO_NOMBRE']);
+    }
+
+
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'FISIO_HORARIO',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => 'false'
+    );
+
+
+    $array[count($array)] = $añadido;
+    return $array;
+}
 function ConsultarIDHorario($HORARIO_NOMBRE) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
@@ -3737,10 +3822,6 @@ function AñadirProf($array) {
 
 function AñadirLugaresTitulos($array) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
-
-
-
-
     if ($mysqli->connect_errno) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -3753,6 +3834,7 @@ function AñadirLugaresTitulos($array) {
 
     return $array;
 }
+
 
 function AñadirProfesoresTitulos($array) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
@@ -3784,6 +3866,27 @@ function consultarBloques($HORARIO, $DIA, $HORAI, $HORAF) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
     $sql = "SELECT BLOQUE_ID from HORAS_POSIBLES WHERE BLOQUE_HORARIO='" . ConsultarIDHorario($HORARIO) . "' AND BLOQUE_DIA='" . $DIA . "' AND BLOQUE_HORAI='" . $HORAI . "' AND BLOQUE_HORAF='" . $HORAF . "'";
+
+
+    $result = $mysqli->query($sql);
+
+    while ($tipo = $result->fetch_array()) {
+        array_push($array, $tipo['BLOQUE_ID']);
+    }
+
+    return $array;
+}
+function consultarBloquesFecha($HORARIO, $FECHA, $HORAI, $HORAF) {
+
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+
+    $array = array();
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT BLOQUE_ID from HORAS_POSIBLES WHERE BLOQUE_HORARIO='" . ConsultarIDHorario($HORARIO) . "' AND BLOQUE_FECHA='" . $FECHA . "' AND BLOQUE_HORAI='" . $HORAI . "' AND BLOQUE_HORAF='" . $HORAF . "'";
 
 
     $result = $mysqli->query($sql);

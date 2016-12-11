@@ -42,65 +42,72 @@ class PAGO_Modificar {
 
 
 
-                            <br><b>Método de Pago </b>
-                             <select name="PAGO_METODO" size="1" required="required">
-                            <?php
-                                switch ($this->valores['PAGO_METODO']) {
-                                    case ' - n/d - ': ?>
-                                        <option value=" - n/d - " selected=" - n/d - "> - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                    <?php    break;
-                                    case 'Contado': ?>
-                                        <option value=" - n/d - " > - n/d - </option>
-                                        <option value="Contado" selected="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                       
-                                     <?php   break;
-                                    case 'Tarjeta de Credito/Debito': ?>
-                                <option value=" - n/d - " > - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito" selected="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                     <?php   break;
-                                    case 'Transferencia Bancaria': ?>
-                                <option value=" - n/d - " > - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria" selected="Trasferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                   <?php     break; 
-                                    case 'Ingreso en Cuenta': ?>
-                                <option value=" - n/d - " > - n/d - </option>
-                                <option value="Contado">Contado</option>
-                                <option value="Tarjeta de Credito/Debito">Tarjeta de Credito/Debito</option>
-                                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                                <option value="Ingreso en Cuenta" selected="Ingreso en Cuenta">Ingreso en Cuenta</option>
-                                     <?php   break;
-                                }
-                                ?>
-                             </select><br>
-                            
-                            <br><b>Estado </b>
-                            <select name="PAGO_ESTADO" size="1" required="required">
-                                <?php
-                                if ($this->valores['PAGO_ESTADO'] == 'PENDIENTE') {
-                                    ?><option value="PENDIENTE" selected="PENDIENTE">PENDIENTE</option>
-                                    <option value="PAGADO">PAGADO</option>
-                                    <?php
-                                } else {
-                                    ?><option value="PENDIENTE" >PENDIENTE</option>
-                                    <option value="PAGADO" selected="PAGADO">PAGADO</option>
-                                    <?php
-                                }
-                                ?>
 
+
+
+                            <br><b><?php echo$strings['PAGO_METODO'] ?></b>
+                            <select name="PAGO_METODO" size="1" >
+                                <?php
+                                switch ($this->valores['PAGO_METODO']) {
+                                    case 'No seleccionado':
+                                        ?>
+                                        <option value='No seleccionado'  selected='<?php echo $strings['No seleccionado'] ?>'><?php echo $strings['No seleccionado'] ?></option>
+                                        <option value='Efectivo'><?php echo $strings['Efectivo'] ?></option>
+                                        <option value='Tarjeta Credito/Debito'><?php echo $strings['Tarjeta Credito/Debito'] ?></option>
+                                        <option value='Domiciliacion Bancaria'><?php echo $strings['Domiciliacion Bancaria'] ?></option>
+                                        <?php
+                                        break;
+                                    case 'Efectivo':
+                                        ?>
+                                        <option value='No seleccionado'  ><?php echo $strings['No seleccionado'] ?></option>
+                                        <option value='Efectivo' selected='<?php echo $strings['Efectivo'] ?>'><?php echo $strings['Efectivo'] ?></option>
+                                        <option value='Tarjeta Credito/Debito'><?php echo $strings['Tarjeta Credito/Debito'] ?></option>
+                                        <option value='Domiciliacion Bancaria'><?php echo $strings['Domiciliacion Bancaria'] ?></option>  
+                                        <?php
+                                        break;
+                                    case 'Tarjeta Credito/Debito':
+                                        ?>
+                                        <option value='No seleccionado'  ><?php echo $strings['No seleccionado'] ?></option>
+                                        <option value='Efectivo' ><?php echo $strings['Efectivo'] ?></option>
+                                        <option value='Tarjeta Credito/Debito' selected='<?php echo $strings['Tarjeta Credito/Debito'] ?>'><?php echo $strings['Tarjeta Credito/Debito'] ?></option>
+                                        <option value='Domiciliacion Bancaria'><?php echo $strings['Domiciliacion Bancaria'] ?></option>  
+                <?php
+                break;
+            case 'Domiciliacion Bancaria':
+                ?>
+                                        <option value='No seleccionado'  ><?php echo $strings['No seleccionado'] ?></option>
+                                        <option value='Efectivo' ><?php echo $strings['Efectivo'] ?></option>
+                                        <option value='Tarjeta Credito/Debito' ><?php echo $strings['Tarjeta Credito/Debito'] ?></option>
+                                        <option value='Domiciliacion Bancaria' selected='<?php echo $strings['Domiciliacion Bancaria'] ?>'><?php echo $strings['Domiciliacion Bancaria'] ?></option>  
+                <?php
+                break;
+        }
+        ?>
                             </select><br>
+
+
+
+                            <br><b><?php echo $strings['PAGO_ESTADO'] ?></b>
+                            <select name="PAGO_ESTADO" size="1" >
+                                <?php
+                                switch ($this->valores['PAGO_ESTADO']) {
+                                    case 'PAGADO':
+                                        ?>
+                                        <option value='PAGADO' selected='<?php echo $strings['PAGADO'] ?>'><?php echo $strings['PAGADO'] ?></option>
+                                        <option value='PENDIENTE'  ><?php echo $strings['PENDIENTE'] ?></option>
+                                        <?php
+                                        break;
+                                    case 'PENDIENTE':
+                                        ?>
+                                        <option value='PENDIENTE'  selected='<?php echo $strings['PENDIENTE'] ?>'><?php echo $strings['PENDIENTE'] ?></option>
+                                        <option value='PAGADO'><?php echo $strings['PAGADO'] ?></option>
+                <?php
+                break;
+        }
+        ?>
+                            </select><br>
+
+
 
 
                             <input type='submit' name='accion' onclick="return valida_envia_PAGO()" value=<?php echo $strings['Modificar'] ?>>
@@ -113,9 +120,9 @@ class PAGO_Modificar {
 
                             </div>
 
-                            <?php
-                        }
+        <?php
+    }
 
 //fin metodo render
-                    }
-                    ?>
+}
+?>

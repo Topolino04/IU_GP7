@@ -33,7 +33,7 @@ class DESCUENTO_Show{
 								</ul>
 								<?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
 
-								<a href='./Gestion_de_Descuentos_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
+								<a href='./DESCUENTOS_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
 							</div>
 						</nav>
 						<?php
@@ -73,10 +73,10 @@ class DESCUENTO_Show{
 							<?php
 							?>
 							<td>
-								<a href='Gestion_de_Descuentos_Controller.php?DESCUENTO_ID=<?php echo $this->datos[$j]['DESCUENTO_ID'] . '&accion='.$strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
+								<a href='DESCUENTOS_Controller.php?DESCUENTO_ID=<?php echo $this->datos[$j]['DESCUENTO_ID'] . '&accion='.$strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
 							</td>
 							<td>
-								<a href='Gestion_de_Descuentos_Controller.php?DESCUENTO_ID=<?php echo $this->datos[$j]['DESCUENTO_ID'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
+								<a href='DESCUENTOS_Controller.php?DESCUENTO_ID=<?php echo $this->datos[$j]['DESCUENTO_ID'] . '&accion='.$strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
 							</td>
 							<?php
 								echo "<tr>";

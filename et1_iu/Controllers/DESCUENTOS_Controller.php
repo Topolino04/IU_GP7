@@ -85,11 +85,11 @@ if (!isset($_REQUEST['accion'])){
 			}
 			break;
 
-			case $strings['Guardar']:
-				$descuento = new DESCUENTO_MODEL('', '','');
-				$respuesta = $descuento->AsignarDescuentos($_GET["CLIENTE_ID"],$_POST['descuentos']);
-				new Mensaje($respuesta, './CLIENTE_Controller.php');
-				break;
+		case $strings['Guardar']:
+			$descuento = new DESCUENTO_MODEL('', '','');
+			$respuesta = $descuento->AsignarDescuentos($_GET["CLIENTE_ID"],$_POST['descuentos']);
+			new Mensaje($respuesta, './CLIENTE_Controller.php');
+			break;
 		default:
 			//La vista por defecto lista los descuentos
 			$descuento = new DESCUENTO_MODEL('', '','');
