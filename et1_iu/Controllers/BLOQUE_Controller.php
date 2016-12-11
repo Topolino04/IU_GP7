@@ -50,7 +50,7 @@ if (!isset($_REQUEST['accion'])){
 	$_REQUEST['accion'] = '';
 }
 	Switch ($_REQUEST['accion']) {
-		case $strings['Insertar']: //Inserción de roles
+		case $strings['Insertar']: //Inserción de horas
 			if (!isset($_REQUEST['BLOQUE_DIA'])) {
 				if (!tienePermisos('BLOQUE_Insertar')) {
 					new Mensaje('No tienes los permisos necesarios', 'BLOQUE_Controller.php');
@@ -67,7 +67,7 @@ if (!isset($_REQUEST['accion'])){
 
 			break;
 
-		case $strings['Borrar']: //Borrado de roles
+		case $strings['Borrar']: //Borrado de horas
 
 			if (!isset($_REQUEST['BLOQUE_HORAI'])) {
 				$bloque = new BLOQUE_MODEL('','','','','');
@@ -89,7 +89,7 @@ if (!isset($_REQUEST['accion'])){
 			}
 			break;
 
-		case $strings['Modificar']: //Modificación de roles
+		case $strings['Modificar']: //Modificación de horas
 
 			if (!isset($_REQUEST['BLOQUE_HORAI'])) {
 
@@ -111,7 +111,7 @@ if (!isset($_REQUEST['accion'])){
 
 			}
 			break;
-		case $strings['Consultar']://Consulta de roles
+		case $strings['Consultar']://Consulta de horas
 			if (!isset($_REQUEST['BLOQUE_FECHA'])) {
 				if (!tienePermisos('BLOQUE_Consultar')) {
 					new Mensaje('No tienes los permisos necesarios', 'BLOQUE_Controller.php');
@@ -142,7 +142,7 @@ if (!isset($_REQUEST['accion'])){
             }
 			break;
 		default:
-			//La vista por defecto lista las funcionalidades
+			//La vista por defecto lista las horas
 			if (!isset($_REQUEST['BLOQUE_FECHA'])) {
 				$bloque = new BLOQUE_MODEL('', '','', '','');
 			} else {
