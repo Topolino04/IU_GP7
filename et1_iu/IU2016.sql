@@ -881,7 +881,7 @@ INSERT INTO `CLIENTE` (`CLIENTE_ID`, `CLIENTE_DNI`, `CLIENTE_NOMBRE`, `CLIENTE_A
 (1, '11378328K', 'Javier', 'Ibarra Ramos', 'Avenida de la Pola 3', 'ivanddf1994@hotmail.com', '1996-11-01', 'panadero', '','Activo','','',999999999,666666666,0,'1'  ),
 (2, '15953592X', 'Marcos', 'Rodriguez Fernandez', ' Avenida de Marín 4', 'ivanddf1994@hotmail.com', '1994-08-01',  'médico', '','Activo','','', 99999998,0,0,'1' ),
 (3, '35248369H', 'Raquel', 'Iglesias Iglesias', 'Plaza San Juan 22', 'rigle@hotmail.com', '1991-08-01','','','Activo','','', 999399999, 0, 0, '0'),
-(4, '36559850Q', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
+(4, '44497152H', 'Martin', 'Puga Egea', 'Avda. Buenos Aires', 'mpugaeg@gmail.com', '1995-01-24','ingeniero',  'Karateka',   'Activo','','', 666668862,989898989,656656656,'1');
 
  ALTER TABLE `CLIENTE`
 MODIFY `CLIENTE_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
@@ -2001,10 +2001,10 @@ CREATE TABLE IF NOT EXISTS `PAGO` (
 -- Dumping data for table `PAGO`
 --
 INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_METODO`, `PAGO_ESTADO`, `PAGO_IMPORTE`) VALUES
-(1, 4, '2016-11-20 10:26:36', 'Curso de Karate','Contado',  'PAGADO', 500.00),
-(2, 4, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 'PENDIENTE', 270.90 ),
-(3, 4, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 'PAGADO', 217.95),
-(4, 4, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 'PENDIENTE', 1000.00);
+(1, 4, '2016-8-25 10:26:36', 'Curso de Karate','Domiciliacion Bancaria',  'PAGADO', 500.00),
+(2, 3, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta Credito/Debito', 'PAGADO', 270.90 ),
+(3, 2, '2016-9-2 12:30:15', 'Chandal oficial Moovett', 'Efectivo', 'PENDIENTE', 49.95),
+(4, 1, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Domiciliacion Bancaria', 'PENDIENTE', 1000.00);
 
 -- --------------------------------------------------------
 

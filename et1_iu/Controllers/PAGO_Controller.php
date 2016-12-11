@@ -104,7 +104,7 @@ Switch ($_REQUEST['accion']) {
         } else {
             $pago = get_data_form();
             $respuesta = $pago->Borrar();
-
+//$pago->borrarRecibo();
             new Mensaje($respuesta, 'PAGO_Controller.php');
         }
         break;
@@ -185,8 +185,17 @@ break;
 
         break;
 
-      
+//    case $strings ['Domiciliaciones pendientes']: 
+//        $pago=new PAGO_MODEL('', '', '', '', '', '', '', '');
+//        $pago->generarDocDomiciliaciones();
+//        new ReciboVista('../Recibos/Doc_Domiciliaciones.txt');
+//        break;
 
+    case $strings['Pagos Atrasados']:
+        $pago = new PAGO_MODEL('', '', '', '', '', '', '', '');
+        $datos = $pago->consultarPagosAtrasados();
+        new PAGO_Show($datos, 'PAGO_Controller.php');
+        break;
 
 
 
@@ -194,7 +203,7 @@ break;
     default:
         //La vista por defecto lista las funcionalidades
         //NO HACE FALTA EL IF!!
-        $pago = new PAGO_MODEL('', '', '', '', '', '', '', ''); //PARA QUÉ SIRVE???
+        $pago = new PAGO_MODEL('', '', '', '', '', '', '', '');
         $datos = $pago->ConsultarTodo();
         if (!tienePermisos('PAGO_Show')) {
             new Mensaje('No tienes los permisos necesarios', '../Views/DEFAULT_Vista.php');
