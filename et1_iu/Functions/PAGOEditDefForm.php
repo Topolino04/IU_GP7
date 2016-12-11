@@ -2,12 +2,13 @@
 
 //Definición del formulario que muestra la informacion completa de cada pago.
 //Formulario para la modificacion de pagos
+
 $form = array(
     0 => array(
         'type' => 'text',
         'name' => 'PAGO_ID',
         'value' => '',
-        'size' => 50,
+        'size' => 5,
         'required' => true,
         'pattern' => '',
         'validation' => '',
@@ -17,7 +18,7 @@ $form = array(
         'type' => 'text',
         'name' => 'PAGO_IMPORTE',
         'value' => '',
-        'size' => 25,
+        'size' => 10,
         'required' => true,
         'pattern' => '',
         'validation' => '',
@@ -27,7 +28,7 @@ $form = array(
         'type' => 'text',
         'name' => 'PAGO_CONCEPTO',
         'value' => '',
-        'size' => 155,
+        'size' => 75,
         'required' => true,
         'pattern' => '',
         'validation' => '',
@@ -37,7 +38,7 @@ $form = array(
         'type' => 'text',
         'name' => 'CLIENTE_DNI', //CLIENTE_ID FUNCIONA----- !!! -----
         'value' => '',
-        'size' => 50,
+        'size' => 10,
         'required' => true,
         'pattern' => '',
         'validation' => '',

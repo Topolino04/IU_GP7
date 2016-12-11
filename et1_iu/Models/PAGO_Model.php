@@ -8,19 +8,23 @@ class PAGO_MODEL {
     var $PAGO_ID;
     var $PAGO_FECHA;
     var $PAGO_CONCEPTO;
+    var $PAGO_METODO;
     var $PAGO_IMPORTE;
+    var $PAGO_ESTADO;
     var $CLIENTE_ID;
     var $CLIENTE_DNI;
     var $mysqli;
 
 //Constructor de la clase pago
-    function __construct($PAGO_ID, $PAGO_FECHA, $PAGO_CONCEPTO, $PAGO_IMPORTE, $CLIENTE_ID, $CLIENTE_DNI) {
+    function __construct($PAGO_ID, $CLIENTE_ID, $PAGO_FECHA, $PAGO_CONCEPTO, $PAGO_METODO, $PAGO_ESTADO, $PAGO_IMPORTE, $CLIENTE_DNI) {
         $this->PAGO_ID = $PAGO_ID;
         $this->PAGO_FECHA = $PAGO_FECHA;
         $this->PAGO_CONCEPTO = $PAGO_CONCEPTO;
         $this->PAGO_IMPORTE = $PAGO_IMPORTE;
         $this->CLIENTE_ID = $CLIENTE_ID;
         $this->CLIENTE_DNI = $CLIENTE_DNI;
+        $this->PAGO_ESTADO = $PAGO_ESTADO;
+        $this->PAGO_METODO = $PAGO_METODO;
     }
 
 //Función para la conexión a la base de datos
@@ -37,9 +41,10 @@ class PAGO_MODEL {
         if ($this->CLIENTE_ID === FALSE) {
             return 'No existe ningún cliente con el DNI introducido';
         } else {
-            $sql = "INSERT INTO PAGO (PAGO_CONCEPTO, PAGO_IMPORTE, CLIENTE_ID) VALUES ('" . $this->PAGO_CONCEPTO . "', '" . $this->PAGO_IMPORTE . "', '" . $this->CLIENTE_ID . "')";
+            //$this->PAGO_ESTADO='PENDIENTE';
+            $sql = "INSERT INTO PAGO (CLIENTE_ID, PAGO_CONCEPTO, PAGO_METODO, PAGO_IMPORTE, PAGO_ESTADO) VALUES ('" . $this->CLIENTE_ID . "', '" . $this->PAGO_CONCEPTO . "', '" . $this->PAGO_METODO . "', '" . $this->PAGO_IMPORTE . "', '" . $this->PAGO_ESTADO . "')";
             if (!$result = $this->mysqli->query($sql)) {
-                return 'No se ha podido conectar con la base de datos';
+                return 'No existe ningún cliente con el DNI introducido';
             } else {
                 return 'Pago registrado correctamente';
             }
@@ -54,7 +59,9 @@ class PAGO_MODEL {
 //Nos devuelve la información de los pagos realizados por un determinado cliente o id
     function Consultar() {
         $this->ConectarBD();
-        $sql = "SELECT * FROM PAGO WHERE CLIENTE_ID ='" . $this->CLIENTE_ID . "' OR PAGO_CONCEPTO ='" . $this->PAGO_CONCEPTO . "' OR PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "' ORDER BY PAGO_FECHA DESC";
+        $sql = "SELECT * FROM PAGO WHERE CLIENTE_ID ='" . $this->CLIENTE_ID . "' OR PAGO_CONCEPTO LIKE'" . $this->PAGO_CONCEPTO . "' OR PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "' OR PAGO_METODO = '" . $this->PAGO_METODO . "' OR PAGO_ESTADO = '" . $this->PAGO_ESTADO . "' ORDER BY PAGO_FECHA DESC";
+        //$sql = "SELECT * FROM PAGO WHERE CLIENTE_ID ='" . $this->CLIENTE_ID . "' AND PAGO_CONCEPTO LIKE'" . $this->PAGO_CONCEPTO . "' AND PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "' AND PAGO_METODO = '" . $this->PAGO_METODO . "' AND PAGO_ESTADO = '" . $this->PAGO_ESTADO . "' ORDER BY PAGO_FECHA DESC";
+
         if (!$resultado = $this->mysqli->query($sql)) { //----- LA CONSULTA DEVUELVE TRUE SIEMPRE -----
             return FALSE; //CAMBIAR AVISO //Abraham tenía un echo
         } else {
@@ -63,8 +70,15 @@ class PAGO_MODEL {
             }
             $toret = array();
             $i = 0;
-            while ($fila = $resultado->fetch_array()) {
+               while ($fila = $resultado->fetch_array()) {
                 $toret[$i] = $fila;
+                if (CalcularDescuentoCliente($toret[$i]['CLIENTE_ID'])) {
+                    $toret[$i]['PAGO_DESCUENTO'] = 100 * (1 - CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
+                    $toret[$i]['PAGO_IMPORTE_FINAL'] = round($toret[$i]['PAGO_IMPORTE'] * CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']), 2);
+                } else {
+                    $toret[$i]['PAGO_DESCUENTO'] = '0';
+                    $toret[$i]['PAGO_IMPORTE_FINAL'] = $toret[$i]['PAGO_IMPORTE'];
+                }
                 $i++;
             }
             return $toret;
@@ -85,6 +99,13 @@ class PAGO_MODEL {
             $i = 0;
             while ($fila = $resultado->fetch_array()) {
                 $toret[$i] = $fila;
+                if (CalcularDescuentoCliente($toret[$i]['CLIENTE_ID'])) {
+                    $toret[$i]['PAGO_DESCUENTO'] = 100 * (1 - CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
+                    $toret[$i]['PAGO_IMPORTE_FINAL'] = round($toret[$i]['PAGO_IMPORTE'] * CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']), 2);
+                } else {
+                    $toret[$i]['PAGO_DESCUENTO'] = '0';
+                    $toret[$i]['PAGO_IMPORTE_FINAL'] = $toret[$i]['PAGO_IMPORTE'];
+                }
                 $i++;
             }
             return $toret;
@@ -101,26 +122,31 @@ class PAGO_MODEL {
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'Error en la consulta sobre la base de datos';
         } else {
-            //exit(var_dump($this->PAGO_ID)); ------ HERRAMIENTA ------
+
+            if (file_exists('../Recibos/Recibo_' . $this->PAGO_ID . '.txt')) {
+                $this->borrarRecibo();
+            }
             return 'El pago ha sido borrado correctamente';
         }
     }
 
     function RellenaDatos() { //Completa el formulario visible con los datos del pago
         $this->ConectarBD();
-        $CLIENTE_ID= consultarIDClientePAGO("$this->PAGO_ID");
-        $CLIENTE_DNI= consultarDNICliente($CLIENTE_ID);
+        $CLIENTE_ID = consultarIDClientePAGO("$this->PAGO_ID");
+        $CLIENTE_DNI = consultarDNICliente($CLIENTE_ID);
         $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'Error en la consulta sobre la base de datos';
         } else {
             $result = $resultado->fetch_array();
-        $result['CLIENTE_DNI']=$CLIENTE_DNI;
-          return $result; 
+            $result['CLIENTE_DNI'] = $CLIENTE_DNI;
+
+
+
+            return $result;
         }
     }
-        
-        
+
 //        $sql = "SELECT * FROM PAGO WHERE PAGO_ID ='" . $this->PAGO_ID . "'";
 //        if (!$resultado = $this->mysqli->query($sql)) {
 //            return 'Error en la consulta sobre la base de datos';
@@ -133,7 +159,6 @@ class PAGO_MODEL {
 //            return $result; 
 //        }
 //    }
-
 //Modifica los datos del pago
 //function Modificar($ROL_ID, $rol_funcionalidades)
     //function Modificar($PAGO_ID, $PAGO_IMPORTE, $PAGO_CONCEPTO, $PAGO_CLIENTE, $PAGO_FECHA)
@@ -143,13 +168,74 @@ class PAGO_MODEL {
         if (!$resultado = $this->mysqli->query($sql)) {
             return 'El DNI introducido no pertenece a ningun cliente';
         } else {
-            $sql = "UPDATE PAGO SET PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "', PAGO_CONCEPTO ='" . $this->PAGO_CONCEPTO . "', CLIENTE_ID ='" . $this->CLIENTE_ID . "' WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
+            $sql = "UPDATE PAGO SET PAGO_IMPORTE = '" . $this->PAGO_IMPORTE . "', PAGO_CONCEPTO ='" . $this->PAGO_CONCEPTO . "', PAGO_ESTADO ='" . $this->PAGO_ESTADO . "', PAGO_METODO ='" . $this->PAGO_METODO . "', CLIENTE_ID ='" . $this->CLIENTE_ID . "' WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
             if (!$resultado = $this->mysqli->query($sql)) {
                 return 'Error en la consulta sobre la base de datos';
             } else {
-                //exit(var_dump($this->PAGO_ID)); ------ HERRAMIENTA ------
+                if (file_exists('../Recibos/Recibo_' . $this->PAGO_ID . '.txt')) {
+                    $this->borrarRecibo();
+                }
+
                 return 'El pago se ha modificado correctamente';
             }
+        }
+    }
+
+    function generarRecibo() { //Genera el recibo en formato .txt correspondiente a un pago.
+        $this->ConectarBD();
+        $sql = "SELECT * FROM PAGO WHERE PAGO_ID = '" . $this->PAGO_ID . "'";
+        $request = $this->mysqli->query($sql);
+        $datosPAGO = $request->fetch_array();
+        $sql = "SELECT * FROM EMPLEADOS WHERE EMP_USER = '" . $_SESSION['login'] . "'";
+        $request = $this->mysqli->query($sql);
+        $datosEMPLEADO = $request->fetch_array();
+        $empleado = $datosEMPLEADO['EMP_NOMBRE'] . " " . $datosEMPLEADO['EMP_APELLIDO'];
+        generarRecibo($datosPAGO['PAGO_ID'], $datosPAGO['PAGO_FECHA'], $empleado, $datosPAGO['CLIENTE_ID'], $datosPAGO['PAGO_CONCEPTO'], $datosPAGO['PAGO_IMPORTE']);
+
+        //  generarRecibo($this->PAGO_ID, $this->PAGO_FECHA, $empleado, $this->CLIENTE_ID, $this->PAGO_CONCEPTO, $this->PAGO_IMPORTE); No se puede generar el recibo directamente, porque el nombre del recibo contiene el id del pago y este es generado por la bd una vez introducido un pago.
+        return 'Se ha generado el recibo de pago';
+    }
+
+    function borrarRecibo() {
+        borrarRecibo($this->PAGO_ID);
+    }
+
+//    function generarDocDomiciliaciones(){
+//         $this->ConectarBD();
+//        $sql = "SELECT * FROM PAGO WHERE PAGO_ESTADO = 'PENDIENTE'";
+//        $request = $this->mysqli->query($sql);
+//        
+//        foreach($request as $tupla){
+//            $sql = "SELECT CLIENTE_CUENTA FROM PAGO WHERE PAGO_ESTADO = 'PENDIENTE'";
+//        $request = $this->mysqli->query($sql);
+//            var_dump($tupla['CLIENTE_ID']);
+//        }
+//        }
+
+
+
+    function consultarPagosAtrasados() {
+        $this->ConectarBD();
+        $sql = "SELECT * FROM PAGO WHERE PAGO_ESTADO = 'PENDIENTE' ORDER BY PAGO_FECHA DESC";
+        if (!($resultado = $this->mysqli->query($sql))) {
+            return 'Error en la consulta sobre la base de datos';
+        } else {
+
+            $fechaActual = new DateTime(Date("Y-m-d H:i:s"));
+            $toret = array();
+            $i = 0;
+          while ($fila = $resultado->fetch_array()) {
+                $toret[$i] = $fila;
+                if (CalcularDescuentoCliente($toret[$i]['CLIENTE_ID'])) {
+                    $toret[$i]['PAGO_DESCUENTO'] = 100 * (1 - CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']));
+                    $toret[$i]['PAGO_IMPORTE_FINAL'] = round($toret[$i]['PAGO_IMPORTE'] * CalcularDescuentoCliente($toret[$i]['CLIENTE_ID']), 2);
+                } else {
+                    $toret[$i]['PAGO_DESCUENTO'] = '0';
+                    $toret[$i]['PAGO_IMPORTE_FINAL'] = $toret[$i]['PAGO_IMPORTE'];
+                }
+                $i++;
+            }
+            return $toret;
         }
     }
 

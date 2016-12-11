@@ -1,6 +1,6 @@
 <?php
 
-//VISTA INICIAL DE LA GESTION DE PAGOS
+//VISTA INICIAL DE LA GESTION DE PAGOS   //NO USA NIGÜN TIPO DE DEFFORM, YA QUE NO ES UN FORMULARIO!
 class PAGO_Show {
 
     private $datos;
@@ -43,18 +43,19 @@ class PAGO_Show {
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Consultar'] ?>'><?php echo $strings['Consultar'] ?></a>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Insertar'] ?>'><?php echo $strings['Insertar'] ?></a>
-                            
+                            <a href='./PAGO_Controller.php?accion=<?php echo $strings['Pagos Atrasados'] ?>'><?php echo $strings['Pagos Atrasados'] ?></a>
+
 
                         </div>
                     </nav>
 
 
                     <?php
-                    $lista = array('PAGO_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_IMPORTE', 'CLIENTE_ID');
+                    $lista = array('PAGO_ID', 'CLIENTE_ID', 'PAGO_FECHA', 'PAGO_CONCEPTO', 'PAGO_METODO', 'PAGO_ESTADO', 'PAGO_IMPORTE', 'PAGO_DESCUENTO', 'PAGO_IMPORTE_FINAL');
                     ?>
 
 
-                    <?php // echo $strings['EMP_USER'] . ' : ' . $_SESSION['login']; ?>
+                    <?php // echo $strings['EMP_USER'] . ' : ' . $_SESSION['login'];  ?>
 
                     <div >
                         <table  id="btable"  class="responstable" border = 1>
@@ -75,26 +76,68 @@ class PAGO_Show {
                             <?php
                             for ($j = 0; $j < count($this->datos); $j++) {
                                 echo "<tr>";
+
+
                                 foreach ($this->datos [$j] as $clave => $valor) {
                                     for ($i = 0; $i < count($lista); $i++) {
                                         if ($clave === $lista[$i]) {
                                             echo "<td>";
-                                            echo $valor;
+                                            switch ($valor) {
+                                                case 'PAGADO':
+                                                    echo $strings['PAGADO'];
+                                                    break;
+                                                case'PENDIENTE':
+                                                    echo $strings['PENDIENTE'];
+                                                    break;
+                                                case 'Efectivo':
+                                                    echo $strings['Efectivo'];
+                                                    break;
+                                                case 'Tarjeta Credito/Debito':
+                                                    echo $strings['Tarjeta Credito/Debito'];
+                                                    break;
+                                                case'Domiciliacion Bancaria':
+                                                    echo $strings['Domiciliacion Bancaria'];
+                                                    break;
+                                                case'No seleccionado':
+                                                    echo $strings['No seleccionado'];
+                                                    break;
+                                                default :
+                                                    echo $valor;
+                                                    break;
+                                            }
                                             echo "</td>";
                                         }
                                     }
                                 }
                                 ?>
-<?php //AÑADIR TODOS LOS DATOS ?>
+
+                                <?php //AÑADIR LA FUNCIONALIDAD A REALIZAR PAGO || CONSULTAR RECIBO ?>
+
+
+
+
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Modificar']; ?>'><?php echo $strings['Modificar'] ?></a>
                                 </td>
                                 <td>
                                     <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Borrar']; ?>'><?php echo $strings['Borrar'] ?></a>
                                 </td>
+
                                 <td>
-                                    <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
+                                    <?php if ((file_exists('../Recibos/Recibo_' . $this->datos[$j]['PAGO_ID'] . '.txt')) && ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO')) { ?>
+                                        <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Ver Recibo']; ?>'><?php echo $strings['Ver Recibo'] ?></a>
+                                        <?php
+                                    } else {
+                                        if ($this->datos[$j]['PAGO_ESTADO'] == 'PAGADO') {
+                                            ?>
+                                            <a href='PAGO_Controller.php?PAGO_ID=<?php echo $this->datos[$j]['PAGO_ID'] . '&accion=' . $strings['Generar Recibo']; ?>'><?php echo $strings['Generar Recibo'] ?></a>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+
                                 </td>
+
 
                                 <?php
                                 echo "<tr>";
