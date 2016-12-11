@@ -18,7 +18,7 @@ if (!IsAuthenticated()){
 }
 
 include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-
+//Crea cliente a partir de los datos del formulario
 function get_data_form(){
 $titulos=array('CLIENTE_DNI','CLIENTE_NOMBRE','CLIENTE_NOMBRE','CLIENTE_APELLIDOS','CLIENTE_FECH_NAC','CLIENTE_TELEFONO1','CLIENTE_TELEFONO2','CLIENTE_TELEFONO3','CLIENTE_CORREO','CLIENTE_PROFESION','CLIENTE_DIRECCION','CLIENTE_DIRECCION','CLIENTE_DIRECCION','CLIENTE_COMENTARIOS','CLIENTE_ESTADO','CLIENTE_TIPO');
 	foreach($titulos as $titulo){
@@ -37,11 +37,11 @@ $titulos=array('CLIENTE_DNI','CLIENTE_NOMBRE','CLIENTE_NOMBRE','CLIENTE_APELLIDO
 	$CLIENTE_PROFESION = $_REQUEST['CLIENTE_PROFESION'];
 	$CLIENTE_DIRECCION = $_REQUEST['CLIENTE_DIRECCION'];
 	$CLIENTE_COMENTARIOS = $_REQUEST['CLIENTE_COMENTARIOS'];
-	$CLIENTE_ESTADO = $_REQUEST['CLIENTE_ESTADO'];
-	$CLIENTE_TIPO = $_REQUEST['CLIENTE_TIPO'];
+	$CLIENTE_ESTADO = $_REQUEST['CLIENTE_ESTADO'];//actio o inactivo
+	$CLIENTE_TIPO = $_REQUEST['CLIENTE_TIPO'];//externo o socio
 	//Si no se ha introducido un nuevo archivo se deja el que había
 	if (isset($_FILES['CLIENTE_DOM']['name']) && ($_FILES['CLIENTE_DOM']['name']!=='')) {
-
+//ruta de la carpeta que albergará los documentos
 		$CLIENTE_DOM = '../Documents/Clientes/' . $_REQUEST['CLIENTE_DNI'] . '/Domiciliacion/' . $_FILES['CLIENTE_DOM']['name'];
 
 	}
