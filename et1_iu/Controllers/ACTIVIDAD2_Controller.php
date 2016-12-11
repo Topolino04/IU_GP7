@@ -77,6 +77,7 @@ if (isset($_REQUEST['CATEGORIA_ID'])){
 	$CATEGORIA_ID=$_REQUEST['CATEGORIA_ID'];
 }else {
 	if (isset($_REQUEST['CATEGORIA_NOMBRE'])) {
+
 		$CATEGORIA_ID = ConsultarIDCategoria($_REQUEST ['CATEGORIA_NOMBRE']);
 	} else {
 		$CATEGORIA_ID = null;

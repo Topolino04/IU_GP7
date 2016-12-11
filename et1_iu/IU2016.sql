@@ -839,7 +839,7 @@ CREATE TABLE IF NOT EXISTS `CATEGORIA` (
 --
 
 INSERT INTO `CATEGORIA` (`CATEGORIA_ID`, `CATEGORIA_NOMBRE`) VALUES
-(1, 'Actividad 3º Edad'),
+(1, 'Actividad 3a Edad'),
 (2, 'Bailes de Salon'),
 (3, 'Bailes Comtemporaneos'),
 (4, 'Gimnasio - Pesas');
@@ -1089,7 +1089,11 @@ CREATE TABLE IF NOT EXISTS `EMPLEADOS_IMPARTE_ACTIVIDAD` (
 --
 
 INSERT INTO `EMPLEADOS_IMPARTE_ACTIVIDAD` (`EMP_USER`, `ACTIVIDAD_ID`, `FECHA_IMPARTE`) VALUES
-('monit', 1, '2016-11-10 13:00:00');
+('monit', 1, '2016-11-10 13:00:00'),
+('monit', 2, '2016-11-11 13:00:00'),
+('monit', 3, '2016-11-12 13:00:00'),
+('monit', 4, '2016-11-13 13:00:00')
+;
 
 -- --------------------------------------------------------
 
@@ -1233,6 +1237,8 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('secret', 715),
 ('ADMIN', 716),
 ('secret', 716),
+('ADMIN', 717),
+('secret', 717),
 
 ('ADMIN', 800),
 ('ADMIN', 801),
@@ -1664,6 +1670,7 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 
 
 (700, 716),
+(701, 717),
 
 (800, 800),
 (800, 801),
@@ -1887,7 +1894,7 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (715, '../Views/NOTIFICACION_SHOW_Vista.php', 'NOTIFICACION SHOW'),
 
 (716, '../Views/VER_REGISTRO_Vista.php', 'SHOW TXT'),
-
+(717, '../Views/NOTIFICACION_SELECT_EVENTO_Vista.php', 'SELECT EVENTO'),
 (800, '../Views/CLIENTE_ADD_Vista.php', 'CLIENTE ADD'),
 (801, '../Views/CLIENTE_ADD_EXTERNO_Vista.php', 'CLIENTE ADD EXTERNO'),
 (802, '../Views/CLIENTE_DELETE_Vista.php', 'CLIENTE DELETE'),

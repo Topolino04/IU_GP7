@@ -78,7 +78,7 @@ function Consultar()
 {
     include '../Locates/Strings_Castellano.php';
     $this->ConectarBD();
-    $sql = "select * from HORAS_POSIBLES where  BLOQUE_FECHA ='".$this->BLOQUE_FECHA."' AND BLOQUE_HORARIO='".ConsultarIDHorario($this->BLOQUE_HORARIO)."'";
+    $sql = "select * from HORAS_POSIBLES where  BLOQUE_FECHA ='".$this->BLOQUE_FECHA."' OR BLOQUE_HORARIO='".ConsultarIDHorario($this->BLOQUE_HORARIO)."'";
 
 	$resultado = $this->mysqli->query($sql);
 
@@ -103,7 +103,7 @@ function Consultar()
 	function ConsultarTodo()
 	{
 		$this->ConectarBD();
-		$sql = "select * from HORAS_POSIBLES ORDER BY BLOQUE_ID";
+		$sql = "select * from HORAS_POSIBLES ORDER BY BLOQUE_FECHA, BLOQUE_HORAI";
 		if (!($resultado = $this->mysqli->query($sql))){
 			return 'Error en la consulta sobre la base de datos';
 		}
@@ -173,20 +173,20 @@ function Modificar($BLOQUE_ID)
 
     $result = $this->mysqli->query($sql);
     if ($result->num_rows == 1)
-    { //$sql = "select * from HORAS_POSIBLES where BLOQUE_HORARIO='".$this->BLOQUE_HORARIO."' AND BLOQUE_FECHA = '".$this->BLOQUE_FECHA."'  AND BLOQUE_ID!='".$BLOQUE_ID."' AND ((BLOQUE_HORAI>='".$this->BLOQUE_HORAI."' AND BLOQUE_HORAI<'".$this->BLOQUE_HORAF."') OR (BLOQUE_HORAI<'".$this->BLOQUE_HORAI."' AND BLOQUE_HORAF>'".$this->BLOQUE_HORAI."'))";
+    { $sql = "select * from HORAS_POSIBLES where BLOQUE_HORARIO='".$this->BLOQUE_HORARIO."' AND BLOQUE_FECHA = '".$this->BLOQUE_FECHA."'  AND BLOQUE_ID!='".$BLOQUE_ID."' AND BLOQUE_HORAI='".$this->BLOQUE_HORAI."' AND BLOQUE_HORAF='".$this->BLOQUE_HORAF."'";
 
-		//$result = $this->mysqli->query($sql);
-		//if ($result->num_rows === 0) {
+		$result = $this->mysqli->query($sql);
+		if ($result->num_rows === 0) {
 			$sql = "UPDATE HORAS_POSIBLES SET BLOQUE_HORARIO='". $this->BLOQUE_HORARIO."', BLOQUE_FECHA = '" . $this->BLOQUE_FECHA .  "', BLOQUE_HORAI='" . $this->BLOQUE_HORAI . "', BLOQUE_HORAF='" . $this->BLOQUE_HORAF . "', BLOQUE_DIA='" . date("w", strtotime($this->BLOQUE_FECHA)) . "' WHERE BLOQUE_ID = '" . $BLOQUE_ID . "'";
 
 			$this->mysqli->query($sql);
 
 
 			return "El BLOQUE se ha modificado con éxito";
-		//}
-		//else {
-		//	return 'El BLOQUE ya está ocupado';
-		//}
+		}
+		else {
+			return 'El BLOQUE ya está ocupado';
+		}
 	}
 
     else

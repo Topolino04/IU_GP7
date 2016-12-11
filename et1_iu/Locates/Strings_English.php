@@ -305,7 +305,7 @@ $strings = array(
 	// GESTION DE CLIENTES
         'CLIENTE_ID'=>'ID Customer',
 	'CLIENTE_DNI'=>'ID',
-	'CLIENTE_DNI'=>'Type*',
+
 	'Nota'=>'*E=External, S=Associate',
 	'CLIENTE_NOMBRE'=>'Name',
 	'CLIENTE_APELLIDOS'=>'Surname',
@@ -319,6 +319,7 @@ $strings = array(
 	'CLIENTE_COMENTARIOS'=>'Comments',
 	'CLIENTE_DOM'=>'Domiciliation Document',
 	'CLIENTE_LOPD'=>'DPOL Document',
+	'CLIENTE_TIPO'=>'Types*',
 	'Insertar Cliente'=>'Insert Customer',
 	'Modificar Cliente'=>'Edit Customer',
 	'El cliente se ha modificado con éxito'=>'Customer edited successfully',
@@ -335,6 +336,18 @@ $strings = array(
 	'Insertar_Externo'=>'Insert External',
 	'InsertarExterno'=>'InsertExternal',
 	'Gestion de Clientes'=>'Customers Management',
+	'HORARIO_RANGO1I'=>'Open Monday:',
+	'HORARIO_RANGO1F'=>'Close Monday:',
+	'HORARIO_RANGO2I'=>'Open Tuesday:',
+	'HORARIO_RANGO2F'=>'Close Tuesday:',
+	'HORARIO_RANGO3I'=>'Open Wednesday:',
+	'HORARIO_RANGO3F'=>'Close Wednesday:',
+	'HORARIO_RANGO4I'=>'Open Thursday:',
+	'HORARIO_RANGO4F'=>'Close Thursday:',
+	'HORARIO_RANGO5I'=>'Open Friday:',
+	'HORARIO_RANGO5F'=>'Close Friday:',
+	'HORARIO_RANGO6I'=>'Open Saturday:',
+	'HORARIO_RANGO6F'=>'Close Saturday:',
 	// GESTION DE CLIENTES
 	//HORARIO
 	'Gestion de Horario'=>'Timetable Management',
@@ -398,6 +411,7 @@ $strings = array(
 	'No hay bloques definidos para ese día en ese horario'=>'There is not possible hours',
 	'Continuar'=>'Continue',
 	'Gestion de Posibles'=>'Possible hours management',
+	'El HORARIO ya está ocupado'=>'Schedule already exists',
 
     
     //ENVIO NOTIFICACIONES->EMPLEADOS/CLIENTES
@@ -440,6 +454,10 @@ $strings = array(
     'Eventos'=>'Event',
     'Evento'=>'Select',
     'Notificacion sobre Eventos'=>'Event Notification',
+    'EVENTO_ID'=>'ID Even',
+    'EVENTO_NOMBRE'=>'Name',
+    'EVENTO_ORGANIZADOR'=>'Organizer',
+    'EVENTO_DESCRIPCION'=>'Description'
 
 
 )

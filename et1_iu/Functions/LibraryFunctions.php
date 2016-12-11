@@ -878,7 +878,12 @@ function createForm($listFields, $fieldsDef, $strings, $values, $required, $noed
                                 }
                             }
                         }
+                        if($fieldsDef[$i]['name']!=='BLOQUE_FECHA'){
                         $str .= "required" . " ></li>";
+                            }
+                            else{
+                                $str.=" ></li>";
+                            }
                         echo $str;
                         break;
                     case 'email':
@@ -2822,13 +2827,13 @@ function generarCalendario(){
             for ($i = 0; $i < $cont; $i++) {
 
                 ?>
-                <tr>
-                    <th rowspan=<?php echo count($lugares)?> class="lila"><?php echo $h[$i]; ?></th>
+                <tr >
+                    <th  rowspan=<?php echo count($lugares)?> class="lila"><?php echo $h[$i]; ?></th>
 
                 <?php
                 for($u=0;$u<count($lugares);$u++){
                     salvadora($ho[$i],ConsultarIDLugar($lugares[$u]),'1',$rango);
-                    ?> <td><?php echo $lugares[$u] ?></td>
+                    ?> <td class="verde"><b><?php echo $lugares[$u]  ?></b></td>
 
 
                     <td><?php   echo generarLinksCalendario2( salvadora($ho[$i],ConsultarIDLugar($lugares[$u]),'1',$rango)) ?></td>
@@ -3325,7 +3330,7 @@ function infoActividad($ACTIVIDAD_ID){
     $result = $mysqli->query($sql);
     $profesores=array();
     while($profesor=$result->fetch_array()){
-        array_push($profesores, consultarNomEmp($profesor['EMP_USER']));
+        array_push($profesores, $profesor['EMP_USER']);
     }
     $sql = "SELECT CLIENTE_ID from CLIENTE_INSCRIPCION_ACTIVIDAD WHERE ACTIVIDAD_ID='".$ACTIVIDAD_ID."'";
     $result = $mysqli->query($sql);
@@ -4261,5 +4266,48 @@ function sePuedeModificar($FACTURA_ID)
          }
      }
 
+     function ConsultarEventos(){
+         $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+         if ($mysqli->connect_errno) {
+             echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+         }
+           $sql = "SELECT * FROM EVENTO ";
+         if (!$resultado = $mysqli->query($sql)) {
+            return 'No se ha podido conectar con la base de datos';
+        } else {
+            $toret = array();
+            $i = 0;
+            while ($fila = $resultado->fetch_array()) {
+                $toret[$i] = $fila;
+                $i++;
+            }
+            return $toret;
+        }
+     }
+     
+     
+      function ConsultarClientesEvento($EVENTO_ID) {
+        $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+         if ($mysqli->connect_errno) {
+             echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+         }
+        $sql = "SELECT CLIENTE_ID, CLIENTE_NOMBRE, CLIENTE_APELLIDOS, CLIENTE_CORREO FROM CLIENTE WHERE CLIENTE_ID IN (SELECT CLIENTE_ID FROM CLIENTE_PARTICIPA_EVENTO WHERE EVENTO_ID = '" . $EVENTO_ID . "')";
+        if (!($resultado = $mysqli->query($sql))) {
+            return 'Error en la consulta sobre la base de datos';
+        } else {
+
+            $toret = array();
+            $i = 0;
+
+            while ($fila = $resultado->fetch_array()) {
+
+
+                $toret[$i] = $fila;
+                $i++;
+            }
+        }
+        return $toret;
+        
+    }
 
 ?>

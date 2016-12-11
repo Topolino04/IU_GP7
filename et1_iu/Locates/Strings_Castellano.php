@@ -242,6 +242,7 @@ $strings = array(
     'Se ha producido un error en la modificacion de la actividad' => 'Se ha producido un error en la modificación de la actividad',
     'Añadida con exito' => 'Añadida con exito',
     'Gestión de Actividades' => 'Gestión de Actividades',
+'Gestión de Actividades2' => 'Gestión de Actividades(Con calendario)',
     'Consultar pagina' => 'Consultar página',
     'ACTIVIDAD_ID' => 'Identificador Actividad',
     'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
@@ -366,8 +367,8 @@ $strings = array(
 	'El BLOQUE ha sido borrado correctamente'=>'El bloque ha sido borrado correctamente',
 	'Modificar Bloque'=>'Modificar Bloque',
 	'El BLOQUE se ha modificado con éxito'=>'El bloque se ha modificado con éxito',
-	'Consultar Bloque'=>'Consultar Bloque',
-	'El BLOQUE ya está ocupado'=>'El bloque ya está ocupado',
+	'Consultar Bloque'=>'Consultar Hora Posible',
+	'El BLOQUE ya está ocupado'=>'Ya existe esa hora posible',
 	'BLOQUE_ACT1'=>'Actividad 1',
 	'BLOQUE_ACT2'=>'Actividad 2',
 	'BLOQUE_ACT3'=>'Actividad 3',
@@ -405,7 +406,8 @@ $strings = array(
 	'ACTIVIDAD_BLOQUE'=>'Seleccione horas posibles:',
 	'No hay bloques definidos para ese día en ese horario'=>'No hay bloques definidos para ese día en ese horario',
 	'Continuar'=>'Continuar',
-	'Gestion de Posibles'=>'Gestión de horas posibles',
+	'Gestion de Posibles'=>'Gestión de Horas Posibles',
+	'El HORARIO ya está ocupado'=>'El horario ya existe',
 	
 
     
@@ -432,7 +434,7 @@ $strings = array(
     'NOTIFICACION_FECHAHORA2'=>'Fecha Fin',
     'NOTIFICACION_DESTINATARIO'=>'Destinatario',
     'Consultar Notificacion'=>'Filtrar Notificación',
-      'Mensaje'=>'Mensaje',
+    'Mensaje'=>'Mensaje',
     'Redactar Email'=>'Redactar Email',
     'Enviar'=>'Enviar',
     'Notificacion enviada con exito'=>'Notificacion enviada con éxito',
@@ -454,6 +456,10 @@ $strings = array(
     'Eventos'=>'Evento',
     'Evento'=>'Seleccionar',
     'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+    'EVENTO_ID'=>'ID Evento',
+    'EVENTO_NOMBRE'=>'Nombre',
+    'EVENTO_ORGANIZADOR'=>'Organizador',
+    'EVENTO_DESCRIPCION'=>'Descripción'
 
 
 

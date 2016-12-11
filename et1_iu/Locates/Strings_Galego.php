@@ -328,6 +328,18 @@ $strings = array(
 	'Insertar_Externo'=>'Insertar Externo',
 	'InsertarExterno'=>'InsertarExterno',
 	'Gestion de Clientes'=>'Xestión de Clientes',
+	'HORARIO_RANGO1I'=>'Apertura Luns:',
+	'HORARIO_RANGO1F'=>'Peche Luns:',
+	'HORARIO_RANGO2I'=>'Apertura Martes:',
+	'HORARIO_RANGO2F'=>'Peche Martes:',
+	'HORARIO_RANGO3I'=>'Apertura Mércoles:',
+	'HORARIO_RANGO3F'=>'Peche Mércoles:',
+	'HORARIO_RANGO4I'=>'Apertura Xoves:',
+	'HORARIO_RANGO4F'=>'Peche Xoves:',
+	'HORARIO_RANGO5I'=>'Apertura Venres:',
+	'HORARIO_RANGO5F'=>'Peche Venres:',
+	'HORARIO_RANGO6I'=>'Apertura Sábado:',
+	'HORARIO_RANGO6F'=>'Peche Sábado:',
 	// GESTION DE CLIENTES
 	//HORARIO
 	'Gestion de Horario'=>'Xestión de Horario',
@@ -349,8 +361,8 @@ $strings = array(
 	'El BLOQUE ha sido borrado correctamente'=>'O bloque borrouse correctamente',
 	'Modificar Bloque'=>'Modificar Bloque',
 	'El BLOQUE se ha modificado con éxito'=>'O bloque modificouse con éxito',
-	'Consultar Bloque'=>'Consultar Bloque',
-	'El BLOQUE ya está ocupado'=>'O bloque xa está ocupado',
+	'Consultar Bloque'=>'Consultar Hora Posible',
+	'El BLOQUE ya está ocupado'=>'A hora posible xa existe',
 	'BLOQUE_ACT1'=>'Actividade 1',
 	'BLOQUE_ACT2'=>'Actividade 2',
 	'BLOQUE_ACT3'=>'Actividade 3',
@@ -391,6 +403,7 @@ $strings = array(
 	'No hay bloques definidos para ese día en ese horario'=>'Non hai bloques definidos para ese día nese horario',
 	'Continuar'=>'Continuar',
 	'Gestion de Posibles'=>'Xestión de horas posibles',
+	'El HORARIO ya está ocupado'=>'O horario xa existe',
 
 	
 
@@ -435,6 +448,10 @@ $strings = array(
     'Eventos'=>'Evento',
     'Evento'=>'Seleccionar',
     'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
+    'EVENTO_ID'=>'ID Evento',
+    'EVENTO_NOMBRE'=>'Nome',
+    'EVENTO_ORGANIZADOR'=>'Organizador',
+    'EVENTO_DESCRIPCION'=>'Descrición'
 
 )
 ?>

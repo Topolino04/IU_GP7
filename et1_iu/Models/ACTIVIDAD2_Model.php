@@ -70,7 +70,8 @@ class actividad
 			}else{
 					if ($result->num_rows == 0){
 						$sql = "INSERT INTO ACTIVIDAD (ACTIVIDAD_NOMBRE, ACTIVIDAD_PRECIO, ACTIVIDAD_DESCRIPCION, CATEGORIA_ID) VALUES ('". $this->ACTIVIDAD_NOMBRE ."','". $this->ACTIVIDAD_PRECIO ."','". $this->ACTIVIDAD_DESCRIPCION ."','". $this->CATEGORIA_ID ."')";
-						$this->mysqli->query($sql);
+
+                        $this->mysqli->query($sql);
                         $sql = "SELECT ACTIVIDAD_ID FROM ACTIVIDAD WHERE ACTIVIDAD_NOMBRE = '".$this->ACTIVIDAD_NOMBRE."'";
                         $result= $this->mysqli->query($sql);
                         $ID=$result->fetch_array();
