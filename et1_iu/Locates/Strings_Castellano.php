@@ -242,6 +242,7 @@ $strings = array(
     'Se ha producido un error en la modificacion de la actividad' => 'Se ha producido un error en la modificación de la actividad',
     'Añadida con exito' => 'Añadida con exito',
     'Gestión de Actividades' => 'Gestión de Actividades',
+'Gestión de Actividades2' => 'Gestión de Actividades(Con calendario)',
     'Consultar pagina' => 'Consultar página',
     'ACTIVIDAD_ID' => 'Identificador Actividad',
     'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
