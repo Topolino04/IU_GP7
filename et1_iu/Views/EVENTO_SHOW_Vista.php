@@ -30,7 +30,7 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 	<h3>
 
 	<br><br>
-	<form action='../../../../Downloads/iu/EVENTO_Controller.php' method='post'>
+	<form action='../Controllers/EVENTO_Controller.php' method='post'>
 		<ul class="form-style-1">
 		<?php
 		createForm($lista,$DefForm,$strings,$values='',false,false);
@@ -40,7 +40,7 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 	</form>
 	<br>
 <?php
-        	echo '>' . $strings['Volver'] . '</a>';
+        	echo '<a>' . $strings['Volver'] . '</a>';
 ?>
 
 	</h3>
