@@ -26,7 +26,6 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 
 function get_data_form(){
     include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-    $semana=array($strings['Domingo'],$strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']);
 
 //Recoge la información del formulario
 
@@ -52,10 +51,10 @@ function get_data_form(){
         $EVENTO_HORARIO=null;
     }
 
-    if(isset($_REQUEST['EVENTO_DIA'])){
-        $EVENTO_DIA = $_REQUEST['EVENTO_DIA'];
+    if(isset($_REQUEST['EVENTO_FECHA'])){
+        $EVENTO_FECHA = $_REQUEST['EVENTO_FECHA'];
     }else{
-        $EVENTO_DIA=null;
+        $EVENTO_FECHA=null;
     }
 
     if(isset($_REQUEST['EVENTO_NOMBRE'])){
@@ -75,7 +74,7 @@ function get_data_form(){
     }
     $accion = $_REQUEST['accion'];
 
-    $evento = new evento($EVENTO_NOMBRE,$EVENTO_DESCRIPCION,$EVENTO_LUGAR,$EVENTO_ORGANIZADOR,$EVENTO_BLOQUE,$EVENTO_HORARIO,$EVENTO_DIA);
+    $evento = new evento($EVENTO_NOMBRE,$EVENTO_DESCRIPCION,$EVENTO_LUGAR,$EVENTO_ORGANIZADOR,$EVENTO_BLOQUE,$EVENTO_HORARIO,$EVENTO_FECHA);
 
     return $evento;
 }
@@ -87,7 +86,6 @@ if (!isset($_REQUEST['accion'])){
 Switch ($_REQUEST['accion']) {
     case $strings['Continuar']:
     case $strings['Insertar']:
-        $semana=array($strings['Domingo'],$strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']);
 
 //Inserción de eventoes
         if (!isset($_REQUEST['EVENTO_NOMBRE'])) {

@@ -43,15 +43,6 @@ $Form = array(
         'required' => 'true',
         'readonly' => false
     ),
-    4=>array(
-        'type' => 'select',
-        'name' => 'EVENTO_DIA',
-        'multiple' => 'false',
-        'value' => '',
-        'options' => array($strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado'],$strings['Domingo']),
-        'required' => 'true',
-        'readonly' => false
-    )
 );
 
 $Form2=AñadirHorarios3($Form);

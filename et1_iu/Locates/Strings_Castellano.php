@@ -453,6 +453,7 @@ $strings = array(
 	'Invitados'=>'Invitados',
     'Invitado'=>'Invitado',
 	'Asignacion de invitados correcta' => 'Asignacion de invitados correcta',
+	'FECHA' => 'FECHA',
 
     //ENVIO NOTIFICACIONES ->EVENTOS
     'Eventos'=>'Evento',

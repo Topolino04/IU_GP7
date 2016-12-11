@@ -19,7 +19,7 @@ class Evento_Add
                 include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
                 include '../Functions/EVENTODefForm.php';
 
-                $lista = array('EVENTO_NOMBRE','EVENTO_LUGAR','EVENTO_HORARIO','EVENTO_DIA');
+                $lista = array('EVENTO_NOMBRE','EVENTO_LUGAR','EVENTO_HORARIO','EVENTO_FECHA');
 
 
                 ?>
@@ -36,7 +36,9 @@ class Evento_Add
                     <ul class="form-style-1">
                         <?php
                         createForm($lista,$DefForm,$strings,'',true,false);
-                        ?>
+                        echo $strings['FECHA'];
+                        ?><br>
+                        <input type = "date" name = "EVENTO_FECHA">
                         <input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Continuar'] ?>>
                 </form>
                 <br>

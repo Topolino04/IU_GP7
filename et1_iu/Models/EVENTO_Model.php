@@ -11,16 +11,14 @@ class evento
     var $EVENTO_ORGANIZADOR;
     var $EVENTO_BLOQUE;
     var $EVENTO_HORARIO;
-    var $EVENTO_DIA;
+    var $EVENTO_FECHA;
 
-    function __construct($EVENTO_NOMBRE, $EVENTO_DESCRIPCION, $EVENTO_LUGAR, $EVENTO_ORGANIZADOR, $EVENTO_BLOQUE, $EVENTO_HORARIO, $EVENTO_DIA)
+    function __construct($EVENTO_NOMBRE, $EVENTO_DESCRIPCION, $EVENTO_LUGAR, $EVENTO_ORGANIZADOR, $EVENTO_BLOQUE, $EVENTO_HORARIO, $EVENTO_FECHA)
     {include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-        $semana=array($strings['Domingo'],$strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']);
-
 
         if (isset($EVENTO_BLOQUE) && $EVENTO_BLOQUE != '' ) {
             $horas = explode("-", $EVENTO_BLOQUE);
-            $this->EVENTO_BLOQUE= consultarBloques($EVENTO_HORARIO, array_search($EVENTO_DIA, $semana), $horas[0], $horas[1])[0];
+            $this->EVENTO_BLOQUE= consultarBloquesFecha($EVENTO_HORARIO, $EVENTO_FECHA, $horas[0], $horas[1])[0];
         }
         else {
             $this->EVENTO_BLOQUE=$EVENTO_BLOQUE;
@@ -30,7 +28,7 @@ class evento
         $this->EVENTO_DESCRIPCION = $EVENTO_DESCRIPCION;
         $this->EVENTO_LUGAR=$EVENTO_LUGAR;
         $this->EVENTO_ORGANIZADOR=$EVENTO_ORGANIZADOR;
-        $this->EVENTO_DIA=$EVENTO_DIA;
+        $this->EVENTO_FECHA=$EVENTO_FECHA;
         $this->EVENTO_HORARIO=$EVENTO_HORARIO;
 
     }
@@ -55,21 +53,21 @@ class evento
         }else{
             if ($result->num_rows == 0){
                 $sql = "INSERT INTO EVENTO (EVENTO_FISIO,EVENTO_NOMBRE,EVENTO_ORGANIZADOR, EVENTO_DESCRIPCION) VALUES (0,'". $this->EVENTO_NOMBRE ."','{$this->EVENTO_ORGANIZADOR}','". $this->EVENTO_DESCRIPCION ."');";
-                //echo $sql."<br>";
+                echo $sql."<br>";
                 $this->mysqli->query($sql);
 
                 $sql = "SELECT EVENTO_ID FROM EVENTO WHERE EVENTO_NOMBRE = '".$this->EVENTO_NOMBRE."'";
-                //echo $sql."<br>";
+                echo $sql."<br>";
                 $result= $this->mysqli->query($sql);
                 $ID=$result->fetch_array();
 
                 $sql="INSERT INTO EVENTO_ALBERGA_LUGAR (EVENTO_ID, LUGAR_ID) VALUES ('".$ID['EVENTO_ID']."','".ConsultarIDLugar($this->EVENTO_LUGAR)."');";
-                //echo $sql."<br>";
+                echo $sql."<br>";
                 if( !$this->mysqli->query($sql))
                     return 'Error en la consulta sobre la base de datos';
 
                 $sql = "INSERT INTO CALENDARIO (CALENDARIO_EVENTO,CALENDARIO_BLOQUE) VALUES ('" . $ID['EVENTO_ID'] . "','" . $this->EVENTO_BLOQUE . "');";
-                //echo $sql."<br>";
+                echo $sql."<br>";
                 if( !$this->mysqli->query($sql))
                     return 'Error en la consulta sobre la base de datos';
 
@@ -151,7 +149,7 @@ class evento
         $result = $this->mysqli->query($sql);
         if ($result->num_rows == 1){
             $sql = "UPDATE EVENTO SET EVENTO_NOMBRE ='".$this->EVENTO_NOMBRE."',EVENTO_DESCRIPCION ='".$this->EVENTO_DESCRIPCION."' WHERE EVENTO_ID ='".$EVENTO_ID."'";
-            //echo $sql;
+            echo $sql;
             if (!($resultado = $this->mysqli->query($sql))){
                 return "Error en la consulta sobre la base de datos";
             }
@@ -189,7 +187,7 @@ class evento
 			FROM `CLIENTE`
 			WHERE 1
             ";
-        //echo $sql;
+        echo $sql;
         if (!($resultado = $this->mysqli->query($sql))){
             return 'Error en la consulta sobre la base de datos';
         }
@@ -213,7 +211,7 @@ class evento
         }
         $sql = trim($sql, ',');
         $sql = $sql.";";
-       //echo $sql;
+       echo $sql;
         if($result = $this->mysqli->multi_query($sql))
             return "Asignacion de invitados correcta";
         else

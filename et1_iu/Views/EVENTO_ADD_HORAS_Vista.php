@@ -19,20 +19,14 @@ class Evento_Add_Horas
         <h2>
         <?php
         include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-
-
         include '../Functions/EVENTODefForm.php';
 
-        $semana=array($strings['Domingo'],$strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']);
-    ;
         $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
-
-
         if ($mysqli->connect_errno) {
             echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
-        $sql = "SELECT DISTINCT BLOQUE_HORAI, BLOQUE_HORAF from HORAS_POSIBLES WHERE BLOQUE_DIA='".array_search($this->evento->EVENTO_DIA,$semana)."' AND BLOQUE_HORARIO='".ConsultarIDHorario($this->evento->EVENTO_HORARIO)."'";
-
+        $sql = "SELECT DISTINCT BLOQUE_HORAI, BLOQUE_HORAF from HORAS_POSIBLES WHERE BLOQUE_FECHA='".($this->evento->EVENTO_FECHA)."' AND BLOQUE_HORARIO='".ConsultarIDHorario($this->evento->EVENTO_HORARIO)."'";
+        //echo $sql;
         $result = $mysqli->query($sql);
         if($result->num_rows===0){
             new Mensaje('No hay bloques definidos para ese día en ese horario','../Controllers/EVENTO_Controller.php');
@@ -43,7 +37,6 @@ class Evento_Add_Horas
             while ($tipo = $result->fetch_array()) {
                 array_push($str, $tipo['BLOQUE_HORAI'] . "-" . $tipo['BLOQUE_HORAF']);
             }
-
 
             ?>
             </h2>
@@ -60,9 +53,9 @@ class Evento_Add_Horas
 
                         <?= $strings['EVENTO_NOMBRE'] ?> <input type="text" name="EVENTO_NOMBRE"    value='<?= $this->evento->EVENTO_NOMBRE ?>' readonly><br><br>
                         <?= $strings['LUGARES']     ?>   <input type="text" name="EVENTO_LUGAR"     value='<?= $this->evento->EVENTO_LUGAR  ?>' readonly><br><br>
-                        <?= $strings['EVENTO_HORARIO'] ?><input type="text" name="EVENTO_HORARIO"   value=<?= $this->evento->EVENTO_HORARIO ?> readonly><br><br>
-                        <?= $strings['EVENTO_DIA'] ?>    <input type="text" name="EVENTO_DIA"       value=<?= $this->evento->EVENTO_DIA ?> readonly><br><br>
-                        <?= $strings['EVENTO_BLOQUE'] ?> <select name="EVENTO_BLOQUE">
+                        <?= $strings['EVENTO_HORARIO'] ?><input type="text" name="EVENTO_HORARIO"   value=<?= $this->evento->EVENTO_HORARIO ?>  readonly><br><br>
+                        <?= $strings['FECHA'] ?>         <input type="text" name="EVENTO_FECHA"     value=<?= $this->evento->EVENTO_FECHA   ?>  readonly><br><br>
+                        <?= $strings['EVENTO_BLOQUE'] ?> <select            name="EVENTO_BLOQUE">
                             <?php for ($i = 0; $i < count($str); $i++) {
                                 echo $str[$i]."<option  value='" . $str[$i] . "'> {$str[$i]} </option>";
                             } ?>
