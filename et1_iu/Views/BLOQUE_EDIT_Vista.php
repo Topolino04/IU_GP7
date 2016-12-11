@@ -45,7 +45,7 @@ class BLOQUE_Modificar{
 
 
 
-					<input type='submit' name='accion' onclick="return valida_envia_BLOQU()" value=<?php echo $strings['Modificar'] ?>>
+					<input type='submit' name='accion' onclick="return valida_envia_BLOQUE()" value=<?php echo $strings['Modificar'] ?>>
 				</ul>
 				</form>
 				<?php
