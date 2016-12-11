@@ -1991,8 +1991,8 @@ function añadirFuncionalidades($NOM) {
                 case "GESTION ACTIVIDADES":
                     ?><a style="font-size:20px;" href='../Controllers/ACTIVIDAD_Controller.php'><?php echo $strings['Gestión de Actividades'] ?></a><br><br> <?php
                     break;
-                case "GESTION ACTIVIDADES2":
-                    ?><a style="font-size:20px;" href='../Controllers/ACTIVIDAD2_Controller.php'><?php echo $strings['Gestión de Actividades2'] ?></a><br><br> <?php
+                case "GESTION CATEGORIAS":
+                    ?><a style="font-size:20px;" href='../Controllers/CATEGORIA_Controller.php'><?php echo $strings['Gestion de Categorias'] ?></a><br><br> <?php
                     break;
                 case "HACER CAJA":
                     ?><a style="font-size:20px;" href='../Controllers/CAJA_Controller.php'><?php echo $stringsCF['Hacer Caja'] ?></a><br><br> <?php
