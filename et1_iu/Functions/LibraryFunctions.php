@@ -2021,6 +2021,12 @@ function añadirFuncionalidades($NOM) {
                 case "GESTION DESCUENTOS":
                     ?><a style="font-size:20px;" href='../Controllers/DESCUENTOS_Controller.php'><?php echo $strings['Gestion de descuentos'] ?></a><br><br> <?php
                     break;
+                case "GESTION LUGARES":
+                    ?><a style="font-size:20px;" href='../Controllers/LUGAR_Controller.php'><?php echo $strings['Gestion de Lugares'] ?></a><br><br> <?php
+                    break;
+                case "GESTION EVENTOS":
+                    ?><a style="font-size:20px;" href='../Controllers/EVENTO_Controller.php'><?php echo $strings['Gestion de Eventos'] ?></a><br><br> <?php
+                    break;
 
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
@@ -2778,17 +2784,17 @@ function generarCalendario(){
             ?><table class="horario" style="font-size: 12px" border = 1>
             <tr>
                 <th colspan="2"></th>
-                <th class="azul borde_especial" ><?php  echo $strings['Lunes'] ?></th>
+                <th class="azul borde_especial" ><?php echo $strings['Lunes'] ?></th>
 
-                <th class="azul borde_especial"><?php  echo$strings['Martes'] ?></th>
+                <th class="azul borde_especial"><?php  echo $strings['Martes'] ?></th>
 
-                <th class="azul borde_especial"><?php  echo$strings['Miercoles'] ?></th>
+                <th class="azul borde_especial"><?php  echo $strings['Miercoles'] ?></th>
 
-                <th class="azul borde_especial"><?php  echo$strings['Jueves'] ?></th>
+                <th class="azul borde_especial"><?php  echo $strings['Jueves'] ?></th>
 
-                <th class="azul borde_especial"><?php  echo$strings['Viernes'] ?></th>
+                <th class="azul borde_especial"><?php  echo $strings['Viernes'] ?></th>
 
-                <th class="azul borde_especial"><?php  echo$strings['Sabado'] ?></th>
+                <th class="azul borde_especial"><?php  echo $strings['Sabado'] ?></th>
             </tr><?php
 
             $menorhora=$calendario['lunes'][0]['BLOQUE_HORAI'];
@@ -3615,6 +3621,39 @@ function AñadirHorarios2($array) {
     $array[count($array)] = $añadido;
     return $array;
 }
+function AñadirHorarios3($array)
+{
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT HORARIO_NOMBRE from HORARIO';
+
+    $result = $mysqli->query($sql);
+
+
+    $str = array();
+    while ($tipo = $result->fetch_array()) {
+        array_push($str, $tipo['HORARIO_NOMBRE']);
+    }
+
+
+    $añadido = array(
+        'type' => 'select',
+        'name' => 'EVENTO_HORARIO',
+        'multiple' => 'false',
+        'value' => '',
+        'options' => $str,
+        'required' => 'true',
+        'readonly' => 'false'
+    );
+
+
+    $array[count($array)] = $añadido;
+    return $array;
+}
 function ConsultarIDHorario($HORARIO_NOMBRE) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
@@ -3641,9 +3680,6 @@ function ConsultarNomHorario($HORARIO_ID) {
 function AñadirLug($array) {
     $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
 
-
-
-
     if ($mysqli->connect_errno) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -3657,6 +3693,32 @@ function AñadirLug($array) {
         $array[count($array)] = array(
             'type' => 'checkbox',
             'name' => 'ACTIVIDAD_LUGAR[]',
+            'value' => $tipo['LUGAR_NOMBRE'],
+            'size' => 20,
+            'required' => true,
+            'pattern' => '',
+            'validation' => '',
+            'readonly' => false);
+    }
+
+    return $array;
+}
+function AñadirLug2($array) {
+    $mysqli = new mysqli("localhost", "iu2016", "iu2016", "IU2016");
+
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = 'SELECT LUGAR_NOMBRE from LUGAR';
+
+
+    $result = $mysqli->query($sql);
+
+
+    while ($tipo = $result->fetch_array()) {
+        $array[count($array)] = array(
+            'type' => 'checkbox',
+            'name' => 'EVENTO_LUGAR[]',
             'value' => $tipo['LUGAR_NOMBRE'],
             'size' => 20,
             'required' => true,

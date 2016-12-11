@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8b1cc9ee-fdb1-4f81-8e25-ec82bc1bc47d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/Controllers/DESCUENTOS_Controller.php" afterPath="$PROJECT_DIR$/et1_iu/Controllers/DESCUENTOS_Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/Functions/LibraryFunctions.php" afterPath="$PROJECT_DIR$/et1_iu/Functions/LibraryFunctions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/IU2016.sql" afterPath="$PROJECT_DIR$/et1_iu/IU2016.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/Locates/Strings_Castellano.php" afterPath="$PROJECT_DIR$/et1_iu/Locates/Strings_Castellano.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/Models/DESCUENTO_Model.php" afterPath="$PROJECT_DIR$/et1_iu/Models/DESCUENTO_Model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_ADD_Vista.php" afterPath="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_ADD_Vista.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_SHOW_CLIENTE_Vista.php" afterPath="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_SHOW_CLIENTE_Vista.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Ismael\PhpstormProjects\IU_GP7\exportToHTML" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="EVENTO_Model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Models/EVENTO_Model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="501">
+              <caret line="203" column="5" lean-forward="true" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
+              <folding>
+                <marker date="1481431160806" expanded="true" signature="1500:1569" ph="SELECT * FRO... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="1796:1986" ph="INSERT INTO EVENTO... " />
+                <marker date="1481431160806" expanded="true" signature="2093:2170" ph="SELECT EVENT... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="2327:2457" ph="INSERT INTO EVENTO_ALBERGA_LUGAR... " />
+                <marker date="1481431160806" expanded="true" signature="2642:2769" ph="INSERT INTO CALENDARIO... " />
+                <marker date="1481431160806" expanded="true" signature="3231:3300" ph="SELECT * FRO... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="3668:3737" ph="SELECT * fro... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="3837:3904" ph="DELETE FROM " />
+                <marker date="1481431160806" expanded="true" signature="4219:4288" ph="select * fro... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="4651:4706" ph="select * fro... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="4812:4957" ph="UPDATE EVENT... " />
+                <marker date="1481431160806" expanded="true" signature="5403:5465" ph="SELECT * FRO... EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="5951:5959" ph="SELECT * FRO... CLIENTE_PARTICIPA_EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="5951:6188" ph="SELECT *,( S... " />
+                <marker date="1481431160806" expanded="true" signature="5951:6201" ph="SELECT * FRO... CLIENTE_PARTICIPA_EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="5962:6051" ph="SELECT COUNT... CLIENTE_PARTICIPA_EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="5962:6134" ph="SELECT COUNT... CLIENTE_PARTICIPA_EVENTO" />
+                <marker date="1481431160806" expanded="true" signature="6687:6767" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENTO_SHOW_INVITADOS_Vista.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_SHOW_INVITADOS_Vista.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+              <folding>
+                <marker date="1481432223119" expanded="true" signature="908:937" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="971:1008" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="1786:1924" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="1807:1924" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="2070:2203" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="2556:2888" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="4827:5013" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="5270:5297" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="5401:5456" ph="..." />
+                <marker date="1481432223119" expanded="true" signature="5417:5451" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DESCUENTOS_Controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Controllers/DESCUENTOS_Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1258">
+              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENTO_EDIT_Vista.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_EDIT_Vista.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENTO_DEFAULT_Vista.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_DEFAULT_Vista.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="102" column="76" lean-forward="false" selection-start-line="102" selection-start-column="76" selection-end-line="102" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENTO_DELETE_Vista.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_DELETE_Vista.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="20" column="53" lean-forward="false" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Strings_Castellano.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Locates/Strings_Castellano.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="535">
+              <caret line="446" column="57" lean-forward="true" selection-start-line="446" selection-start-column="57" selection-end-line="446" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENTO_Controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Controllers/EVENTO_Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="200" column="79" lean-forward="false" selection-start-line="200" selection-start-column="79" selection-end-line="200" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENTODefForm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/et1_iu/Functions/EVENTODefForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>admin</find>
+      <find>admin',</find>
+      <find>LUGAR</find>
+      <find>admin', 6</find>
+      <find>admin', 60</find>
+      <find>LUNES</find>
+      <find>gestion de lugares</find>
+      <find>Gestion de eventos</find>
+      <find>'lugares'</find>
+      <find>actividad2</find>
+      <find>EVENTO</find>
+      <find>actividad_bloque</find>
+      <find>el evento</find>
+      <find>Actividad</find>
+      <find>ACTIVIDAD</find>
+      <find>categoria</find>
+      <find>precio</find>
+      <find>ON DELETE</find>
+      <find>ALTER TABLE `CALENDARIO`</find>
+      <find>La evento</find>
+      <find>evento</find>
+      <find>añadi</find>
+      <find>levento</find>
+      <find>`CALENDARIO`</find>
+      <find>actividad</find>
+      <find>borrada</find>
+      <find>PROFESORES</find>
+      <find>DESCUENTO</find>
+      <find>EVENTO_ID</find>
+      <find>div</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>LUGAR</replace>
+      <replace>Evento</replace>
+      <replace>evento</replace>
+      <replace>l evento</replace>
+      <replace>ORGANIZADOR</replace>
+      <replace>EVENTO</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_OCULTAS_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Models/ACTIVIDAD_Model.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_ADD_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_EDIT_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Controllers/Gestion_de_Descuentos_Controller.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_DELETE_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_EDIT_Vista.php" />
+        <option value="$USER_HOME$/Downloads/iu/EVENTO_Model.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_ADD_Vista.php" />
+        <option value="$USER_HOME$/Downloads/iu/IU2016.sql" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/EVENTO_ADD_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Functions/LibraryFunctions.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Functions/EVENTODefForm.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/EVENTO_ADD_HORAS_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/EVENTO_DELETE_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/IU2016.sql" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/EVENTO_EDIT_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/EVENTO_DEFAULT_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Locates/Strings_Castellano.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Models/DESCUENTO_Model.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Controllers/DESCUENTOS_Controller.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Models/EVENTO_Model.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/DESCUENTO_SHOW_CLIENTE_Vista.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Controllers/EVENTO_Controller.php" />
+        <option value="$PROJECT_DIR$/et1_iu/Views/EVENTO_SHOW_INVITADOS_Vista.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="et1_iu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="et1_iu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IU_GP7" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="et1_iu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Derby (Remote)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ismael\PhpstormProjects\IU_GP7\et1_iu\Functions" />
+      <recent name="C:\Users\Ismael\PhpstormProjects\IU_GP7\et1_iu\Views" />
+      <recent name="C:\Users\Ismael\PhpstormProjects\IU_GP7\et1_iu\Controllers" />
+      <recent name="C:\Users\Ismael\PhpstormProjects\IU_GP7\et1_iu\Models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP">
+      <method />
+    </configuration>
+    <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="FirefoxRemoteDebugType" factoryName="Firefox Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8b1cc9ee-fdb1-4f81-8e25-ec82bc1bc47d" name="Default" comment="" />
+      <created>1481317618880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1481317618880</updated>
+      <workItem from="1481317622795" duration="431000" />
+      <workItem from="1481318229660" duration="142000" />
+      <workItem from="1481387440025" duration="31298000" />
+    </task>
+    <task id="LOCAL-00001" summary="merge de Categorias">
+      <created>1481390122771</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1481390122771</updated>
+    </task>
+    <task id="LOCAL-00002" summary="renombrando controlador DESCUENTOS_Controller.php">
+      <created>1481408132253</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1481408132253</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="31871000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18017058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="merge de Categorias" />
+    <MESSAGE value="renombrando controlador DESCUENTOS_Controller.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="renombrando controlador DESCUENTOS_Controller.php" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_OCULTAS_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_OCULTAS_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_OCULTAS_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Functions/CLIENTE_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_EDIT_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD_ADD_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Models/ACTIVIDAD_Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4420">
+          <caret line="260" column="5" lean-forward="false" selection-start-line="260" selection-start-column="5" selection-end-line="260" selection-end-column="5" />
+          <folding>
+            <marker date="1481389913568" expanded="true" signature="1020:1102" ph="SELECT * FRO... ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="1337:1578" ph="INSERT INTO ACTIVIDAD... " />
+            <marker date="1481389913568" expanded="true" signature="1982:2112" ph="SELECT * FRO... ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="2870:2958" ph="UPDATE ACTIV... " />
+            <marker date="1481389913568" expanded="true" signature="3849:3931" ph="select * fro... ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="4292:4360" ph="select * fro... ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="4467:4525" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="4779:5086" ph="UPDATE ACTIV... " />
+            <marker date="1481389913568" expanded="true" signature="5524:5918" ph="SELECT ACTIV... LUGAR" />
+            <marker date="1481389913568" expanded="true" signature="6415:6809" ph="SELECT ACTIV... LUGAR" />
+            <marker date="1481389913568" expanded="true" signature="7270:7472" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481389913568" expanded="true" signature="7373:7471" ph="SELECT CLIEN... CLIENTE_ASISTE_ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="7937:8083" ph="SELECT * FRO... ACTIVIDAD" />
+            <marker date="1481389913568" expanded="true" signature="8576:8599" ph="SELECT * FRO... ACTIVIDAD" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/DESCUENTO_EDIT_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="33" column="74" lean-forward="false" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/DESCUENTO_DELETE_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Controllers/Gestion_de_Descuentos_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="55" column="31" lean-forward="false" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/DEFAULT_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="90" column="29" lean-forward="true" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/iu/Strings_Castellano.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5890">
+          <caret line="471" column="4" lean-forward="true" selection-start-line="471" selection-start-column="4" selection-end-line="471" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/DESCUENTO_ADD_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/iu/IU2016.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="570" column="0" lean-forward="false" selection-start-line="570" selection-start-column="0" selection-end-line="579" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Strings_Castellano.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="206" column="39" lean-forward="true" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_SHOW_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Controllers/ACTIVIDAD2_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="157" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD2_SHOW_ALL_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD2_ADD_HORAS_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="82" column="84" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="1" />
+          <folding>
+            <marker date="1481387665313" expanded="true" signature="862:1082" ph="SELECT DISTI... HORAS_POSIBLES" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD2_ADD_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Functions/ACTIVIDAD2DefForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Functions/LibraryFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="3623" column="24" lean-forward="false" selection-start-line="3623" selection-start-column="24" selection-end-line="3623" selection-end-column="24" />
+          <folding>
+            <marker date="1481421451685" expanded="true" signature="70818:70830" ph="..." />
+            <marker date="1481421451685" expanded="true" signature="77118:77161" ph="SELECT FUNCI... FUNCIONALIDAD" />
+            <marker date="1481421451685" expanded="true" signature="77699:77742" ph="SELECT FUNCI... FUNCIONALIDAD" />
+            <marker date="1481421451685" expanded="true" signature="78488:78543" ph="SELECT ROL_I... ROL" />
+            <marker date="1481421451685" expanded="true" signature="78942:78996" ph="SELECT ROL_N... ROL" />
+            <marker date="1481421451685" expanded="true" signature="79423:79518" ph="SELECT FUNCI... FUNCIONALIDAD" />
+            <marker date="1481421451685" expanded="true" signature="79957:80051" ph="SELECT FUNCI... FUNCIONALIDAD" />
+            <marker date="1481421451685" expanded="true" signature="80469:80536" ph="SELECT PAGIN... PAGINA" />
+            <marker date="1481421451685" expanded="true" signature="80947:81013" ph="SELECT PAGIN... PAGINA" />
+            <marker date="1481421451685" expanded="true" signature="81426:81455" ph="SELECT PAGIN... PAGINA" />
+            <marker date="1481421451685" expanded="true" signature="81971:82000" ph="SELECT PAGIN... PAGINA" />
+            <marker date="1481421451685" expanded="true" signature="83217:83240" ph="SELECT ROL_N... ROL" />
+            <marker date="1481421451685" expanded="true" signature="83947:83985" ph="SELECT CATEG... CATEGORIA" />
+            <marker date="1481421451685" expanded="true" signature="85400:85469" ph="SELECT EMP_T... EMPLEADOS" />
+            <marker date="1481421451685" expanded="true" signature="85484:85566" ph="SELECT FUNCI... ROL_FUNCIONALIDAD" />
+            <marker date="1481421451685" expanded="true" signature="90735:90909" ph="SELECT DISTI... EMPLEADOS_PAGINA" />
+            <marker date="1481421451685" expanded="true" signature="91638:91703" ph="SELECT EMP_T... EMPLEADOS" />
+            <marker date="1481421451685" expanded="true" signature="92134:92298" ph="SELECT FUNCI... FUNCIONALIDAD" />
+            <marker date="1481421451685" expanded="true" signature="92642:92711" ph="select PAGIN... EMPLEADOS_PAGINA" />
+            <marker date="1481421451685" expanded="true" signature="110939:111010" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="111457:111527" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="112000:112051" ph="SELECT * FRO... PAGO" />
+            <marker date="1481421451685" expanded="true" signature="113439:113645" ph="SELECT SUM(D... CLIENTE_TIENE_DESCUENTO" />
+            <marker date="1481421451685" expanded="true" signature="114137:114188" ph="SELECT * FRO... PAGO" />
+            <marker date="1481421451685" expanded="true" signature="114752:114833" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481421451685" expanded="true" signature="115283:115349" ph="SELECT LESIO... LESION" />
+            <marker date="1481421451685" expanded="true" signature="115791:115856" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="116295:116325" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="117048:117117" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="117479:117744" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="117950:118203" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="118812:119073" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="119098:119331" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="119355:119590" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="119613:119848" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="119871:120106" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="120129:120365" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="120392:120422" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="125241:125439" ph="SELECT LUGAR... ACTIVIDAD_ALBERGA_LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="125986:126247" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="126272:126505" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="126529:126764" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="126787:127022" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="127045:127280" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="127303:127539" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="127566:127596" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="132113:132374" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="132399:132632" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="132656:132891" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="132914:133149" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="133172:133407" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="133430:133666" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="133693:133723" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="139976:140059" ph="SELECT CALEN... CALENDARIO" />
+            <marker date="1481421451685" expanded="true" signature="140762:140825" ph="SELECT EMP_N... EMPLEADOS" />
+            <marker date="1481421451685" expanded="true" signature="141202:141271" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="141653:141730" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481421451685" expanded="true" signature="141838:141925" ph="SELECT EMP_U... EMPLEADOS_IMPARTE_ACTIVIDAD" />
+            <marker date="1481421451685" expanded="true" signature="142126:142217" ph="SELECT CLIEN... CLIENTE_INSCRIPCION_ACTIVIDAD" />
+            <marker date="1481421451685" expanded="true" signature="142778:142843" ph="SELECT EVENT... EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="142949:143019" ph="SELECT EVENT... EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="143213:143293" ph="SELECT CLIEN... CLIENTE_PARTICIPA_EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="143859:143897" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481421451685" expanded="true" signature="145149:145181" ph="SELECT EVENT... EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="146434:146503" ph="SELECT EVENT... EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="146955:147028" ph="SELECT EVENT... EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="147393:147478" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481421451685" expanded="true" signature="148865:148899" ph="SELECT HORAR... HORARIO" />
+            <marker date="1481421451685" expanded="true" signature="149621:149655" ph="SELECT HORAR... HORARIO" />
+            <marker date="1481421451685" expanded="true" signature="150380:150414" ph="SELECT HORAR... HORARIO" />
+            <marker date="1481421451685" expanded="true" signature="151147:151224" ph="SELECT HORAR... HORARIO" />
+            <marker date="1481421451685" expanded="true" signature="151583:151656" ph="SELECT HORAR... HORARIO" />
+            <marker date="1481421451685" expanded="true" signature="152004:152034" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="152719:152749" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="153434:153481" ph="SELECT EMP_U... EMPLEADOS" />
+            <marker date="1481421451685" expanded="true" signature="154180:154210" ph="SELECT LUGAR... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="154644:154691" ph="SELECT EMP_U... EMPLEADOS" />
+            <marker date="1481421451685" expanded="true" signature="155150:155328" ph="SELECT BLOQU... HORAS_POSIBLES" />
+            <marker date="1481421451685" expanded="true" signature="155764:155846" ph="SELECT CATEG... CATEGORIA" />
+            <marker date="1481421451685" expanded="true" signature="156063:156110" ph="SELECT EMP_U... EMPLEADOS" />
+            <marker date="1481421451685" expanded="true" signature="174724:174815" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="175629:175698" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="175809:175866" ph="SELECT COALE... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="176023:176193" ph="INSERT INTO CLIENTE... " />
+            <marker date="1481421451685" expanded="true" signature="176724:176824" ph="SELECT FACTU... FACTURA" />
+            <marker date="1481421451685" expanded="true" signature="177268:177291" ph="SELECT * FRO... CATEGORIA" />
+            <marker date="1481421451685" expanded="true" signature="177896:178072" ph="SELECT * FRO... LUGAR" />
+            <marker date="1481421451685" expanded="true" signature="178637:178657" ph="SELECT * FRO... EVENTO" />
+            <marker date="1481421451685" expanded="true" signature="179330:179520" ph="SELECT CLIEN... CLIENTE" />
+            <marker date="1481421451685" expanded="true" signature="179433:179519" ph="SELECT CLIEN... CLIENTE_PARTICIPA_EVENTO" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD2_DELETE_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_ADD_HORAS_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="76" column="37" lean-forward="false" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+          <folding>
+            <marker date="1481422888992" expanded="true" signature="985:1096" ph="SELECT DISTI... HORAS_POSIBLES" />
+            <marker date="1481422888992" expanded="true" signature="985:1193" ph="SELECT DISTI... HORAS_POSIBLES" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_ADD_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1481421290556" expanded="true" signature="738:751" ph="..." />
+            <marker date="1481421290556" expanded="true" signature="755:808" ph="..." />
+            <marker date="1481421290556" expanded="true" signature="784:808" ph="..." />
+            <marker date="1481421290556" expanded="true" signature="868:922" ph="..." />
+            <marker date="1481421290556" expanded="true" signature="1007:1098" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Models/ACTIVIDAD2_Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2341">
+          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+          <folding>
+            <marker date="1481387665297" expanded="true" signature="2111:2189" ph="SELECT * FRO... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="2379:2612" ph="INSERT INTO ACTIVIDAD... " />
+            <marker date="1481387665297" expanded="true" signature="2681:2770" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="3063:3200" ph="INSERT INTO EMPLEADOS_IMPARTE_ACTIVIDAD... " />
+            <marker date="1481387665297" expanded="true" signature="3394:3540" ph="INSERT INTO ACTIVIDAD_ALBERGA_LUGAR... " />
+            <marker date="1481387665297" expanded="true" signature="3737:3877" ph="INSERT INTO CALENDARIO... " />
+            <marker date="1481387665297" expanded="true" signature="4201:4279" ph="SELECT * FRO... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="4674:4758" ph="UPDATE ACTIV... " />
+            <marker date="1481387665297" expanded="true" signature="5549:5627" ph="select * fro... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="5938:6002" ph="select * fro... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="6098:6156" ph="SELECT ACTIV... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="6339:6622" ph="UPDATE ACTIV... " />
+            <marker date="1481387665297" expanded="true" signature="6987:7049" ph="SELECT * FRO... ACTIVIDAD" />
+            <marker date="1481387665297" expanded="true" signature="7561:7623" ph="SELECT * FRO... ACTIVIDAD" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/IU2016.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="2464" column="139" lean-forward="false" selection-start-line="2464" selection-start-column="139" selection-end-line="2464" selection-end-column="139" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_DELETE_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="20" column="53" lean-forward="false" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Functions/EVENTODefForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/ACTIVIDAD2_EDIT_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_EDIT_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/CLIENTE_SHOW_ALL_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_DEFAULT_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="102" column="76" lean-forward="false" selection-start-line="102" selection-start-column="76" selection-end-line="102" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Models/DESCUENTO_Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="182" column="1" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="182" selection-end-column="1" />
+          <folding>
+            <marker date="1481429689386" expanded="true" signature="746:853" ph="INSERT INTO DESCUENTO... " />
+            <marker date="1481429689386" expanded="true" signature="1278:1335" ph="SELECT * fro... DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="1572:1595" ph="SELECT * fro... DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="1925:2177" ph="SELECT *,( S... DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="2519:2579" ph="SELECT * fro... DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="2678:2736" ph="DELETE from " />
+            <marker date="1481429689386" expanded="true" signature="2955:3015" ph="SELECT * fro... DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="3292:3337" ph="SELECT * fro... DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="3483:3659" ph="UPDATE DESCU... " />
+            <marker date="1481429689386" expanded="true" signature="4014:4220" ph="SELECT SUM(D... CLIENTE_TIENE_DESCUENTO" />
+            <marker date="1481429689386" expanded="true" signature="4493:4572" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Locates/Strings_Castellano.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="446" column="57" lean-forward="true" selection-start-line="446" selection-start-column="57" selection-end-line="446" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Models/EVENTO_Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="203" column="5" lean-forward="true" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
+          <folding>
+            <marker date="1481431160806" expanded="true" signature="1500:1569" ph="SELECT * FRO... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="1796:1986" ph="INSERT INTO EVENTO... " />
+            <marker date="1481431160806" expanded="true" signature="2093:2170" ph="SELECT EVENT... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="2327:2457" ph="INSERT INTO EVENTO_ALBERGA_LUGAR... " />
+            <marker date="1481431160806" expanded="true" signature="2642:2769" ph="INSERT INTO CALENDARIO... " />
+            <marker date="1481431160806" expanded="true" signature="3231:3300" ph="SELECT * FRO... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="3668:3737" ph="SELECT * fro... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="3837:3904" ph="DELETE FROM " />
+            <marker date="1481431160806" expanded="true" signature="4219:4288" ph="select * fro... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="4651:4706" ph="select * fro... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="4812:4957" ph="UPDATE EVENT... " />
+            <marker date="1481431160806" expanded="true" signature="5403:5465" ph="SELECT * FRO... EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="5951:5959" ph="SELECT * FRO... CLIENTE_PARTICIPA_EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="5951:6188" ph="SELECT *,( S... " />
+            <marker date="1481431160806" expanded="true" signature="5951:6201" ph="SELECT * FRO... CLIENTE_PARTICIPA_EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="5962:6051" ph="SELECT COUNT... CLIENTE_PARTICIPA_EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="5962:6134" ph="SELECT COUNT... CLIENTE_PARTICIPA_EVENTO" />
+            <marker date="1481431160806" expanded="true" signature="6687:6767" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/DESCUENTO_SHOW_CLIENTE_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="41" column="37" lean-forward="false" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Controllers/DESCUENTOS_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Controllers/EVENTO_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="200" column="79" lean-forward="false" selection-start-line="200" selection-start-column="79" selection-end-line="200" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/et1_iu/Views/EVENTO_SHOW_INVITADOS_Vista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <marker date="1481432223119" expanded="true" signature="908:937" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="971:1008" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="1786:1924" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="1807:1924" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="2070:2203" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="2556:2888" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="4827:5013" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="5270:5297" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="5401:5456" ph="..." />
+            <marker date="1481432223119" expanded="true" signature="5417:5451" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

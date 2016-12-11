@@ -28,7 +28,7 @@ class DESCUENTO_Insertar{
                 <?php echo $strings['Insertar Descuento']?><br>
             </h1>
             <h3>
-                <form id="form" name="form"  action='Gestion_de_Descuentos_Controller.php' method='post' >
+                <form id="form" name="form"  action='DESCUENTOS_Controller.php' method='post' >
                     <ul class="form-style-1">
                     <?php
                     createForm($lista,$DefForm,$strings,'',true,false);
@@ -37,7 +37,7 @@ class DESCUENTO_Insertar{
                     <input type='submit' name='accion' onclick="return valida_envia2()" value=<?php echo $strings['Insertar'] ?>>
                 </form>
                 <?php
-                echo '<a  class="form-link" href=\'Gestion_de_Descuentos_Controller.php\'>' . $strings['Volver'] . " </a>";
+                echo '<a  class="form-link" href=\'DESCUENTOS_Controller.php\'>' . $strings['Volver'] . " </a>";
                 ?>
             </h3>
             </p>

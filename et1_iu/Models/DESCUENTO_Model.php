@@ -87,10 +87,9 @@ function ConsultarDescuentosDeCliente($CLIENTE_ID)
 	$this->ConectarBD();
 	$sql = "SELECT *,(	SELECT COUNT(*)
           	FROM CLIENTE_TIENE_DESCUENTO C, DESCUENTO D
-          	WHERE D.DESCUENTO_ID = C.DESCUENTO_ID AND DESCUENTO.DESCUENTO_ID =C.DESCUENTO_ID AND  C.CLIENTE_ID = {$CLIENTE_ID}) as APLICADO
-
-FROM `DESCUENTO`
-WHERE 1
+          	WHERE D.DESCUENTO_ID = C.DESCUENTO_ID AND DESCUENTO.DESCUENTO_ID = C.DESCUENTO_ID AND  C.CLIENTE_ID = {$CLIENTE_ID}) as APLICADO
+			FROM `DESCUENTO`
+			WHERE 1
             ";
 	if (!($resultado = $this->mysqli->query($sql))){
 		return 'Error en la consulta sobre la base de datos';
