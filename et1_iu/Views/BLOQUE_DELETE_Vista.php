@@ -1,7 +1,7 @@
 <?php
 
 class BLOQUE_Borrar{
-	//VISTA PARA BORRAR ROLES
+	//VISTA PARA BORRAR HORAS POSIBLES
 
 	private $valores;
 
