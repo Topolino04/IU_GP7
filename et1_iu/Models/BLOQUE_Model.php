@@ -78,7 +78,7 @@ function Consultar()
 {
     include '../Locates/Strings_Castellano.php';
     $this->ConectarBD();
-    $sql = "select * from HORAS_POSIBLES where  BLOQUE_FECHA ='".$this->BLOQUE_FECHA."' AND BLOQUE_HORARIO='".ConsultarIDHorario($this->BLOQUE_HORARIO)."'";
+    $sql = "select * from HORAS_POSIBLES where  BLOQUE_FECHA ='".$this->BLOQUE_FECHA."' OR BLOQUE_HORARIO='".ConsultarIDHorario($this->BLOQUE_HORARIO)."'";
 
 	$resultado = $this->mysqli->query($sql);
 
@@ -103,7 +103,7 @@ function Consultar()
 	function ConsultarTodo()
 	{
 		$this->ConectarBD();
-		$sql = "select * from HORAS_POSIBLES ORDER BY BLOQUE_ID";
+		$sql = "select * from HORAS_POSIBLES  ORDER BY BLOQUE_FECHA, BLOQUE_HORAI";
 		if (!($resultado = $this->mysqli->query($sql))){
 			return 'Error en la consulta sobre la base de datos';
 		}
