@@ -259,6 +259,4 @@ class actividad {
             return $toret;
         }
     }
-
-
 }

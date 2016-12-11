@@ -57,9 +57,10 @@ include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
 		</p>
 
 	</div>
-
 <?php
-} //fin metodo render
+	} //fin metodo render
 
 }
+
+?>
 

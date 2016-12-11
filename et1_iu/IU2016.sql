@@ -839,7 +839,7 @@ CREATE TABLE IF NOT EXISTS `CATEGORIA` (
 --
 
 INSERT INTO `CATEGORIA` (`CATEGORIA_ID`, `CATEGORIA_NOMBRE`) VALUES
-(1, 'Actividad 3º Edad'),
+(1, 'Actividad 3a Edad'),
 (2, 'Bailes de Salon'),
 (3, 'Bailes Comtemporaneos'),
 (4, 'Gimnasio - Pesas');

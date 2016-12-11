@@ -178,8 +178,6 @@ $strings = array(
 	'Gestiones Secundarias'=>'Gestiones Secundarias',
 	'Usuario'=>'Usuario',
 
-
-
     //GESTION DE PAGOS
     'GESTION PAGOS'=>'GESTION PAGOS',
 
@@ -212,9 +210,35 @@ $strings = array(
     'PAGO_IMPORTE_FINAL'=>'Importe Final [€]',
 
 
+	'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
+	'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
+	'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
+	'La actividad no existe' => 'La actividad no existe',
+	'La actividad se ha modificado con exito' => 'La actividad se ha modificado con éxito',
+	'Se ha producido un error en la modificacion de la actividad' => 'Se ha producido un error en la modificación de la actividad',
+	'Añadida con exito' => 'Añadida con exito',
 
+	'Gestión de Actividades' => 'Gestión de Actividades',
+	'Consultar pagina' => 'Consultar página',
+	'ACTIVIDAD_ID' => 'Identificador Actividad',
+	'ACTIVIDAD_NOMBRE'=>'Nombre Actividad',
+	'ACTIVIDAD_PRECIO' => 'Precio Actividad',
+	'ACTIVIDAD_DESCRIPCION' => 'Descripción actividad', 
+	'CATEGORIA_ID' => 'Identificador categoría',
+	'Modificar' => 'Modificar',
+	'Borrar' => 'Borrar',
+	'Insertar Actividad' => 'Insertar Actividad',
+	'Modificar Actividad' => 'Modificar Actividad',
+	'Borrar Actividad' => 'Borrar Actividad',
+	'Insertar' => 'Insertar',
+	'Consultar actividad' => 'Consultar actividad',
+	'ACTIVO' => 'Activo',
+	'CONSULTAR BORRADO' => 'Consultar Inactivas',
+	'Consultar' => 'Consultar',
+	'CATEGORIA_NOMBRE' => 'Nombre categoría',
 
     //GESTION DESCUENTOS
+	'Gestion de descuentos' =>'Gestión de Descuentos',
     'DESCUENTO_ID' =>'Clave',
     'DESCUENTO_VALOR'=>'Porcentaje',
     'DESCUENTO_DESCRIPCION'=>'Descripcion',
@@ -261,8 +285,7 @@ $strings = array(
     'Consultar' => 'Consultar',
     'LUGAR_NOMBRE' => 'Nombre Lugar',
     'CATEGORIA_NOMBRE' => 'Nombre Categoria',
-    
-	
+
 
     //GESTION LESIONES
     'Lesiones'=>'Lesiones',
@@ -388,7 +411,6 @@ $strings = array(
 	'HORARIO_FECHAI'=>'Fecha Inicial',
 	'HORARIO_FECHAF'=>'Fecha Final',
 	'HORARIO_ID'=>'HORARIO_ID',
-	'Modificar Rol'=>'Modificar Rol',
 	'Modificar Horario'=>'Modificar Horario',
 	'El HORARIO se ha modificado con éxito'=>'El horario se ha modificado con éxito',
 	'Borrar Horario'=>'Borrar Horario',

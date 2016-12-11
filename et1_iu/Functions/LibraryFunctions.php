@@ -2018,6 +2018,9 @@ function añadirFuncionalidades($NOM) {
                 case "GESTION POSIBLES":
                     ?><a style="font-size:20px;" href='../Controllers/BLOQUE_Controller.php'><?php echo $strings['Gestion de Posibles'] ?></a><br><br> <?php
                     break;
+                case "GESTION DESCUENTOS":
+                    ?><a style="font-size:20px;" href='../Controllers/DESCUENTOS_Controller.php'><?php echo $strings['Gestion de descuentos'] ?></a><br><br> <?php
+                    break;
 
                 default:
                     $link = str_replace(" ", "_", ConsultarNOMFuncionalidad($fila['FUNCIONALIDAD_ID'])) . "_Controller.php";
