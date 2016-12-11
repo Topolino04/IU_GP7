@@ -1,7 +1,7 @@
 <?php
 
 class BLOQUE_Modificar{
-//VISTA PARA MODIFICAR ROLES
+//VISTA PARA MODIFICAR HORAS POSIBLES
     private $valores;
 
 	function __construct($valores){
