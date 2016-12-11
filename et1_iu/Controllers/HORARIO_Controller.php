@@ -103,7 +103,7 @@ Switch ($_REQUEST['accion']) {
 
         break;
     default:
-        //La vista por defecto lista las funcionalidades
+        //La vista por defecto 
         if (!isset($_REQUEST['HORARIO_NOM'])) {
             $HORARIO = new HORARIO_MODEL('', '', '', '', '');
         } else {
