@@ -1151,18 +1151,25 @@ INSERT INTO `EMPLEADOS_PAGINA` (`EMP_USER`, `PAGINA_ID`) VALUES
 ('ADMIN', 203),
 ('ADMIN', 204),
 ('ADMIN', 205),
+('ADMIN', 206),
 ('secret', 200),
 ('secret', 201),
 ('secret', 202),
 ('secret', 203),
 ('secret', 204),
 ('secret', 205),
-('monit', 200),
-('monit', 201),
-('monit', 202),
-('monit', 203),
-('monit', 204),
-('monit', 205),
+('secret', 206),
+('ADMIN', 250),
+('ADMIN', 251),
+('ADMIN', 252),
+('ADMIN', 253),
+('ADMIN', 254),
+('secret', 250),
+('secret', 251),
+('secret', 252),
+('secret', 253),
+('secret', 254),
+('monit', 250),
 ('ADMIN', 300),
 ('ADMIN', 301),
 ('ADMIN', 302),
@@ -1586,6 +1593,7 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 (100, 'GESTION FISIO'),
 (101, 'GESTION DESCUENTOS'),
 (200, 'GESTION ACTIVIDADES'),
+(250, 'GESTION CATEGORIAS'),
 (300, 'GESTION PAGOS'),
 (400, 'HACER CAJA'),
 (401, 'GESTION FACTURAS'),
@@ -1596,8 +1604,8 @@ INSERT INTO `FUNCIONALIDAD` (`FUNCIONALIDAD_ID`, `FUNCIONALIDAD_NOM`) VALUES
 
 (800, 'GESTION CLIENTES'),
 (801, 'GESTION POSIBLES'),
-(802, 'GESTION HORARIO'),
-(803, 'GESTION ACTIVIDADES2');
+(802, 'GESTION HORARIO');
+
 
 
 
@@ -1660,6 +1668,12 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (200,203),
 (200,204),
 (200,205),
+(200,206),
+(250,250),
+(250,251),
+(250,252),
+(250,253),
+(250,254),
 (300, 300),
 (300, 301),
 (300, 302),
@@ -1731,14 +1745,7 @@ INSERT INTO `FUNCIONALIDAD_PAGINA` (`FUNCIONALIDAD_ID`, `PAGINA_ID`) VALUES
 (802, 817),
 (802, 818),
 (802, 819),
-(802, 820),
-(803, 821),
-(803, 822),
-(803, 823),
-(803, 824),
-(803, 825),
-(803, 826),
-(803, 827);
+(802, 820);
 
 -- --------------------------------------------------------
 
@@ -1900,6 +1907,12 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (203, '../Views/ACTIVIDAD_SHOW_ALL_Vista.php', 'ACTIVIDAD SHOW ALL'),
 (204, '../Views/ACTIVIDAD_EDIT_Vista.php', 'ACTIVIDAD EDIT'),
 (205, '../Views/ACTIVIDAD_OCULTAS_Vista.php', 'ACTIVIDAD OCULTAS'),
+(206, '../Views/ACTIVIDAD_ADD_HORAS_Vista.php', 'ACTIVIDAD ADD HORAS'),
+(250, '../Views/CATEGORIA_SHOW_Vista.php', 'CATEGORIA SHOW'),
+(251, '../Views/CATEGORIA_SHOW_ALL_Vista.php', 'CATEGORIA SHOW ALL'),
+(252, '../Views/CATEGORIA_EDIT_Vista.php', 'CATEGORIA EDIT'),
+(253, '../Views/CATEGORIA_ADD_Vista.php', 'CATEGORIA ADD'),
+(254, '../Views/CATEGORIA_DELETE_Vista.php', 'CATEGORIA DELETE'),
 (300, '../Views/PAGO_ADD_Vista.php', 'PAGO ADD'),
 (301, '../Views/PAGO_DELETE_Vista.php', 'PAGO DELETE'),
 (302, '../Views/PAGO_EDIT_Vista.php', 'PAGO EDIT'),
@@ -1967,14 +1980,7 @@ INSERT INTO `PAGINA` (`PAGINA_ID`, `PAGINA_LINK`, `PAGINA_NOM`) VALUES
 (817, '../Views/HORARIO_DELETE_Vista.php', 'HORARIO DELETE'),
 (818, '../Views/HORARIO_EDIT_Vista.php', 'HORARIO EDIT'),
 (819, '../Views/HORARIO_SHOW_ALL_Vista.php', 'HORARIO SHOW ALL'),
-(820, '../Views/HORARIO_SHOW_Vista.php', 'HORARIO SHOW'),
-(821, '../Views/ACTIVIDAD2_ADD_HORAS_Vista.php', 'ACTIVIDAD2 ADD HORAS'),
-(822, '../Views/ACTIVIDAD2_ADD_Vista.php', 'ACTIVIDAD2 ADD'),
-(823, '../Views/ACTIVIDAD2_DELETE_Vista.php', 'ACTIVIDAD2 DELETE'),
-(824, '../Views/ACTIVIDAD2_EDIT_Vista.php', 'ACTIVIDAD2 EDIT'),
-(825, '../Views/ACTIVIDAD2_OCULTAS_Vista.php', 'ACTIVIDAD2 OCULTAS'),
-(826, '../Views/ACTIVIDAD2_SHOW_ALL_Vista.php', 'ACTIVIDAD2 SHOW ALL'),
-(827, '../Views/ACTIVIDAD2_SHOW_Vista.php', 'ACTIVIDAD2 SHOW');
+(820, '../Views/HORARIO_SHOW_Vista.php', 'HORARIO SHOW');
 
 
 
@@ -2068,6 +2074,9 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 200),
 (2, 200),
 (3, 200),
+(1, 250),
+(2, 250),
+(3, 250),
 (1, 300),
 (2, 300),
 (1, 400),
@@ -2085,7 +2094,6 @@ INSERT INTO `ROL_FUNCIONALIDAD` (`ROL_ID`, `FUNCIONALIDAD_ID`) VALUES
 (1, 800),
 (1, 801),
 (1, 802),
-(1, 803),
 (2, 800);
 --
 -- Indexes for dumped tables
