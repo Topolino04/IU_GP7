@@ -53,21 +53,21 @@ class fisio
         }else{
             if ($result->num_rows == 0){
                 $sql = "INSERT INTO EVENTO (EVENTO_FISIO,EVENTO_NOMBRE,EVENTO_ORGANIZADOR, EVENTO_DESCRIPCION) VALUES (1,'". $this->FISIO_NOMBRE ."','{$this->FISIO_ORGANIZADOR}','". $this->FISIO_DESCRIPCION ."');";
-                echo $sql."<br>";
+                //echo $sql."<br>";
                 $this->mysqli->query($sql);
 
                 $sql = "SELECT EVENTO_ID AS FISIO_ID FROM EVENTO WHERE EVENTO_NOMBRE = '".$this->FISIO_NOMBRE."'";
-                echo $sql."<br>";
+                //echo $sql."<br>";
                 $result= $this->mysqli->query($sql);
                 $ID=$result->fetch_array();
 
                 $sql="INSERT INTO EVENTO_ALBERGA_LUGAR (EVENTO_ID, LUGAR_ID) VALUES ('".$ID['FISIO_ID']."','".ConsultarIDLugar($this->FISIO_LUGAR)."');";
-                echo $sql."<br>";
+                //echo $sql."<br>";
                 if( !$this->mysqli->query($sql))
                     return 'Error en la consulta sobre la base de datos';
 
                 $sql = "INSERT INTO CALENDARIO (CALENDARIO_EVENTO,CALENDARIO_BLOQUE) VALUES ('" . $ID['FISIO_ID'] . "','" . $this->FISIO_BLOQUE . "');";
-                echo $sql."<br>";
+                //echo $sql."<br>";
                 if( !$this->mysqli->query($sql))
                     return 'Error en la consulta sobre la base de datos';
 
@@ -117,7 +117,7 @@ class fisio
         {
             $sql = "DELETE FROM EVENTO WHERE EVENTO_NOMBRE	= '".$this->FISIO_NOMBRE."'";
             $this->mysqli->query($sql);
-            echo $sql."<br>";
+            //echo $sql."<br>";
             return "El fisio ha sido borrado correctamente";
         }
         else
@@ -149,7 +149,7 @@ class fisio
         $result = $this->mysqli->query($sql);
         if ($result->num_rows == 1){
             $sql = "UPDATE EVENTO SET EVENTO_NOMBRE ='".$this->FISIO_NOMBRE."',EVENTO_DESCRIPCION ='".$this->FISIO_DESCRIPCION."' WHERE EVENTO_ID ='".$FISIO_ID."'";
-            echo $sql;
+            //echo $sql;
             if (!($resultado = $this->mysqli->query($sql))){
                 return "Error en la consulta sobre la base de datos";
             }
@@ -165,7 +165,7 @@ class fisio
     function ConsultarTodo(){
         $this->ConectarBD();
         $sql = "SELECT EVENTO_ID AS FISIO_ID, EVENTO_FISIO as FISIO_FISIO, EVENTO_NOMBRE as FISIO_NOMBRE, EVENTO_ORGANIZADOR AS FISIO_ORGANIZADOR, EVENTO_DESCRIPCION as FISIO_DESCRIPCION FROM EVENTO WHERE EVENTO_FISIO = 1 ORDER BY EVENTO_ID";
-        echo $sql;
+        //echo $sql;
         if (!($resultado = $this->mysqli->query($sql))){
             return 'Error en la consulta sobre la base de datos';
         }
@@ -188,7 +188,7 @@ class fisio
 			FROM `CLIENTE`
 			WHERE 1
             ";
-        echo $sql;
+        //echo $sql;
         if (!($resultado = $this->mysqli->query($sql))){
             return 'Error en la consulta sobre la base de datos';
         }
@@ -212,7 +212,7 @@ class fisio
         }
         $sql = trim($sql, ',');
         $sql = $sql.";";
-        echo $sql;
+        //echo $sql;
         if($result = $this->mysqli->multi_query($sql))
             return "Asignacion de invitados correcta";
         else

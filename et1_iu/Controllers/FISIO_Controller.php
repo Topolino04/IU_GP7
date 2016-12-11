@@ -100,7 +100,7 @@ Switch ($_REQUEST['accion']) {
 
             if (!isset($_REQUEST['FISIO_BLOQUE'])) {
                 $fisio = get_data_form();
-                var_dump($fisio);
+                //var_dump($fisio);
                 new Fisio_Add_Horas($fisio);
             } else {
                 $fisio = get_data_form();
@@ -195,7 +195,8 @@ Switch ($_REQUEST['accion']) {
         break;
     case $strings['Guardar']:
         $fisio = new fisio('', '','','','','','',null,'','');
-        $datos = $fisio->UpdateInvitados($_GET['FISIO_ID'],$_REQUEST['invitados']);
+        if(!isset($_REQUEST['invitados']))$_REQUEST['invitados']= array();
+          $datos = $fisio->UpdateInvitados($_GET['FISIO_ID'],$_REQUEST['invitados']);
         new Mensaje($datos, './FISIO_Controller.php');
         break;
     default:

@@ -26,7 +26,7 @@ class Fisio_Add_Horas
             echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
         $sql = "SELECT DISTINCT BLOQUE_HORAI, BLOQUE_HORAF from HORAS_POSIBLES WHERE BLOQUE_FECHA='".($this->fisio->FISIO_FECHA)."' AND BLOQUE_HORARIO='".ConsultarIDHorario($this->fisio->FISIO_HORARIO)."'";
-        echo $sql;
+       //echo $sql;
         $result = $mysqli->query($sql);
         if($result->num_rows===0){
             new Mensaje('No hay bloques definidos para ese día en ese horario','../Controllers/FISIO_Controller.php');
