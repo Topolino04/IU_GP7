@@ -1,7 +1,7 @@
 <?php
 
 class BLOQUE_Insertar{
-//VISTA PARA INSERTAR ROLES
+//VISTA PARA INSERTAR HORAS POSIBLES
 
     function __construct(){
         $this->render();
