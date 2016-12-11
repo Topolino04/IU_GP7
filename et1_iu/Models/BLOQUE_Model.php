@@ -125,10 +125,9 @@ function Consultar()
 		}
 	}
 
-	//Nos devuelve la información de las funcionalidades asignadas a ese BLOQUE
+	
 
-
-//Borrado de la funcionalidad
+//Borrado del bloque
 function Borrar($BLOQUE_ID)
 {
     $this->ConectarBD();
@@ -150,7 +149,7 @@ function Borrar($BLOQUE_ID)
     else
         return "El BLOQUE no existe";
 }
-
+//devuelve todos los datos del bloque
 function RellenaDatos($BLOQUE_ID)
 {
     $this->ConectarBD();
