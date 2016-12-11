@@ -460,5 +460,24 @@ $strings = array(
     'Evento'=>'Seleccionar',
     'Notificacion sobre Eventos'=>'Notificación sobre Eventos',
 
+
+
+	// SESIONES DE FISIOTERAPIA
+	'Gestion de Fisio' => 'Gestion de Fisio',
+	'FISIO_NOMBRE' => 'Nombre',
+	'FISIO_DESCRIPCION' => 'DESCRIPCION',
+	'Consultar fisio' => 'Consultar Sesion de Fisio',
+	'Modificar Fisio' => 'Modificar Sesion de Fisio',
+	'FISIO_ID' => 'Clave de Sesion de Fisio',
+	'Borrar Fisio' => 'Borrar Sesion de Fisio',
+	'Insertar Fisio' => 'Insertar Sesion de Fisio',
+	'FISIO_LUGAR' => 'Lugar de Sesion de Fisio',
+	'FISIO_HORARIO' => 'Horario de Sesion de Fisio',
+	'FISIO_BLOQUE' => 'Bloque horario para la Sesion de Fisio',
+	'Fisio añadido con exito' => 'Sesion de Fisio añadida con exito',
+	'El fisio se ha modificado con exito' => 'La sesion de fisio se ha modificado con exito',
+	'El fisio ha sido borrado correctamente' => 'La sesion de fisio ha sido borrada correctamente'
+
+
 )
 ?>
