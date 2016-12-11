@@ -43,7 +43,7 @@ class HORARIO_Insertar{
                     createForm($lista,$DefForm,$strings,'',true,false);
 
                     ?>
-                    <input type='submit' name='accion' value=<?php echo $strings['Insertar'] ?>>
+                    <input type='submit' name='accion' onclick="return valida_envia_HORARIO()" value=<?php echo $strings['Insertar'] ?>>
                 </form>
                 <?php
                 echo '<a  class="form-link" href=\'HORARIO_Controller.php\'>' . $strings['Volver'] . " </a>";
