@@ -33,13 +33,13 @@ class DESCUENTO_Show_Por_Cliente{
 								</ul>
 								<?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
 
-								<a href='./Gestion_de_Descuentos_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
+								<a href='./DESCUENTOS_Controller.php?accion=<?php echo $strings['Insertar']?>'><?php echo $strings['Insertar']?></a>
 							</div>
 						</nav>
 						<?php
 						$lista = array('DESCUENTO_ID','DESCUENTO_VALOR','DESCUENTO_DESCRIPCION');
 						?>
-						<form action="Gestion_de_Descuentos_Controller.php?CLIENTE_ID=<?= $_GET['CLIENTE_ID']?>&amp;accion=Descuentos" method="post">
+						<form action="DESCUENTOS_Controller.php?CLIENTE_ID=<?= $_GET['CLIENTE_ID']?>&amp;accion=Descuentos" method="post">
 						<table  id="btable"  class="responstable" border = 1>
 							<tr>
 								<?php
