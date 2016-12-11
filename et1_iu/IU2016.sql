@@ -25,7 +25,7 @@ GRANT ALL PRIVILEGES ON `IU2016`.* TO 'iu2016'@'localhost' IDENTIFIED BY 'iu2016
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `HORARIO`
+-- Estructura de tabla para la tabla `HORARIO` 
 --
 
 CREATE TABLE IF NOT EXISTS `HORARIO` (
