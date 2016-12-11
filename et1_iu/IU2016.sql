@@ -1945,10 +1945,10 @@ CREATE TABLE IF NOT EXISTS `PAGO` (
 -- Dumping data for table `PAGO`
 --
 INSERT INTO `PAGO` (`PAGO_ID`, `CLIENTE_ID`, `PAGO_FECHA`, `PAGO_CONCEPTO`, `PAGO_METODO`, `PAGO_ESTADO`, `PAGO_IMPORTE`) VALUES
-(1, 4, '2016-11-20 10:26:36', 'Curso de Karate','Contado',  'PAGADO', 500.00),
-(2, 4, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta de Credito/Debito', 'PENDIENTE', 270.90 ),
-(3, 4, '2016-12-24 12:30:15', 'Chandal oficial Moovett', 'Transferencia Bancaria', 'PAGADO', 217.95),
-(4, 4, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Ingreso en Cuenta', 'PENDIENTE', 1000.00);
+(1, 4, '2016-8-25 10:26:36', 'Curso de Karate','Domiciliacion Bancaria',  'PAGADO', 500.00),
+(2, 3, '2016-11-21 11:00:12', 'Master en Meditacion', 'Tarjeta Credito/Debito', 'PAGADO', 270.90 ),
+(3, 2, '2016-9-2 12:30:15', 'Chandal oficial Moovett', 'Efectivo', 'PENDIENTE', 49.95),
+(4, 1, '2016-12-24 17:02:01', 'Curso de Yoga Avanzado', 'Domiciliacion Bancaria', 'PENDIENTE', 1000.00);
 
 -- --------------------------------------------------------
 

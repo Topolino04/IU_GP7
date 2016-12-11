@@ -1,6 +1,7 @@
 <?php
 
 $strings = array(
+    'Pagos Atrasados'=>'Late Payments',
     'Inserción realizada con éxito' => 'Successful insertion',
     'El usuario ya existe en la base de datos' => 'User already exists',
     'El empleado ya existe en la base de datos' => 'Employee already exists',
@@ -201,6 +202,7 @@ $strings = array(
     'Tarjeta Credito/Debito' => 'Debit/Credit Card',
     'Domiciliacion Bancaria' => 'Bank Address',
     'No seleccionado' => 'Not Selected',
+    'Domiciliaciones pendientes' => 'Outstanding Bank Address debts',
     'DESCUENTO_ID' => 'ID',
     'DESCUENTO_VALOR' => 'Percentage',
     'DESCUENTO_DESCRIPCION' => 'Description',

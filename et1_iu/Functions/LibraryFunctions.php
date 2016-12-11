@@ -2580,12 +2580,18 @@ function CalcularDescuentoCliente($CLIENTE_ID) {
 			AND  CLIENTE_TIENE_DESCUENTO.CLIENTE_ID = {$CLIENTE_ID}";
     $result = $mysqli->query($sql);
     $resultado = $result->fetch_array();
+
+  if($resultado['TOTAL']==NULL){
+      return 0;
+  }
+  else {
     $res = 1 - (((float) $resultado["TOTAL"]) / 100);
     if ($res < 0) {
         return 0;
     } else {
         return $res;
     }
+  }
 }
 
 function consultarEstadoPago($PAGO_ID) {

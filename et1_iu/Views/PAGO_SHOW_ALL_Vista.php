@@ -43,6 +43,7 @@ class PAGO_Show {
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?></li>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Consultar'] ?>'><?php echo $strings['Consultar'] ?></a>
                             <a href='./PAGO_Controller.php?accion=<?php echo $strings['Insertar'] ?>'><?php echo $strings['Insertar'] ?></a>
+                            <a href='./PAGO_Controller.php?accion=<?php echo $strings['Pagos Atrasados'] ?>'><?php echo $strings['Pagos Atrasados'] ?></a>
 
 
                         </div>
@@ -104,7 +105,6 @@ class PAGO_Show {
                                                     echo $valor;
                                                     break;
                                             }
-                                            //  echo $valor;
                                             echo "</td>";
                                         }
                                     }
