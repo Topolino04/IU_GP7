@@ -91,7 +91,7 @@ class PAGO_Show {
                                                 case 'Efectivo':
                                                     echo $strings['Efectivo'];
                                                     break;
-                                                case 'Tarjeta de Credito/Debito':
+                                                case 'Tarjeta Credito/Debito':
                                                     echo $strings['Tarjeta Credito/Debito'];
                                                     break;
                                                 case'Domiciliacion Bancaria':

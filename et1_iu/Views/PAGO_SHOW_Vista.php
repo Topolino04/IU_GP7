@@ -42,7 +42,7 @@ class PAGO_Consultar {
                                 <option disabled selected value></option>
                                 <option value='No seleccionado'><?php echo $strings['No seleccionado'] ?></option>
                                 <option value='Efectivo'><?php echo $strings['Efectivo'] ?></option>
-                                <option value='Tarjeta Credito/Deito'><?php echo $strings['Tarjeta Credito/Debito'] ?></option>
+                                <option value='Tarjeta Credito/Debito'><?php echo $strings['Tarjeta Credito/Debito'] ?></option>
                                 <option value='Domiciliacion Bancaria'><?php echo $strings['Domiciliacion Bancaria'] ?></option>
                             </select><br>
 

@@ -304,7 +304,6 @@ $strings = array(
 
 	// GESTION DE CLIENTES
         'CLIENTE_ID'=>'ID Cliente',
-
 	'CLIENTE_TIPO'=>'Tipo*',
 	'Nota'=>'*E=Externo, S=Socio',
 	'CLIENTE_NOMBRE'=>'Nome',
