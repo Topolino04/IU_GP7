@@ -270,7 +270,7 @@ $strings = array(
     'Aplicado' => 'Aplicado',
     'Guardar' => 'Guardar',
     'Asignacion de descuentos correcta' => 'Asignacion de descuentos correcta',
-    //GESTION ACTIVIDADES
+    //GESTION ACTIVIDADES//CATEGORIA
     'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
     'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
     'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
@@ -298,6 +298,13 @@ $strings = array(
     'Consultar' => 'Consultar',
     'LUGAR_NOMBRE' => 'Nombre Lugar',
     'CATEGORIA_NOMBRE' => 'Nombre Categoria',
+	'Gestion de Categorias'=>'Gestion de Categorias',
+	'Modificar Categoria' =>'Modificar Categoria',
+	'La categoria se ha modificado con exito' =>'La categoria se ha modificado con exito',
+	'Insertar Categoria'=>'Insertar Categoria',
+	'Borrar Categoria' => 'Borrar Categoria',
+	'La categoria ha sido borrada correctamente' => 'La categoria ha sido borrada correctamente',
+	'Consultar categoria' => 'Consultar categoria',
     //GESTION LESIONES
     'Lesiones' => 'Lesiones',
     'LESION_ID' => 'ID de la lesión',
