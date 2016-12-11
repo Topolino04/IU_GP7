@@ -104,8 +104,11 @@ Switch ($_REQUEST['accion']) {
                     new Mensaje('No tienes los permisos necesarios', 'NOTIFICACION_Controller.php');
                 } else {
                     $modelo = new actividad('', '', '', '', '', '');
+
+         
                     $datos = $modelo->ConsultarTodoIvan();
                     new NOTIFICACION_ACTIVIDAD_Select($datos, '../Controllers/NOTIFICACION_Controller.php', $strings['Actividad']);
+
                 }
             } else {
                 $actividad = get_data_form();
@@ -117,7 +120,6 @@ Switch ($_REQUEST['accion']) {
             new NOTIFICACION_EMAIL($notificacion, '../Controllers/NOTIFICACION_Controller.php?accion=', $strings['Actividad']);
         }
         break;
-
 
         case $strings['Actividad_Monitor']: //Notificacion sobre Clientes de una Actividad
         if (empty($_POST['email'])) {

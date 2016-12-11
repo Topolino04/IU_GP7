@@ -37,7 +37,9 @@ class NOTIFICACION_Default {
                             </ul>
 
                             <?php echo '<a href=\'' . $this->volver . "'>" . $strings['Volver'] . " </a>"; ?>
+
                             <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Registro']; ?>'><?php echo $strings['Registro'] ?></a>
+
 
                         </div>
                     </nav>
@@ -45,6 +47,7 @@ class NOTIFICACION_Default {
                     <div >
                         <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
                             <br>
+
                             <?php if (consultarRol($_SESSION['login']) == 3) { ?>
                                 <p>
                                     <a href='NOTIFICACION_Controller.php?accion=<?php echo $strings['Actividad_Monitor']; ?>'><?php echo $strings['Notificacion sobre Actividades'] ?></a>
@@ -79,3 +82,4 @@ class NOTIFICACION_Default {
         }
     }
     
+

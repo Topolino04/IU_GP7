@@ -6,6 +6,7 @@ class NOTIFICACION_ACTIVIDAD_Select {
 
     private $datos;
     private $volver;
+
     private $op;
 
 
@@ -13,6 +14,7 @@ class NOTIFICACION_ACTIVIDAD_Select {
         $this->datos = $array;
         $this->volver = $volver;
         $this->op=$op;
+
         $this->render();
     }
 
@@ -95,7 +97,9 @@ class NOTIFICACION_ACTIVIDAD_Select {
 
                         <form action="../Controllers/NOTIFICACION_Controller.php" method='post'>
 
+
                             <input type='submit' name='accion' value=<?php echo $this->op ?>>
+
                         </form>
 
                     </h3>

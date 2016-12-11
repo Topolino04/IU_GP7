@@ -15,22 +15,12 @@ $form = array(
 		'name' => 'BLOQUE_DIA',
 		'multiple' => 'false',
 		'value' => '',
-		'options' => array($strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes']),
+		'options' => array($strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado'],$strings['Domingo']),
 		'required' => 'true',
 		'readonly' => false
 	),
+
 	2 => array(
-		'type' => 'date',
-		'name' => 'BLOQUE_FECHA',
-		'value' => '2016-12-01',
-		'min' => '2016-12-01',
-		'max' => '2020-01-01',
-		'required' => true,
-		'pattern' => '',
-		'validation' => '',
-		'readonly' => false
-	),
-	3 => array(
 		'type' => 'time',
 		'name' => 'BLOQUE_HORAI',
 		'value' => '00:00',
@@ -39,7 +29,7 @@ $form = array(
 		'validation' => '',
 		'readonly' => false
 	),
-	4=>array(
+	3=>array(
 		'type' => 'text',
 		'name' => 'BLOQUE_ID',
 		'value' => '',
@@ -51,11 +41,7 @@ $form = array(
 	)
 
 );
-$DefForm=añadirLugares($form);
-
-$DefForm=AñadirActividades($DefForm);
-$DefForm=AñadirEventos($DefForm);
-
+$DefForm=AñadirHorarios($form);
 
 
 ?>
