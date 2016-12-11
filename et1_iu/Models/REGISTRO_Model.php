@@ -104,30 +104,34 @@ class REGISTRO_MODEL {
         }
 
         if ($this->CLIENTE_ID == '') {
-            $registro = '../Registros/Registro_' . $this->EMP_USER . '.txt';
+            $registro = '../Registros/Registro_' . consultarDNIEmp($this->EMP_USER). '.txt';
         } else {
-            $registro = '../Registros/Registro_' . $this->CLIENTE_ID . '.txt';
+            $registro = '../Registros/Registro_' . consultarDNICliente($this->CLIENTE_ID). '.txt';
+        }
+
+        if (file_exists($registro)) {
+            unlink($registro);
         }
 
         $file = fopen($registro, "w") or die("Problemas");
-        fwrite($file, '--------------------------------------------------------------------------------');
+        fwrite($file, '-------------------------------------------------------------------------------------------------------------------');
         fwrite($file, "\r\n");
-        fwrite($file, '-------------------------------//   MOOVETT   //------------------------------');
+        fwrite($file, '-------------------------------------------//   MOOVETT   //-----------------------------------------------------');
         fwrite($file, "\r\n");
-        fwrite($file, "--------------------------------------------------------------------------------");
+        fwrite($file, "-------------------------------------------------------------------------------------------------------------------");
         fwrite($file, "\r\n");
         if ($this->CLIENTE_ID == '') {
-            fwrite($file, "REGISTRO DE CONSULTA DEL EMPLEADO: " . $this->EMP_USER . "");
+            fwrite($file, "REGISTRO DE CONSULTA DEL EMPLEADO: " . consultarNomEmp($this->EMP_USER) . " " . consultarApellidoEmp($this->EMP_USER) . " - " . consultarDNIEmp($this->EMP_USER));
         } else {
-            fwrite($file, "REGISTRO DE CONSULTA DEL CLIENTE: " . $this->CLIENTE_ID . "");
+            fwrite($file, "REGISTRO DE CONSULTA DEL CLIENTE: " . consultarNomCli($this->CLIENTE_ID) . " " . consultarApellidoCliente($this->CLIENTE_ID) . " - " . consultarDNICliente($this->CLIENTE_ID));
         }
         fwrite($file, "\r\n");
-        fwrite($file, '--------------------------------------------------------------------------------');
+        fwrite($file, '-------------------------------------------------------------------------------------------------------------------');
         fwrite($file, "\r\n");
 
         for ($j = 0; $j < count($toret); $j++) {
             fwrite($file, "\r\n");
-            fwrite($file, "ID del REGISTRO: [REGISTRO_CONSULTA_LESION]    FECHA Y HORA: [REGISTRO_CONSULTA_LESION_FECHAHORA]   REALIZADO POR [EMP_USER]");
+            fwrite($file, "ID del REGISTRO: [REGISTRO_CONSULTA_LESION]    FECHA Y HORA: [REGISTRO_CONSULTA_LESION_FECHAHORA]   REALIZADO POR: [EMP_USER]");
             foreach ($toret [$j] as $clave => $valor) {
                 $template = file_get_contents($registro);
                 $template = str_replace('[REGISTRO_CONSULTA_LESION]', $toret[$j]['REGISTRO_CONSULTA_LESION_ID'], $template);
