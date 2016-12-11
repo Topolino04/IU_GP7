@@ -490,7 +490,23 @@ $strings = array(
     'Invitado'=>'Invitado',
     'Asignacion de invitados correcta' => 'Asignacion de invitados correcta',
     'FECHA' => 'FECHA',
-    'EVENTO_DESCRIPCION'=>'Descrición'
+    'EVENTO_DESCRIPCION'=>'Descrición',
+
+	 // SESIONES DE FISIOTERAPIA
+	'Gestion de Fisio' => 'Gestion de Fisio',
+	'FISIO_NOMBRE' => 'Nome',
+	'FISIO_DESCRIPCION' => 'Descripcion',
+	'Consultar fisio' => 'Consultar Sesion de Fisio',
+	'Modificar Fisio' => 'Modificar Sesion de Fisio',
+	'FISIO_ID' => 'Clave de Sesion de Fisio',
+	'Borrar Fisio' => 'Borrar Sesion de Fisio',
+	'Insertar Fisio' => 'Insertar Sesion de Fisio',
+	'FISIO_LUGAR' => 'Lugar de Sesion de Fisio',
+	'FISIO_HORARIO' => 'Horario de Sesion de Fisio',
+	'FISIO_BLOQUE' => 'Bloque horario para la Sesion de Fisio',
+	'Fisio añadido con exito' => 'Sesion de Fisio añadiuse con exito',
+	'El fisio se ha modificado con exito' => 'A sesion de fisio modificouse con exito',
+	'El fisio ha sido borrado correctamente' => 'A sesion de fisio borrouse correctamente'
 
 
 )
