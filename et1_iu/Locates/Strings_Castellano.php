@@ -437,6 +437,11 @@ $strings = array(
 	'ACTIVIDAD_BLOQUE'=>'Seleccione horas posibles:',
 	'No hay bloques definidos para ese día en ese horario'=>'No hay bloques definidos para ese día en ese horario',
 	'Gestion de Posibles'=>'Gestión de horas posibles',
+	'El HORARIO ya está ocupado'=>'El horario ya existe',
+	'EVENTO_ID'=>'ID Evento',
+	    'EVENTO_NOMBRE'=>'Nombre',
+	    'EVENTO_ORGANIZADOR'=>'Organizador',
+	    'EVENTO_DESCRIPCION'=>'Descripción',
 
     //ENVIO NOTIFICACIONES ->EMPLEADOS/CLIENTES
     'Enviar Notificacion'=>'Enviar Notificación',
