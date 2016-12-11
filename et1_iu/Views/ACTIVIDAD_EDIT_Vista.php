@@ -56,13 +56,7 @@ class Actividad_Edit{
 				
 					</select> <br><br><br>
 
-                <?php echo $strings['ACTIVIDAD_HORARIO'] ?> <input type="text" name="ACTIVIDAD_HORARIO"
-                                                                   value=<?php echo $this->actividad->ACTIVIDAD_HORARIO ?> readonly><br><br>
-                <?php echo $strings['ACTIVIDAD_DIA'] ?> <input type="text" name="ACTIVIDAD_DIA"
-                                                               value=<?php echo $this->actividad->ACTIVIDAD_DIA ?> readonly><br><br>
-				<?php echo $strings['ACTIVIDAD_LUGAR'] ?> <input type="text" name="ACTIVIDAD_LUGAR"
-															   value=<?php echo $this->actividad->ACTIVIDAD_LUGAR ?> readonly><br><br>
-                    <u><h2 style="color:white;"><?php echo $strings['ACTIVIDAD_BLOQUE'] ?></h2></u>
+                
 					<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php
