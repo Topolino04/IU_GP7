@@ -293,6 +293,7 @@ if (!nif(document.form.CLIENTE_DNI.value)) {
 }
 //----------------------------------------------------------
 
+		
 		function valida_envia_CLIENTE() {
 
 			if (!nif(document.form.CLIENTE_DNI.value)) {
@@ -333,13 +334,13 @@ if (!nif(document.form.CLIENTE_DNI.value)) {
 				document.form.CLIENTE_APELLIDOS.focus();
 				return false;
 			}
-
-
-			if (document.form.CLIENTE_FECH_NAC.value == false) {
-				alert("Introduza un valor  para a data de nacemento");
+			if (document.form.CLIENTE_FECH_NAC.value < '1900-01-01') {
+				alert("Introduza unha data posterior ao 1/1/1900");
 				document.form.EMP_FECH_NAC.focus();
 				return false;
 			}
+
+
 			if (!validarFechaMenorActual(document.form.CLIENTE_FECH_NAC.value)) {
 				alert("¿Ven do futuro?");
 				document.form.CLIENTE_FECH_NAC.focus();
@@ -350,11 +351,18 @@ if (!nif(document.form.CLIENTE_DNI.value)) {
 				document.form.CLIENTE_CORREO.focus();
 				return false;
 			}
+
 			if (document.form.CLIENTE_PROFESION.value.length == 0) {
 				alert("Introduza profesión");
 				document.form.CLIENTE_PROFESION.focus();
 				return false;
 			}
+			if (document.form.CLIENTE_PROFESION.value.length > 50) {
+				alert("Profesion demasiado longa (máximo 50 caracteres)");
+				document.form.CLIENTE_PROFESION.focus();
+				return false;
+			}
+
 			valor = document.form.CLIENTE_TELEFONO1.value;
 			if (!(/^\d{9}$/.test(valor))) {
 				alert("Tes que escribir un teléfono de 9 díxitos");
@@ -385,6 +393,16 @@ if (!nif(document.form.CLIENTE_DNI.value)) {
 				document.form.CLIENTE_DIRECCION.focus();
 				return false;
 			}
+			if (document.form.CLIENTE_DIRECCION.value.length > 50) {
+				alert("Dirección demasiado longa (máximo 50 caracteres)");
+				document.form.CLIENTE_DIRECCION.focus();
+				return false;
+			}
+			if (document.form.CLIENTE_COMENTARIOS.value.length > 50) {
+				alert("Comentario demasiado longo (máximo 50 caracteres)");
+				document.form.CLIENTE_COMENTARIOS.focus();
+				return false;
+			}
 
 
 
@@ -392,6 +410,70 @@ if (!nif(document.form.CLIENTE_DNI.value)) {
 			return true;
 
 		}
+function valida_envia_CLIENTEEXT() {
+    if (!nif(document.form.CLIENTE_DNI.value)) {
+        document.form.CLIENTE_DNI.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_NOMBRE.value.length == 0) {
+        alert("Introduzca un valor para el nombre");
+        document.form.CLIENTE_NOMBRE.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_NOMBRE.value.length < 2) {
+        alert("Nombree demasiado corto (mínimo 2 caracteres)");
+        document.form.CLIENTE_NOMBRE.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_NOMBRE.value.length > 25) {
+        alert("Nombree demasiado largo (máximo 25 caracteres)");
+        document.form.CLIENTE_NOMBRE.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_APELLIDOS.value.length == 0) {
+        alert("Introduzca un valor para el apellido");
+        document.form.CLIENTE_APELLIDOS.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_APELLIDOS.value.length < 2) {
+        alert("Apellido demasiado corto (mínimo 2 caracteres)");
+        document.form.CLIENTE_APELLIDOS.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_APELLIDOS.value.length > 50) {
+        alert("Apellido demasiado largo (máximo 50 caracteres)");
+        document.form.CLIENTE_APELLIDOS.focus();
+        return false;
+    }
+    valor = document.form.CLIENTE_TELEFONO1.value;
+    if (!(/^\d{9}$/.test(valor))) {
+        alert("Tienes que escribir un teléfono de 9 dígitos");
+        document.form.CLIENTE_TELEFONO1.focus();
+        return false;
+    }
+    if (((document.form.CLIENTE_CORREO.value.length == 0) || !validarEmail(document.form.CLIENTE_CORREO.value))) {
+        alert("Introduzca unha dirección de email válida");
+        document.form.CLIENTE_CORREO.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_DIRECCION.value.length == 0) {
+        alert("Introduzca dirección");
+        document.form.CLIENTE_DIRECCION.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_DIRECCION.value.length > 50) {
+        alert("Dirección demasiado larga (máximo 50 caracteres)");
+        document.form.CLIENTE_DIRECCION.focus();
+        return false;
+    }
+    if (document.form.CLIENTE_COMENTARIOS.value.length > 50) {
+        alert("Comentario demasiado largo (máximo 50 caracteres)");
+        document.form.CLIENTE_COMENTARIOS.focus();
+        return false;
+    }
+
+return true;
+}
 		function dia_semana(fecha){
 			fecha=fecha.split('-');
 			if(fecha.length!=3){
@@ -417,27 +499,169 @@ if (!nif(document.form.CLIENTE_DNI.value)) {
 			//Se retorna el resultado del calculo del día de la semana.
 			return semana[Math.ceil(Math.ceil(Math.ceil((anno-1)%7)+Math.ceil((Math.floor((anno-1)/4)-Math.floor((3*(Math.floor((anno-1)/100)+1))/4))%7)+mes+dia%7)%7)];
 		}
-		function valida_envia_BLOQUE() {
-
-			if (validarFechaMenorActual(document.form.BLOQUE_FECHA.value)) {
-				alert("Seleccione unha data futura");
-				document.form.BLOQUE_FECHA.focus();
+		function valida_envia_HORARIO() {
+			if (document.form.HORARIO_NOMBRE.value.length == 0) {
+				alert("Introduza un valor para o nome");
+				document.form.HORARIO_NOMBRE.focus();
 				return false;
 			}
-
-			if (document.form.BLOQUE_HORAI.value>document.form.BLOQUE_HORAF.value) {
-				alert("A hora final debe de ser posterior á hora inicial");
-				document.form.BLOQUE_HORAF.focus();
+			if (document.form.HORARIO_NOMBRE.value.length < 2) {
+				alert("Nombe demasiado curto (mínimo 2 caracteres)");
+				document.form.HORARIO_NOMBRE.focus();
 				return false;
 			}
-			if (dia_semana(document.form.BLOQUE_FECHA.value)==='Domingo') {
-				alert("Os domingos o centro permanece pechado");
-				document.form.BLOQUE_FECHA.focus();
+			if (document.form.HORARIO_NOMBRE.value.length > 25) {
+				alert("Nombe demasiado longo (máximo 25 caracteres)");
+				document.form.HORARIO_NOMBRE.focus();
+				return false;
+			}
+			if (document.form.HORARIO_FECHAI.value < '1900-01-01') {
+				alert("Introduza una fecha posterior ao 1/1/1900");
+				document.form.HORARIO_FECHAI.focus();
+				return false;
+			}
+			if (document.form.HORARIO_FECHAI.value > '2029-12-31') {
+				alert("Introduza una fecha anterior ao 2029/12/31");
+				document.form.HORARIO_FECHAI.focus();
+				return false;
+			}
+			if (document.form.HORARIO_FECHAF.value < '1900-01-01') {
+				alert("Introduza una fecha posterior ao 1/1/1900");
+				document.form.HORARIO_FECHAF.focus();
+				return false;
+			}
+			if (document.form.HORARIO_FECHAF.value > '2029-12-31') {
+				alert("Introduza una fecha anterior ao 2029/12/31");
+				document.form.HORARIO_FECHAF.focus();
+				return false;
+			}
+			if (document.form.HORARIO_FECHAI.value > document.form.HORARIO_FECHAF.value) {
+				alert("A date  final debe de ser posterior á data inicial");
+				document.form.HORARIO_FECHAF.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO1I.value.substr(3,2)!=='00') {
+				alert("O centro abre a horas en punto");
+				document.form.HORARIO_RANGO1I.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO1F.value.substr(3,2)!=='00') {
+				alert("O centro pecha a horas en punto");
+				document.form.HORARIO_RANGO1F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO1I.value >= document.form.HORARIO_RANGO1F.value) {
+				alert("A hora de peche debe de ser posterior á hora de apertura");
+				document.form.HORARIO_RANGO1F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO2I.value.substr(3,2)!=='00') {
+				alert("O centro abre a horas en punto");
+				document.form.HORARIO_RANGO2I.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO2F.value.substr(3,2)!=='00') {
+				alert("O centro pecha a horas en punto");
+				document.form.HORARIO_RANGO2F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO2I.value >= document.form.HORARIO_RANGO2F.value) {
+				alert("A hora de peche debe de ser posterior á hora de apertura");
+				document.form.HORARIO_RANGO2F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO3I.value.substr(3,2)!=='00') {
+				alert("O centro abre a horas en punto");
+				document.form.HORARIO_RANGO3I.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO3F.value.substr(3,2)!=='00') {
+				alert("O centro pecha a horas en punto");
+				document.form.HORARIO_RANGO3F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO3I.value >= document.form.HORARIO_RANGO3F.value) {
+				alert("A hora de peche debe de ser posterior á hora de apertura");
+				document.form.HORARIO_RANGO3F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO4I.value.substr(3,2)!=='00') {
+				alert("O centro abre a horas en punto");
+				document.form.HORARIO_RANGO4I.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO4F.value.substr(3,2)!=='00') {
+				alert("O centro pecha a horas en punto");
+				document.form.HORARIO_RANGO4F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO4I.value >= document.form.HORARIO_RANGO4F.value) {
+				alert("A hora de peche debe de ser posterior á hora de apertura");
+				document.form.HORARIO_RANGO4F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO5I.value.substr(3,2)!=='00') {
+				alert("O centro abre a horas en punto");
+				document.form.HORARIO_RANGO5I.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO5F.value.substr(3,2)!=='00') {
+				alert("O centro pecha a horas en punto");
+				document.form.HORARIO_RANGO5F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO5I.value >= document.form.HORARIO_RANGO5F.value) {
+				alert("A hora de peche debe de ser posterior á hora de apertura");
+				document.form.HORARIO_RANGO5F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO6I.value.substr(3,2)!=='00') {
+				alert("O centro abre a horas en punto");
+				document.form.HORARIO_RANGO6I.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO6F.value.substr(3,2)!=='00') {
+				alert("O centro pecha a horas en punto");
+				document.form.HORARIO_RANGO6F.focus();
+				return false;
+			}
+			if (document.form.HORARIO_RANGO6I.value >= document.form.HORARIO_RANGO6F.value) {
+				alert("A hora de peche debe de ser posterior á hora de apertura");
+				document.form.HORARIO_RANGO6F.focus();
 				return false;
 			}
 			return true;
 		}
+		function valida_envia_BLOQUE() {
 
+
+
+			if (document.form.BLOQUE_HORAI.value >= document.form.BLOQUE_HORAF.value) {
+				alert("A hora final debe de ser posterior á hora inicial");
+				document.form.BLOQUE_HORAF.focus();
+				return false;
+			}
+
+			if (document.form.BLOQUE_HORAI.value.substr(3,2)!=='00') {
+				alert("As horas utilizadas polo centro son horas en punto");
+				document.form.BLOQUE_HORAI.focus();
+				return false;
+			}
+			if (document.form.BLOQUE_HORAF.value.substr(3,2)!=='00') {
+				alert("As horas utilizadas polo centro son horas en punto");
+				document.form.BLOQUE_HORAF.focus();
+				return false;
+			}
+			if(document.form.BLOQUE_HORAF.value.substr(0,2)- document.form.BLOQUE_HORAI.value.substr(0,2)!==1){
+				alert("As horas disponibles han de durar unha hora");
+
+				document.form.BLOQUE_HORAF.focus();
+				return false;
+			}
+
+
+			return true;
+		}
 
 
 
