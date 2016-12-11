@@ -1,7 +1,7 @@
 <?php
 
 class Actividad_delete{
-	//VISTA PARA BORRAR PAGINAS
+	//VISTA PARA BORRAR ACTIVIDAD
 
 	private $valores;
 

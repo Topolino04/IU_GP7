@@ -3,11 +3,12 @@
 
 
 class Actividad_Edit{
-//VISTA PARA MODIFICAR PAGINAS
+//VISTA PARA MODIFICAR ACTIVIDAD
 	private $valores;
 
-	function __construct($valores){
+	function __construct($valores,$valores2){
 		$this->valores=$valores;
+		$this->valores2=$valores2;
 		$this->render();
 	}
 
@@ -25,6 +26,10 @@ class Actividad_Edit{
 
 				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','ACTIVO');
 
+
+
+
+
 				?>
 				
 			</h2>
@@ -38,10 +43,8 @@ class Actividad_Edit{
 
 				<form  id="form" name="form" action='ACTIVIDAD_Controller.php' method='post' >
 					<ul class="form-style-1">
-					
-
-
 					<?php
+
 					createForm($lista,$DefForm,$strings,$this->valores,array('ACTIVIDAD_NOMBRE'=>false),array('ACTIVIDAD_ID'=>true,'ACTIVIDAD_PRECIO'=>false,'ACTIVIDAD_DESCRIPCION'=>false,'CATEGORIA_ID'=>false,'ACTIVO'=>false));
 
 					?>
@@ -51,7 +54,9 @@ class Actividad_Edit{
 					listarCategorias();
 					?>
 				
-					</select> <br>
+					</select> <br><br><br>
+
+                
 					<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php

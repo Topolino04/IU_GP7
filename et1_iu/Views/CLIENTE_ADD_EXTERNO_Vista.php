@@ -33,7 +33,7 @@ class CLIENTE_Insertar_Externo{
 					createForm($lista,$DefForm,$strings,'',array('CLIENTE_APELLIDOS'=>false,'CLIENTE_TELEFONO1'=>false,'CLIENTE_CORREO'=>false),false);
 
 					?>
-					<input type='submit' onclick="return valida_envia_CLIENTE()" name='accion'  value=<?php echo $strings['InsertarExterno'] ?>
+					<input type='submit' onclick="return valida_envia_CLIENTEEXT()" name='accion'  value=<?php echo $strings['InsertarExterno'] ?>
 					<ul>
 			</form>
 			<?php

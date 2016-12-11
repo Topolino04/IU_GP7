@@ -270,7 +270,7 @@ $strings = array(
     'Aplicado' => 'Aplicado',
     'Guardar' => 'Guardar',
     'Asignacion de descuentos correcta' => 'Asignacion de descuentos correcta',
-    //GESTION ACTIVIDADES
+    //GESTION ACTIVIDADES//CATEGORIA
     'La actividad ya existe en la base de datos' => 'La actividad ya existe en la base de datos',
     'Introduzca un valor para la clave de la actividad' => 'Introduzca un valor para la clave de la actividad',
     'La actividad ha sido borrada correctamente' => 'La actividad ha sido borrada correctamente',
@@ -298,6 +298,13 @@ $strings = array(
     'Consultar' => 'Consultar',
     'LUGAR_NOMBRE' => 'Nombre Lugar',
     'CATEGORIA_NOMBRE' => 'Nombre Categoria',
+	'Gestion de Categorias'=>'Gestion de Categorias',
+	'Modificar Categoria' =>'Modificar Categoria',
+	'La categoria se ha modificado con exito' =>'La categoria se ha modificado con exito',
+	'Insertar Categoria'=>'Insertar Categoria',
+	'Borrar Categoria' => 'Borrar Categoria',
+	'La categoria ha sido borrada correctamente' => 'La categoria ha sido borrada correctamente',
+	'Consultar categoria' => 'Consultar categoria',
     //GESTION LESIONES
     'Lesiones' => 'Lesiones',
     'LESION_ID' => 'ID de la lesión',
@@ -394,7 +401,7 @@ $strings = array(
 	'Modificar Bloque'=>'Modificar Bloque',
 	'El BLOQUE se ha modificado con éxito'=>'El bloque se ha modificado con éxito',
 	'Consultar Bloque'=>'Consultar Bloque',
-	'El BLOQUE ya está ocupado'=>'El bloque ya está ocupado',
+	'El BLOQUE ya está ocupado'=>'Ya existe esa hora posible',
 	'BLOQUE_ACT1'=>'Actividad 1',
 	'BLOQUE_ACT2'=>'Actividad 2',
 	'BLOQUE_ACT3'=>'Actividad 3',
@@ -430,6 +437,11 @@ $strings = array(
 	'ACTIVIDAD_BLOQUE'=>'Seleccione horas posibles:',
 	'No hay bloques definidos para ese día en ese horario'=>'No hay bloques definidos para ese día en ese horario',
 	'Gestion de Posibles'=>'Gestión de horas posibles',
+	'El HORARIO ya está ocupado'=>'El horario ya existe',
+	'EVENTO_ID'=>'ID Evento',
+	    'EVENTO_NOMBRE'=>'Nombre',
+	    'EVENTO_ORGANIZADOR'=>'Organizador',
+	    'EVENTO_DESCRIPCION'=>'Descripción',
 
     //ENVIO NOTIFICACIONES ->EMPLEADOS/CLIENTES
     'Enviar Notificacion'=>'Enviar Notificación',

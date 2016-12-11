@@ -15,7 +15,7 @@ $form = array(
 		'name' => 'BLOQUE_DIA',
 		'multiple' => 'false',
 		'value' => '',
-		'options' => array($strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado'],$strings['Domingo']),
+		'options' => array($strings['Lunes'],$strings['Martes'],$strings['Miercoles'],$strings['Jueves'],$strings['Viernes'], $strings['Sabado']),
 		'required' => 'true',
 		'readonly' => false
 	),

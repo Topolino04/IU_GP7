@@ -1,7 +1,7 @@
 <?php
 
-class Actividad_delete{
-	//VISTA PARA BORRAR PAGINAS
+class Categoria_delete{
+	//VISTA PARA BORRAR CATEGORIAS
 
 	private $valores;
 
@@ -18,10 +18,10 @@ class Actividad_delete{
 			<h2>
 				<?php
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				include '../Functions/ACTIVIDAD2DefForm.php';
+				include '../Functions/CATEGORIADefForm.php';
 
 
-				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION','CATEGORIA_ID');
+				$lista = array('CATEGORIA_NOMBRE','CATEGORIA_ID');
 
 
 				?>
@@ -30,11 +30,11 @@ class Actividad_delete{
 			<p>
 			<h1>
 			<span class="form-title">
-				<?php echo $strings['Borrar Actividad']?><br>
+				<?php echo $strings['Borrar Categoria']?><br>
 			</h1>
 			<h3>
 
-				<form action='ACTIVIDAD2_Controller.php' method='post' >
+				<form action='CATEGORIA_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
 
@@ -44,7 +44,7 @@ class Actividad_delete{
 					<input type='submit' name='accion' value=<?php echo $strings['Borrar'] ?>>
 				</form>
 				<?php
-				echo '<a class="form-link" href=\'ACTIVIDAD2_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'CATEGORIA_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>

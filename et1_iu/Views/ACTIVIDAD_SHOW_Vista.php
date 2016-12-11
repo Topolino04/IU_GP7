@@ -35,13 +35,13 @@ function render(){
 		<?php
 		createForm($lista,$DefForm,$strings,$values='',false,false);
 ?>
-	<input type='submit' name='accion' value='<?php echo $strings['Consultar']; ?>'><br>
-	
-	</form>
-	<br>
-<?php
+	<input type='submit' name='accion' value='<?php echo $strings['Consultar']; ?>'>
+	<?php
         	echo '<a class="form-link" href=\'ACTIVIDAD_Controller.php\'>' . $strings['Volver'] . '</a>';
 ?>
+	</form>
+	<br>
+
 
 	</h3>
 	</p>

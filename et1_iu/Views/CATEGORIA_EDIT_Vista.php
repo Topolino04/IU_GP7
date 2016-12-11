@@ -2,8 +2,8 @@
 
 
 
-class Actividad_Edit{
-//VISTA PARA MODIFICAR PAGINAS
+class Categoria_Edit{
+//VISTA PARA MODIFICAR CATEGORIAS
 	private $valores;
 
 	function __construct($valores){
@@ -20,36 +20,37 @@ class Actividad_Edit{
 			<h2>
 				<?php
 				include '../Locates/Strings_'.$_SESSION['IDIOMA'].'.php';
-				include '../Functions/ACTIVIDAD2DefForm.php';
+				include '../Functions/CATEGORIADefForm.php';
 				//include '../Functions/LibraryFunctions.php';
 
-				$lista = array('ACTIVIDAD_ID','ACTIVIDAD_NOMBRE','ACTIVIDAD_PRECIO','ACTIVIDAD_DESCRIPCION', 'CATEGORIA_ID','ACTIVO');
+				$lista = array('CATEGORIA_ID','CATEGORIA_NOMBRE');
 
 
 
 
 
 				?>
+				
 			</h2>
 			</p>
 			<p>
 			<h1>
 				<span class="form-title">
-				<?php echo $strings['Modificar Actividad']?><br>
+				<?php echo $strings['Modificar Categoria']?><br>
 			</h1>
 			<h3>
 
-				<form  id="form" name="form" action='ACTIVIDAD2_Controller.php' method='post' >
+				<form  id="form" name="form" action='CATEGORIA_Controller.php' method='post' >
 					<ul class="form-style-1">
 					<?php
 
-					createForm($lista,$DefForm,$strings,$this->valores,array('ACTIVIDAD_NOMBRE'=>false),array('ACTIVIDAD_ID'=>true,'ACTIVIDAD_PRECIO'=>false,'ACTIVIDAD_DESCRIPCION'=>false,'CATEGORIA_ID'=>false,'ACTIVO'=>false));
+					createForm($lista,$DefForm,$strings,$this->valores,array('CATEGORIA_NOMBRE'=>false),array('CATEGORIA_ID'=>true));
 
 					?>
 					<input type='submit' name='accion' onclick="return valida_envia4()" value=<?php echo $strings['Modificar'] ?>>
 				</form>
 				<?php
-				echo '<a class="form-link" href=\'ACTIVIDAD2_Controller.php\'>' . $strings['Volver'] . " </a>";
+				echo '<a class="form-link" href=\'CATEGORIA_Controller.php\'>' . $strings['Volver'] . " </a>";
 				?>
 			</h3>
 			</p>
